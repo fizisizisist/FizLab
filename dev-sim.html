@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FizLab sim dev harness</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:ital,wght@0,400;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="css/app.css">
+<style>
+  .dev-bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; padding:12px 16px; border-bottom:1px solid var(--line); background:var(--surface); }
+  .dev-main { max-width: 1100px; margin: 0 auto; padding: 20px 16px; display:grid; gap:16px; }
+  .dev-tasks { color: var(--muted); font-size:.95rem; }
+  #err { color: var(--bad); white-space: pre-wrap; font-family: ui-monospace, monospace; font-size: .85rem; }
+</style>
+</head>
+<body>
+<div class="dev-bar">
+  <b>dev-sim</b>
+  <select id="pick" class="sk-select"></select>
+  <span class="lang-switch"><button data-l="en" class="is-active">EN</button><button data-l="hr">HR</button></span>
+  <button id="theme" class="btn sm">light / dark</button>
+  <button id="reset" class="btn sm">reset()</button>
+  <button id="remount" class="btn sm">destroy + mount</button>
+  <span id="status" class="dev-tasks"></span>
+</div>
+<div class="dev-main">
+  <div><h1 id="title"></h1><p id="summary" class="dev-tasks"></p></div>
+  <div class="sim-stage" id="stage"></div>
+  <ol id="tasks" class="dev-tasks"></ol>
+  <pre id="err"></pre>
+</div>
+<script src="js/sims/_core.js"></script>
+<script>
+(function(){
+  const ids = ['freefall','motion','motiongraphs','galileo','forces','forcepairs','pendulum','circular','space','density','pressure','lever','states','energy','energybars','heat','heattransfer','spring','circuit','static','magnet','electromagnet','waves','sound','light','color','measure','inquiry'];
+  const q = new URLSearchParams(location.search);
+  let id = q.get('sim') || 'freefall';
+  const pick = document.getElementById('pick');
+  ids.forEach(i => { const o = document.createElement('option'); o.value = i; o.textContent = i; pick.appendChild(o); });
+  pick.value = id;
+  pick.addEventListener('change', () => { location.search = '?sim=' + pick.value; });
+  let lang = 'en', handle = null;
+  const err = document.getElementById('err');
+  window.addEventListener('error', e => { err.textContent += '\n' + e.message + ' @ ' + (e.filename||'') + ':' + e.lineno; });
+  function ctx() {
+    return { lang, theme: SimKit.theme(), reducedMotion: false, t: o => SimKit.tr(o, lang) };
+  }
+  function mount() {
+    const def = Sims.byId[id];
+    if (!def) { err.textContent = 'Sim "' + id + '" did not register. Check the file name and Sims.register call.'; return; }
+    document.getElementById('title').textContent = SimKit.tr(def.title, lang);
+    document.getElementById('summary').textContent = SimKit.tr(def.summary, lang);
+    const t = document.getElementById('tasks'); t.innerHTML = '';
+    (def.tasks||[]).forEach(x => { const li = document.createElement('li'); li.textContent = SimKit.tr(x, lang); t.appendChild(li); });
+    const stage = document.getElementById('stage'); stage.innerHTML = '';
+    try { handle = def.mount(stage, ctx()); } catch (e) { err.textContent = 'mount() threw: ' + e.stack; console.error(e); }
+    document.getElementById('status').textContent = 'mounted ' + id;
+    if (q.get('auto') && handle && !window.__autoStarted) { window.__autoStarted = true; runAuto(); }
+  }
+  function runAuto() {
+    // automated smoke sequence used by tools/smoke.sh
+    const log = m => { err.textContent += '\n[auto] ' + m; };
+    const steps = [
+      () => { handle.setLang('hr'); lang = 'hr'; log('setLang hr ok'); },
+      () => { document.documentElement.setAttribute('data-theme', 'dark'); handle.setTheme(SimKit.theme()); log('setTheme dark ok'); },
+      () => { handle.reset(); log('reset ok'); },
+      () => { // poke every control once
+        const stage = document.getElementById('stage');
+        stage.querySelectorAll('input[type=range]').forEach(r => { r.value = (parseFloat(r.min) + parseFloat(r.max)) / 2; r.dispatchEvent(new Event('input', {bubbles:true})); });
+        stage.querySelectorAll('select').forEach(sel => { if (sel.options.length > 1) { sel.selectedIndex = 1; sel.dispatchEvent(new Event('change', {bubbles:true})); } });
+        stage.querySelectorAll('input[type=checkbox]').forEach(c => { c.checked = !c.checked; c.dispatchEvent(new Event('change', {bubbles:true})); });
+        stage.querySelectorAll('.sk-seg-btn').forEach(b => b.click());
+        stage.querySelectorAll('button.sk-btn').forEach(b => b.click());
+        log('poked controls ok');
+      },
+      () => { const c = document.querySelector('#stage canvas'); if (c) { const r = c.getBoundingClientRect(); const ev = (t, x, y) => c.dispatchEvent(new PointerEvent(t, {bubbles:true, clientX: r.left + x, clientY: r.top + y, pointerId: 1, isPrimary: true, button: 0})); ev('pointerdown', r.width*0.5, r.height*0.5); ev('pointermove', r.width*0.6, r.height*0.4); ev('pointerup', r.width*0.6, r.height*0.4); } log('pointer ok'); },
+      () => { handle.destroy(); log('destroy ok'); mount(); log('remount ok'); },
+      () => { handle.destroy(); log('SMOKE DONE'); }
+    ];
+    let i = 0;
+    const next = () => { if (i >= steps.length) return; try { steps[i++](); } catch (e) { log('STEP FAILED: ' + (e.stack || e.message)); } setTimeout(next, 400); };
+    setTimeout(next, 600);
+  }
+  document.querySelectorAll('.lang-switch button').forEach(b => b.addEventListener('click', () => {
+    lang = b.dataset.l; document.querySelectorAll('.lang-switch button').forEach(x => x.classList.toggle('is-active', x === b));
+    if (handle) { handle.setLang(lang); const def = Sims.byId[id]; document.getElementById('title').textContent = SimKit.tr(def.title, lang); document.getElementById('summary').textContent = SimKit.tr(def.summary, lang);
+      const t = document.getElementById('tasks'); t.innerHTML=''; (def.tasks||[]).forEach(x => { const li = document.createElement('li'); li.textContent = SimKit.tr(x, lang); t.appendChild(li); }); }
+  }));
+  document.getElementById('theme').addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme');
+    const next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    if (handle) handle.setTheme(SimKit.theme());
+  });
+  document.getElementById('reset').addEventListener('click', () => handle && handle.reset());
+  document.getElementById('remount').addEventListener('click', () => { if (handle) handle.destroy(); mount(); });
+  const s = document.createElement('script');
+  s.src = 'js/sims/' + id + '.js';
+  s.onload = mount;
+  s.onerror = () => { err.textContent = 'Could not load js/sims/' + id + '.js'; };
+  document.body.appendChild(s);
+})();
+</script>
+</body>
+</html>
