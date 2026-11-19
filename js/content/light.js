@@ -11,7 +11,7 @@
       en: 'Light races at 300 000 km/s, bounces off mirrors, bends in water and hides a whole rainbow inside every sunbeam. Learn how it lets you see the world.',
       hr: 'Svjetlost juri brzinom od 300 000 km/s, odbija se od zrcala, lomi se u vodi i u svakoj sunčevoj zraci skriva cijelu dugu. Nauči kako ti omogućuje da vidiš svijet.'
     },
-    sims: ['light', 'color'],
+    sims: ['light', 'color', 'lens', 'eclipse'],
 
     lesson: [
       {

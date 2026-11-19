@@ -46,6 +46,13 @@ window.FizExt = (function () {
   }
   function parseNum(s) { const v = parseFloat(String(s).trim().replace(/\s/g, '').replace(',', '.')); return Number.isFinite(v) ? v : null; }
   const fmtAnswer = (inst, lang) => makeF(lang)(inst.answer) + (unitOf(inst.tpl, lang) ? ' ' + unitOf(inst.tpl, lang) : '');
+  function graphOf(inst, lang) {
+    if (typeof inst.tpl.graph !== 'function' || !window.FizGraph) return null;
+    try { const box = document.createElement('div'); box.className = 'fig graph-fig'; box.appendChild(window.FizGraph.render(inst.tpl.graph(inst.p), lang)); return box; }
+    catch (e) { console.error('graph failed', inst.tpl.id, e); return null; }
+  }
+  const isStory = tpl => /^ctx-/.test(tpl.id);
+  const isGraph = tpl => typeof tpl.graph === 'function';
 
   // ---------- data helpers ----------
   const templatesFor = topicId => Content.problems[topicId] || [];
@@ -86,6 +93,7 @@ window.FizExt = (function () {
       ]);
       card.appendChild(head);
       card.appendChild(el('p', { class: 'practice-text', text: textOf(inst, lang) }));
+      const gEl = graphOf(inst, lang); if (gEl) card.appendChild(gEl);
       const input = el('input', { type: 'text', inputmode: 'decimal', id: 'practice-answer', placeholder: t('practice.answer'), autocomplete: 'off' });
       const unit = unitOf(tpl, lang);
       const checkBtn = el('button', { type: 'button', class: 'btn primary', text: t('practice.check') });
@@ -178,7 +186,7 @@ window.FizExt = (function () {
   }
 
   // ---------- mixed practice + worksheet page ----------
-  const mixState = { topics: null, level: 'all', count: 10, code: null, showAnswers: false };
+  const mixState = { topics: null, level: 'all', kind: 'all', count: 10, code: null, showAnswers: false };
   function renderPracticePage(main) {
     const el = A.el, t = A.t, lang = A.lang();
     const withProblems = Content.topics.filter(tp => templatesFor(tp.id).length);
@@ -196,10 +204,17 @@ window.FizExt = (function () {
     main.appendChild(el('div', { class: 'panel', style: 'margin-bottom:14px' }, [el('h4', { text: t('practice.topics') }), topicChips]));
     const chipsHolder = el('div', { class: 'toolbar' });
     let widget = null;
-    const drawLevels = () => { chipsHolder.innerHTML = ''; chipsHolder.appendChild(levelChips(mixState.level, v => { mixState.level = v; drawLevels(); widget.newProblem(); })); chipsHolder.appendChild(el('span', { class: 'quiz-type num', text: `${t('practice.solved')}: ${solvedTotal()}` })); };
+    const drawLevels = () => {
+      chipsHolder.innerHTML = ''; chipsHolder.appendChild(levelChips(mixState.level, v => { mixState.level = v; drawLevels(); widget.newProblem(); }));
+      const kinds = el('div', { class: 'chips' });
+      [['all', 'practice.kindAll'], ['calc', 'practice.kindCalc'], ['graph', 'practice.kindGraph'], ['story', 'practice.kindStory']].forEach(([v, key]) => kinds.appendChild(el('button', { type: 'button', class: 'chip' + (mixState.kind === v ? ' is-active' : ''), text: t(key), onclick: () => { mixState.kind = v; drawLevels(); widget.newProblem(); } })));
+      chipsHolder.appendChild(kinds);
+      chipsHolder.appendChild(el('span', { class: 'quiz-type num', text: `${t('practice.solved')}: ${solvedTotal()}` }));
+    };
     drawLevels();
     main.appendChild(chipsHolder);
-    const pool = () => allTemplates().filter(x => mixState.topics.includes(x.topic) && (mixState.level === 'all' || String(x.level) === mixState.level));
+    const kindOk = x => mixState.kind === 'all' || (mixState.kind === 'graph' ? isGraph(x) : mixState.kind === 'story' ? isStory(x) : (!isGraph(x) && !isStory(x)));
+    const pool = () => allTemplates().filter(x => mixState.topics.includes(x.topic) && (mixState.level === 'all' || String(x.level) === mixState.level) && kindOk(x));
     widget = practiceWidget(main, { pool, showTopic: true, onSolved: drawLevels });
     main.appendChild(renderGuide());
     if (Content.concepts.length) main.appendChild(el('div', { class: 'hero-actions', style: 'margin-top:10px' }, [el('a', { class: 'btn warm', href: '#concepts', text: t('concepts.title') + ' →', onclick: () => { conceptState.topic = 'all'; } })]));
@@ -234,6 +249,7 @@ window.FizExt = (function () {
         const li = el('li', null, [
           el('div', { class: 'ws-meta' }, [el('span', { class: 'quiz-type', text: topic ? A.tr(topic.title) : tpl.topic }), el('span', { class: 'level-stars', text: stars(tpl.level) })]),
           el('p', { text: textOf(inst, lang) }),
+          graphOf(inst, lang),
           el('div', { class: 'ws-answer' }, [el('b', { text: t('worksheet.answer') + ': ' }), el('span', { class: 'num', text: fmtAnswer(inst, lang) })])
         ]);
         ol.appendChild(li);
@@ -273,7 +289,7 @@ window.FizExt = (function () {
     const el = A.el, t = A.t, lang = A.lang();
     const tpls = templatesFor(topic.id);
     if (!tpls.length) return null;
-    const tpl = tpls.find(x => x.level === 2) || tpls[0];
+    const tpl = tpls.find(x => x.level === 2 && !isStory(x) && !isGraph(x)) || tpls.find(x => !isStory(x)) || tpls[0];
     const inst = instantiate(tpl, hashStr('example-' + topic.id + '-' + tpl.id));
     if (!inst.p) return null;
     const ol = el('ol');
@@ -281,6 +297,7 @@ window.FizExt = (function () {
     return el('section', { class: 'worked' }, [
       el('h3', { text: t('practice.worked') }),
       el('p', { class: 'practice-text', text: textOf(inst, lang) }),
+      graphOf(inst, lang),
       el('div', { class: 'practice-steps' }, [el('b', { text: t('practice.steps') }), ol, el('p', { class: 'practice-answer num', text: t('worksheet.answer') + ': ' + fmtAnswer(inst, lang) })]),
       el('div', { class: 'hero-actions' }, [el('a', { class: 'btn primary', href: '#' + topic.id + '-practice', text: t('practice.tryMore') })])
     ]);
@@ -526,5 +543,6 @@ window.FizExt = (function () {
   }
   const conceptCount = () => Content.concepts.length;
 
-  return { init(api) { A = api; }, renderPracticeTab, renderPracticePage, renderSummary, renderMisconceptions, renderWorkedExample, renderScientists, renderConverter, renderConcepts, renderGuide, setConceptTopic(id) { conceptState.topic = id; conceptState.type = 'all'; }, problemCount, solvedTotal, solvedIn, hardSolved, templatesFor, conceptCount, conceptsSolved };
+  const api = { instantiate, textOf, stepsOf, unitOf, isCorrect, fmtAnswer, parseNum, graphOf, makeF, mulberry32, hashStr, stars, allTemplates, templatesFor, isStory, isGraph };
+  return { api, setPracticeKind(k) { mixState.kind = k; }, init(api) { A = api; }, renderPracticeTab, renderPracticePage, renderSummary, renderMisconceptions, renderWorkedExample, renderScientists, renderConverter, renderConcepts, renderGuide, setConceptTopic(id) { conceptState.topic = id; conceptState.type = 'all'; }, problemCount, solvedTotal, solvedIn, hardSolved, templatesFor, conceptCount, conceptsSolved };
 })();

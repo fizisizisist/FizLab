@@ -11,7 +11,7 @@
       en: 'Why is it winter in Croatia while Australians swim at the beach? Why does the Moon change shape? Zoom out from your backyard to the stars and see how it all fits together.',
       hr: 'Zašto je u Hrvatskoj zima dok se Australci kupaju na plaži? Zašto Mjesec mijenja oblik? Udalji se iz dvorišta do zvijezda i pogledaj kako se sve uklapa.'
     },
-    sims: ['space', 'freefall'],
+    sims: ['space', 'freefall', 'orbits', 'eclipse'],
 
     lesson: [
       {

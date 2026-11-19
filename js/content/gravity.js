@@ -11,7 +11,7 @@
       en: 'The same pull that knocks your pencil off the desk keeps the Moon in the sky and makes the sea rise and fall twice a day.',
       hr: 'Ista sila koja ti ruši olovku sa stola drži Mjesec na nebu i dvaput dnevno diže i spušta more.'
     },
-    sims: ['pendulum', 'freefall', 'space', 'circular'],
+    sims: ['pendulum', 'freefall', 'space', 'circular', 'orbits', 'projectile'],
 
     lesson: [
       {

@@ -11,7 +11,7 @@
       en: 'Why does a roller coaster need no engine after the first hill? Discover what work, energy and power really mean, and measure your own power on the stairs.',
       hr: 'Zašto vlak smrti ne treba motor nakon prvog brijega? Otkrij što rad, energija i snaga zaista znače i izmjeri vlastitu snagu na stubama.'
     },
-    sims: ['energy', 'spring', 'energybars'],
+    sims: ['energy', 'spring', 'energybars', 'energychain', 'collisions'],
 
     lesson: [
       {

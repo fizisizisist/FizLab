@@ -17,9 +17,18 @@ for f in "$@"; do
       } catch (e) { return "SYNTAX/RUNTIME ERROR: " + e.message; }
       var base = file.replace(/^.*\//, "").replace(/\.js$/, "");
       var keys = Object.keys(window.Content.problems);
-      if (keys.length !== 1 || keys[0] !== base) return "expected registerProblems(\"" + base + "\", ...) exactly once, got: " + JSON.stringify(keys);
-      var list = window.Content.problems[base];
-      if (list.length < 6) problems.push("only " + list.length + " templates (need 7–9)");
+      var multi = (base === "graphs" || base === "context");
+      var TOPICS = ["matter","density","motion","forces","gravity","pressure","levers","energy","heat","electricity","magnetism","waves","light","space","science","homelab"];
+      var list;
+      if (multi) {
+        list = []; keys.forEach(function(k){ if (TOPICS.indexOf(k) < 0) problems.push("unknown topic id " + k); window.Content.problems[k].forEach(function(t){ t.id = t.id; t.__topic = k; list.push(t); }); });
+        if (list.length < 10) problems.push("only " + list.length + " templates (need >= 10)");
+        if (keys.length < 4) problems.push("only " + keys.length + " topics covered (need >= 4)");
+      } else {
+        if (keys.length !== 1 || keys[0] !== base) return "expected registerProblems(\"" + base + "\", ...) exactly once, got: " + JSON.stringify(keys);
+        list = window.Content.problems[base];
+        if (list.length < 6) problems.push("only " + list.length + " templates (need 7–9)");
+      }
       var seed = 0x9e3779b9; function rnd(){ seed = (seed + 0x6D2B79F5) | 0; var t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }
       var R = { int: function(a,b){ return a + Math.floor(rnd()*(b-a+1)); }, step: function(a,b,s){ var n = Math.round((b-a)/s); var v = a + s*Math.floor(rnd()*(n+1)); var d = (String(s).split(".")[1]||"").length; return parseFloat(v.toFixed(d)); }, pick: function(arr){ return arr[Math.floor(rnd()*arr.length)]; }, float: function(a,b,d){ return parseFloat((a + rnd()*(b-a)).toFixed(d===undefined?1:d)); } };
       function fmtEn(v, d){ if (typeof v !== "number" || !isFinite(v)) return "NaN"; if (d===undefined){ var r=Math.round(v*100)/100; d = Number.isInteger(r)?0:(Math.abs(r*10-Math.round(r*10))<1e-9?1:2);} return v.toFixed(d); }
@@ -27,7 +36,8 @@ for f in "$@"; do
       var ids = {}; var levels = {1:0,2:0,3:0};
       list.forEach(function(t, i){
         var p = "[" + (t.id || i) + "]";
-        if (!t.id) problems.push(p + " missing id"); else if (ids[t.id]) problems.push(p + " duplicate id"); ids[t.id] = 1;
+        var idKey = (t.__topic || "") + "/" + t.id;
+        if (!t.id) problems.push(p + " missing id"); else if (ids[idKey]) problems.push(p + " duplicate id"); ids[idKey] = 1;
         if (![1,2,3].includes(t.level)) problems.push(p + " level must be 1, 2 or 3"); else levels[t.level]++;
         if (typeof t.params !== "function") { problems.push(p + " params must be a function"); return; }
         ["text","steps"].forEach(function(k){ if (!t[k] || typeof t[k].en !== "function" || typeof t[k].hr !== "function") problems.push(p + " " + k + ".en/.hr must be functions"); });
@@ -45,6 +55,18 @@ for f in "$@"; do
           if (ans <= 0 && t.abs === undefined) { problems.push(p + " answer " + ans + " is not positive (set abs tolerance if 0 or negative answers are intended) for " + JSON.stringify(par)); break; }
           if (Math.abs(ans) < 0.05 && t.abs === undefined) { problems.push(p + " answer " + ans + " is tiny; convert units or set abs"); break; }
           answers.push(ans);
+          if (t.graph !== undefined) {
+            try {
+              var g = t.graph(par);
+              if (!g || !(g.xMax > 0) || !(g.yMax > 0) || !(g.xStep > 0) || !(g.yStep > 0)) { problems.push(p + " graph needs positive xMax, yMax, xStep, yStep"); break; }
+              if (g.xMax / g.xStep > 12.001 || g.yMax / g.yStep > 12.001) { problems.push(p + " graph has more than 12 grid lines on an axis (" + g.xMax + "/" + g.xStep + ", " + g.yMax + "/" + g.yStep + ")"); break; }
+              if (!g.xLabel || !g.yLabel) { problems.push(p + " graph needs xLabel and yLabel"); break; }
+              if (!Array.isArray(g.lines) || g.lines.length < 1 || g.lines.length > 3) { problems.push(p + " graph needs 1–3 lines"); break; }
+              var gbad = false;
+              g.lines.forEach(function(L){ if (!Array.isArray(L.pts) || L.pts.length < 2) { gbad = true; return; } L.pts.forEach(function(q){ if (!isFinite(q[0]) || !isFinite(q[1]) || q[0] < -1e-9 || q[1] < -1e-9 || q[0] > g.xMax + 1e-9 || q[1] > g.yMax + 1e-9) gbad = true; }); });
+              if (gbad) { problems.push(p + " graph line points missing or outside 0..xMax / 0..yMax for params " + JSON.stringify(par)); break; }
+            } catch (e) { problems.push(p + " graph threw: " + e.message); break; }
+          }
           var bad = false;
           ["en","hr"].forEach(function(l){
             try {
@@ -62,7 +84,8 @@ for f in "$@"; do
         }
         if (texts.en && Object.keys(texts.en).length < 3) problems.push(p + " numbers never vary (only " + Object.keys(texts.en).length + " distinct texts in 40 tries)");
       });
-      if (levels[1] < 2 || levels[2] < 2 || levels[3] < 1) problems.push("level mix: need >= 2 level-1, >= 2 level-2, >= 1 level-3 (got " + JSON.stringify(levels) + ")");
+      if (base === "graphs" && list.filter(function(t){ return typeof t.graph === "function"; }).length !== list.length) problems.push("every template in graphs.js needs a graph function");
+      if (!multi) if (levels[1] < 2 || levels[2] < 2 || levels[3] < 1) problems.push("level mix: need >= 2 level-1, >= 2 level-2, >= 1 level-3 (got " + JSON.stringify(levels) + ")");
       if (!problems.length) return "OK (" + list.length + " templates: " + levels[1] + " L1 / " + levels[2] + " L2 / " + levels[3] + " L3)";
       return "PROBLEMS:\n  - " + problems.join("\n  - ");
     }' "$f" 2>&1)

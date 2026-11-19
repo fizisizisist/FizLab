@@ -11,7 +11,7 @@
       en: 'Why does a metal spoon feel colder than a wooden one at the same temperature? Find out what heat really is and how it moves through everything around you.',
       hr: 'Zašto se metalna žlica čini hladnijom od drvene iako su iste temperature? Saznaj što je toplina zapravo i kako putuje kroz sve oko tebe.'
     },
-    sims: ['heat', 'heattransfer', 'states'],
+    sims: ['heat', 'heattransfer', 'states', 'heatingcurve', 'expansion'],
 
     lesson: [
       {

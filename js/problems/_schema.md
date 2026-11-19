@@ -63,3 +63,26 @@ EVERY number in `text`, `steps`, and any name you pick with `R.pick` goes throug
 From the project folder: `tools/check_js.sh js/problems/<topic>.js` then `tools/check_problems.sh js/problems/<topic>.js`.
 The checker generates 40 random instances of every template in both languages and reports any NaN/undefined,
 missing field, non-finite answer, or numbers that never vary. Fix everything until it prints OK.
+
+## Graph problems (optional `graph` field)
+
+A template may add a graph the pupil has to READ. The app draws it as a crisp grid so values can be read at grid lines.
+
+```js
+graph: p => ({
+  xLabel: { en: 't / s', hr: 't / s' },          // axis labels (string or {en, hr}); write the unit after a slash
+  yLabel: { en: 's / m', hr: 's / m' },
+  xMax: 10, yMax: 40,                             // axes always start at 0
+  xStep: 1, yStep: 5,                             // grid spacing: every data point the pupil must read MUST lie on grid lines
+  lines: [ { pts: [[0, 0], [10, p.v * 10]], label: { en: 'cyclist', hr: 'biciklist' } } ],   // 1–3 polylines (straight segments), label optional
+  points: [[2, 8], [4, 16]]                       // OPTIONAL separate measured points (dots)
+})
+```
+Rules: choose parameters so every value the pupil needs falls exactly on a grid intersection; keep xMax/xStep and yMax/yStep ≤ 12 lines each;
+the text must say "Read from the graph" / "Očitaj iz grafa"; the steps must name the two points read (e.g. "At t = 4 s, s = 20 m").
+
+## Collections across topics
+
+`js/problems/graphs.js` and `js/problems/context.js` may call `registerProblems` several times, once per topic id, in one file.
+Context-rich problems (`context.js`) are level 3 short stories addressed to "you" with a reason to want the answer, a real setting, at least one
+piece of information that is NOT needed, and no hint of the formula; the steps start by naming what is asked and what data matter.

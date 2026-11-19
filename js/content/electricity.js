@@ -11,7 +11,7 @@
       en: 'Flip a switch and a bulb lights up instantly. What is actually moving inside the wire, and why does one broken bulb sometimes turn off a whole string of lights?',
       hr: 'Pritisneš sklopku i žarulja odmah zasvijetli. Što se zapravo giba u žici i zašto jedna pregorjela žaruljica ponekad ugasi cijeli niz lampica?'
     },
-    sims: ['circuit', 'static'],
+    sims: ['circuit', 'static', 'resistance', 'energychain'],
 
     lesson: [
       {
@@ -61,11 +61,13 @@
         p: {
           en: [
             'Every conductor resists the flow of charge a little, like a narrow pipe resists water. This is electrical resistance, written R and measured in ohms (Ω). A thick, short copper wire has very low resistance. A long, thin wire, or the special wire in a heater or a bulb filament, has high resistance and gets hot when current flows.',
+            'The resistance of a wire depends on three things. Length: a wire twice as long has twice the resistance. Thickness: a wire with twice the cross-sectional area has half the resistance, which is why the hair-thin filament of an old bulb glows white hot while the thick wires leading to it stay cool. Material: every substance has its own resistivity. Copper’s is very low, so cables are made of it; nichrome, an alloy of nickel and chromium, resists about 60 times more, so heating elements are made of it.',
             'Georg Ohm discovered the rule that connects the three quantities: I = U / R. Current equals voltage divided by resistance. More voltage pushes more current; more resistance lets less through. The same rule can be written U = I · R or R = U / I.',
             'Worked example: a bulb with a resistance of 9 Ω is connected to a 4.5 V battery. The current is I = 4.5 V / 9 Ω = 0.5 A. Connect the same bulb to a 1.5 V battery and the current drops to 1.5 / 9 ≈ 0.17 A, so the bulb glows much more dimly.'
           ],
           hr: [
             'Svaki vodič pomalo se opire protjecanju naboja, kao što se uska cijev opire vodi. To je električni otpor, označava se s R i mjeri u omima (Ω). Debela, kratka bakrena žica ima vrlo mali otpor. Duga, tanka žica ili posebna žica u grijalici i nit žarulje imaju velik otpor i zagriju se kad kroz njih teče struja.',
+            'Otpor žice ovisi o tri stvari. Duljina: dvostruko dulja žica ima dvostruko veći otpor. Debljina: žica s dvostruko većim poprečnim presjekom ima upola manji otpor, pa se zato nit stare žarulje, tanka poput vlasi, užari do bijelog sjaja, dok debele žice koje vode do nje ostaju hladne. Materijal: svaka tvar ima svoju električnu otpornost. Otpornost bakra vrlo je mala pa se od njega izrađuju kabeli; nikrom, legura nikla i kroma, opire se struji oko 60 puta jače, pa se od njega izrađuju grijači.',
             'Georg Ohm otkrio je pravilo koje povezuje te tri veličine: I = U / R. Jakost struje jednaka je naponu podijeljenom s otporom. Veći napon gura jaču struju; veći otpor propušta slabiju. Isto pravilo možemo zapisati i kao U = I · R ili R = U / I.',
             'Riješeni primjer: žarulja otpora 9 Ω spojena je na bateriju od 4,5 V. Jakost struje je I = 4,5 V / 9 Ω = 0,5 A. Spoji istu žarulju na bateriju od 1,5 V i struja padne na 1,5 / 9 ≈ 0,17 A, pa žarulja svijetli mnogo slabije.'
           ]
@@ -111,6 +113,7 @@
       { term: { en: 'current (I)', hr: 'jakost struje (I)' }, def: { en: 'How much charge flows past a point each second. Unit: ampere (A). Measured with an ammeter in series.', hr: 'Koliko naboja prođe kroz točku svake sekunde. Jedinica: amper (A). Mjeri se ampermetrom u seriji.' } },
       { term: { en: 'voltage (U)', hr: 'napon (U)' }, def: { en: 'The push of the source that drives the current. Unit: volt (V). Measured with a voltmeter in parallel.', hr: 'Poticaj izvora koji pokreće struju. Jedinica: volt (V). Mjeri se voltmetrom paralelno.' } },
       { term: { en: 'resistance (R)', hr: 'električni otpor (R)' }, def: { en: 'How strongly a conductor opposes the current. Unit: ohm (Ω).', hr: 'Koliko se vodič opire struji. Jedinica: om (Ω).' } },
+      { term: { en: 'resistivity', hr: 'električna otpornost' }, def: { en: 'How strongly a material itself opposes current: low for copper, high for nichrome. The resistance of a wire grows with its length and resistivity and shrinks as the wire gets thicker.', hr: 'Koliko se sama tvar opire struji: mala je za bakar, velika za nikrom. Otpor žice raste s njezinom duljinom i otpornošću, a smanjuje se što je žica deblja.' } },
       { term: { en: 'Ohm’s law', hr: 'Ohmov zakon' }, def: { en: 'I = U / R: current equals voltage divided by resistance.', hr: 'I = U / R: jakost struje jednaka je naponu podijeljenom s otporom.' } },
       { term: { en: 'series connection', hr: 'serijski spoj' }, def: { en: 'Devices one after another in a single loop; the same current flows through all of them.', hr: 'Trošila jedno za drugim u jednoj petlji; kroz sva teče ista struja.' } },
       { term: { en: 'parallel connection', hr: 'paralelni spoj' }, def: { en: 'Each device on its own branch with the full voltage; others keep working if one fails.', hr: 'Svako trošilo u svojoj grani s punim naponom; ostala rade i ako jedno pregori.' } },
@@ -177,6 +180,9 @@
       { type: 'num', q: { en: 'A 12 V battery is connected to a resistor of 4 Ω. What current flows? Use I = U / R.', hr: 'Baterija od 12 V spojena je na otpornik od 4 Ω. Kolika struja teče? Uzmi I = U / R.' },
         answer: 3, tolerance: 0.05, unit: 'A',
         explain: { en: 'I = U / R = 12 V / 4 Ω = 3 A.', hr: 'I = U / R = 12 V / 4 Ω = 3 A.' } },
+      { type: 'mc', q: { en: 'Four wires are made of the same copper. Which one has the largest resistance?', hr: 'Četiri žice izrađene su od istog bakra. Koja ima najveći otpor?' },
+        options: [{ en: 'the short, thick one', hr: 'kratka i debela' }, { en: 'the short, thin one', hr: 'kratka i tanka' }, { en: 'the long, thick one', hr: 'duga i debela' }, { en: 'the long, thin one', hr: 'duga i tanka' }], answer: 3,
+        explain: { en: 'Resistance grows with length and shrinks with thickness, so the long, thin wire resists the most. The material matters too: a nichrome wire of the same size would resist about 60 times more than a copper one.', hr: 'Otpor raste s duljinom, a smanjuje se s debljinom, pa se duga i tanka žica najviše opire struji. Važan je i materijal: jednaka žica od nikroma imala bi oko 60 puta veći otpor od bakrene.' } },
       { type: 'mc', q: { en: 'Three bulbs are connected in series. One burns out. What happens?', hr: 'Tri žarulje spojene su serijski. Jedna pregori. Što se dogodi?' },
         options: [{ en: 'all three go out', hr: 'sve tri se ugase' }, { en: 'the other two shine brighter', hr: 'druge dvije svijetle jače' }, { en: 'nothing changes for the other two', hr: 'drugim dvjema ništa se ne mijenja' }, { en: 'the battery explodes', hr: 'baterija eksplodira' }], answer: 0,
         explain: { en: 'In series there is only one loop. A burnt-out bulb breaks it, so no current flows anywhere and all the bulbs go dark.', hr: 'U serijskom spoju postoji samo jedna petlja. Pregorjela žarulja je prekida, pa struja ne teče nigdje i sve se žarulje ugase.' } },

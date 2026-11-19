@@ -384,3 +384,91 @@ footer.foot { color: var(--muted); font-size: .85rem; text-align: center; paddin
 .guide { margin-top: 16px; }
 .guide summary { cursor: pointer; font-weight: 800; color: var(--accent); }
 .guide-steps { margin: 10px 0 0; padding-left: 22px; display: grid; gap: 6px; }
+
+/* ---------- SimKit extras (tools) ---------- */
+.sk-input { font: inherit; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--fg); min-width: 0; width: 100%; font-variant-numeric: tabular-nums; }
+.sk-panel { background: var(--surface2); border-radius: 12px; padding: 12px 14px; margin-top: 12px; display: grid; gap: 8px; }
+.sk-big { font-family: var(--font-display); font-size: clamp(2.2rem, 8vw, 4rem); font-variant-numeric: tabular-nums; line-height: 1.1; text-align: center; }
+.sk-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.sk-table-wrap { overflow-x: auto; }
+.sk-table { border-collapse: collapse; width: 100%; min-width: 0; font-variant-numeric: tabular-nums; }
+.sk-table th, .sk-table td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: right; }
+.sk-table th:first-child, .sk-table td:first-child { text-align: left; }
+.sk-table input { font: inherit; width: 100%; min-width: 60px; padding: 4px 6px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--fg); text-align: right; }
+.sk-msg { border-left: 4px solid var(--warn); background: var(--warn-soft); border-radius: 10px; padding: 10px 14px; font-size: .95rem; }
+
+/* ---------- graphs in problems ---------- */
+.graph-fig { background: var(--surface2); border-radius: 12px; padding: 8px; max-width: 520px; overflow-x: auto; }
+.fz-graph { display: block; width: 100%; height: auto; min-width: 300px; }
+
+/* ---------- experiments library + predict cards ---------- */
+.exp-list { display: grid; gap: 10px; }
+.exp-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.exp-card.is-done { border-left: 4px solid var(--good); }
+.exp-head { width: 100%; text-align: left; border: 0; background: transparent; padding: 14px 16px; cursor: pointer; display: grid; gap: 8px; }
+.exp-head:hover { background: var(--surface2); }
+.exp-title { display: grid; gap: 2px; }
+.exp-title b { font-family: var(--font-display); font-size: 1.12rem; font-weight: 600; }
+.exp-q { color: var(--muted); font-size: .95rem; }
+.exp-meta { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.exp-done { color: var(--good); font-weight: 800; }
+.exp-body { padding: 4px 16px 16px; display: grid; gap: 12px; }
+.exp-cols { display: grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .exp-cols { grid-template-columns: 1fr 1.4fr; } }
+.exp-body .panel ul, .exp-body .panel ol { margin: 0; padding-left: 20px; display: grid; gap: 5px; }
+.exp-notes { width: 100%; font: inherit; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--fg); resize: vertical; }
+.exp-donerow { display: flex; gap: 10px; align-items: center; margin-top: 10px; font-weight: 700; }
+.exp-donerow input { width: 20px; height: 20px; accent-color: var(--good); }
+.exp-reveal { display: grid; gap: 10px; }
+.poe-card { background: var(--accent-soft); border-radius: var(--radius); padding: 14px 16px; display: grid; gap: 10px; }
+.poe-sim { margin-bottom: 14px; }
+.poe-q { font-weight: 700; font-size: 1.05rem; }
+.poe-try { font-size: .98rem; }
+.poe-card .option { padding: 9px 12px; font-size: .98rem; }
+@media (min-width: 900px) { .poe-options { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.option.is-picked { border-color: var(--accent); background: var(--surface2); }
+
+/* ---------- exam paper ---------- */
+.paper { display: grid; gap: 14px; max-width: 860px; }
+.paper-q { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; display: grid; gap: 10px; }
+.paper-num { display: flex; gap: 10px; align-items: baseline; }
+.paper-text { font-weight: 700; font-size: 1.08rem; }
+.paper-timer { font-weight: 800; }
+.paper-actions { align-items: center; }
+.paper-actions .sk-note { flex: 1; color: var(--warn); font-weight: 700; }
+.paper-result { margin-bottom: 4px; }
+.exam-setup { display: grid; gap: 8px; margin-bottom: 14px; }
+.exam-setup .toolbar { margin: 0; }
+.exam-setup input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); }
+.exam-grade { display: grid; gap: 6px; justify-items: center; }
+.grade-big { width: 92px; height: 92px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-size: 3rem; color: #fff; background: var(--good); }
+.grade-big.grade-1 { background: var(--bad); } .grade-big.grade-2 { background: var(--warn); } .grade-big.grade-3 { background: var(--c4); }
+.check-gain { display: grid; gap: 6px; }
+
+/* ---------- teacher corner ---------- */
+.teach-outline { display: grid; gap: 12px; max-width: 900px; }
+.teach-part { display: grid; gap: 8px; }
+.teach-part ul, .teach-part ol { margin: 0; padding-left: 22px; display: grid; gap: 5px; }
+.teach-answer { color: var(--muted); }
+.teach-en { color: var(--muted); font-size: .9rem; margin-top: 3px; }
+.method-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); align-items: start; }
+.method summary { cursor: pointer; display: grid; gap: 2px; }
+.method summary b { font-family: var(--font-display); font-size: 1.08rem; font-weight: 600; }
+.method-origin { color: var(--muted); font-size: .88rem; }
+.method p, .method ol { margin-top: 8px; }
+.method ol { padding-left: 22px; display: grid; gap: 4px; }
+.method-inapp { font-size: .92rem; }
+.resource-list { margin: 0; padding-left: 20px; display: grid; gap: 10px; }
+.chips a.chip { text-decoration: none; }
+td .chips { gap: 5px; }
+td .chip { padding: 3px 9px; font-size: .78rem; }
+
+/* ---------- print (worksheets and exams on paper) ---------- */
+@media print {
+  .topbar, .rail, footer.foot, .toast, .toolbar, .tabs, .hero-actions, .quiz-actions, .chips, .guide, .exam-setup, .practice, .panel:has(.chips), .section-head .chip, body::before { display: none !important; }
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .app { display: block; padding: 0; max-width: none; }
+  .paper-q, .ws-list li, .quiz-card { break-inside: avoid; border: 1px solid #999; }
+  .num-answer input { border: 0; border-bottom: 1px solid #000; border-radius: 0; background: transparent; }
+  .worksheet:not(.show-answers) .ws-answer { display: none; }
+}

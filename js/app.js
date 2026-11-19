@@ -11,7 +11,7 @@
     set(k, v) { try { localStorage.setItem('fizlab.' + k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } },
     remove(k) { try { localStorage.removeItem('fizlab.' + k); } catch (e) { /* ignore */ } }
   };
-  const defaultProgress = () => ({ lessons: {}, sims: {}, quiz: {}, tasks: {}, langs: {}, practice: {}, challenge: { streak: 0, last: null, solved: {} }, badges: {} });
+  const defaultProgress = () => ({ lessons: {}, sims: {}, quiz: {}, tasks: {}, langs: {}, practice: {}, experiments: {}, predict: {}, drills: {}, exams: { taken: 0, best: 0 }, check: { attempts: [] }, challenge: { streak: 0, last: null, solved: {} }, badges: {} });
   let progress = Object.assign(defaultProgress(), store.get('progress', {}));
   progress.challenge = Object.assign({ streak: 0, last: null, solved: {} }, progress.challenge || {});
   const saveProgress = () => store.set('progress', progress);
@@ -115,7 +115,10 @@
     master: () => Content.topics.length > 0 && Content.topics.every(tp => quizPassed(tp.id)),
     solver: () => !!window.FizExt && FizExt.solvedTotal() >= 25,
     hard: () => !!window.FizExt && FizExt.hardSolved(),
-    thinker: () => !!window.FizExt && FizExt.conceptsSolved() >= 20
+    thinker: () => !!window.FizExt && FizExt.conceptsSolved() >= 20,
+    experimenter: () => !!window.FizMore && FizMore.expDoneCount() >= 5,
+    predictor: () => !!window.FizMore && FizMore.predictCount() >= 10,
+    examAce: () => ((progress.exams && progress.exams.best) || 0) >= 90
   };
   function checkBadges() {
     Object.keys(BADGES).forEach(id => {
@@ -131,7 +134,7 @@
   function parseHash() {
     const h = (location.hash || '#home').slice(1);
     if (!h || h === 'home') return { view: 'home' };
-    if (['glossary', 'formulas', 'flashcards', 'progress', 'mix', 'challenge', 'practice', 'scientists', 'converter', 'concepts'].includes(h)) return { view: h };
+    if (['glossary', 'formulas', 'flashcards', 'progress', 'mix', 'challenge', 'practice', 'scientists', 'converter', 'concepts', 'train', 'tests', 'lab', 'reference', 'teachers', 'experiments', 'exam', 'check', 'drills'].includes(h)) return { view: h };
     const parts = h.split('-');
     if (Content.byId[parts[0]]) {
       const tab = ['lesson', 'sim', 'quiz', 'practice', 'home'].includes(parts[1]) ? parts[1] : 'lesson';
@@ -175,6 +178,12 @@
       case 'scientists': FizExt.renderScientists(main); break;
       case 'converter': FizExt.renderConverter(main); break;
       case 'concepts': FizExt.renderConcepts(main); break;
+      case 'train': case 'tests': case 'lab': case 'reference': FizMore.renderHub(main, r.view); break;
+      case 'teachers': FizMore.renderTeachers(main); break;
+      case 'experiments': FizMore.renderExperiments(main); break;
+      case 'exam': FizMore.renderExam(main); break;
+      case 'check': FizMore.renderCheck(main); break;
+      case 'drills': FizMore.renderDrills(main); break;
       default: main.appendChild(el('p', { class: 'empty', text: t('common.notFound') }));
     }
     $('#foot').textContent = t('footer');
@@ -187,8 +196,10 @@
   function renderNav() {
     const nav = $('#nav'); nav.innerHTML = '';
     const r = current.route || {};
-    [['home', 'nav.home'], ['practice', 'nav.practice'], ['glossary', 'nav.glossary'], ['formulas', 'nav.formulas'], ['flashcards', 'nav.flashcards'], ['scientists', 'nav.scientists'], ['progress', 'nav.progress']].forEach(([h, key]) => {
-      const active = (r.view === h) || (h === 'home' && (r.view === 'topic' || r.view === 'mix' || r.view === 'challenge' || r.view === 'converter'));
+    const GROUP = { home: ['home', 'topic'], train: ['train', 'practice', 'concepts', 'drills'], tests: ['tests', 'exam', 'check', 'mix', 'challenge'], lab: ['lab', 'experiments'], reference: ['reference', 'glossary', 'formulas', 'flashcards', 'scientists', 'converter'], teachers: ['teachers'], progress: ['progress'] };
+    [['home', 'nav.home'], ['train', 'nav.train'], ['tests', 'nav.tests'], ['lab', 'nav.lab'], ['reference', 'nav.reference'], ['teachers', 'nav.teachers'], ['progress', 'nav.progress']].forEach(([h, key]) => {
+      let active = GROUP[h].includes(r.view);
+      if (r.view === 'topic' && r.topic === 'homelab') active = (h === 'lab');
       nav.appendChild(el('a', { href: '#' + h, class: active ? 'is-active' : '', text: t(key) }));
     });
   }
@@ -206,7 +217,7 @@
     rail.appendChild(ul);
     rail.appendChild(el('h2', { text: t('sections.tools') }));
     const ul2 = el('ul', { class: 'rail-list' });
-    [['practice', 'quick.practice.t'], ['concepts', 'quick.concepts.t'], ['mix', 'quick.mix.t'], ['challenge', 'quick.challenge.t'], ['glossary', 'quick.glossary.t'], ['formulas', 'quick.formulas.t'], ['flashcards', 'quick.flashcards.t'], ['scientists', 'quick.scientists.t'], ['converter', 'quick.converter.t'], ['progress', 'quick.progress.t']].forEach(([h, key]) => {
+    [['train', 'hub.train.title'], ['tests', 'hub.tests.title'], ['lab', 'hub.lab.title'], ['experiments', 'exp.title'], ['reference', 'hub.reference.title'], ['teachers', 'hub.teachers.title'], ['progress', 'quick.progress.t']].forEach(([h, key]) => {
       ul2.appendChild(el('li', null, [el('a', { href: '#' + h, class: r.view === h ? 'is-active' : '', text: t(key) })]));
     });
     rail.appendChild(ul2);
@@ -277,6 +288,7 @@
           el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(nSims) }), el('span', { text: t('stats.sims') })]),
           el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(nQ) }), el('span', { text: t('stats.questions') })]),
           el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(FizExt.problemCount() + FizExt.conceptCount()) }), el('span', { text: t('stats.problems') })]),
+          el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(FizMore.counts().experiments + Content.topics.filter(tp => tp.experiment).length) }), el('span', { text: t('stats.experiments') })]),
           el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(nTerms) }), el('span', { text: t('stats.terms') })])
         ])
       ]),
@@ -308,12 +320,7 @@
     });
     main.appendChild(grid);
 
-    main.appendChild(el('div', { class: 'section-head' }, [el('h2', { text: t('sections.tools') })]));
-    const qg = el('div', { class: 'quick-grid' });
-    ['practice', 'concepts', 'mix', 'challenge', 'glossary', 'formulas', 'flashcards', 'scientists', 'converter', 'progress'].forEach(k => {
-      qg.appendChild(el('a', { class: 'quick-card', href: '#' + k }, [el('h3', { text: t('quick.' + k + '.t') }), el('p', { text: t('quick.' + k + '.d') })]));
-    });
-    main.appendChild(qg);
+    FizMore.renderHomeHubs(main);
   }
 
   // ---------- topic ----------
@@ -390,6 +397,7 @@
     } else headRow.appendChild(el('h3', { text: tr(def.title) }));
     headRow.appendChild(el('p', { class: 'summary', text: tr(def.summary) }));
     panel.appendChild(headRow);
+    const poe = FizMore.renderPredict(simId); if (poe) panel.appendChild(poe);
 
     const wrap = el('div', { class: 'sim-wrap' });
     let stage;
@@ -585,6 +593,7 @@
       ex.safety ? el('div', { class: 'safety wide' }, [el('b', { text: t('home.safety') + ': ' }), tr(ex.safety)]) : null
     ]);
     panel.appendChild(wrap);
+    FizMore.renderTopicExperiments(panel, topic);
   }
 
   // ---------- glossary ----------
@@ -691,11 +700,13 @@
       el('div', { class: 'stat' }, [el('b', { class: 'num', text: `${nQ} / ${Content.topics.length}` }), el('span', { text: t('progress.quizzes') })]),
       el('div', { class: 'stat' }, [el('b', { class: 'num', text: `${nS} / ${Sims.list.length}` }), el('span', { text: t('progress.sims') })]),
       el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(FizExt.solvedTotal()) }), el('span', { text: t('progress.problems') })]),
+      el('div', { class: 'stat' }, [el('b', { class: 'num', text: `${FizMore.expDoneCount()} / ${FizMore.counts().experiments}` }), el('span', { text: t('progress.experiments') })]),
+      el('div', { class: 'stat' }, [el('b', { class: 'num', text: (progress.exams && progress.exams.taken) ? `${progress.exams.best} %` : '–' }), el('span', { text: t('progress.exams') })]),
       el('div', { class: 'stat' }, [el('b', { class: 'num', text: `${progress.challenge.streak || 0}` }), el('span', { text: t('progress.streak') })])
     ]));
     main.appendChild(el('div', { class: 'section-head' }, [el('h2', { text: t('progress.badges') })]));
     const bg = el('div', { class: 'badges' });
-    const BADGE_GLYPH = { firstQuiz: '✓', perfect: '★', reader: '📖', explorer: '🧭', scientist: '🔬', bilingual: 'EN/HR', streak3: '🔥', master: '🏆', solver: '∑', hard: '💪', thinker: '💡' };
+    const BADGE_GLYPH = { firstQuiz: '✓', perfect: '★', reader: '📖', explorer: '🧭', scientist: '🔬', bilingual: 'EN/HR', streak3: '🔥', master: '🏆', solver: '∑', hard: '💪', thinker: '💡', experimenter: '🧪', predictor: '🔮', examAce: '5' };
     Object.keys(BADGES).forEach(id => bg.appendChild(el('div', { class: 'badge' + (progress.badges[id] ? '' : ' locked') }, [
       el('span', { class: 'badge-icon', text: BADGE_GLYPH[id] || '•' }), el('div', null, [el('b', { text: t('badges.' + id + '.t') }), el('span', { text: t('badges.' + id + '.d') })])])));
     main.appendChild(bg);
@@ -775,7 +786,12 @@
   if (!window.FizExt) {
     window.FizExt = { init() {}, renderPracticeTab() {}, renderPracticePage() {}, renderSummary() { return null; }, renderMisconceptions() { return null; }, renderWorkedExample() { return null; }, renderScientists() {}, renderConverter() {}, problemCount: () => 0, solvedTotal: () => 0, solvedIn: () => 0, hardSolved: () => false, templatesFor: () => [] };
   }
-  FizExt.init({ el, t, tr, lang: () => lang, progress: () => progress, saveProgress, checkBadges, toast, go, shuffle, iconBox, onLeave: fn => current.cleanup.push(fn) });
+  const extApi = { el, t, tr, lang: () => lang, progress: () => progress, saveProgress, checkBadges, toast, go, shuffle, iconBox, onLeave: fn => current.cleanup.push(fn) };
+  FizExt.init(extApi);
+  if (!window.FizMore) {
+    window.FizMore = { init() {}, renderHub() {}, renderHomeHubs() {}, renderExperiments() {}, renderTopicExperiments() {}, renderPredict() { return null; }, renderExam() {}, renderCheck() {}, renderDrills() {}, renderTeachers() {}, expDoneCount: () => 0, predictCount: () => 0, drillsDone: () => 0, counts: () => ({ experiments: 0, predictions: 0 }) };
+  }
+  FizMore.init(extApi);
   applyTheme();
   render();
   checkBadges();

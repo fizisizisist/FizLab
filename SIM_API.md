@@ -62,6 +62,13 @@ Controls (`const C = K.controls(container, ctx.lang)`), every `label`/`unit`/opt
 - `C.segmented({label, options:[{value, label}], value, onChange})` → `{get(), set(v, fire)}`  (radio-style buttons)
 - `C.readout({label, unit, digits})` → `{set(numberOrBilingualObj), setColor(css)}`  (display-only live value)
 - `C.note({text})` → `{set(obj)}`  (one-line hint spanning the row)
+- `C.input({label, value, placeholder, type:'number'|'text', unit, onChange(str), onEnter(str)})` → `{get(), getNumber(), set(v), setDisabled, focus(), input, el}`  (typed input; `getNumber()` accepts a decimal comma or point and returns `null` when it is not a number)
+
+Tool-like sims (stopwatch, data table…) may also build plain DOM inside `container` next to or instead of the canvas. Use these ready-made
+classes so they match the app in light and dark: `.sk-panel` (soft card), `.sk-big` (very large numeric display), `.sk-row` (flex row),
+`.sk-table-wrap` + `.sk-table` (table; inputs inside are styled), `.sk-msg` (warning/information box), `.sk-btn` / `.sk-btn primary` (buttons),
+`.sk-note` (small muted text). Never use literal colors in DOM; use the CSS variables (`var(--fg)`, `var(--muted)`, `var(--surface2)`, `var(--good)`…).
+Everything created must be removed in `destroy()` and re-labelled in `setLang()`.
 
 Layout inside `container`: first the canvas (`K.createCanvas`), then the controls (`K.controls`). Nothing else is needed;
 the shell draws the title, summary and the "Try this" task list around it.

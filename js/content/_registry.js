@@ -1,7 +1,7 @@
 /* FizLab — content registry. Loaded before any js/content/*.js or js/problems/*.js file. */
 (function () {
   'use strict';
-  const Content = { topics: [], byId: {}, problems: {}, scientists: [], summaries: {}, concepts: [] };
+  const Content = { topics: [], byId: {}, problems: {}, scientists: [], summaries: {}, concepts: [], experiments: [], predictions: {}, teaching: { outcomes: [], topics: {}, methods: [], resources: [] } };
   Content.register = function (t) {
     if (!t || !t.id || !t.title) { console.error('Content.register: invalid topic', t); return; }
     if (Content.byId[t.id]) { console.warn('Content.register: duplicate topic', t.id); return; }
@@ -27,6 +27,25 @@
   Content.registerConcepts = function (list) {
     if (!Array.isArray(list)) { console.error('registerConcepts: expected a list'); return; }
     Content.concepts = Content.concepts.concat(list);
+  };
+  // home experiments library: see js/content/_experiments_schema.md
+  Content.registerExperiments = function (list) {
+    if (!Array.isArray(list)) { console.error('registerExperiments: expected a list'); return; }
+    Content.experiments = Content.experiments.concat(list);
+  };
+  // predict-observe-explain prompts per simulation: see js/content/_predictions_schema.md
+  Content.registerPredictions = function (obj) {
+    if (!obj || typeof obj !== 'object') { console.error('registerPredictions: expected an object'); return; }
+    Object.keys(obj).forEach(k => { Content.predictions[k] = (Content.predictions[k] || []).concat(obj[k]); });
+  };
+  // teacher corner (curriculum outcomes, lesson starters, methods, resources): see js/content/_teaching_schema.md
+  Content.registerTeaching = function (obj) {
+    if (!obj || typeof obj !== 'object') { console.error('registerTeaching: expected an object'); return; }
+    const T = Content.teaching;
+    if (Array.isArray(obj.outcomes)) T.outcomes = T.outcomes.concat(obj.outcomes);
+    if (Array.isArray(obj.methods)) T.methods = T.methods.concat(obj.methods);
+    if (Array.isArray(obj.resources)) T.resources = T.resources.concat(obj.resources);
+    if (obj.topics) Object.keys(obj.topics).forEach(k => { T.topics[k] = obj.topics[k]; });
   };
   window.Content = Content;
 })();

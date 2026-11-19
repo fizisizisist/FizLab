@@ -11,7 +11,7 @@
       en: 'Physics is not a list of facts to memorise. It is a way of asking nature questions and checking the answers. Learn the rules of that game.',
       hr: 'Fizika nije popis činjenica za učenje napamet. Ona je način kako prirodi postavljamo pitanja i provjeravamo odgovore. Nauči pravila te igre.'
     },
-    sims: ['inquiry', 'measure'],
+    sims: ['inquiry', 'measure', 'datalab'],
 
     lesson: [
       {

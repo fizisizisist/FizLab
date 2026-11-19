@@ -228,7 +228,7 @@
         const rx = SX(V, st.relPos ? st.relPos.x : st.r * Math.cos(phi)), ry = SY(V, st.relPos ? st.relPos.y : st.r * Math.sin(phi));
         if (!st.released) {
           g.strokeStyle = theme.fg; g.lineWidth = 2; g.beginPath(); g.moveTo(V.cx, V.cy); g.lineTo(bx, by); g.stroke();
-          if (st.showMistake) {   // prediction: if you let go now, it goes straight along the tangent
+          if (st.showHint) {   // hint before release is off by default so pupils can predict first
             g.save(); g.strokeStyle = K.withAlpha(theme.c6, 0.7); g.lineWidth = 2; g.setLineDash([8, 6]); g.beginPath();
             g.moveTo(bx, by); g.lineTo(bx + tx * 600, by - ty * 600); g.stroke(); g.restore();
             pill(g, K.tr({ en: 'if you let go: straight on', hr: 'ako pustiš: ravno dalje' }, lang), bx + tx * 70 + 10, by - ty * 70 - 10, 'left');

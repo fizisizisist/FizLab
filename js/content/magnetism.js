@@ -11,7 +11,7 @@
       en: 'A compass needle, a fridge magnet and a scrapyard crane all work because of one invisible thing: a magnetic field. Learn where it comes from and how you can make one yourself.',
       hr: 'Igla kompasa, magnet na hladnjaku i dizalica na otpadu rade zahvaljujući istoj nevidljivoj stvari: magnetskom polju. Nauči odakle ono dolazi i kako ga sam možeš napraviti.'
     },
-    sims: ['magnet', 'electromagnet'],
+    sims: ['magnet', 'electromagnet', 'induction'],
 
     lesson: [
       {
@@ -90,6 +90,21 @@
         svg: '<svg viewBox="0 0 420 120" role="img"><rect x="110" y="48" width="200" height="24" rx="4" fill="var(--surface2)" stroke="var(--fg)" stroke-width="2"/><polygon points="310,52 330,60 310,68" fill="var(--surface2)" stroke="var(--fg)" stroke-width="2"/><path d="M130,78 C120,30 150,30 140,78 C130,30 160,30 150,78 C140,30 170,30 160,78 C150,30 180,30 170,78 C160,30 190,30 180,78 C170,30 200,30 190,78 C180,30 210,30 200,78 C190,30 220,30 210,78 C200,30 230,30 220,78 C210,30 240,30 230,78 C220,30 250,30 240,78 C230,30 260,30 250,78 C240,30 270,30 260,78 C250,30 280,30 270,78" fill="none" stroke="var(--c4)" stroke-width="3"/><line x1="130" y1="78" x2="60" y2="100" stroke="var(--c4)" stroke-width="3"/><line x1="270" y1="78" x2="340" y2="100" stroke="var(--c4)" stroke-width="3"/><rect x="40" y="94" width="14" height="22" fill="var(--c4)" stroke="var(--fg)" stroke-width="2"/><rect x="54" y="98" width="8" height="14" fill="var(--fg)"/><line x1="62" y1="105" x2="340" y2="105" stroke="var(--c4)" stroke-width="3"/><rect x="345" y="78" width="5" height="12" fill="var(--c3)"/><rect x="352" y="78" width="5" height="12" fill="var(--c3)"/><rect x="359" y="78" width="5" height="12" fill="var(--c3)"/><text x="60" y="35" fill="var(--fg)" font-family="inherit" font-size="13" font-weight="700">I</text><text x="365" y="68" fill="var(--fg)" font-family="inherit" font-size="13" font-weight="700">N</text><text x="85" y="68" fill="var(--fg)" font-family="inherit" font-size="13" font-weight="700">S</text></svg>'
       },
       {
+        h: { en: 'Magnetism makes current: induction', hr: 'Magnetizam stvara struju: elektromagnetska indukcija' },
+        p: {
+          en: [
+            'If a current can make magnetism, can magnetism make a current? The English scientist Michael Faraday searched for the answer for years and found it in 1831. He pushed a magnet into a coil of wire connected to a sensitive meter, and the needle jumped. A voltage appeared in the coil and drove a current, although there was no battery anywhere. This is called electromagnetic induction.',
+            'The surprise is that a magnet resting inside the coil does nothing at all. A voltage appears only while something is changing: while the magnet moves in, moves out, or the coil moves past the magnet. Pull the magnet out and the current flows the other way. The faster the movement, the stronger the magnet and the more turns the coil has, the larger the voltage.',
+            'Almost all the electricity you use is made this way. In a power station, steam, falling water or wind turns a turbine, and the turbine spins magnets inside huge coils: this machine is a generator. A bicycle dynamo does the same on a small scale, with a little magnet spun by the wheel. A generator is really an electric motor run backwards: a motor turns current into motion, a generator turns motion into current.'
+          ],
+          hr: [
+            'Ako struja može stvoriti magnetizam, može li magnetizam stvoriti struju? Engleski znanstvenik Michael Faraday godinama je tražio odgovor i pronašao ga 1831. godine. Gurnuo je magnet u zavojnicu spojenu na osjetljiv mjerni instrument i kazaljka je poskočila. U zavojnici se pojavio napon koji je potjerao struju, iako nigdje nije bilo baterije. Ta se pojava zove elektromagnetska indukcija.',
+            'Iznenađenje je u tome što magnet koji miruje u zavojnici ne čini baš ništa. Napon se javlja samo dok se nešto mijenja: dok magnet ulazi, dok izlazi ili dok se zavojnica giba pokraj magneta. Izvuci magnet i struja poteče u suprotnom smjeru. Što je gibanje brže, što je magnet jači i što zavojnica ima više zavoja, to je napon veći.',
+            'Gotovo sva električna energija kojom se služiš nastaje upravo tako. U elektrani para, voda koja pada ili vjetar okreću turbinu, a turbina vrti magnete unutar golemih zavojnica: taj se stroj zove generator. Dinamo na biciklu radi isto u malom, s magnetićem koji okreće kotač. Generator je zapravo elektromotor koji radi unatrag: motor pretvara struju u gibanje, a generator gibanje u struju.'
+          ]
+        }
+      },
+      {
         h: { en: 'Magnets around us', hr: 'Magneti oko nas' },
         p: {
           en: [
@@ -115,6 +130,8 @@
       { term: { en: 'Ørsted’s discovery', hr: 'Ørstedov pokus' }, def: { en: 'An electric current creates a magnetic field around the wire it flows through (1820).', hr: 'Električna struja stvara magnetsko polje oko vodiča kroz koji teče (1820.).' } },
       { term: { en: 'coil', hr: 'zavojnica' }, def: { en: 'Wire wound into many loops; the fields of all the turns add together.', hr: 'Žica namotana u mnogo zavoja; polja svih zavoja se zbrajaju.' } },
       { term: { en: 'electromagnet', hr: 'elektromagnet' }, def: { en: 'A coil with an iron core that becomes a magnet while current flows and stops when it is switched off.', hr: 'Zavojnica sa željeznom jezgrom koja je magnet dok teče struja i prestaje biti kad se struja isključi.' } },
+      { term: { en: 'electromagnetic induction', hr: 'elektromagnetska indukcija' }, def: { en: 'A voltage appears in a coil while the magnetic field through it is changing, for example while a magnet moves in or out (Faraday, 1831).', hr: 'U zavojnici se javlja napon dok se magnetsko polje kroz nju mijenja, na primjer dok magnet ulazi ili izlazi (Faraday, 1831.).' } },
+      { term: { en: 'generator', hr: 'generator' }, def: { en: 'A machine that turns motion into electric current by spinning magnets and coils past each other. A bicycle dynamo is a small generator.', hr: 'Stroj koji gibanje pretvara u električnu struju vrtnjom magneta i zavojnica jednih pokraj drugih. Dinamo na biciklu mali je generator.' } },
       { term: { en: 'aurora', hr: 'polarna svjetlost' }, def: { en: 'Glowing sky near the poles, made by charged particles from the Sun steered there by Earth’s magnetic field.', hr: 'Svjetlucanje neba blizu polova koje stvaraju nabijene čestice sa Sunca koje tamo skreće Zemljino magnetsko polje.' } }
     ],
 
@@ -182,6 +199,11 @@
       { type: 'mc', q: { en: 'Why does a scrapyard crane use an electromagnet instead of an ordinary magnet?', hr: 'Zašto dizalica na otpadu koristi elektromagnet umjesto običnog magneta?' },
         options: [{ en: 'electromagnets are lighter', hr: 'elektromagneti su lakši' }, { en: 'ordinary magnets do not attract steel', hr: 'obični magneti ne privlače čelik' }, { en: 'electromagnets work without electricity', hr: 'elektromagneti rade bez struje' }, { en: 'it can be switched off to drop the load', hr: 'može se isključiti da ispusti teret' }], answer: 3,
         explain: { en: 'An electromagnet is a magnet only while current flows. Switch the current off and the scrap falls exactly where the crane operator wants it.', hr: 'Elektromagnet je magnet samo dok teče struja. Isključi struju i otpad padne točno gdje rukovatelj dizalice želi.' } },
+      { type: 'mc', q: { en: 'A magnet lies still inside a coil that is connected to a sensitive meter. What does the meter show?', hr: 'Magnet miruje u zavojnici koja je spojena na osjetljiv mjerni instrument. Što instrument pokazuje?' },
+        options: [{ en: 'no current, because nothing is changing', hr: 'struje nema jer se ništa ne mijenja' }, { en: 'a steady current as long as the magnet is inside', hr: 'stalnu struju sve dok je magnet unutra' }, { en: 'a current that grows stronger and stronger', hr: 'struju koja postaje sve jača' }, { en: 'a current, but only if the magnet is very strong', hr: 'struju, ali samo ako je magnet vrlo jak' }], answer: 0,
+        explain: { en: 'Induction needs change. A voltage appears only while the magnet moves into or out of the coil; a resting magnet, however strong, gives nothing.', hr: 'Za indukciju je potrebna promjena. Napon se javlja samo dok magnet ulazi u zavojnicu ili izlazi iz nje; magnet koji miruje, ma koliko jak bio, ne daje ništa.' } },
+      { type: 'tf', q: { en: 'A bicycle dynamo and the generators in power stations work on the same principle: magnets and coils moving past each other.', hr: 'Dinamo na biciklu i generatori u elektranama rade na istom načelu: magneti i zavojnice gibaju se jedni pokraj drugih.' }, answer: true,
+        explain: { en: 'Both use electromagnetic induction, discovered by Faraday in 1831. Spinning a magnet near a coil keeps the magnetic field changing, and that produces a voltage. A generator is like a motor run backwards.', hr: 'Oba koriste elektromagnetsku indukciju, koju je 1831. otkrio Faraday. Vrtnja magneta uz zavojnicu stalno mijenja magnetsko polje, a to stvara napon. Generator je poput motora koji radi unatrag.' } },
       { type: 'num', q: { en: 'A coil with 50 turns lifts 10 paper clips. If the lifting power grows in proportion to the number of turns, how many clips will a coil with 150 turns lift (same current)?', hr: 'Zavojnica s 50 zavoja podiže 10 spajalica. Ako snaga podizanja raste razmjerno broju zavoja, koliko će spajalica podignuti zavojnica sa 150 zavoja (ista struja)?' },
         answer: 30, tolerance: 0.5, unit: '',
         explain: { en: '150 turns is 3 times as many as 50, so the coil lifts about 3 × 10 = 30 clips.', hr: '150 zavoja je 3 puta više od 50, pa zavojnica podiže oko 3 × 10 = 30 spajalica.' } },

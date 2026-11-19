@@ -11,7 +11,7 @@
       en: 'Why can a sharp knife cut what a blunt one cannot, and why do your ears pop in a plane? Pressure explains both.',
       hr: 'Zašto oštar nož reže ono što tupi ne može i zašto ti u avionu pucketa u ušima? Oboje objašnjava tlak.'
     },
-    sims: ['pressure'],
+    sims: ['pressure', 'hydraulics', 'gas'],
 
     lesson: [
       {

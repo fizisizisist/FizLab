@@ -14,7 +14,7 @@ for f in "$@"; do
         (new Function("window","console", read(dir + "js/content/_registry.js")))(window, console);
         (new Function("window","console", read(file)))(window, console);
       } catch (e) { return "SYNTAX/RUNTIME ERROR: " + e.message; }
-      var TOPICS = ["matter","density","motion","forces","gravity","pressure","levers","energy","heat","electricity","magnetism","waves","light","space","science"];
+      var TOPICS = ["matter","density","motion","forces","gravity","pressure","levers","energy","heat","electricity","magnetism","waves","light","space","science","homelab"];
       function bi(o, path, minLen) { if (!o || typeof o !== "object") { problems.push(path + ": missing bilingual object"); return; } ["en","hr"].forEach(function(l){ if (typeof o[l] !== "string" || !o[l].trim()) problems.push(path + "." + l + ": missing"); else if (minLen && o[l].trim().length < minLen) problems.push(path + "." + l + ": too short"); }); }
       var list = window.Content.concepts, ids = {}, counts = {mc:0, rank:0, num:0}, perTopic = {};
       if (list.length < 24) problems.push("only " + list.length + " questions (need >= 24)");
@@ -35,6 +35,7 @@ for f in "$@"; do
           if (typeof c.unit !== "string") problems.push(p + " unit must be a string (may be empty)");
         } else problems.push(p + " type must be mc, rank or num");
       });
+      list.forEach(function(c){ if (c.format !== undefined && ["contentions","troubleshoot","barchart","whatif","jeopardy","compare"].indexOf(c.format) < 0) problems.push("[" + c.id + "] unknown format " + c.format); });
       if (counts.rank < 4) problems.push("need >= 4 ranking tasks (got " + counts.rank + ")");
       if (counts.num < 4) problems.push("need >= 4 estimation tasks (got " + counts.num + ")");
       if (!problems.length) return "OK (" + list.length + " questions: " + counts.mc + " mc / " + counts.rank + " rank / " + counts.num + " num; topics: " + Object.keys(perTopic).length + ")";

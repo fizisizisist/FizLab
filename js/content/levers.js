@@ -11,7 +11,7 @@
       en: 'Give me a place to stand and I will move the Earth, said Archimedes. With a lever, a ramp or a pulley you can lift what your muscles alone never could.',
       hr: 'Dajte mi oslonac i pomaknut ću Zemlju, rekao je Arhimed. Polugom, kosinom ili koloturnikom možeš podići ono što tvoji mišići sami nikad ne bi mogli.'
     },
-    sims: ['lever'],
+    sims: ['lever', 'pulleys', 'balance'],
 
     lesson: [
       {

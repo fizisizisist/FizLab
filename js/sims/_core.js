@@ -260,6 +260,27 @@
       return { el: f, set: val => { lastVal = val; show(); }, setColor: c => { v.style.color = c || ''; } };
     };
 
+    // text / number input: o = {label, value, placeholder, type:'number'|'text', unit, onChange(str), onEnter(str)}
+    api.input = function (o) {
+      const inp = document.createElement('input');
+      inp.type = 'text'; inp.className = 'sk-input'; inp.autocomplete = 'off';
+      if (o.type === 'number') inp.setAttribute('inputmode', 'decimal');
+      if (o.value !== undefined && o.value !== null) inp.value = String(o.value);
+      const row = document.createElement('div'); row.className = 'sk-slider-row';
+      row.appendChild(inp);
+      let unitEl = null;
+      if (o.unit) { unitEl = document.createElement('span'); unitEl.className = 'sk-readout-unit'; unitEl.textContent = tr(o.unit, curLang); row.appendChild(unitEl); }
+      const { f, lab } = field(o.label, null);
+      inp.id = 'sk-' + (++uid); lab.htmlFor = inp.id;
+      f.appendChild(row);
+      const ph = () => { inp.placeholder = o.placeholder ? tr(o.placeholder, curLang) : ''; if (unitEl) unitEl.textContent = tr(o.unit, curLang); };
+      ph(); items.push({ relabel: () => ph() });
+      inp.addEventListener('input', () => { if (o.onChange) o.onChange(inp.value); });
+      inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); if (o.onEnter) o.onEnter(inp.value); } });
+      const num = () => { const v = parseFloat(String(inp.value).trim().replace(/\s/g, '').replace(',', '.')); return Number.isFinite(v) ? v : null; };
+      return { el: f, input: inp, get: () => inp.value, getNumber: num, set: v => { inp.value = v === null || v === undefined ? '' : String(v); }, setDisabled: d => { inp.disabled = !!d; }, focus: () => inp.focus() };
+    };
+
     api.note = function (o) {
       const p = document.createElement('p'); p.className = 'sk-note';
       let text = o.text;
@@ -332,7 +353,7 @@
   function lineChart(ctx, o) {
     const t = o.theme || theme();
     const { x, y, w, h } = o;
-    const padL = o.padL === undefined ? 44 : o.padL, padB = o.padB === undefined ? 28 : o.padB, padT = 10, padR = 10;
+    const padL = o.padL === undefined ? 44 : o.padL, padB = o.padB === undefined ? (o.xLabel ? 38 : 28) : o.padB, padT = 10, padR = 10;
     const px = x + padL, py = y + padT, pw = w - padL - padR, ph = h - padT - padB;
     let xMin = o.xMin || 0, xMax = o.xMax || 10, yMin = o.yMin || 0, yMax = o.yMax || 10;
     let nx = o.xTicks || 5, ny = o.yTicks || 4;
@@ -361,7 +382,7 @@
       ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillText(fmt(v, yd, o.lang), px - 6, gy);
     }
     // axes labels
-    if (o.xLabel) text(ctx, tr(o.xLabel, o.lang), px + pw, py + ph + 16, { font: '11px ' + t.font, color: t.fg, align: 'right' });
+    if (o.xLabel) text(ctx, tr(o.xLabel, o.lang), px + pw / 2, py + ph + Math.min(31, padB - 6), { font: '11px ' + t.font, color: t.fg, align: 'center' });
     if (o.yLabel) text(ctx, tr(o.yLabel, o.lang), px + 4, py + 2, { font: '11px ' + t.font, color: t.fg, align: 'left', baseline: 'top' });
     // clip + series
     ctx.beginPath(); ctx.rect(px, py, pw, ph); ctx.clip();

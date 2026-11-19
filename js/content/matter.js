@@ -11,7 +11,7 @@
       en: 'Everything around you is made of tiny particles. Learn to tell a body from a substance and to measure length, volume and mass like a scientist.',
       hr: 'Sve oko tebe građeno je od sitnih čestica. Nauči razlikovati tijelo od tvari i mjeriti duljinu, obujam i masu kao pravi znanstvenik.'
     },
-    sims: ['states', 'measure'],
+    sims: ['states', 'measure', 'gas'],
 
     lesson: [
       {
@@ -57,6 +57,21 @@
           ]
         },
         svg: '<svg viewBox="0 0 420 130" role="img"><rect x="15" y="15" width="110" height="100" rx="6" fill="var(--surface2)" stroke="var(--fg)" stroke-width="2"/><g fill="var(--c3)"><circle cx="35" cy="35" r="7"/><circle cx="55" cy="35" r="7"/><circle cx="75" cy="35" r="7"/><circle cx="95" cy="35" r="7"/><circle cx="115" cy="35" r="7"/><circle cx="35" cy="55" r="7"/><circle cx="55" cy="55" r="7"/><circle cx="75" cy="55" r="7"/><circle cx="95" cy="55" r="7"/><circle cx="115" cy="55" r="7"/><circle cx="35" cy="75" r="7"/><circle cx="55" cy="75" r="7"/><circle cx="75" cy="75" r="7"/><circle cx="95" cy="75" r="7"/><circle cx="115" cy="75" r="7"/><circle cx="35" cy="95" r="7"/><circle cx="55" cy="95" r="7"/><circle cx="75" cy="95" r="7"/><circle cx="95" cy="95" r="7"/><circle cx="115" cy="95" r="7"/></g><rect x="155" y="15" width="110" height="100" rx="6" fill="var(--surface2)" stroke="var(--fg)" stroke-width="2"/><g fill="var(--c3)"><circle cx="172" cy="60" r="7"/><circle cx="190" cy="48" r="7"/><circle cx="210" cy="58" r="7"/><circle cx="230" cy="46" r="7"/><circle cx="248" cy="60" r="7"/><circle cx="180" cy="78" r="7"/><circle cx="200" cy="74" r="7"/><circle cx="220" cy="80" r="7"/><circle cx="240" cy="76" r="7"/><circle cx="172" cy="98" r="7"/><circle cx="192" cy="94" r="7"/><circle cx="212" cy="100" r="7"/><circle cx="232" cy="96" r="7"/><circle cx="250" cy="98" r="7"/></g><rect x="295" y="15" width="110" height="100" rx="6" fill="var(--surface2)" stroke="var(--fg)" stroke-width="2"/><g fill="var(--c3)"><circle cx="315" cy="40" r="7"/><circle cx="380" cy="30" r="7"/><circle cx="350" cy="68" r="7"/><circle cx="312" cy="98" r="7"/><circle cx="388" cy="92" r="7"/></g><g stroke="var(--muted)" stroke-width="2" stroke-linecap="round"><line x1="324" y1="46" x2="336" y2="56"/><line x1="371" y1="34" x2="358" y2="40"/><line x1="357" y1="60" x2="368" y2="50"/><line x1="320" y1="92" x2="332" y2="84"/><line x1="380" y1="86" x2="370" y2="76"/></g></svg>'
+      },
+      {
+        h: { en: 'Particles never rest: Brownian motion and gas pressure', hr: 'Čestice nikad ne miruju: Brownovo gibanje i tlak plina' },
+        p: {
+          en: [
+            'In 1827 the Scottish botanist Robert Brown looked through his microscope at tiny grains from pollen floating in water and saw something odd: the grains kept jiggling to and fro and never came to rest. They were not alive; dust from stone did the same. Today we know why: the invisible particles of water hit each grain from all sides, now harder from the left, now from the right. Brownian motion is visible evidence that particles never rest.',
+            'The same restless motion explains the pressure of a gas. The particles of air in a ball or a tyre fly around at several hundred metres per second and keep crashing into the walls. One hit is far too weak to notice, but countless hits every second add up to a steady push on every square centimetre of the wall. That is how the pressure of a gas arises.',
+            'There are two ways to raise the pressure. Squeeze the gas into a smaller space, as a bicycle pump does, and the particles hit the walls more often. Or heat it: hotter particles move faster and hit harder, so a football left in the sun becomes rock hard. This is also why you must never heat a spray can or throw it into a fire: the pressure can grow until the can bursts.'
+          ],
+          hr: [
+            'Godine 1827. škotski botaničar Robert Brown promatrao je mikroskopom sitna zrnca iz peludi koja su plutala u vodi i opazio nešto neobično: zrnca su se neprestano trzala amo-tamo i nikako se nisu smirivala. Nisu bila živa; isto je radila i kamena prašina. Danas znamo zašto: nevidljive čestice vode udaraju u svako zrnce sa svih strana, čas jače slijeva, čas zdesna. Brownovo gibanje vidljiv je dokaz da čestice nikad ne miruju.',
+            'Isto nemirno gibanje objašnjava tlak plina. Čestice zraka u lopti ili gumi jure brzinama od nekoliko stotina metara u sekundi i neprestano se zabijaju u stijenke. Jedan udarac preslab je da bismo ga osjetili, ali bezbrojni udarci svake sekunde zbrajaju se u stalnu silu na svaki kvadratni centimetar stijenke. Tako nastaje tlak plina.',
+            'Tlak možemo povećati na dva načina. Stisni plin u manji prostor, kao što to radi pumpa za bicikl, i čestice češće udaraju u stijenke. Ili ga zagrij: toplije čestice gibaju se brže i udaraju jače, pa nogometna lopta ostavljena na suncu postane tvrda kao kamen. Zato nikad ne smiješ zagrijavati bocu spreja ni bacati je u vatru: tlak može narasti toliko da boca eksplodira.'
+          ]
+        }
       },
       {
         h: { en: 'Measuring length', hr: 'Mjerenje duljine' },
@@ -111,6 +126,8 @@
       { term: { en: 'state of matter', hr: 'agregacijsko stanje' }, def: { en: 'The form a substance is in: solid, liquid or gas.', hr: 'Oblik u kojem se tvar nalazi: čvrsto, tekuće ili plinovito.' } },
       { term: { en: 'melting', hr: 'taljenje' }, def: { en: 'The change from solid to liquid when a substance is heated.', hr: 'Prijelaz iz čvrstog u tekuće stanje zagrijavanjem.' } },
       { term: { en: 'evaporation', hr: 'isparavanje' }, def: { en: 'The change from liquid to gas, when particles escape from the surface of a liquid.', hr: 'Prijelaz iz tekućeg u plinovito stanje, kad čestice bježe s površine tekućine.' } },
+      { term: { en: 'Brownian motion', hr: 'Brownovo gibanje' }, def: { en: 'The endless random jiggling of tiny grains in a liquid or gas, caused by hits from invisible particles. First described by Robert Brown in 1827.', hr: 'Neprestano nasumično gibanje sitnih zrnaca u tekućini ili plinu, uzrokovano udarcima nevidljivih čestica. Prvi ga je opisao Robert Brown 1827.' } },
+      { term: { en: 'gas pressure', hr: 'tlak plina' }, def: { en: 'The push of a gas on the walls of its container, made by countless hits of its particles. It grows when the gas is squeezed or heated.', hr: 'Djelovanje plina na stijenke posude, nastalo bezbrojnim udarcima njegovih čestica. Raste kad plin stisnemo ili zagrijemo.' } },
       { term: { en: 'length', hr: 'duljina' }, def: { en: 'How long something is. Unit: metre (m).', hr: 'Koliko je nešto dugo. Jedinica: metar (m).' } },
       { term: { en: 'volume', hr: 'obujam (volumen)' }, def: { en: 'How much space a body takes up. Units: m³, dm³ (litre), cm³ (millilitre).', hr: 'Koliko prostora tijelo zauzima. Jedinice: m³, dm³ (litra), cm³ (mililitar).' } },
       { term: { en: 'measuring cylinder', hr: 'menzura' }, def: { en: 'A tall glass with a scale for measuring the volume of liquids.', hr: 'Visoka staklena posuda s ljestvicom za mjerenje obujma tekućina.' } },
@@ -174,6 +191,9 @@
         explain: { en: 'A litre is a cube with 10 cm edges, which is one cubic decimetre: 1 L = 1 dm³ = 1000 mL.', hr: 'Litra je kocka s bridom od 10 cm, a to je jedan kubni decimetar: 1 L = 1 dm³ = 1000 mL.' } },
       { type: 'tf', q: { en: 'The particles of a solid do not move at all.', hr: 'Čestice čvrstog tijela uopće se ne gibaju.' }, answer: false,
         explain: { en: 'They cannot swap places, but they constantly vibrate around their positions. The hotter the solid, the stronger the vibration.', hr: 'Ne mogu mijenjati mjesta, ali stalno titraju oko svojih položaja. Što je tijelo toplije, titranje je jače.' } },
+      { type: 'mc', q: { en: 'Why does a football left in the sun become harder?', hr: 'Zašto nogometna lopta ostavljena na suncu postane tvrđa?' },
+        options: [{ en: 'more air gets into the ball', hr: 'u loptu uđe još zraka' }, { en: 'the air particles move faster and hit the walls harder', hr: 'čestice zraka gibaju se brže i jače udaraju u stijenke' }, { en: 'the air particles grow bigger', hr: 'čestice zraka postanu veće' }, { en: 'the ball shrinks in the heat', hr: 'lopta se na toplini stisne' }], answer: 1,
+        explain: { en: 'The number and size of the particles stay the same. Heating makes them move faster, so they hit the inside of the ball harder and more often, and the gas pressure rises.', hr: 'Broj i veličina čestica ostaju isti. Zagrijavanjem se čestice gibaju brže, pa jače i češće udaraju u unutrašnju stijenku lopte i tlak plina raste.' } },
       { type: 'num', q: { en: 'A hiking trail is 2.5 km long. How many metres is that?', hr: 'Planinarska staza duga je 2,5 km. Koliko je to metara?' },
         answer: 2500, tolerance: 1, unit: 'm',
         explain: { en: 'kilo means 1000, so 2.5 km = 2.5 × 1000 m = 2500 m.', hr: 'kilo znači 1000, pa je 2,5 km = 2,5 × 1000 m = 2500 m.' } },

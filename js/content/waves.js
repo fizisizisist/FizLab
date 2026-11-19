@@ -11,7 +11,7 @@
       en: 'Drop a stone in a pond, pluck a guitar string, shout at a cliff: waves carry energy, music and even your voice. Find out how, and why no one can hear you scream in space.',
       hr: 'Baci kamen u ribnjak, trzni žicu gitare, vikni prema stijeni: valovi prenose energiju, glazbu, pa i tvoj glas. Otkrij kako i zašto te u svemiru nitko ne može čuti kad vičeš.'
     },
-    sims: ['waves', 'sound'],
+    sims: ['waves', 'sound', 'ripple'],
 
     lesson: [
       {

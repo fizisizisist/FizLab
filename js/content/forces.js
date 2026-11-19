@@ -11,7 +11,7 @@
       en: 'Every push and every pull is a force. Learn how forces start, stop and bend the motion of everything around you.',
       hr: 'Svako guranje i svako vučenje je sila. Nauči kako sile pokreću, zaustavljaju i skreću sve oko tebe.'
     },
-    sims: ['forces', 'freefall', 'spring', 'forcepairs'],
+    sims: ['forces', 'freefall', 'spring', 'forcepairs', 'friction'],
 
     lesson: [
       {
@@ -84,6 +84,19 @@
         }
       },
       {
+        h: { en: 'Inertia: why moving things keep moving', hr: 'Tromost: zašto se tijela nastavljaju gibati' },
+        p: {
+          en: [
+            'Push a book across the table and it soon stops, so it seems that motion needs a constant push. Galileo saw further. He imagined a ball rolling down one ramp and up another: on a smooth track it climbs almost to the height it started from. Make the second ramp less steep and the ball travels further to reach that height. And if the second ramp were perfectly flat and frictionless? The ball would never get there, so it would roll on for ever.',
+            'Newton made this his first law: if the resultant force on a body is zero, it stays at rest or keeps moving in a straight line at a constant speed. This property is called inertia; more mass means more inertia. When a car brakes hard, your body keeps moving forward until the seat belt stops it. Flick a card from under a coin and the coin stays put; a magician whips a tablecloth away and the dishes stay. A force is needed to change motion, not to keep it going.'
+          ],
+          hr: [
+            'Gurni knjigu po stolu i ona se ubrzo zaustavi, pa se čini da gibanje treba stalno guranje. Galileo je vidio dalje. Zamislio je kuglicu koja se spušta niz jednu kosinu i penje uz drugu: na glatkoj stazi popne se gotovo do visine s koje je krenula. Učini drugu kosinu manje strmom i kuglica prijeđe dulji put da dosegne tu visinu. A kad bi druga kosina bila posve vodoravna i bez trenja? Kuglica tu visinu nikad ne bi dosegnula, pa bi se kotrljala zauvijek.',
+            'Newton je to zapisao kao svoj prvi zakon: ako je rezultantna sila na tijelo jednaka nuli, ono miruje ili se nastavlja gibati po pravcu stalnom brzinom. To svojstvo zovemo tromost (inercija); veća masa znači veću tromost. Kad automobil naglo zakoči, tvoje se tijelo nastavlja gibati prema naprijed dok ga ne zaustavi sigurnosni pojas. Naglo izbij karticu ispod kovanice i kovanica ostane na mjestu; mađioničar naglo povuče stolnjak, a posuđe ostane na stolu. Sila je potrebna da se gibanje promijeni, a ne da se održi.'
+          ]
+        }
+      },
+      {
         h: { en: 'Force, mass and motion', hr: 'Sila, masa i gibanje' },
         p: {
           en: [
@@ -107,6 +120,7 @@
       { term: { en: 'mass', hr: 'masa' }, def: { en: 'How much matter an object contains, in kilograms. The same everywhere in the universe.', hr: 'Koliko tvari sadrži tijelo, u kilogramima. Jednaka je svugdje u svemiru.' } },
       { term: { en: 'resultant force', hr: 'rezultantna sila (rezultanta)' }, def: { en: 'The single force that has the same effect as all the forces acting together.', hr: 'Jedna sila koja ima isti učinak kao sve sile zajedno.' } },
       { term: { en: 'balanced forces', hr: 'uravnotežene sile' }, def: { en: 'Forces that cancel each other out, so the motion does not change.', hr: 'Sile koje se međusobno poništavaju, pa se gibanje ne mijenja.' } },
+      { term: { en: 'inertia', hr: 'tromost (inercija)' }, def: { en: 'The property of a body to stay at rest or keep moving in a straight line at a constant speed until a resultant force changes its motion. More mass, more inertia.', hr: 'Svojstvo tijela da miruje ili se nastavlja gibati po pravcu stalnom brzinom sve dok mu rezultantna sila ne promijeni gibanje. Veća masa, veća tromost.' } },
       { term: { en: 'friction', hr: 'trenje' }, def: { en: 'A force between touching surfaces that acts against motion.', hr: 'Sila između površina koje se dodiruju, djeluje suprotno gibanju.' } },
       { term: { en: 'elastic force', hr: 'elastična sila' }, def: { en: 'The force a stretched or squeezed spring or rubber band uses to return to its shape.', hr: 'Sila kojom se napeta ili stisnuta opruga ili gumica vraća u svoj oblik.' } },
       { term: { en: 'acceleration', hr: 'ubrzanje' }, def: { en: 'How quickly speed changes, in m/s².', hr: 'Koliko se brzo mijenja brzina, u m/s².' } }
@@ -184,6 +198,9 @@
       { type: 'mc', q: { en: 'Where is the friction the smallest?', hr: 'Gdje je trenje najmanje?' },
         options: [{ en: 'dragging a box over a carpet', hr: 'vučenje kutije po tepihu' }, { en: 'sliding a box over wet tiles', hr: 'klizanje kutije po mokrim pločicama' }, { en: 'rolling a box on a cart with wheels', hr: 'vožnja kutije na kolicima s kotačima' }, { en: 'pushing a box over sand', hr: 'guranje kutije po pijesku' }], answer: 2,
         explain: { en: 'Rolling friction is much smaller than sliding friction, so wheels make moving heavy things easy.', hr: 'Trenje kotrljanja puno je manje od trenja klizanja, zato kotači olakšavaju premještanje teških stvari.' } },
+      { type: 'mc', q: { en: 'A hockey puck slides across perfectly smooth ice, with no friction and no air resistance. Nobody is pushing it any more. What does it do?', hr: 'Hokejski pak klizi po savršeno glatkom ledu, bez trenja i bez otpora zraka. Nitko ga više ne gura. Što se s njim događa?' },
+        options: [{ en: 'it keeps moving in a straight line at the same speed', hr: 'nastavlja se gibati po pravcu istom brzinom' }, { en: 'it slows down gradually because the force of the push gets used up', hr: 'postupno usporava jer se sila guranja potroši' }, { en: 'it stops as soon as the push ends', hr: 'zaustavi se čim guranje prestane' }, { en: 'it speeds up more and more', hr: 'sve više ubrzava' }], answer: 0,
+        explain: { en: 'With no resultant force the motion does not change: that is inertia, Newton’s first law. A force is not something the puck carries along and uses up. On real ice it is friction, a force, that slowly stops it.', hr: 'Bez rezultantne sile gibanje se ne mijenja: to je tromost, prvi Newtonov zakon. Sila nije nešto što pak nosi sa sobom i troši. Na pravom ledu polako ga zaustavlja trenje, a trenje je sila.' } },
       { type: 'num', q: { en: 'A 5 kg box is pushed with a resultant force of 10 N. What is its acceleration (a = F / m)?', hr: 'Kutiju mase 5 kg guramo rezultantnom silom od 10 N. Koliko je njezino ubrzanje (a = F / m)?' },
         answer: 2, tolerance: 0.1, unit: 'm/s²',
         explain: { en: 'a = F / m = 10 N / 5 kg = 2 m/s². The box gains 2 m/s of speed every second.', hr: 'a = F / m = 10 N / 5 kg = 2 m/s². Kutija svake sekunde dobije 2 m/s brzine.' } },
