@@ -23,12 +23,12 @@
     title: { en: 'Friction Lab', hr: 'Laboratorij trenja' },
     summary: {
       en: 'Pull a wooden block with a spring scale across ice, wood, sandpaper or rubber. Watch static friction grow until the block breaks free, then measure the sliding friction.',
-      hr: 'Vuci drveni blok dinamometrom po ledu, drvu, brusnom papiru ili gumi. Gledaj kako trenje mirovanja raste dok blok ne krene, a zatim izmjeri trenje klizanja.'
+      hr: 'Vuci drveni blok dinamometrom po ledu, drvu, brusnom papiru ili gumi. Promatraj kako trenje mirovanja raste dok se blok ne pokrene, a zatim izmjeri trenje klizanja.'
     },
     tasks: [
-      { en: 'Press "Pull slowly" on wood on wood. Find the peak on the graph. Why does the reading drop when the block starts to slide?', hr: 'Pritisni "Vuci polako" na podlozi drvo po drvu. Pronađi vrh na grafu. Zašto očitanje padne kad blok počne klizati?' },
-      { en: 'Record the friction with 1, 2, 3 and 4 blocks while they slide steadily. Read μ_k from the best-fit line.', hr: 'Zabilježi trenje s 1, 2, 3 i 4 bloka dok jednoliko klize. Očitaj μ_k iz pravca.' },
-      { en: 'Stand the block on its side. Does the smaller contact area change the friction?', hr: 'Postavi blok na bok. Mijenja li manja dodirna površina trenje?' },
+      { en: 'Press "Pull slowly" on wood on wood. Find the peak on the graph. Why does the reading drop when the block starts to slide?', hr: 'Odaberi podlogu „Drvo po drvu“ i pritisni „Vuci polako“. Pronađi vrh grafa. Zašto se očitanje smanji kad blok počne klizati?' },
+      { en: 'Record the friction with 1, 2, 3 and 4 blocks while they slide steadily. Read μ_k from the best-fit line.', hr: 'Zabilježi trenje za 1, 2, 3 i 4 bloka dok jednoliko klize. Odredi μ_k iz pravca koji najbolje prolazi kroz točke.' },
+      { en: 'Stand the block on its side. Does the smaller contact area change the friction?', hr: 'Postavi blok na bok. Mijenja li se trenje kad je dodirna površina manja?' },
       { en: 'Put the block on rollers. How many times smaller is the pull that keeps it moving?', hr: 'Stavi blok na valjke. Koliko je puta manja sila kojom ga održavaš u gibanju?' }
     ],
     mount(container, ctx) {
@@ -50,7 +50,7 @@
       const segN = C.segmented({ label: { en: 'Number of blocks (0.5 kg each)', hr: 'Broj blokova (svaki 0,5 kg)' }, options: [1, 2, 3, 4].map(k => ({ value: k, label: String(k) })), value: 1,
         onChange: v => { st.n = v; refresh(); } });
       const segPos = C.segmented({ label: { en: 'Block position', hr: 'Položaj bloka' }, options: [
-        { value: 'flat', label: { en: 'Lying flat', hr: 'Položen' } }, { value: 'side', label: { en: 'Standing on its side', hr: 'Stoji na boku' } }], value: 'flat',
+        { value: 'flat', label: { en: 'Lying flat', hr: 'Leži' } }, { value: 'side', label: { en: 'Standing on its side', hr: 'Stoji na boku' } }], value: 'flat',
         onChange: v => { st.side = v === 'side'; refresh(); } });
       const tgRoll = C.toggle({ label: { en: 'On rollers (rolling friction)', hr: 'Na valjcima (trenje kotrljanja)' }, value: false, onChange: v => { st.rollers = v; clearRec(); refresh(); } });
       const tgWN = C.toggle({ label: { en: 'Show weight and normal force', hr: 'Prikaži težinu i silu podloge' }, value: false, onChange: v => { st.showWN = v; draw(); } });
@@ -63,7 +63,7 @@
       } });
       const btnRec = C.button({ label: { en: 'Record', hr: 'Zabilježi' }, onClick: () => record() });
       const btnPlay = C.button({ label: { en: 'Pause', hr: 'Pauza' }, onClick: () => { L.toggle(); st.paused = !L.running; updatePlay(); refresh(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outF = C.readout({ label: { en: 'Pull (scale reading)', hr: 'Vučna sila (dinamometar)' }, unit: 'N', digits: 2 });
       const outFr = C.readout({ label: { en: 'Friction force', hr: 'Sila trenja' }, unit: 'N', digits: 2 });
       const outN = C.readout({ label: { en: 'Normal force F_N', hr: 'Pritisna sila F_N' }, unit: 'N', digits: 2 });
@@ -149,15 +149,15 @@
           hr: 'Dosegnuto najveće trenje mirovanja: blok ' + (st.rollers ? 'se počinje kotrljati' : 'počinje klizati') + ' (μ_s · F_N = ' + f(q.Fs, 'hr') + ' N).' };
         let t1;
         if (st.endT > 0) t1 = { en: 'End of the table: the block was put back at the start.', hr: 'Kraj stola: blok je vraćen na početak.' };
-        else if (q.reg === 'idle') t1 = { en: 'Pull the block: move the "Pulling force" slider, drag the dynamometer to the right, or press "Pull slowly".', hr: 'Vuci blok: pomakni klizač "Sila kojom vučeš", povuci dinamometar udesno ili pritisni "Vuci polako".' };
+        else if (q.reg === 'idle') t1 = { en: 'Pull the block: move the "Pulling force" slider, drag the dynamometer to the right, or press "Pull slowly".', hr: 'Vuci blok: pomakni klizač „Sila kojom vučeš“, povuci dinamometar udesno ili pritisni „Vuci polako“.' };
         else if (q.reg === 'rest') t1 = { en: 'Friction matches your pull, so the block stays at rest. Static friction can grow up to μ_s · F_N = ' + f(q.Fs, 'en') + ' N.',
           hr: 'Trenje je jednako sili kojom vučeš, pa blok miruje. Trenje mirovanja (statičko trenje) može narasti najviše do μ_s · F_N = ' + f(q.Fs, 'hr') + ' N.' };
         else if (q.reg === 'over') t1 = L.running ? maxNote : { en: 'Your pull is bigger than the largest static friction (' + f(q.Fs, 'en') + ' N). Press Play to see the block move.',
-          hr: 'Vučeš jače od najvećeg trenja mirovanja (' + f(q.Fs, 'hr') + ' N). Pritisni Pokreni da vidiš kako blok kreće.' };
+          hr: 'Vučeš jače od najvećeg trenja mirovanja (' + f(q.Fs, 'hr') + ' N). Pritisni „Pokreni“ da vidiš kako se blok pokreće.' };
         else if (q.reg === 'max') t1 = maxNote;
         else if (q.reg === 'slow') t1 = { en: 'Your pull is smaller than the sliding friction, so the block slows down and stops.', hr: 'Vučeš slabije od trenja klizanja, pa blok usporava i staje.' };
         else {
-          const tail = ok ? { en: ' Steady speed: the scale now shows the friction. Press Record.', hr: ' Stalna brzina: dinamometar sada pokazuje trenje. Pritisni Zabilježi.' } : { en: '', hr: '' };
+          const tail = ok ? { en: ' Steady speed: the scale now shows the friction. Press Record.', hr: ' Stalna brzina: dinamometar sada pokazuje trenje. Pritisni „Zabilježi“.' } : { en: '', hr: '' };
           t1 = st.rollers
             ? { en: 'Rolling: rolling friction is tiny, F_fr = ' + f(MU_ROLL, 'en') + ' · F_N = ' + f(q.Fk, 'en') + ' N. That is why wheels make pulling easy.' + tail.en,
               hr: 'Kotrljanje: trenje kotrljanja vrlo je malo, F_tr = ' + f(MU_ROLL, 'hr') + ' · F_N = ' + f(q.Fk, 'hr') + ' N. Zato kotači olakšavaju vuču.' + tail.hr }
@@ -170,13 +170,13 @@
           ? { en: 'On rollers the block rolls instead of sliding. Rolling friction (μ = 0.02) is much smaller than sliding friction.', hr: 'Na valjcima se blok kotrlja umjesto da kliže. Trenje kotrljanja (μ = 0,02) mnogo je manje od trenja klizanja.' }
           : st.side
             ? { en: 'On its side the contact area is only ' + A + ' cm², but the friction is the same as lying flat. Friction does not depend on the contact area.', hr: 'Na boku je dodirna površina samo ' + A + ' cm², ali trenje je isto kao kad blok leži. Trenje ne ovisi o veličini dodirne površine.' }
-            : { en: 'Lying flat the contact area is ' + A + ' cm². Stand the block on its side: the area gets smaller, but the friction stays the same.', hr: 'Kad blok leži, dodirna površina je ' + A + ' cm². Postavi ga na bok: površina se smanji, ali trenje ostaje isto.' });
+            : { en: 'Lying flat the contact area is ' + A + ' cm². Stand the block on its side: the area gets smaller, but the friction stays the same.', hr: 'Kad blok leži, dodirna površina iznosi ' + A + ' cm². Postavi ga na bok: površina se smanji, ali trenje ostaje isto.' });
         if (!k) {
-          const how = { en: 'Measure the coefficient of sliding friction μ_k: while the block slides at a steady speed, press Record. Then change the number of blocks and record again.', hr: 'Izmjeri faktor trenja klizanja μ_k: dok blok kliže stalnom brzinom, pritisni Zabilježi. Zatim promijeni broj blokova i ponovno zabilježi.' };
-          note3.set(st.cleared ? { en: 'New surface, new measurement: the old points were cleared. ' + how.en, hr: 'Nova podloga, novo mjerenje: stare točke su obrisane. ' + how.hr } : how);
-        } else if (mu === null) note3.set({ en: 'Recorded points: ' + k + '. Now change the number of blocks and record again while the block slides steadily.', hr: 'Zabilježenih točaka: ' + k + '. Sada promijeni broj blokova i ponovno zabilježi dok blok jednoliko kliže.' });
+          const how = { en: 'Measure the coefficient of sliding friction μ_k: while the block slides at a steady speed, press Record. Then change the number of blocks and record again.', hr: 'Izmjeri faktor trenja klizanja μ_k: dok blok kliže stalnom brzinom, pritisni „Zabilježi“. Zatim promijeni broj blokova i ponovno zabilježi.' };
+          note3.set(st.cleared ? { en: 'New surface, new measurement: the old points were cleared. ' + how.en, hr: 'Nova podloga, novo mjerenje: stare su točke obrisane. ' + how.hr } : how);
+        } else if (mu === null) note3.set({ en: 'Recorded points: ' + k + '. Now change the number of blocks and record again while the block slides steadily.', hr: 'Broj zabilježenih točaka: ' + k + '. Sada promijeni broj blokova i ponovno zabilježi dok blok jednoliko kliže.' });
         else note3.set({ en: 'Recorded points: ' + k + '. The best-fit line through the origin gives μ_k = F_fr / F_N ≈ ' + f(mu, 'en') + '. Twice the normal force gives twice the friction.',
-          hr: 'Zabilježenih točaka: ' + k + '. Pravac kroz ishodište daje μ_k = F_tr / F_N ≈ ' + f(mu, 'hr') + '. Dvostruko veća pritisna sila (sila podloge) daje dvostruko veće trenje.' });
+          hr: 'Broj zabilježenih točaka: ' + k + '. Pravac kroz ishodište daje μ_k = F_tr / F_N ≈ ' + f(mu, 'hr') + '. Dvostruko veća pritisna sila (sila podloge) daje dvostruko veće trenje.' });
       }
 
       // ---------- geometry shared by drawing and pointer ----------
@@ -308,7 +308,7 @@
         }
         // header: friction formula with numbers, surface, legend
         const h1 = (q.reg === 'idle' || q.reg === 'rest' || q.reg === 'over')
-          ? T(FR) + ' = F = ' + fm(q.fr, 2) + ' N   (' + T({ en: 'at rest, at most μ_s · F_N = ', hr: 'mirovanje, najviše μ_s · F_N = ' }) + fm(q.Fs, 2) + ' N)'
+          ? T(FR) + ' = F = ' + fm(q.fr, 2) + ' N   (' + T({ en: 'at rest, at most μ_s · F_N = ', hr: 'u mirovanju najviše μ_s · F_N = ' }) + fm(q.Fs, 2) + ' N)'
           : T(st.rollers ? { en: 'Rolling: ', hr: 'Kotrljanje: ' } : { en: 'Sliding: ', hr: 'Klizanje: ' }) + T(FR) + (st.rollers ? ' = μ · F_N = ' : ' = μ_k · F_N = ') + fm(q.muk, 2) + ' · ' + fm(q.Nf, 2) + ' N = ' + fm(q.Fk, 2) + ' N';
         const h2 = (st.rollers ? T({ en: 'On rollers', hr: 'Na valjcima' }) + ':  μ = ' + fm(MU_ROLL, 2) : T(q.s.label) + ':  μ_s = ' + fm(q.mus, 2) + ',  μ_k = ' + fm(q.muk, 2)) + '     t = ' + fm(st.t, 1) + ' s';
         K.text(c, h1, 10, 16, { font: fitFont(c, h1, W - 20, 14, true), color: theme.fg, baseline: 'middle' });

@@ -22,13 +22,13 @@
     title: { en: 'Free Fall', hr: 'Slobodni pad' },
     summary: {
       en: 'Drop a steel ball next to another object. Change the planet, switch the air on or off, and watch the speed graph.',
-      hr: 'Pusti čeličnu kuglicu uz drugo tijelo. Promijeni planet, uključi ili isključi zrak i prati graf brzine.'
+      hr: 'Pusti čeličnu kuglicu da pada zajedno s nekim drugim tijelom. Odaberi planet, uključi ili isključi zrak i prati graf brzine.'
     },
     tasks: [
-      { en: 'Drop the ball and the feather on Earth with air ON. Which lands first? Now switch the air OFF and try again.', hr: 'Pusti kuglicu i pero na Zemlji s UKLJUČENIM zrakom. Što prije padne? Zatim ISKLJUČI zrak i ponovi.' },
-      { en: 'Go to the Moon. Why do both objects land at the same time?', hr: 'Prebaci se na Mjesec. Zašto oba tijela padnu u istom trenutku?' },
-      { en: 'Read the speed after 1 s on Earth and on Jupiter. How many times bigger is it on Jupiter?', hr: 'Pročitaj brzinu nakon 1 s na Zemlji i na Jupiteru. Koliko je puta veća na Jupiteru?' },
-      { en: 'Look at the graph: a straight line means the speed grows evenly. When does the feather\'s line become flat?', hr: 'Pogledaj graf: ravna crta znači da brzina raste jednoliko. Kad crta pera postane vodoravna?' }
+      { en: 'Drop the ball and the feather on Earth with air ON. Which lands first? Now switch the air OFF and try again.', hr: 'Pusti kuglicu i pero na Zemlji s UKLJUČENIM zrakom. Koje tijelo prije padne? Zatim ISKLJUČI zrak i ponovi pokus.' },
+      { en: 'Go to the Moon. Why do both objects land at the same time?', hr: 'Odaberi Mjesec. Zašto oba tijela padnu istodobno?' },
+      { en: 'Read the speed after 1 s on Earth and on Jupiter. How many times bigger is it on Jupiter?', hr: 'Očitaj brzinu nakon 1 s na Zemlji i na Jupiteru. Koliko je puta veća na Jupiteru?' },
+      { en: 'Look at the graph: a straight line means the speed grows evenly. When does the feather\'s line become flat?', hr: 'Pogledaj graf: kosi pravac znači da brzina jednoliko raste. Kada graf pera postaje vodoravan?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -44,13 +44,13 @@
         onChange: v => { st.obj = OBJECTS.find(o => o.id === v); reset(); } });
       const slH = C.slider({ label: { en: 'Drop height', hr: 'Visina' }, min: 5, max: 60, step: 1, value: 20, unit: 'm', digits: 0, onChange: v => { st.h0 = v; reset(); } });
       const airToggle = C.toggle({ label: { en: 'Air resistance', hr: 'Otpor zraka' }, value: true, onChange: v => { st.air = v; reset(); } });
-      const segScale = C.segmented({ label: { en: 'Time speed', hr: 'Brzina vremena' }, options: [
+      const segScale = C.segmented({ label: { en: 'Time speed', hr: 'Brzina simulacije' }, options: [
         { value: '0.25', label: '0.25×' }, { value: '0.5', label: '0.5×' }, { value: '1', label: '1×' }], value: '0.5', onChange: v => { st.scale = parseFloat(v); } });
       const btnPlay = C.button({ label: { en: 'Drop!', hr: 'Pusti!' }, variant: 'primary', onClick: () => {
         if (st.a.landed !== null && st.b.landed !== null) { reset(); }
         L.toggle(); updatePlay();
       } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => { reset(); } });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => { reset(); } });
       const outT = C.readout({ label: { en: 'Time', hr: 'Vrijeme' }, unit: 's', digits: 2 });
       const outVA = C.readout({ label: { en: 'Ball speed', hr: 'Brzina kuglice' }, unit: 'm/s', digits: 1 });
       const outVB = C.readout({ label: { en: 'Object speed', hr: 'Brzina tijela' }, unit: 'm/s', digits: 1 });
@@ -96,7 +96,7 @@
         const noAir = !st.air || st.planet.air === 0;
         note.set(noAir
           ? { en: 'Without air every object falls with the same acceleration, g = ' + K.fmt(st.planet.g, 2, 'en') + ' m/s².', hr: 'Bez zraka sva tijela padaju istim ubrzanjem, g = ' + K.fmt(st.planet.g, 2, 'hr') + ' m/s².' }
-          : { en: 'Air pushes up on a falling object. Light, wide objects reach a steady "terminal" speed quickly.', hr: 'Zrak gura tijelo koje pada prema gore. Lagana i široka tijela brzo dosegnu stalnu "graničnu" brzinu.' });
+          : { en: 'Air pushes up on a falling object. Light, wide objects reach a steady "terminal" speed quickly.', hr: 'Zrak djeluje na tijelo koje pada silom usmjerenom prema gore (otpor zraka). Lagana i široka tijela brzo dosegnu stalnu, „graničnu“ brzinu.' });
       }
 
       function drawFeather(ctx, x, y, color) {
@@ -149,7 +149,7 @@
         K.text(ctx, K.tr({ en: 'Steel ball', hr: 'Čelična kuglica' }, lang), xA, topY - 24, { font: lblFont, color: theme.fg, align: 'center' });
         K.text(ctx, K.tr(st.obj.label, lang), xB, topY - 24, { font: lblFont, color: theme.fg, align: 'center' });
         [[st.a, xA, yA], [st.b, xB, yB]].forEach(([o, x, y]) => {
-          const s = o.landed !== null ? K.tr({ en: 'landed at ', hr: 'pao u ' }, lang) + K.fmt(o.landed, 2, lang) + ' s' : K.fmt(o.h, 1, lang) + ' m';
+          const s = o.landed !== null ? K.tr({ en: 'landed at ', hr: 'na tlu nakon ' }, lang) + K.fmt(o.landed, 2, lang) + ' s' : K.fmt(o.h, 1, lang) + ' m';
           K.text(ctx, s, x + 20, y, { font: '12px ' + theme.font, color: theme.fg, baseline: 'middle' });
           if (o.landed === null && o.v > 0.05) K.arrow(ctx, x, y + 18, x, y + 18 + Math.min(40, o.v * 3), { color: theme.fg, width: 2, head: 7 });
         });

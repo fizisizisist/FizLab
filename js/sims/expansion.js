@@ -34,15 +34,15 @@
   const BULB = 500, TUBE = 250, LEVEL0 = 8;           // thermometer: bulb 500 mm³, tube 250 mm, column 8 mm high at −10 °C
   const NOTES = {
     rails: { en: 'Rails and bridges are built with expansion gaps so that they have room to grow on a hot day. ΔL = α · L · ΔT: a longer bar, a bigger temperature change or a material with a larger α expands more.',
-      hr: 'Tračnice i mostovi grade se s dilatacijskim reznicama da se za vrućeg dana imaju kamo produljiti. ΔL = α · L · ΔT: dulja šipka, veća promjena temperature ili materijal s većim α rastežu se više.' },
+      hr: 'Tračnice i mostovi grade se s malim razmacima (dilatacijskim reškama) kako bi se za vrućeg dana imali kamo produljiti. ΔL = α · L · ΔT: šipka se rasteže više ako je dulja, ako joj se temperatura više promijeni ili ako je od materijala s većim α.' },
     bimetal: { en: 'Two metals are bonded together. When heated, one expands more than the other, so the strip must bend: toward the metal that expands less. A thermostat uses this bending to switch a heater off and on.',
-      hr: 'Dva su metala čvrsto spojena. Pri zagrijavanju jedan se rasteže više od drugoga pa se traka mora saviti: prema metalu koji se rasteže manje. Termostat tim savijanjem isključuje i uključuje grijač.' },
+      hr: 'Dva su metala čvrsto spojena. Pri zagrijavanju jedan se rasteže više od drugoga pa se traka mora saviti: prema metalu koji se rasteže manje. Termostat zahvaljujući tom savijanju isključuje i uključuje grijač.' },
     ball: { en: 'A hole expands exactly as if it were filled with the same metal: a heated ring gets wider, not narrower. That is why a tight metal lid loosens under hot water.',
       hr: 'Otvor se širi točno kao da je ispunjen istim metalom: zagrijani prsten postaje širi, a ne uži. Zato se čvrsto zatvoren metalni poklopac olabavi pod vrućom vodom.' },
     thermo: { en: 'The liquid expands much more than the glass, so it climbs up the thin tube. Calibrating: mark the column in ice water (0 °C) and in boiling water (100 °C), then divide the distance into 100 equal parts.',
-      hr: 'Tekućina se širi mnogo više od stakla pa se penje uz tanku cjevčicu. Baždarenje: označi stupac u vodi s ledom (0 °C) i u kipućoj vodi (100 °C) pa razmak podijeli na 100 jednakih dijelova.' },
+      hr: 'Tekućina se širi mnogo više od stakla pa se penje u tankoj cjevčici. Baždarenje: označi vrh stupca u vodi s ledom (0 °C) i u kipućoj vodi (100 °C) pa razmak podijeli na 100 jednakih dijelova.' },
     air: { en: 'Gases expand much more than liquids and solids. At constant pressure the volume of the air grows in step with its temperature in kelvin (V ∝ T), so the warm air needs more room and inflates the balloon.',
-      hr: 'Plinovi se šire mnogo više od tekućina i čvrstih tijela. Uz stalan tlak obujam zraka raste razmjerno temperaturi u kelvinima (V ∝ T), pa topli zrak treba više mjesta i napuhuje balon.' }
+      hr: 'Plinovi se šire mnogo više od tekućina i čvrstih tijela. Pri stalnom tlaku obujam zraka raste razmjerno temperaturi u kelvinima (V ∝ T), pa topli zrak treba više mjesta i napuhuje balon.' }
   };
   function rgbOf(col) {
     col = (col || '#888').trim();
@@ -59,16 +59,16 @@
 
   window.Sims.register({
     id: 'expansion',
-    title: { en: 'Thermal Expansion', hr: 'Toplinsko širenje' },
+    title: { en: 'Thermal Expansion', hr: 'Toplinsko rastezanje' },
     summary: {
       en: 'Heat things up and watch them grow: a rail that needs a gap, a bimetal strip that bends, a ball that no longer fits its ring, a thermometer you calibrate yourself and a balloon on a warm bottle.',
-      hr: 'Zagrij tijela i gledaj kako se šire: tračnica kojoj treba reznica, bimetalna traka koja se savija, kuglica koja više ne prolazi kroz prsten, termometar koji baždariš sam i balon na toploj boci.'
+      hr: 'Zagrij tijela i promatraj kako se šire: tračnica kojoj treba razmak, bimetalna traka koja se savija, kuglica koja više ne prolazi kroz prsten, termometar koji sam baždariš i balon na toploj boci.'
     },
     tasks: [
-      { en: 'Rails: a 25 m steel rail warms from 20 °C to 60 °C. How many millimetres does it grow? How big must the gap be so that it never buckles?', hr: 'Tračnice: čelična tračnica duga 25 m zagrije se s 20 °C na 60 °C. Za koliko se milimetara produlji? Kolika mora biti reznica da se nikad ne izvije?' },
+      { en: 'Rails: a 25 m steel rail warms from 20 °C to 60 °C. How many millimetres does it grow? How big must the gap be so that it never buckles?', hr: 'Tračnice: čelična tračnica duga 25 m zagrije se s 20 °C na 60 °C. Za koliko se milimetara produlji? Koliki mora biti razmak da se tračnica nikad ne izvije?' },
       { en: 'Bimetal strip: which pair of metals bends the most? Switch the thermostat on and explain the zigzag graph.', hr: 'Bimetalna traka: koji se par metala najviše savija? Uključi termostat i objasni cik-cak graf.' },
       { en: 'Ball and ring: the hot ball is stuck. What can you do so that it passes again without cooling the ball?', hr: 'Kuglica i prsten: vruća kuglica je zapela. Što možeš učiniti da opet prođe, a da ne hladiš kuglicu?' },
-      { en: 'Thermometer: mark 0 °C and 100 °C, then make the tube thinner. What happens to the scale, and why are real tubes so thin?', hr: 'Termometar: označi 0 °C i 100 °C pa stanji cjevčicu. Što se dogodi s ljestvicom i zašto su prave cjevčice tako tanke?' }
+      { en: 'Thermometer: mark 0 °C and 100 °C, then make the tube thinner. What happens to the scale, and why are real tubes so thin?', hr: 'Termometar: označi 0 °C i 100 °C pa stanji cjevčicu. Što se dogodi s ljestvicom i zašto su cjevčice pravih termometara tako tanke?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -90,7 +90,7 @@
       const selMat = C.select({ label: { en: 'Material', hr: 'Materijal' }, options: MATS.map(m => ({ value: m.id, label: m.label })), value: 'steel',
         onChange: v => { st.r.mat = MATS.find(m => m.id === v) || MATS[0]; refresh(); } });
       const slDT = C.slider({ label: { en: 'Temperature change ΔT (from 20 °C)', hr: 'Promjena temperature ΔT (od 20 °C)' }, min: -30, max: 60, step: 1, value: 0, unit: '°C', digits: 0, onChange: v => { st.r.dT = v; refresh(); } });
-      const slGap = C.slider({ label: { en: 'Expansion gap at 20 °C', hr: 'Dilatacijska reznica pri 20 °C' }, min: 0, max: 50, step: 1, value: 10, unit: 'mm', digits: 0, onChange: v => { st.r.gap = v; refresh(); } });
+      const slGap = C.slider({ label: { en: 'Expansion gap at 20 °C', hr: 'Dilatacijski razmak pri 20 °C' }, min: 0, max: 50, step: 1, value: 10, unit: 'mm', digits: 0, onChange: v => { st.r.gap = v; refresh(); } });
       const selPair = C.select({ label: { en: 'Two metals (top + bottom)', hr: 'Dva metala (gornji + donji)' }, options: PAIRS.map(p => ({ value: p.id, label: p.label })), value: PAIRS[0].id,
         onChange: v => { st.b.pair = PAIRS.find(p => p.id === v) || PAIRS[0]; refresh(); } });
       const slTb = C.slider({ label: { en: 'Temperature of the strip', hr: 'Temperatura trake' }, min: -20, max: 200, step: 5, value: T_REF, unit: '°C', digits: 0, onChange: v => { if (!st.b.thermo) st.b.T = v; refresh(); } });
@@ -101,7 +101,7 @@
       const btnCool = C.button({ label: { en: 'Cool both', hr: 'Ohladi oboje' }, onClick: () => { st.g.tgtB = st.g.tgtR = T_REF; st.g.result = ''; kick(); } });
       const btnTry = C.button({ label: { en: 'Try!', hr: 'Probaj!' }, onClick: () => { st.g.ta = 0; st.g.fits = ballD() < holeD(); st.g.result = ''; kick(); } });
       const slTt = C.slider({ label: { en: 'Temperature of the bath', hr: 'Temperatura kupke' }, min: -10, max: 110, step: 1, value: T_REF, unit: '°C', digits: 0, onChange: v => { st.t.T = v; refresh(); } });
-      const slTube = C.slider({ label: { en: 'Tube thickness (inside)', hr: 'Debljina cjevčice (iznutra)' }, min: 0.3, max: 1.2, step: 0.1, value: 0.6, unit: 'mm', digits: 1,
+      const slTube = C.slider({ label: { en: 'Tube thickness (inside)', hr: 'Unutarnji promjer cjevčice' }, min: 0.3, max: 1.2, step: 0.1, value: 0.6, unit: 'mm', digits: 1,
         onChange: v => { st.t.d = v; st.t.m0 = st.t.m100 = null; refresh(); } });
       const selLiq = C.select({ label: { en: 'Liquid', hr: 'Tekućina' }, options: LIQUIDS.map(l => ({ value: l.id, label: l.label })), value: 'alcohol',
         onChange: v => { st.t.liq = LIQUIDS.find(l => l.id === v) || LIQUIDS[0]; st.t.m0 = st.t.m100 = null; refresh(); } });
@@ -109,11 +109,11 @@
       const btnM100 = C.button({ label: { en: 'Mark 100 °C', hr: 'Označi 100 °C' }, onClick: () => mark(100) });
       const slTa = C.slider({ label: { en: 'Water in the bowl', hr: 'Voda u posudi' }, min: 0, max: 90, step: 1, value: T_REF, unit: '°C', digits: 0, onChange: v => { st.a.T = v; kick(); refresh(); } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outT = C.readout({ label: { en: 'Temperature', hr: 'Temperatura' }, unit: '°C', digits: 0 });
       const outDL = C.readout({ label: { en: 'Change in length ΔL', hr: 'Promjena duljine ΔL' }, unit: 'mm', digits: 1 });
       const outLen = C.readout({ label: { en: 'New length', hr: 'Nova duljina' }, unit: 'm', digits: 4 });
-      const outGap = C.readout({ label: { en: 'Gap left', hr: 'Preostala reznica' }, unit: 'mm', digits: 1 });
+      const outGap = C.readout({ label: { en: 'Gap left', hr: 'Preostali razmak' }, unit: 'mm', digits: 1 });
       const outDefl = C.readout({ label: { en: 'Tip moves (10 cm strip)', hr: 'Pomak vrha (traka 10 cm)' }, unit: 'mm', digits: 1 });
       const outToward = C.readout({ label: { en: 'Bends toward', hr: 'Savija se prema' } });
       const outHeat = C.readout({ label: { en: 'Heater of the iron', hr: 'Grijač glačala' } });
@@ -219,11 +219,11 @@
         } else if (m === 'bimetal') {
           const d = tipMm(b.T);
           outT.set(b.T); outDefl.set(Math.abs(d));
-          outToward.set(Math.abs(b.T - T_REF) < 1 ? { en: 'straight', hr: 'ravna je' } : labelOf(b.T > T_REF ? b.pair.top : b.pair.bot));
+          outToward.set(Math.abs(b.T - T_REF) < 1 ? { en: 'straight', hr: 'ne savija se' } : labelOf(b.T > T_REF ? b.pair.top : b.pair.bot));
           outHeat.set(b.on ? { en: 'ON', hr: 'UKLJUČEN' } : { en: 'OFF', hr: 'ISKLJUČEN' });
         } else if (m === 'ball') {
           outBall.set(ballD()); outHole.set(holeD());
-          outRes.set(st.g.result === 'pass' ? { en: 'yes, it passes', hr: 'da, prolazi' } : st.g.result === 'stuck' ? { en: 'no, it is stuck', hr: 'ne, zapela je' } : { en: 'press Try!', hr: 'pritisni Probaj!' });
+          outRes.set(st.g.result === 'pass' ? { en: 'yes, it passes', hr: 'da, prolazi' } : st.g.result === 'stuck' ? { en: 'no, it is stuck', hr: 'ne, zapela je' } : { en: 'press Try!', hr: 'pritisni „Probaj!“' });
           outRes.setColor(st.g.result === 'pass' ? theme.good : st.g.result === 'stuck' ? theme.warn : '');
         } else if (m === 'thermo') {
           const over = level(t.T) > TUBE;
@@ -294,7 +294,7 @@
         }
         fit(c, 'ΔL = ' + signed(dL, 1, lang) + ' mm', K.clamp(xE0, 110, w - 70), by - 50, 200, { size: 14, bold: true, align: 'center' });
         K.text(c, 'L = ' + fm(r.L, 0) + ' m', (xA + xE0) / 2, by + 48, { font: '12px ' + theme.font, color: theme.fg, align: 'center', baseline: 'middle' });
-        fit(c, tr({ en: 'gap: ', hr: 'reznica: ' }) + fm(buckled ? 0 : r.gap - dL, 1) + ' mm', Math.min(w - 8, xB + 40), by + 64, 160, { size: 12, align: 'right' });
+        fit(c, tr({ en: 'gap: ', hr: 'razmak: ' }) + fm(buckled ? 0 : r.gap - dL, 1) + ' mm', Math.min(w - 8, xB + 40), by + 64, 160, { size: 12, align: 'right' });
         thermoIcon(c, w - 30, 14, 14 + Math.min(74, h * 0.2), T, -10, 80);
         // formula with the current numbers
         head(c, tr(r.mat.label) + ' · α = ' + fm(a, 6) + tr({ en: ' per °C', hr: ' po °C' }), w - 50);
@@ -304,7 +304,7 @@
         fit(c, one ? f1 + ' ' + f2 : f1, 12, 36, w - 80, { size: 13 });
         if (!one) fit(c, f2, 12, 53, w - 80, { size: 13 });
         const sy = one ? 55 : 71;
-        if (buckled) fit(c, tr({ en: 'The rail buckles: the gap is too small!', hr: 'Tračnica se izvija: reznica je premala!' }), 12, sy, w - 80, { size: 13, bold: true, color: theme.warn });
+        if (buckled) fit(c, tr({ en: 'The rail buckles: the gap is too small!', hr: 'Tračnica se izvija: razmak je premalen!' }), 12, sy, w - 80, { size: 13, bold: true, color: theme.warn });
         else fit(c, tr({ en: 'Temperature: ', hr: 'Temperatura: ' }) + fm(T, 0) + ' °C', 12, sy, w - 80, { size: 12, color: theme.muted });
         foot(c, { en: 'Not to scale: the change in length is drawn much bigger than it really is.', hr: 'Nije u mjerilu: promjena duljine nacrtana je mnogo veća nego što stvarno jest.' }, h, w);
       }
@@ -441,7 +441,7 @@
         fit(c, tr({ en: 'bath: ', hr: 'kupka: ' }) + fm(t.T, 0) + ' °C', 12, 70, tw, { size: 12, bold: true });
         const msg = over ? { en: 'The liquid overflows! Use a thicker tube.', hr: 'Tekućina se prelijeva! Uzmi deblju cjevčicu.' }
           : both ? { en: '0 to 100 °C divided into 100 equal parts', hr: 'Od 0 do 100 °C podijeljeno na 100 jednakih dijelova' }
-            : t.m0 === null && t.m100 === null ? { en: 'Mark 0 °C and 100 °C to make a scale', hr: 'Označi 0 °C i 100 °C da napraviš ljestvicu' } : { en: 'One mark made. Now the other one.', hr: 'Jedna oznaka je tu. Sada druga.' };
+            : t.m0 === null && t.m100 === null ? { en: 'Mark 0 °C and 100 °C to make a scale', hr: 'Označi 0 °C i 100 °C da izradiš ljestvicu' } : { en: 'One mark made. Now the other one.', hr: 'Jedna je oznaka postavljena. Sada označi drugu.' };
         if (slim) foot(c, msg, h, w); else fit(c, tr(msg), w - 12, 36, w * 0.36, { size: 12, align: 'right', bold: over, color: over ? theme.warn : theme.muted });
         if (over) { c.fillStyle = liq; c.beginPath(); c.arc(x, yTop - 10, 5, 0, Math.PI * 2); c.fill(); }
       }

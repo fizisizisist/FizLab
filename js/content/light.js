@@ -9,7 +9,7 @@
     title: { en: 'Light', hr: 'Svjetlost' },
     intro: {
       en: 'Light races at 300 000 km/s, bounces off mirrors, bends in water and hides a whole rainbow inside every sunbeam. Learn how it lets you see the world.',
-      hr: 'Svjetlost juri brzinom od 300 000 km/s, odbija se od zrcala, lomi se u vodi i u svakoj sunčevoj zraci skriva cijelu dugu. Nauči kako ti omogućuje da vidiš svijet.'
+      hr: 'Svjetlost juri brzinom od 300 000 km/s, odbija se od zrcala, lomi se u vodi i u svakoj Sunčevoj zraci skriva cijelu dugu. Saznaj kako ti ona omogućuje da vidiš svijet.'
     },
     sims: ['light', 'color', 'lens', 'eclipse'],
 
@@ -23,14 +23,14 @@
             'For the enormous distances between stars, astronomers use the light year: the distance light travels in one year, about 9.5 trillion kilometres. The nearest star after the Sun is 4.2 light years away. Its light left more than four years ago and only now arrives at your eye.'
           ],
           hr: [
-            'Neke stvari stvaraju vlastitu svjetlost: Sunce i druge zvijezde, plamen svijeće, žarulja, zaslon mobitela, krijesnica. To su izvori svjetlosti. Većina stvari oko tebe nisu izvori. Knjigu, drvo ili Mjesec vidiš samo zato što se svjetlost iz nekog izvora odbije od njih i stigne do tvojih očiju. Mjesec nema vlastite svjetlosti; sjaji odbijenom Sunčevom svjetlošću.',
-            'Svjetlost se širi pravocrtno. Ne možeš vidjeti iza ugla, a snop džepne svjetiljke u magli izgleda ravno kao ravnalo. Svjetlost je i nevjerojatno brza: oko 300 000 kilometara svake sekunde, dovoljno brzo da u jednoj sekundi sedam puta obiđe Zemlju. Ipak, Sunce je toliko daleko da njegovoj svjetlosti treba oko 8 minuta do nas. Kad pogledaš Sunce (nikad izravno!), vidiš ga kakvo je bilo prije 8 minuta.',
-            'Za goleme udaljenosti među zvijezdama astronomi koriste svjetlosnu godinu: udaljenost koju svjetlost prijeđe za godinu dana, oko 9,5 bilijuna kilometara. Nama najbliža zvijezda nakon Sunca udaljena je 4,2 svjetlosne godine. Njezina svjetlost krenula je prije više od četiri godine i tek sada stiže do tvog oka.'
+            'Neka tijela stvaraju vlastitu svjetlost: Sunce i druge zvijezde, plamen svijeće, žarulja, zaslon mobitela, krijesnica. To su izvori svjetlosti. Većina tijela oko tebe nije izvor svjetlosti. Knjigu, drvo ili Mjesec vidiš samo zato što se svjetlost iz nekog izvora odbije od njih i stigne do tvojih očiju. Mjesec nema vlastite svjetlosti; sjaji odbijenom Sunčevom svjetlošću.',
+            'Svjetlost se širi pravocrtno. Ne možeš vidjeti iza ugla, a snop džepne svjetiljke u magli izgleda ravno kao ravnalo. Svjetlost je i nevjerojatno brza: oko 300 000 kilometara u sekundi, dovoljno brzo da u jednoj sekundi sedam puta obiđe Zemlju. Ipak, Sunce je toliko daleko da njegova svjetlost do nas putuje oko 8 minuta. Kad pogledaš Sunce (nikad izravno!), vidiš ga kakvo je bilo prije 8 minuta.',
+            'Za goleme udaljenosti među zvijezdama astronomi se služe svjetlosnom godinom: udaljenost koju svjetlost prijeđe za godinu dana, oko 9,5 bilijuna kilometara. Nama najbliža zvijezda nakon Sunca udaljena je 4,2 svjetlosne godine. Njezina svjetlost krenula je prije više od četiri godine i tek sada stiže do tvog oka.'
           ]
         }
       },
       {
-        h: { en: 'Transparent, translucent, opaque: shadows and eclipses', hr: 'Prozirno, prozračno, neprozirno: sjene i pomrčine' },
+        h: { en: 'Transparent, translucent, opaque: shadows and eclipses', hr: 'Prozirno, poluprozirno, neprozirno: sjene i pomrčine' },
         p: {
           en: [
             'Materials treat light in three ways. Transparent materials, like clear glass, water and air, let light pass straight through, so you can see objects behind them clearly. Translucent materials, like frosted glass, thin paper or a plastic milk bottle, let light through but scatter it, so you see only a blur. Opaque materials, like wood, metal and your body, block light completely.',
@@ -38,7 +38,7 @@
             'Eclipses are shadows in space. In a solar eclipse the Moon passes between the Sun and the Earth, and its shadow falls on a small part of the Earth, where the day turns briefly dark. In a lunar eclipse the Earth is between the Sun and the Moon, and the Moon moves into the Earth’s shadow, turning a dim copper red.'
           ],
           hr: [
-            'Tvari propuštaju svjetlost na tri načina. Prozirne tvari, poput čistog stakla, vode i zraka, propuštaju svjetlost ravno, pa predmete iza njih vidiš jasno. Prozračne tvari, poput mutnog stakla, tankog papira ili plastične boce za mlijeko, propuštaju svjetlost, ali je raspršuju, pa vidiš samo mutne obrise. Neprozirne tvari, poput drva, metala i tvog tijela, potpuno zaustavljaju svjetlost.',
+            'Prema tome kako propuštaju svjetlost, tvari dijelimo u tri skupine. Prozirne tvari, poput čistog stakla, vode i zraka, propuštaju svjetlost bez raspršivanja, pa predmete iza njih vidiš jasno. Poluprozirne tvari, poput mutnog stakla, tankog papira ili plastične boce za mlijeko, propuštaju svjetlost, ali je raspršuju, pa vidiš samo mutne obrise. Neprozirne tvari, poput drva, metala i tvog tijela, potpuno zaustavljaju svjetlost.',
             'Budući da se svjetlost širi pravocrtno, neprozirno tijelo je zaustavi i iza sebe ostavi tamno područje: sjenu. Mali izvor svjetlosti daje oštru sjenu, a veliki sjenu s mutnim rubovima. Tvoja je sjena duga ujutro i navečer, kad je Sunce nisko, a najkraća u podne.',
             'Pomrčine su sjene u svemiru. Kod pomrčine Sunca Mjesec prolazi između Sunca i Zemlje, a njegova sjena pada na mali dio Zemlje, gdje dan nakratko potamni. Kod pomrčine Mjeseca Zemlja je između Sunca i Mjeseca, pa Mjesec ulazi u Zemljinu sjenu i poprima tamnu bakrenocrvenu boju.'
           ]
@@ -53,9 +53,9 @@
             'Why can you not see your face in a sheet of paper? Paper looks smooth but is rough on a tiny scale. Each ray still obeys the law of reflection, but the surface points in all directions, so the rays scatter everywhere. This diffuse reflection is what lets you see the paper from any angle. Only very smooth surfaces, like polished metal, glass or still water, reflect like a mirror.'
           ],
           hr: [
-            'Kad svjetlost udari u površinu, odbija se. Pravilo je jednostavno. Zamisli okomicu na površinu u točki u koju zraka upada. Kut između upadne zrake i okomice, upadni kut, uvijek je jednak kutu između odbijene zrake i okomice, kutu odbijanja. Zraka koja upada pod 30° odbija se pod 30°, kao lopta koja se odbija od zida.',
-            'Ravno zrcalo odbija sve zrake uredno, pa vidiš jasnu sliku. Slika se čini iza zrcala, točno jednako daleko iza njega koliko si ti ispred, i jednako je velika kao ti. Zove se virtualna slika jer svjetlost zapravo ne dolazi iza zrcala; tvoj mozak samo produži zrake unatrag po pravcima. Slika je i zamijenjena sprijeda-straga, zato tekst u zrcalu izgleda naopako.',
-            'Zašto svoje lice ne možeš vidjeti u listu papira? Papir izgleda glatko, ali je na sitnoj ljestvici hrapav. Svaka zraka i dalje slijedi zakon odbijanja, ali površina je okrenuta na sve strane, pa se zrake rasprše u svim smjerovima. To raspršeno odbijanje omogućuje ti da papir vidiš iz bilo kojeg kuta. Samo vrlo glatke površine, poput poliranog metala, stakla ili mirne vode, odbijaju svjetlost poput zrcala.'
+            'Kad svjetlost padne na površinu, odbija se od nje. Pravilo je jednostavno. Zamisli okomicu na površinu u točki u koju zraka upada. Kut između upadne zrake i okomice (upadni kut) uvijek je jednak kutu između odbijene zrake i okomice (kutu odbijanja). Zraka koja upada pod 30° odbija se pod 30°, kao lopta koja se odbija od zida.',
+            'Ravno zrcalo pravilno odbija sve zrake, pa vidiš jasnu sliku. Čini se da je slika iza zrcala, točno onoliko iza njega koliko si ti ispred njega, i jednako je velika kao ti. Zove se virtualna slika jer svjetlost zapravo ne dolazi iz prostora iza zrcala; mozak samo produžuje zrake unatrag u ravnim crtama. Slika je i obrnuta sprijeda prema straga, zato natpis u zrcalu izgleda obrnuto.',
+            'Zašto svoje lice ne možeš vidjeti u listu papira? Papir izgleda glatko, ali je pod mikroskopom hrapav. Svaka zraka i dalje slijedi zakon odbijanja, ali su sitni dijelovi površine okrenuti na sve strane, pa se zrake rasprše u svim smjerovima. To raspršeno (difuzno) odbijanje omogućuje ti da papir vidiš iz bilo kojeg kuta. Samo vrlo glatke površine, poput poliranog metala, stakla ili mirne vode, odbijaju svjetlost poput zrcala.'
           ]
         },
         svg: '<svg viewBox="0 0 420 130" role="img"><defs><marker id="lt-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker></defs><rect x="60" y="108" width="300" height="10" fill="var(--surface2)" stroke="var(--fg)" stroke-width="2"/><line x1="210" y1="108" x2="210" y2="15" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 4"/><line x1="90" y1="28" x2="206" y2="105" stroke="var(--c5)" stroke-width="3" marker-end="url(#lt-ar)"/><line x1="210" y1="108" x2="326" y2="31" stroke="var(--c5)" stroke-width="3" marker-end="url(#lt-ar)"/><path d="M210,60 A48,48 0 0 0 180,67" fill="none" stroke="var(--c1)" stroke-width="2"/><path d="M210,60 A48,48 0 0 1 240,67" fill="none" stroke="var(--c1)" stroke-width="2"/><text x="186" y="50" text-anchor="middle" fill="var(--fg)" font-family="inherit" font-size="14" font-weight="700">α</text><text x="236" y="50" text-anchor="middle" fill="var(--fg)" font-family="inherit" font-size="14" font-weight="700">β</text><text x="330" y="100" text-anchor="middle" fill="var(--fg)" font-family="inherit" font-size="13" font-weight="700">α = β</text></svg>'
@@ -68,14 +68,14 @@
             'A lens is a curved piece of glass or plastic shaped to bend light in a useful way. A converging lens is thicker in the middle. It bends parallel rays inward so that they meet at one point, the focus. Hold a magnifying glass in sunlight and you can gather the Sun’s rays into one bright, hot spot. A diverging lens is thinner in the middle and spreads rays apart, making things look smaller.'
           ],
           hr: [
-            'Svjetlost putuje malo sporije kroz vodu ili staklo nego kroz zrak. Kad zraka prelazi iz jednog sredstva u drugo pod nekim kutom, ta promjena brzine je skrene. To zovemo lom svjetlosti. Zato slamka u čaši vode izgleda slomljeno na površini, zato bazen izgleda plići nego što jest i zato riba pod vodom nije baš ondje gdje se čini da jest.',
-            'Leća je zakrivljeni komad stakla ili plastike oblikovan tako da korisno lomi svjetlost. Konvergentna (sabirna) leća deblja je u sredini. Ona usporedne zrake lomi prema unutra tako da se sastanu u jednoj točki, žarištu. Drži povećalo na suncu i možeš skupiti Sunčeve zrake u jednu svijetlu, vruću točku. Divergentna (rastresna) leća tanja je u sredini i razdvaja zrake, pa predmeti kroz nju izgledaju manji.'
+            'Svjetlost putuje malo sporije kroz vodu ili staklo nego kroz zrak. Kad zraka koso prelazi iz jednog sredstva u drugo, zbog promjene brzine promijeni smjer. To zovemo lomom svjetlosti. Zato slamka u čaši vode izgleda kao da je na površini vode prelomljena, zato bazen izgleda plići nego što jest i zato riba pod vodom nije baš ondje gdje se čini da jest.',
+            'Leća je prozirno tijelo od stakla ili plastike sa zakrivljenim plohama, oblikovano tako da lomi svjetlost na koristan način. Sabirna (konvergentna) leća deblja je u sredini. Usporedne zrake lomi tako da se sastanu u jednoj točki, žarištu. Držiš li povećalo na suncu, možeš skupiti Sunčeve zrake u jednu svijetlu, vruću točku. Rastresna (divergentna) leća tanja je u sredini i raspršuje zrake, pa predmeti kroz nju izgledaju manji.'
           ]
         },
         svg: '<svg viewBox="0 0 420 120" role="img"><line x1="20" y1="60" x2="400" y2="60" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 4"/><line x1="30" y1="25" x2="200" y2="25" stroke="var(--c5)" stroke-width="3"/><line x1="30" y1="42" x2="200" y2="42" stroke="var(--c5)" stroke-width="3"/><line x1="30" y1="78" x2="200" y2="78" stroke="var(--c5)" stroke-width="3"/><line x1="30" y1="95" x2="200" y2="95" stroke="var(--c5)" stroke-width="3"/><line x1="200" y1="25" x2="330" y2="60" stroke="var(--c5)" stroke-width="3"/><line x1="200" y1="42" x2="330" y2="60" stroke="var(--c5)" stroke-width="3"/><line x1="200" y1="78" x2="330" y2="60" stroke="var(--c5)" stroke-width="3"/><line x1="200" y1="95" x2="330" y2="60" stroke="var(--c5)" stroke-width="3"/><line x1="330" y1="60" x2="400" y2="40" stroke="var(--c5)" stroke-width="2"/><line x1="330" y1="60" x2="400" y2="80" stroke="var(--c5)" stroke-width="2"/><path d="M200,10 C224,30 224,90 200,110 C176,90 176,30 200,10 z" fill="var(--c3)" fill-opacity="0.5" stroke="var(--fg)" stroke-width="2"/><circle cx="330" cy="60" r="4" fill="var(--c1)"/><text x="330" y="82" text-anchor="middle" fill="var(--fg)" font-family="inherit" font-size="14" font-weight="700">F</text></svg>'
       },
       {
-        h: { en: 'The eye, glasses and optical instruments', hr: 'Oko, naočale i optičke sprave' },
+        h: { en: 'The eye, glasses and optical instruments', hr: 'Oko, naočale i optički instrumenti' },
         p: {
           en: [
             'Your eye is a camera made of living tissue. Light enters through the clear cornea and the pupil, the black hole in the middle. The lens behind it is a converging lens that bends the light to form a sharp, upside-down image on the retina at the back of the eye. The retina turns the picture into signals, and the brain flips it the right way up. Small muscles change the shape of the lens to focus on near or far things.',
@@ -83,9 +83,9 @@
             'A magnifying glass is a single converging lens held close to a small object, making it look bigger. A camera uses a lens to form a small sharp image on a sensor, just as the eye does on the retina. Microscopes and telescopes combine several lenses, letting us see bacteria and the moons of Jupiter.'
           ],
           hr: [
-            'Tvoje oko je fotoaparat od živog tkiva. Svjetlost ulazi kroz prozirnu rožnicu i zjenicu, crnu rupicu u sredini. Očna leća iza nje je konvergentna leća koja lomi svjetlost i na mrežnici na stražnjoj strani oka stvara oštru, obrnutu sliku. Mrežnica pretvara sliku u signale, a mozak je okrene kako treba. Sitni mišići mijenjaju oblik leće da bi oko izoštrilo bliske ili daleke predmete.',
-            'Ako je oko malo predugačko ili leća prejako lomi svjetlost, daleki se predmeti izoštre ispred mrežnice i izgledaju mutno: to je kratkovidnost, koja se ispravlja divergentnim lećama u naočalama. Ako je oko prekratko, bliski se predmeti izoštre iza mrežnice: to je dalekovidnost, koja se ispravlja konvergentnim lećama. Naočale za čitanje koje nose bake i djedovi također su konvergentne leće.',
-            'Povećalo je jedna konvergentna leća koju držimo blizu malog predmeta da bi izgledao veći. Fotoaparat lećom stvara malu oštru sliku na senzoru, baš kao oko na mrežnici. Mikroskopi i teleskopi spajaju više leća i omogućuju nam da vidimo bakterije i Jupiterove mjesece.'
+            'Oko je poput fotoaparata od živog tkiva. Svjetlost ulazi kroz prozirnu rožnicu i zjenicu, crni otvor u sredini oka. Očna leća iza zjenice sabirna je leća koja lomi svjetlost i na mrežnici, na stražnjoj strani oka, stvara oštru, obrnutu sliku. Mrežnica pretvara sliku u signale, a mozak je okrene u pravi položaj. Sitni mišići mijenjaju oblik leće kako bi oko jasno vidjelo bliske ili daleke predmete.',
+            'Ako je oko malo predugo ili leća prejako lomi svjetlost, slika dalekih predmeta nastaje ispred mrežnice, pa ih vidimo mutno: to je kratkovidnost, koja se ispravlja rastresnim lećama u naočalama. Ako je oko prekratko, slika bliskih predmeta nastaje iza mrežnice: to je dalekovidnost, koja se ispravlja sabirnim lećama. I u naočalama za čitanje koje nose bake i djedovi su sabirne leće.',
+            'Povećalo je jedna sabirna leća koju držimo blizu malog predmeta kako bi izgledao veći. Fotoaparat lećom stvara malu oštru sliku na senzoru, baš kao oko na mrežnici. U mikroskopima i teleskopima kombinira se više leća, pa možemo vidjeti bakterije i Jupiterove mjesece.'
           ]
         }
       },
@@ -98,27 +98,27 @@
             'Mixing light and mixing paint work differently. Screens mix red, green and blue light: all three together make white, and by varying their brightness a phone screen produces every colour you see. Paints and inks instead absorb light, so mixing many of them takes more and more colours away and ends in a muddy brown or black. And the sky is blue because the air scatters blue sunlight in all directions much more than red.'
           ],
           hr: [
-            'Bijela Sunčeva svjetlost izgleda obično, ali je mješavina svih boja. Isaac Newton to je pokazao 1666. godine pustivši tanak snop sunčeve svjetlosti kroz staklenu prizmu: snop se raširio u vrpcu crvene, narančaste, žute, zelene, plave, modre (indigo) i ljubičaste boje. Kapi kiše čine isto sa sunčevom svjetlošću, zato vidimo dugu kad nam Sunce sja iza leđa na kišu koja pada.',
-            'Predmeti imaju boju zbog toga koje boje odbijaju, a koje upijaju. Crvena jabuka upija većinu boja, a prema tvom oku odbija uglavnom crvenu. Bijela majica odbija sve boje; crna ih sve upija, zato se crna odjeća na suncu jako ugrije. Osvijetli crvenu jabuku samo plavom svjetlošću i izgledat će gotovo crna, jer nema crvene koju bi odbila.',
-            'Miješanje svjetlosti i miješanje boja za slikanje ne rade jednako. Zasloni miješaju crvenu, zelenu i plavu svjetlost: sve tri zajedno daju bijelu, a mijenjajući njihov sjaj zaslon mobitela stvara svaku boju koju vidiš. Boje za slikanje i tinte, naprotiv, upijaju svjetlost, pa miješanje mnogih od njih oduzima sve više boja i završava u blatnjavosmeđoj ili crnoj. A nebo je plavo zato što zrak raspršuje plavu sunčevu svjetlost na sve strane mnogo jače nego crvenu.'
+            'Bijela Sunčeva svjetlost izgleda obično, ali je mješavina svih boja. Isaac Newton to je pokazao 1666. godine propustivši tanak snop Sunčeve svjetlosti kroz staklenu prizmu: snop se raširio u vrpcu crvene, narančaste, žute, zelene, plave, modre (indigo) i ljubičaste boje. Isto čine i kišne kapi, pa dugu vidimo kad nam je Sunce iza leđa, a ispred nas pada kiša.',
+            'Predmeti imaju boju zbog toga koje boje odbijaju, a koje upijaju. Crvena jabuka upija većinu boja, a prema tvom oku odbija uglavnom crvenu. Bijela majica odbija sve boje; crna ih sve upija, zato se crna odjeća na suncu jako ugrije. Osvijetliš li crvenu jabuku samo plavom svjetlošću, izgledat će gotovo crno, jer nema crvene svjetlosti koju bi odbila.',
+            'Miješanje svjetlosti i miješanje boja za slikanje nisu isto. Zasloni miješaju crvenu, zelenu i plavu svjetlost: sve tri zajedno daju bijelu, a mijenjanjem njihova sjaja zaslon mobitela stvara sve boje koje vidiš. Boje za slikanje i tinte, naprotiv, upijaju svjetlost, pa se miješanjem mnogo boja oduzima sve više svjetlosti i na kraju se dobije prljavosmeđa ili crna boja. A nebo je plavo zato što zrak raspršuje plavu Sunčevu svjetlost na sve strane mnogo jače nego crvenu.'
           ]
         }
       }
     ],
 
     keyTerms: [
-      { term: { en: 'light source', hr: 'izvor svjetlosti' }, def: { en: 'Something that makes its own light: the Sun, a flame, a bulb. The Moon is not one; it reflects sunlight.', hr: 'Nešto što stvara vlastitu svjetlost: Sunce, plamen, žarulja. Mjesec nije izvor; on odbija Sunčevu svjetlost.' } },
+      { term: { en: 'light source', hr: 'izvor svjetlosti' }, def: { en: 'Something that makes its own light: the Sun, a flame, a bulb. The Moon is not one; it reflects sunlight.', hr: 'Tijelo koje stvara vlastitu svjetlost: Sunce, plamen, žarulja. Mjesec nije izvor; on odbija Sunčevu svjetlost.' } },
       { term: { en: 'light year', hr: 'svjetlosna godina' }, def: { en: 'The distance light travels in one year, about 9.5 trillion km. A unit of distance, not time.', hr: 'Udaljenost koju svjetlost prijeđe za jednu godinu, oko 9,5 bilijuna km. Jedinica za udaljenost, ne za vrijeme.' } },
       { term: { en: 'shadow', hr: 'sjena' }, def: { en: 'The dark region behind an opaque object that blocks light travelling in straight lines.', hr: 'Tamno područje iza neprozirnog tijela koje zaustavlja svjetlost što se širi pravocrtno.' } },
       { term: { en: 'eclipse', hr: 'pomrčina' }, def: { en: 'A shadow in space: the Moon shading part of the Earth (solar) or the Earth shading the Moon (lunar).', hr: 'Sjena u svemiru: Mjesec zasjeni dio Zemlje (pomrčina Sunca) ili Zemlja zasjeni Mjesec (pomrčina Mjeseca).' } },
-      { term: { en: 'law of reflection', hr: 'zakon odbijanja (refleksije)' }, def: { en: 'The angle of incidence equals the angle of reflection, both measured from the normal.', hr: 'Upadni kut jednak je kutu odbijanja, oba mjerena od okomice.' } },
+      { term: { en: 'law of reflection', hr: 'zakon odbijanja (refleksije)' }, def: { en: 'The angle of incidence equals the angle of reflection, both measured from the normal.', hr: 'Upadni kut jednak je kutu odbijanja, a oba se mjere od okomice.' } },
       { term: { en: 'virtual image', hr: 'virtualna slika' }, def: { en: 'The image in a plane mirror: same size, as far behind the mirror as the object is in front; no light really comes from it.', hr: 'Slika u ravnom zrcalu: iste veličine, jednako daleko iza zrcala koliko je predmet ispred; svjetlost zapravo ne dolazi iz nje.' } },
       { term: { en: 'refraction', hr: 'lom svjetlosti (refrakcija)' }, def: { en: 'The bending of light when it passes from one medium into another, such as from air into water.', hr: 'Skretanje svjetlosti pri prelasku iz jednog sredstva u drugo, na primjer iz zraka u vodu.' } },
-      { term: { en: 'converging lens', hr: 'konvergentna (sabirna) leća' }, def: { en: 'A lens thicker in the middle that gathers parallel rays into a focus: magnifying glass, eye lens.', hr: 'Leća deblja u sredini koja usporedne zrake skuplja u žarište: povećalo, očna leća.' } },
-      { term: { en: 'diverging lens', hr: 'divergentna (rastresna) leća' }, def: { en: 'A lens thinner in the middle that spreads rays apart; used in glasses for near-sightedness.', hr: 'Leća tanja u sredini koja razdvaja zrake; koristi se u naočalama za kratkovidnost.' } },
-      { term: { en: 'focus', hr: 'žarište' }, def: { en: 'The point where a converging lens brings parallel rays together.', hr: 'Točka u kojoj konvergentna leća sastavlja usporedne zrake.' } },
-      { term: { en: 'retina', hr: 'mrežnica' }, def: { en: 'The light-sensitive layer at the back of the eye where the lens forms an upside-down image.', hr: 'Sloj osjetljiv na svjetlost na stražnjoj strani oka na kojem leća stvara obrnutu sliku.' } },
-      { term: { en: 'spectrum', hr: 'spektar' }, def: { en: 'The band of colours (red to violet) that white light splits into in a prism or a rainbow.', hr: 'Vrpca boja (od crvene do ljubičaste) na koju se bijela svjetlost rastavlja u prizmi ili dugi.' } }
+      { term: { en: 'converging lens', hr: 'sabirna (konvergentna) leća' }, def: { en: 'A lens thicker in the middle that gathers parallel rays into a focus: magnifying glass, eye lens.', hr: 'Leća deblja u sredini koja usporedne zrake skuplja u žarište: povećalo, očna leća.' } },
+      { term: { en: 'diverging lens', hr: 'rastresna (divergentna) leća' }, def: { en: 'A lens thinner in the middle that spreads rays apart; used in glasses for near-sightedness.', hr: 'Leća tanja u sredini koja raspršuje zrake; upotrebljava se u naočalama za kratkovidne.' } },
+      { term: { en: 'focus', hr: 'žarište' }, def: { en: 'The point where a converging lens brings parallel rays together.', hr: 'Točka u kojoj sabirna leća skuplja usporedne zrake.' } },
+      { term: { en: 'retina', hr: 'mrežnica' }, def: { en: 'The light-sensitive layer at the back of the eye where the lens forms an upside-down image.', hr: 'Sloj osjetljiv na svjetlost na stražnjoj strani oka; na njemu leća stvara obrnutu sliku.' } },
+      { term: { en: 'spectrum', hr: 'spektar' }, def: { en: 'The band of colours (red to violet) that white light splits into in a prism or a rainbow.', hr: 'Vrpca boja (od crvene do ljubičaste) na koju se bijela svjetlost rastavlja u prizmi ili u dugi.' } }
     ],
 
     formulas: [
@@ -129,14 +129,14 @@
 
     funFact: {
       en: 'The Moon is about 384 000 km away, so the moonlight you see left its surface 1.3 seconds ago. And the sunlight it reflects had already travelled 8 minutes from the Sun before bouncing off the Moon.',
-      hr: 'Mjesec je udaljen oko 384 000 km, pa je mjesečina koju vidiš napustila njegovu površinu prije 1,3 sekunde. A Sunčeva svjetlost koju Mjesec odbija već je putovala 8 minuta od Sunca prije nego što se odbila od njega.'
+      hr: 'Mjesec je udaljen oko 384 000 km, pa je mjesečina koju vidiš napustila njegovu površinu prije 1,3 sekunde. A Sunčeva svjetlost koju Mjesec odbija prije toga je od Sunca do Mjeseca putovala oko 8 minuta.'
     },
 
     experiment: {
       title: { en: 'The reappearing coin', hr: 'Kovanica koja se ponovno pojavljuje' },
       materials: {
         en: ['an opaque mug or bowl', 'a coin', 'a jug of water', 'a friend', 'bonus: a glass full of water, a sunny windowsill and a sheet of white paper'],
-        hr: ['neprozirna šalica ili zdjelica', 'kovanica', 'vrč vode', 'prijatelj', 'dodatak: čaša puna vode, sunčana prozorska daska i list bijelog papira']
+        hr: ['neprozirna šalica ili zdjelica', 'kovanica', 'vrč s vodom', 'prijatelj', 'dodatak: čaša puna vode, sunčana prozorska daska i list bijelog papira']
       },
       steps: {
         en: [
@@ -150,15 +150,15 @@
         hr: [
           'Stavi kovanicu na dno prazne šalice, blizu suprotnog ruba.',
           'Odmakni se i polako spuštaj glavu dok kovanica upravo ne nestane iza ruba šalice. Ostani točno u tom položaju.',
-          'Prijatelj polako nalijeva vodu u šalicu, ne pomičući ni šalicu ni kovanicu.',
+          'Neka prijatelj polako nalijeva vodu u šalicu, a da ne pomakne ni šalicu ni kovanicu.',
           'Gledaj: kovanica se polako ponovno pojavljuje, kao da se dno šalice podiglo.',
-          'Probaj i obrnuto: gledaj kovanicu kroz vodu odozgo i pitaj prijatelja koliko je šalica zapravo duboka. Izgleda plića nego što jest.',
+          'Pokušaj i ovo: pogledaj kovanicu odozgo kroz vodu i pitaj prijatelja koliko je šalica zapravo duboka. Čini se plićom nego što jest.',
           'Dodatak: za sunčanog dana stavi čašu vode na prozorsku dasku tako da Sunce sja kroz nju na bijeli papir na podu. Potraži malu dugu na papiru.'
         ]
       },
       explain: {
         en: 'Light from the coin bends (refracts) as it leaves the water and enters the air, so rays that used to hit the side of the mug now bend over the rim and reach your eye. Your brain assumes light travels straight, so it sees the coin higher than it really is. The same effect makes pools look shallower. In the bonus, the curved glass of water acts as a prism: it bends each colour by a slightly different amount and spreads the white sunlight into a spectrum, just like raindrops make a rainbow.',
-        hr: 'Svjetlost s kovanice lomi se pri prelasku iz vode u zrak, pa zrake koje su prije udarale u stijenku šalice sad skrenu preko ruba i stignu do tvog oka. Tvoj mozak pretpostavlja da svjetlost putuje ravno, pa kovanicu vidi više nego što jest. Isti učinak čini bazene naizgled plićima. U dodatku zakrivljena čaša vode djeluje kao prizma: svaku boju lomi za malo drukčiji kut i rastavlja bijelu sunčevu svjetlost u spektar, baš kao što kapi kiše stvaraju dugu.'
+        hr: 'Svjetlost s kovanice lomi se pri prelasku iz vode u zrak, pa zrake koje su prije udarale u stijenku šalice sad skrenu preko ruba i stignu do tvog oka. Mozak pretpostavlja da svjetlost putuje ravno, pa kovanicu vidiš više nego što ona zapravo jest. Isti učinak čini bazene naizgled plićima. U dodatnom pokusu čaša vode djeluje kao prizma: svaku boju lomi za malo drukčiji kut i rastavlja bijelu Sunčevu svjetlost u spektar, baš kao što kapi kiše stvaraju dugu.'
       },
       safety: { en: 'Never look straight at the Sun, not even for a moment. Look only at the rainbow on the paper.', hr: 'Nikad ne gledaj izravno u Sunce, ni na trenutak. Gledaj samo dugu na papiru.' }
     },
@@ -166,23 +166,23 @@
     quiz: [
       { type: 'mc', q: { en: 'Which of these is a light source?', hr: 'Što je od navedenog izvor svjetlosti?' },
         options: [{ en: 'the Moon', hr: 'Mjesec' }, { en: 'a candle flame', hr: 'plamen svijeće' }, { en: 'a mirror', hr: 'zrcalo' }, { en: 'a white wall', hr: 'bijeli zid' }], answer: 1,
-        explain: { en: 'A flame makes its own light. The Moon, a mirror and a wall only reflect light that comes from somewhere else.', hr: 'Plamen stvara vlastitu svjetlost. Mjesec, zrcalo i zid samo odbijaju svjetlost koja dolazi odnekud drugdje.' } },
+        explain: { en: 'A flame makes its own light. The Moon, a mirror and a wall only reflect light that comes from somewhere else.', hr: 'Plamen stvara vlastitu svjetlost. Mjesec, zrcalo i zid samo odbijaju svjetlost koja dolazi iz drugih izvora.' } },
       { type: 'mc', q: { en: 'Frosted bathroom glass lets light through but you cannot see shapes clearly. It is…', hr: 'Mutno staklo na kupaonskom prozoru propušta svjetlost, ali kroz njega ne vidiš jasne oblike. Ono je…' },
-        options: [{ en: 'translucent', hr: 'prozračno' }, { en: 'transparent', hr: 'prozirno' }, { en: 'opaque', hr: 'neprozirno' }, { en: 'a light source', hr: 'izvor svjetlosti' }], answer: 0,
-        explain: { en: 'Translucent materials let light through but scatter it, so you see only a blur. Transparent glass lets you see clearly; opaque materials block light completely.', hr: 'Prozračne tvari propuštaju svjetlost, ali je raspršuju, pa vidiš samo mutne obrise. Prozirno staklo propušta jasnu sliku; neprozirne tvari potpuno zaustavljaju svjetlost.' } },
+        options: [{ en: 'translucent', hr: 'poluprozirno' }, { en: 'transparent', hr: 'prozirno' }, { en: 'opaque', hr: 'neprozirno' }, { en: 'a light source', hr: 'izvor svjetlosti' }], answer: 0,
+        explain: { en: 'Translucent materials let light through but scatter it, so you see only a blur. Transparent glass lets you see clearly; opaque materials block light completely.', hr: 'Poluprozirne tvari propuštaju svjetlost, ali je raspršuju, pa vidiš samo mutne obrise. Kroz prozirno staklo vidi se jasno; neprozirne tvari potpuno zaustavljaju svjetlost.' } },
       { type: 'tf', q: { en: 'The Moon is a source of light.', hr: 'Mjesec je izvor svjetlosti.' }, answer: false,
         explain: { en: 'The Moon makes no light of its own. We see it because it reflects sunlight towards the Earth.', hr: 'Mjesec ne stvara vlastitu svjetlost. Vidimo ga zato što odbija Sunčevu svjetlost prema Zemlji.' } },
       { type: 'mc', q: { en: 'A ray of light hits a mirror at an angle of incidence of 30°. At what angle is it reflected?', hr: 'Zraka svjetlosti upada na zrcalo pod upadnim kutom od 30°. Pod kojim se kutom odbija?' },
         options: [{ en: '60°', hr: '60°' }, { en: '0°', hr: '0°' }, { en: '30°', hr: '30°' }, { en: '90°', hr: '90°' }], answer: 2,
-        explain: { en: 'The law of reflection: the angle of reflection equals the angle of incidence, both measured from the normal. 30° in, 30° out.', hr: 'Zakon odbijanja: kut odbijanja jednak je upadnom kutu, oba mjerena od okomice. 30° upada, 30° odbijanja.' } },
+        explain: { en: 'The law of reflection: the angle of reflection equals the angle of incidence, both measured from the normal. 30° in, 30° out.', hr: 'Zakon odbijanja: kut odbijanja jednak je upadnom kutu, oba mjerena od okomice. Upadni kut 30°, kut odbijanja 30°.' } },
       { type: 'tf', q: { en: 'Your image in a plane mirror appears as far behind the mirror as you stand in front of it.', hr: 'Tvoja slika u ravnom zrcalu čini se jednako daleko iza zrcala koliko ti stojiš ispred njega.' }, answer: true,
         explain: { en: 'Yes. The virtual image in a plane mirror is the same size as you and the same distance behind the mirror as you are in front.', hr: 'Da. Virtualna slika u ravnom zrcalu jednako je velika kao ti i jednako je daleko iza zrcala koliko si ti ispred.' } },
-      { type: 'mc', q: { en: 'Why does a straw in a glass of water look broken at the surface?', hr: 'Zašto slamka u čaši vode izgleda slomljeno na površini?' },
+      { type: 'mc', q: { en: 'Why does a straw in a glass of water look broken at the surface?', hr: 'Zašto slamka u čaši vode izgleda kao da je na površini vode prelomljena?' },
         options: [{ en: 'water dissolves the straw a little', hr: 'voda malo otapa slamku' }, { en: 'light bends when it passes from water into air', hr: 'svjetlost se lomi pri prelasku iz vode u zrak' }, { en: 'the glass is a mirror', hr: 'čaša je zrcalo' }, { en: 'water absorbs red light', hr: 'voda upija crvenu svjetlost' }], answer: 1,
-        explain: { en: 'This is refraction. Light from the part under water changes direction as it leaves the water, so that part seems to be in a different place.', hr: 'To je lom svjetlosti. Svjetlost s dijela pod vodom mijenja smjer pri izlasku iz vode, pa se taj dio čini na drugom mjestu.' } },
-      { type: 'mc', q: { en: 'A near-sighted person sees distant things blurry. Which lenses correct this?', hr: 'Kratkovidna osoba daleke stvari vidi mutno. Koje leće to ispravljaju?' },
-        options: [{ en: 'converging lenses', hr: 'konvergentne (sabirne) leće' }, { en: 'a magnifying glass', hr: 'povećalo' }, { en: 'plane mirrors', hr: 'ravna zrcala' }, { en: 'diverging lenses', hr: 'divergentne (rastresne) leće' }], answer: 3,
-        explain: { en: 'In a near-sighted eye the image forms in front of the retina. Diverging lenses spread the rays a little so the image moves back onto the retina.', hr: 'U kratkovidnom oku slika nastaje ispred mrežnice. Divergentne leće malo razdvoje zrake pa se slika pomakne natrag na mrežnicu.' } },
+        explain: { en: 'This is refraction. Light from the part under water changes direction as it leaves the water, so that part seems to be in a different place.', hr: 'To je lom svjetlosti. Svjetlost s dijela pod vodom mijenja smjer pri izlasku iz vode, pa nam se čini da je taj dio na drugom mjestu.' } },
+      { type: 'mc', q: { en: 'A near-sighted person sees distant things blurry. Which lenses correct this?', hr: 'Kratkovidna osoba daleke predmete vidi mutno. Koje leće to ispravljaju?' },
+        options: [{ en: 'converging lenses', hr: 'sabirne (konvergentne) leće' }, { en: 'a magnifying glass', hr: 'povećalo' }, { en: 'plane mirrors', hr: 'ravna zrcala' }, { en: 'diverging lenses', hr: 'rastresne (divergentne) leće' }], answer: 3,
+        explain: { en: 'In a near-sighted eye the image forms in front of the retina. Diverging lenses spread the rays a little so the image moves back onto the retina.', hr: 'U kratkovidnom oku slika nastaje ispred mrežnice. Rastresne leće malo rasprše zrake, pa se slika pomakne natrag na mrežnicu.' } },
       { type: 'num', q: { en: 'The Moon is 384 000 km away. How long does its light take to reach us? Use c = 300 000 km/s.', hr: 'Mjesec je udaljen 384 000 km. Koliko dugo njegova svjetlost putuje do nas? Uzmi c = 300 000 km/s.' },
         answer: 1.28, tolerance: 0.05, unit: 's',
         explain: { en: 't = d / c = 384 000 km / 300 000 km/s = 1.28 s, a little over a second.', hr: 't = d / c = 384 000 km / 300 000 km/s = 1,28 s, malo više od sekunde.' } },
@@ -194,8 +194,8 @@
         explain: { en: 'Objects have colour because of what they reflect. The red shirt absorbs most of the spectrum and sends mainly red light to your eye.', hr: 'Predmeti imaju boju zbog onoga što odbijaju. Crvena majica upija većinu spektra, a prema tvom oku šalje uglavnom crvenu svjetlost.' } },
       { type: 'mc', q: { en: 'A screen shines red, green and blue light together at full brightness. What colour do you see?', hr: 'Zaslon istodobno svijetli crvenom, zelenom i plavom svjetlošću punim sjajem. Koju boju vidiš?' },
         options: [{ en: 'white', hr: 'bijelu' }, { en: 'black', hr: 'crnu' }, { en: 'brown', hr: 'smeđu' }, { en: 'yellow', hr: 'žutu' }], answer: 0,
-        explain: { en: 'Mixing red, green and blue light gives white. Mixing paints works the other way, because paints absorb light, and ends in dark brown or black.', hr: 'Miješanje crvene, zelene i plave svjetlosti daje bijelu. Miješanje boja za slikanje radi obrnuto, jer boje upijaju svjetlost, i završava u tamnosmeđoj ili crnoj.' } },
-      { type: 'tf', q: { en: 'The sky is blue because the air scatters blue sunlight more than red.', hr: 'Nebo je plavo zato što zrak raspršuje plavu sunčevu svjetlost jače nego crvenu.' }, answer: true,
+        explain: { en: 'Mixing red, green and blue light gives white. Mixing paints works the other way, because paints absorb light, and ends in dark brown or black.', hr: 'Miješanje crvene, zelene i plave svjetlosti daje bijelu. S bojama za slikanje je obrnuto: one upijaju svjetlost, pa njihovo miješanje završava tamnosmeđom ili crnom bojom.' } },
+      { type: 'tf', q: { en: 'The sky is blue because the air scatters blue sunlight more than red.', hr: 'Nebo je plavo zato što zrak raspršuje plavu Sunčevu svjetlost jače nego crvenu.' }, answer: true,
         explain: { en: 'Yes. Tiny air molecules scatter short-wavelength blue light in all directions, so blue reaches your eye from every part of the sky.', hr: 'Da. Sitne molekule zraka raspršuju plavu svjetlost kratke valne duljine na sve strane, pa plava stiže do tvog oka iz svakog dijela neba.' } }
     ]
   });

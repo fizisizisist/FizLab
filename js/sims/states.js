@@ -16,13 +16,13 @@
     title: { en: 'States of Matter', hr: 'Agregacijska stanja' },
     summary: {
       en: 'Heat or cool 150 particles and watch them lock into a solid, flow as a liquid or fly apart as a gas.',
-      hr: 'Zagrijavaj ili hladi 150 čestica i gledaj kako se slažu u čvrsto tijelo, teku kao tekućina ili razlijeću kao plin.'
+      hr: 'Zagrijavaj ili hladi 150 čestica i promatraj kako se slažu u čvrsto tijelo, teku kao tekućina ili se razlijeću kao plin.'
     },
     tasks: [
-      { en: 'Cool the water below 0 °C. What do the particles do once it freezes?', hr: 'Ohladi vodu ispod 0 °C. Što čestice rade kad se smrzne?' },
-      { en: 'Heat it past 100 °C. How does the gas fill the container? Keep heating — do the particles get faster?', hr: 'Zagrij je iznad 100 °C. Kako plin ispunjava posudu? Nastavi grijati — jesu li čestice brže?' },
-      { en: 'Switch to oxygen. At what temperature is it a liquid? Compare with iron.', hr: 'Prebaci na kisik. Na kojoj je temperaturi tekućina? Usporedi sa željezom.' },
-      { en: 'Read the thermometer: the melting and boiling points are marked. Which substance has the smallest liquid range?', hr: 'Pročitaj termometar: označeni su talište i vrelište. Koja tvar ima najuži raspon tekućeg stanja?' }
+      { en: 'Cool the water below 0 °C. What do the particles do once it freezes?', hr: 'Ohladi vodu ispod 0 °C. Što rade čestice kad se voda smrzne?' },
+      { en: 'Heat it past 100 °C. How does the gas fill the container? Keep heating — do the particles get faster?', hr: 'Zagrij je iznad 100 °C. Kako plin ispunjava posudu? Nastavi zagrijavati — gibaju li se čestice sve brže?' },
+      { en: 'Switch to oxygen. At what temperature is it a liquid? Compare with iron.', hr: 'Odaberi kisik. Pri kojoj je temperaturi kisik tekućina? Usporedi sa željezom.' },
+      { en: 'Read the thermometer: the melting and boiling points are marked. Which substance has the smallest liquid range?', hr: 'Očitaj termometar: na njemu su označeni talište i vrelište. Koja je tvar tekuća u najužem rasponu temperatura?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -49,7 +49,7 @@
       const btnHeat = C.button({ label: { en: 'Heat', hr: 'Zagrijavaj' }, onClick: clickToggle(1) });
       const btnCool = C.button({ label: { en: 'Cool', hr: 'Hladi' }, onClick: clickToggle(-1) });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: reset });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: reset });
       const outT = C.readout({ label: { en: 'Temperature', hr: 'Temperatura' }, unit: '°C', digits: 0 });
       const outState = C.readout({ label: { en: 'State', hr: 'Agregacijsko stanje' } });
       const outV = C.readout({ label: { en: 'Average particle speed ~ √T', hr: 'Prosječna brzina čestica ~ √T' }, unit: 'm/s', digits: 0 });
@@ -161,11 +161,11 @@
         outT.set(st.T); outState.set(STATE_LABEL[st.phase]); outV.set(meanSpeed());
         const s = st.sub;
         if (st.phase === 'solid') note.set({ en: 'Solid: the particles are packed in a fixed pattern and only vibrate in place. Heating makes them vibrate more; at ' + K.fmt(s.melt, 0, 'en') + ' °C the pattern breaks — melting.',
-          hr: 'Čvrsto: čestice su složene u čvrst raspored i samo titraju na mjestu. Zagrijavanjem titraju jače; na ' + K.fmt(s.melt, 0, 'hr') + ' °C raspored se raspada — taljenje.' });
+          hr: 'Čvrsto stanje: čestice su složene u stalan raspored i samo titraju oko svojih položaja. Zagrijavanjem titraju sve jače; pri ' + K.fmt(s.melt, 0, 'hr') + ' °C raspored se raspada — to je taljenje.' });
         else if (st.phase === 'liquid') note.set({ en: 'Liquid: the particles stay close but slide past each other, so the liquid takes the shape of the container. At ' + K.fmt(s.boil, 0, 'en') + ' °C it boils.',
-          hr: 'Tekuće: čestice su blizu, ali klize jedna pokraj druge, pa tekućina poprima oblik posude. Na ' + K.fmt(s.boil, 0, 'hr') + ' °C vrije.' });
+          hr: 'Tekuće stanje: čestice su blizu jedna drugoj, ali klize jedna pokraj druge pa tekućina poprima oblik posude. Pri ' + K.fmt(s.boil, 0, 'hr') + ' °C tekućina vrije.' });
         else note.set({ en: 'Gas: the particles fly freely, bounce off the walls and fill the whole container. Hotter → faster (speed grows with √T).',
-          hr: 'Plinovito: čestice slobodno lete, odbijaju se od zidova i ispunjavaju cijelu posudu. Toplije → brže (brzina raste sa √T).' });
+          hr: 'Plinovito stanje: čestice se slobodno gibaju, odbijaju se od stijenki i ispunjavaju cijelu posudu. Viša temperatura → veća brzina (brzina raste s √T).' });
       }
       function setSubstance(s) {
         st.sub = s; slT.input.min = s.tMin; slT.input.max = s.tMax; st.T = s.t0; slT.set(s.t0); setHeat(0);
@@ -197,9 +197,9 @@
         // title + one-line hint about what the particles are doing
         const title = K.tr(st.sub.label, lang) + ' · ' + K.tr(STATE_LABEL[st.phase], lang).toUpperCase() + ' · ' + K.fmt(st.T, 0, lang) + ' °C';
         K.text(c, title, 12, 16, { font: 'bold 14px ' + theme.fontDisplay, color: theme.fg, baseline: 'middle' });
-        const hint = K.tr(st.phase === 'solid' ? { en: 'particles vibrate in a fixed pattern', hr: 'čestice titraju u čvrstom rasporedu' }
+        const hint = K.tr(st.phase === 'solid' ? { en: 'particles vibrate in a fixed pattern', hr: 'čestice titraju oko stalnih položaja' }
           : st.phase === 'liquid' ? { en: 'particles slide past each other', hr: 'čestice klize jedna pokraj druge' }
-            : { en: 'particles fly freely and bounce off the walls', hr: 'čestice slobodno lete i odbijaju se od zidova' }, lang);
+            : { en: 'particles fly freely and bounce off the walls', hr: 'čestice slobodno lete i odbijaju se od stijenki' }, lang);
         c.font = '12px ' + theme.font;
         const hintW = c.measureText(hint).width, barX = Lo.cx + Lo.cw - 150;
         if (w < 520 || 12 + hintW < barX - 10) K.text(c, hint, 12, 30, { font: '12px ' + theme.font, color: theme.muted, baseline: 'middle' });

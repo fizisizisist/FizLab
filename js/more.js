@@ -222,7 +222,7 @@ window.FizMore = (function () {
     const timerEl = el('span', { class: 'paper-timer num' });
     let submitted = false, timerId = 0, armed = false;
     root.appendChild(summary);
-    const info = el('div', { class: 'quiz-top' }, [el('span', { class: 'quiz-type num', text: `${items.length} ${t('common.questions')}` }), opts.code ? el('span', { class: 'quiz-type num', text: t('worksheet.code') + ': ' + opts.code }) : null, timerEl]);
+    const info = el('div', { class: 'quiz-top' }, [el('span', { class: 'quiz-type num', text: `${items.length} ${A.tn ? A.tn('common.questions', items.length) : t('common.questions')}` }), opts.code ? el('span', { class: 'quiz-type num', text: t('worksheet.code') + ': ' + opts.code }) : null, timerEl]);
     root.appendChild(info);
     const fbs = [];
     items.forEach((it, i) => {

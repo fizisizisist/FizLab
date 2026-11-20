@@ -22,10 +22,10 @@
   const HINTS = {
     osc: { en: 'The hand shakes the left end up and down f times every second.', hr: 'Ruka trese lijevi kraj gore-dolje f puta u sekundi.' },
     pulse: { en: 'Press "Send pulse" and follow the bump to the far end and back.', hr: 'Pritisni „Pošalji puls“ i prati izbočinu do kraja i natrag.' },
-    manual: { en: 'Drag the orange end up and down to make your own waves.', hr: 'Povuci narančasti kraj gore-dolje i napravi vlastite valove.' }
+    manual: { en: 'Drag the orange end up and down to make your own waves.', hr: 'Povlači narančasti kraj gore-dolje i stvori vlastite valove.' }
   };
   const END_CAPTION = {
-    fixed: { en: 'fixed end: the wave comes back upside down', hr: 'učvršćeni kraj: val se vraća okrenut' },
+    fixed: { en: 'fixed end: the wave comes back upside down', hr: 'učvršćeni kraj: val se vraća obrnut' },
     loose: { en: 'loose end: the wave comes back upright', hr: 'slobodni kraj: val se vraća uspravan' },
     open: { en: 'no end: the wave travels away, nothing comes back', hr: 'bez kraja: val odlazi dalje, ništa se ne vraća' }
   };
@@ -35,12 +35,12 @@
     title: { en: 'Wave on a String', hr: 'Val na užetu' },
     summary: {
       en: 'Shake the left end of a 6 m rope: send waves or a single pulse, change tension and frequency, and watch the wave bounce back from the far end.',
-      hr: 'Tresi lijevi kraj užeta dugog 6 m: šalji valove ili jedan puls, mijenjaj napetost i frekvenciju i gledaj kako se val odbija od drugog kraja.'
+      hr: 'Tresi lijevi kraj užeta dugog 6 m: šalji valove ili jedan puls, mijenjaj napetost i frekvenciju te promatraj kako se val odbija od drugog kraja.'
     },
     tasks: [
-      { en: 'Send a pulse towards a fixed end. Does it come back upright or upside down? Now try a loose end.', hr: 'Pošalji puls prema učvršćenom kraju. Vraća li se uspravan ili okrenut? Zatim probaj slobodni kraj.' },
-      { en: 'Double the frequency. What happens to the wavelength? Check it with λ = v / f.', hr: 'Udvostruči frekvenciju. Što se dogodi s valnom duljinom? Provjeri pomoću λ = v / f.' },
-      { en: 'Tighten the string (faster wave) at the same frequency. Does the wavelength grow or shrink?', hr: 'Napni uže jače (brži val) pri istoj frekvenciji. Raste li valna duljina ili se smanjuje?' },
+      { en: 'Send a pulse towards a fixed end. Does it come back upright or upside down? Now try a loose end.', hr: 'Pošalji puls prema učvršćenom kraju. Vraća li se uspravan ili obrnut? Zatim pokušaj sa slobodnim krajem.' },
+      { en: 'Double the frequency. What happens to the wavelength? Check it with λ = v / f.', hr: 'Udvostruči frekvenciju. Što se događa s valnom duljinom? Provjeri formulom λ = v / f.' },
+      { en: 'Tighten the string (faster wave) at the same frequency. Does the wavelength grow or shrink?', hr: 'Jače napni uže (brži val), a frekvenciju ne mijenjaj. Povećava li se valna duljina ili se smanjuje?' },
       { en: 'Watch the big bead at 3 m. Does it travel along the string, or only move up and down?', hr: 'Promatraj veliku kuglicu na 3 m. Putuje li duž užeta ili se giba samo gore-dolje?' }
     ],
     mount(container, ctx) {
@@ -62,14 +62,14 @@
         onChange: v => { st.f = v; updateOut(); if (!L.running) draw(); } });
       C.select({ label: { en: 'String tension → wave speed', hr: 'Napetost užeta → brzina vala' }, options: SPEEDS.map(s => ({ value: s.id, label: s.label })), value: 'medium',
         onChange: v => { st.v = SPEEDS.find(s => s.id === v).v; updateOut(); if (!L.running) draw(); } });
-      C.toggle({ label: { en: 'Damping (friction)', hr: 'Gušenje (trenje)' }, value: true, onChange: v => { st.damp = v; } });
+      C.toggle({ label: { en: 'Damping (friction)', hr: 'Prigušenje (trenje)' }, value: true, onChange: v => { st.damp = v; } });
       C.select({ label: { en: 'Right end', hr: 'Desni kraj' }, options: ENDS.map(e => ({ value: e.id, label: e.label })), value: 'fixed',
         onChange: v => { st.end = v; if (!L.running) draw(); } });
       const btnPulse = C.button({ label: { en: 'Send pulse', hr: 'Pošalji puls' }, icon: '〰', onClick: () => {
         st.pulseT = st.t; if (!L.running) { L.start(); updatePlay(); }
       } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => { reset(); } });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => { reset(); } });
       const outLam = C.readout({ label: { en: 'Wavelength λ = v / f', hr: 'Valna duljina λ = v / f' }, unit: 'm', digits: 2 });
       const outT = C.readout({ label: { en: 'Period T = 1 / f', hr: 'Period T = 1 / f' }, unit: 's', digits: 2 });
       const outV = C.readout({ label: { en: 'Wave speed v', hr: 'Brzina vala v' }, unit: 'm/s', digits: 1 });

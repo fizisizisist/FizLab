@@ -69,13 +69,13 @@
     title: { en: 'Gravity and Orbits', hr: 'Gravitacija i orbite' },
     summary: {
       en: 'Fire Newton\'s cannon faster and faster until the ball never lands, send a planet around a star, and compare real satellites from the ISS to geostationary orbit.',
-      hr: 'Ispaljuj Newtonov top sve brže dok kugla više ne padne, pošalji planet oko zvijezde i usporedi stvarne satelite od ISS-a do geostacionarne orbite.'
+      hr: 'Ispaljuj kuglu iz Newtonova topa sve većom brzinom dok više ne padne na tlo, neka planet kruži oko zvijezde i usporedi stvarne satelite, od ISS-a do geostacionarne orbite.'
     },
     tasks: [
-      { en: 'Newton\'s cannon: fire at 2, 4, 6 and 7 km/s. How does the landing point move? Then try 7.7 km/s.', hr: 'Newtonov top: ispali kuglu brzinom 2, 4, 6 i 7 km/s. Kako se pomiče mjesto pada? Zatim probaj 7,7 km/s.' },
-      { en: 'Find the slowest speed at which the ball never comes back (escape). Is it twice the orbital speed, or less?', hr: 'Nađi najmanju brzinu pri kojoj se kugla više ne vraća (bijeg). Je li dvostruko veća od orbitalne brzine ili manja?' },
-      { en: 'Sun and planet: compare the two force arrows. Then switch gravity off while the planet is moving. Which way does it go?', hr: 'Sunce i planet: usporedi dvije strelice sile. Zatim isključi gravitaciju dok se planet giba. Kamo ode?' },
-      { en: 'Satellites: how strong is gravity at the height of the ISS, in percent? So why do astronauts float?', hr: 'Sateliti: kolika je gravitacija na visini ISS-a, u postocima? Zašto onda astronauti lebde?' }
+      { en: 'Newton\'s cannon: fire at 2, 4, 6 and 7 km/s. How does the landing point move? Then try 7.7 km/s.', hr: 'Newtonov top: ispali kuglu brzinom 2, 4, 6 i 7 km/s. Kako se pomiče mjesto pada? Zatim pokušaj sa 7,7 km/s.' },
+      { en: 'Find the slowest speed at which the ball never comes back (escape). Is it twice the orbital speed, or less?', hr: 'Pronađi najmanju brzinu pri kojoj se kugla više ne vraća (brzina oslobađanja). Je li ona dvostruko veća od orbitalne brzine ili manja?' },
+      { en: 'Sun and planet: compare the two force arrows. Then switch gravity off while the planet is moving. Which way does it go?', hr: 'Sunce i planet: usporedi strelice dviju sila. Zatim isključi gravitaciju dok se planet giba. Kamo planet tada odlazi?' },
+      { en: 'Satellites: how strong is gravity at the height of the ISS, in percent? So why do astronauts float?', hr: 'Sateliti: koliko posto gravitacije na tlu ima na visini ISS-a? Zašto onda astronauti lebde?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -108,7 +108,7 @@
         if (st.mode === 'sun' && sn.lost) resetSun();
         L.toggle(); updatePlay(); refresh();
       } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const roC = [
         C.readout({ label: { en: 'Speed', hr: 'Brzina' }, unit: 'km/s', digits: 2 }),
         C.readout({ label: { en: 'Height above the ground', hr: 'Visina iznad tla' }, unit: 'km', digits: 0 }),
@@ -125,7 +125,7 @@
       const roA = [
         C.readout({ label: { en: 'Orbital speed v = √(G·M/r)', hr: 'Orbitalna brzina v = √(G·M/r)' }, unit: 'km/s', digits: 2 }),
         C.readout({ label: { en: 'Orbital period', hr: 'Ophodno vrijeme' } }),
-        C.readout({ label: { en: 'Gravity there g = G·M/r²', hr: 'Gravitacija ondje g = G·M/r²' }, unit: 'm/s²', digits: 2 }),
+        C.readout({ label: { en: 'Gravity there g = G·M/r²', hr: 'g na toj visini = G·M/r²' }, unit: 'm/s²', digits: 2 }),
         C.readout({ label: { en: 'Compared with the ground (9.81 m/s²)', hr: 'U odnosu na tlo (9,81 m/s²)' }, unit: '%', digits: 0 })
       ];
       const note = C.note({ text: { en: '', hr: '' } });
@@ -199,11 +199,11 @@
         }
         const T = dur(s.period || s.o.T || 0);
         if (s.state === 'orbit') {
-          if (s.o.kind === 'circle') return { en: 'Circular orbit! It keeps falling, but the ground curves away just as fast. One lap: ' + T.en + '.', hr: 'Kružna orbita! Stalno pada, ali se tlo jednako brzo zakrivljuje. Jedan obilazak: ' + T.hr + '.' };
+          if (s.o.kind === 'circle') return { en: 'Circular orbit! It keeps falling, but the ground curves away just as fast. One lap: ' + T.en + '.', hr: 'Kružna orbita! Kugla stalno pada, ali se tlo ispod nje jednako brzo zakrivljuje. Jedan obilazak: ' + T.hr + '.' };
           return { en: 'Elliptical orbit: highest point ' + big((s.o.ra - RE) / 1000, 'en') + ' km above the ground, one lap ' + T.en + '.', hr: 'Eliptična orbita: najviša točka ' + big((s.o.ra - RE) / 1000, 'hr') + ' km iznad tla, jedan obilazak ' + T.hr + '.' };
         }
         if (s.o.bound) return { en: 'A very long ellipse: it leaves the picture and comes back after ' + T.en + '.', hr: 'Vrlo izdužena elipsa: izlazi iz slike i vraća se nakon ' + T.hr + '.' };
-        return { en: 'Escape! Above about 10.9 km/s gravity can never bring it back.', hr: 'Bijeg! Iznad otprilike 10,9 km/s gravitacija je više ne može vratiti.' };
+        return { en: 'Escape! Above about 10.9 km/s gravity can never bring it back.', hr: 'Bijeg! Pri brzini većoj od približno 10,9 km/s gravitacija više ne može vratiti kuglu.' };
       }
       function shortOutcome(s) { // short text for the list of shots
         if (s.state === 'fly') return { en: 'in flight', hr: 'leti' };
@@ -211,7 +211,7 @@
         if (s.o.kind === 'fall') return { en: 'falls back', hr: 'pada natrag' };
         if (s.o.kind === 'circle') return { en: 'circular orbit', hr: 'kružna orbita' };
         if (!s.o.bound) return { en: 'escapes', hr: 'bijeg' };
-        return s.o.ra > RA_VIEW ? { en: 'very long ellipse', hr: 'vrlo duga elipsa' } : { en: 'elliptical orbit', hr: 'eliptična orbita' };
+        return s.o.ra > RA_VIEW ? { en: 'very long ellipse', hr: 'vrlo izdužena elipsa' } : { en: 'elliptical orbit', hr: 'eliptična orbita' };
       }
 
       // ---------- Sun and planet ----------
@@ -298,7 +298,7 @@
           roC[3].set(s && s.period ? s.period / 60 : null);
           setNote('cannon', () => ({
             en: 'An orbit is falling around the Earth: the ball falls all the time, but it moves sideways so fast that the ground curves away beneath it and it keeps missing the Earth. The 300 km mountain is hugely exaggerated (Mount Everest is 8.8 km) and there is no air.',
-            hr: 'Orbita je padanje oko Zemlje: kugla stalno pada, ali se bočno giba tako brzo da se tlo pod njom zakrivljuje pa stalno „promašuje” Zemlju. Planina od 300 km jako je pretjerana (Mount Everest ima 8,8 km), a zraka nema.' }));
+            hr: 'Orbita je padanje oko Zemlje: kugla stalno pada, ali se bočno giba tako brzo da se tlo pod njom zakrivljuje pa stalno „promašuje“ Zemlju. Visina planine od 300 km jako je pretjerana (Mount Everest visok je 8,8 km), a zraka nema.' }));
         } else if (st.mode === 'sun') {
           const r = Math.hypot(sn.x, sn.y), o = sn.grav ? elements(sn, sunMu()) : null, F = F0 * sn.M / (r * r);
           roS[0].set(sn.t);
@@ -308,16 +308,16 @@
           roS[4].set(sn.grav ? { en: sci(F, 'en'), hr: sci(F, 'hr') } : 0);
           if (sn.grav) setNote('sun-on', () => ({
             en: 'Gravity pulls the planet towards the star and the star towards the planet with equal and opposite forces. The star hardly moves because its mass is enormous. The force only bends the path; with no force the planet would go straight. Sizes and distances are not to scale.',
-            hr: 'Gravitacija privlači planet prema zvijezdi i zvijezdu prema planetu jednakim silama suprotnog smjera. Zvijezda se gotovo ne miče jer joj je masa golema. Sila samo zakrivljuje putanju; bez sile planet bi išao ravno. Veličine i udaljenosti nisu u mjerilu.' }));
+            hr: 'Gravitacija privlači planet prema zvijezdi i zvijezdu prema planetu silama jednakog iznosa, a suprotnog smjera. Zvijezda se gotovo ne miče jer joj je masa golema. Sila samo zakrivljuje putanju; bez sile planet bi se gibao pravocrtno. Veličine i udaljenosti nisu u mjerilu.' }));
           else setNote('sun-off', () => ({
             en: 'No gravity, no force: the planet keeps the velocity it had and moves in a straight line along the tangent at constant speed (inertia). It does not fly straight away from the star.',
-            hr: 'Nema gravitacije, nema sile: planet zadržava brzinu koju je imao i giba se ravno po tangenti stalnom brzinom (tromost). Ne odleti ravno od zvijezde.' }));
+            hr: 'Bez gravitacije nema ni sile: planet zadržava brzinu koju je imao i giba se jednoliko pravocrtno, po tangenti (tromost). Ne odlijeće ravno od zvijezde.' }));
         } else {
           const q = satNums(), p = K.fmt(q.pct, 0, 'en');
           roA[0].set(q.v / 1000); roA[1].set(dur(q.T)); roA[2].set(q.g); roA[3].set(q.pct);
           setNote('sat' + p, () => ({
             en: 'Here gravity is still ' + p + ' % of its value on the ground (at the ISS about 89 %). Astronauts float because they and their spacecraft are in free fall together (weightlessness), not because gravity is gone. Drag the satellite or use the slider.',
-            hr: 'Ovdje je gravitacija još ' + p + ' % one na tlu (na ISS-u oko 89 %). Astronauti lebde jer su zajedno s letjelicom u slobodnom padu (bestežinsko stanje), a ne zato što gravitacije nema. Povuci satelit ili pomakni klizač.' }));
+            hr: 'Ovdje gravitacija iznosi još ' + p + ' % one na tlu (na visini ISS-a oko 89 %). Astronauti lebde jer su zajedno s letjelicom u slobodnom padu (bestežinsko stanje), a ne zato što gravitacije nema. Povuci satelit ili pomakni klizač.' }));
         }
       }
 
@@ -422,7 +422,7 @@
           g.stroke(); g.restore();
           if (q.state === 'landed') { g.fillStyle = col; g.beginPath(); g.arc(V.cx + q.x * V.ppm, V.cy - q.y * V.ppm, cur ? 4.5 : 3, 0, TAU); g.fill(); }
         });
-        pill(g, K.tr({ en: '300 km mountain (exaggerated!)', hr: 'planina 300 km (pretjerano!)' }, lang), V.cx - mw - 8, topY - 12, 'right');
+        pill(g, K.tr({ en: '300 km mountain (exaggerated!)', hr: 'planina od 300 km (pretjerano!)' }, lang), V.cx - mw - 8, topY - 12, 'right');
         if (s && s.state === 'landed' && s.land >= 1) {                 // the distance is measured along the curved ground
           g.strokeStyle = shotCol(s); g.lineWidth = 3; g.beginPath(); g.arc(V.cx, V.cy, Rpx + 3, -Math.PI / 2, -Math.PI / 2 + s.ang); g.stroke();
           const a = Math.atan2(s.y, s.x);
@@ -503,9 +503,9 @@
         const l1 = K.tr({ en: 'Star: ', hr: 'Zvijezda: ' }, lang) + K.fmt(sn.M, 1, lang) + K.tr({ en: ' × Sun', hr: ' × Sunce' }, lang) + '  ·  ' + K.tr({ en: 'year ', hr: 'godina ' }, lang) + K.fmt(sn.t, 2, lang) +
           '  ·  ' + K.tr({ en: 'laps: ', hr: 'obilazaka: ' }, lang) + K.fmt(Math.max(0, Math.floor(sn.ang / TAU + 1e-6)), 0, lang);
         const l2 = sn.lost ? { en: 'The planet has left the picture' + (o && o.bound ? ' (it would return after ' + K.fmt(o.T, 0, 'en') + ' years)' : '') + '. Press Reset.', hr: 'Planet je izašao iz slike' + (o && o.bound ? ' (vratio bi se nakon ' + K.fmt(o.T, 0, 'hr') + ' god.)' : '') + '. Pritisni Vrati.' }
-          : !sn.grav ? { en: 'Gravity is off: no force, so the planet moves in a straight line at constant speed.', hr: 'Gravitacija je isključena: nema sile pa se planet giba ravno stalnom brzinom.' }
+          : !sn.grav ? { en: 'Gravity is off: no force, so the planet moves in a straight line at constant speed.', hr: 'Gravitacija je isključena: nema sile pa se planet giba jednoliko pravocrtno.' }
             : o.bound ? { en: 'One lap takes ' + K.fmt(o.T, 2, 'en') + ' Earth years (Earth round the Sun = 1).', hr: 'Jedan obilazak traje ' + K.fmt(o.T, 2, 'hr') + ' Zemljine godine (Zemlja oko Sunca = 1).' }
-              : { en: 'Too fast: the star\'s gravity cannot hold the planet, it escapes.', hr: 'Prebrzo: gravitacija zvijezde ne može zadržati planet, on bježi.' };
+              : { en: 'Too fast: the star\'s gravity cannot hold the planet, it escapes.', hr: 'Prebrzo: gravitacija zvijezde ne može zadržati planet pa on odlazi.' };
         header(g, l1, K.tr(l2, lang), w - 20);
         arrowKey(g, h - 12);
         corner(g, w >= 520 ? { en: 'sizes and distances not to scale', hr: 'veličine i udaljenosti nisu u mjerilu' } : { en: 'not to scale', hr: 'nije u mjerilu' });
@@ -544,7 +544,7 @@
           const x0 = Math.round(w * 0.62) + 8, y0 = 46, cw = w - x0 - 10, ch = Math.min(h - y0 - 30, 172);
           g.fillStyle = K.withAlpha(theme.surface, 0.92); K.roundRect(g, x0, y0, cw, ch, 10); g.fill(); g.strokeStyle = theme.line; g.lineWidth = 1; g.stroke();
           const rows = ['r = R + h = ' + big(q.r / 1000, lang) + ' km', 'v = √(G·M/r) = ' + K.fmt(q.v / 1000, 2, lang) + ' km/s', 'T = 2π·r/v = ' + K.tr(dur(q.T), lang),
-            K.tr({ en: 'laps per day: ', hr: 'obilazaka na dan: ' }, lang) + K.fmt(86400 / q.T, 1, lang), 'g = G·M/r² = ' + K.fmt(q.g, 2, lang) + ' m/s²'];
+            K.tr({ en: 'laps per day: ', hr: 'obilazaka dnevno: ' }, lang) + K.fmt(86400 / q.T, 1, lang), 'g = G·M/r² = ' + K.fmt(q.g, 2, lang) + ' m/s²'];
           const lh = Math.min(22, (ch - 54) / rows.length);
           rows.forEach((t, i) => K.text(g, t, x0 + 12, y0 + 16 + i * lh, { font: fit(g, t, cw - 24, 13, i === 4), color: theme.fg, baseline: 'middle' }));
           const by = y0 + 16 + rows.length * lh, bw = cw - 24;
@@ -553,8 +553,8 @@
           const pt = K.fmt(q.pct, 0, lang) + ' % ' + K.tr({ en: 'of gravity on the ground', hr: 'gravitacije na tlu' }, lang);
           K.text(g, pt, x0 + 12, by + 17, { font: fit(g, pt, bw, 12, true), color: theme.fg, baseline: 'middle' });
         }
-        const l2 = geo ? { en: 'One lap takes exactly one turn of the Earth, so it stays above the same place.', hr: 'Jedan obilazak traje točno jedan okret Zemlje pa ostaje iznad istog mjesta.' }
-          : V.wide ? { en: 'The satellite is in free fall around the Earth: gravity is the only force on it.', hr: 'Satelit je u slobodnom padu oko Zemlje: gravitacija je jedina sila na njega.' } : { en: gTxt, hr: gTxt };
+        const l2 = geo ? { en: 'One lap takes exactly one turn of the Earth, so it stays above the same place.', hr: 'Jedan obilazak traje točno koliko i jedan okret Zemlje pa satelit ostaje iznad istog mjesta.' }
+          : V.wide ? { en: 'The satellite is in free fall around the Earth: gravity is the only force on it.', hr: 'Satelit je u slobodnom padu oko Zemlje: gravitacija je jedina sila koja na njega djeluje.' } : { en: gTxt, hr: gTxt };
         header(g, K.tr({ en: 'Height ', hr: 'Visina ' }, lang) + big(sa.alt, lang) + ' km' + (preset ? '  ·  ' + K.tr(preset.name, lang) : '') + (V.wide ? '' : '  ·  T = ' + K.tr(dur(q.T), lang)), K.tr(l2, lang), w - 20);
         arrowKey(g, h - 12);
         const scale = q.T / satScreenT();

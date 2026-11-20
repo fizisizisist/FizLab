@@ -43,11 +43,11 @@
   ];
   const NOTE = {
     chain: { en: 'Energy is never used up: it changes form and, step by step, spreads out into the surroundings as heat. Only a part ends up in the form we wanted – that share is the efficiency.',
-      hr: 'Energija se ne troši: ona mijenja oblik i korak po korak raspršuje se u okolinu kao toplina. Samo dio završi u obliku koji smo htjeli – taj je udio korisnost.' },
+      hr: 'Energija se ne troši: mijenja oblik i postupno se raspršuje u okolinu kao toplina. Samo dio završi u obliku koji smo željeli – taj udio nazivamo korisnošću.' },
     solar: { en: 'The panel gives the most power when the Sun\'s rays hit it at a right angle. Run a whole day for different tilts and compare the curves. (The model ignores that a low Sun shines through more air.)',
-      hr: 'Ploča daje najveću snagu kad Sunčeve zrake padaju okomito na nju. Pokreni cijeli dan za različite nagibe i usporedi krivulje. (Model zanemaruje da nisko Sunce sja kroz više zraka.)' },
+      hr: 'Ploča daje najveću snagu kad Sunčeve zrake padaju okomito na nju. Pokreni simulaciju cijelog dana za različite nagibe i usporedi krivulje. (Model zanemaruje to da svjetlost niskog Sunca prolazi kroz deblji sloj zraka.)' },
     home: { en: 'Electrical energy E = P · t is sold in kilowatt-hours: 1 kWh = 1000 W for 1 hour = 3 600 000 J. Powerful heating appliances that run for a long time cost the most. A month is counted as 30 days.',
-      hr: 'Električna energija E = P · t prodaje se u kilovatsatima: 1 kWh = 1000 W tijekom 1 sata = 3 600 000 J. Najviše koštaju snažni grijaći uređaji koji rade dugo. Mjesec se računa kao 30 dana.' }
+      hr: 'Električna energija E = P · t naplaćuje se u kilovatsatima: 1 kWh = 1000 W tijekom 1 sata = 3 600 000 J. Najviše koštaju snažni grijaći uređaji koji rade dugo. Za mjesec se uzima 30 dana.' }
   };
   const DEF = { src: 'sun', user: 'led', P: 400, elev: 45, tilt: 30, price: 0.15 };
   function hash(i, j) { const s = Math.sin(i * 12.9898 + j * 78.233) * 43758.5453; return s - Math.floor(s); }
@@ -58,13 +58,13 @@
     title: { en: 'Energy Chains', hr: 'Lanci pretvorbe energije' },
     summary: {
       en: 'Follow energy from a source through a converter to an appliance and see how much is spread out as heat, tilt a solar panel towards the Sun, and add up the electricity used at home.',
-      hr: 'Prati energiju od izvora preko pretvornika do trošila i pogledaj koliko se rasprši kao toplina, nagni sunčanu ploču prema Suncu i zbroji električnu energiju potrošenu kod kuće.'
+      hr: 'Prati energiju od izvora preko pretvornika do trošila i pogledaj koliko se rasprši kao toplina. Nagni sunčanu ploču prema Suncu i zbroji električnu energiju potrošenu kod kuće.'
     },
     tasks: [
-      { en: 'Light an LED lamp and then a filament bulb from the same source. How many joules of light do you get from 100 J?', hr: 'Istim izvorom napajaj LED žarulju, a zatim žarulju sa žarnom niti. Koliko džula svjetlosti dobiješ od 100 J?' },
-      { en: 'Which chain has the highest overall efficiency? Which has the lowest? Where does the "lost" energy go?', hr: 'Koji lanac ima najveću ukupnu korisnost, a koji najmanju? Kamo odlazi "izgubljena" energija?' },
-      { en: 'In "Solar panel" set the Sun to 30°. Which tilt gives the most power? Then press "Whole day".', hr: 'U "Sunčanoj ploči" postavi Sunce na 30°. Koji nagib daje najveću snagu? Zatim pritisni "Cijeli dan".' },
-      { en: 'In "Electricity at home" find the appliance that uses the most energy per day. Is it the most powerful one?', hr: 'U "Struji kod kuće" pronađi uređaj koji dnevno troši najviše energije. Je li to ujedno i najsnažniji uređaj?' }
+      { en: 'Light an LED lamp and then a filament bulb from the same source. How many joules of light do you get from 100 J?', hr: 'Istim izvorom napajaj LED žarulju, a zatim žarulju sa žarnom niti. Koliko džula svjetlosne energije dobiješ od 100 J?' },
+      { en: 'Which chain has the highest overall efficiency? Which has the lowest? Where does the "lost" energy go?', hr: 'Koji lanac ima najveću ukupnu korisnost, a koji najmanju? Kamo odlazi „izgubljena“ energija?' },
+      { en: 'In "Solar panel" set the Sun to 30°. Which tilt gives the most power? Then press "Whole day".', hr: 'Odaberi „Sunčana ploča“ i postavi visinu Sunca na 30°. Koji nagib daje najveću snagu? Zatim pritisni „Cijeli dan“.' },
+      { en: 'In "Electricity at home" find the appliance that uses the most energy per day. Is it the most powerful one?', hr: 'Odaberi „Struja kod kuće“ i pronađi uređaj koji dnevno potroši najviše energije. Je li to ujedno uređaj najveće snage?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -89,23 +89,23 @@
       const slTilt = C.slider({ label: { en: 'Panel tilt', hr: 'Nagib ploče' }, min: 0, max: 90, step: 1, value: DEF.tilt, format: deg, onChange: v => { st.tilt = v; refresh(); } });
       const tgCloud = C.toggle({ label: { en: 'Clouds', hr: 'Oblaci' }, value: false, onChange: v => { st.clouds = v; refresh(); } });
       const btnDay = C.button({ label: { en: 'Whole day', hr: 'Cijeli dan' }, onClick: () => startDay() });
-      const selApp = C.select({ label: { en: 'Appliance to edit', hr: 'Uređaj koji mijenjaš' }, value: APPS[0].id,
+      const selApp = C.select({ label: { en: 'Appliance to edit', hr: 'Odabrani uređaj' }, value: APPS[0].id,
         options: APPS.map(a => ({ value: a.id, label: { en: a.label.en + ' (' + a.P + ' W)', hr: a.label.hr + ' (' + a.P + ' W)' } })),
         onChange: v => { st.sel = Math.max(0, APPS.findIndex(a => a.id === v)); syncApp(); refresh(); } });
-      const tgUse = C.toggle({ label: { en: 'Use it', hr: 'Koristi se' }, value: APPS[0].on, onChange: v => { st.apps[st.sel].on = v; refresh(); } });
+      const tgUse = C.toggle({ label: { en: 'Use it', hr: 'U upotrebi' }, value: APPS[0].on, onChange: v => { st.apps[st.sel].on = v; refresh(); } });
       const slH = C.slider({ label: { en: 'Hours per day', hr: 'Sati dnevno' }, min: 0, max: 24, step: 0.25, value: APPS[0].h, unit: 'h', digits: 2, onChange: v => { st.apps[st.sel].h = v; refresh(); } });
       const slPrice = C.slider({ label: { en: 'Price of electricity', hr: 'Cijena struje' }, min: 0.1, max: 0.4, step: 0.01, value: DEF.price, unit: '€/kWh', digits: 2, onChange: v => { st.price = v; refresh(); } });
       const btnPlay = C.button({ label: { en: 'Pause', hr: 'Pauza' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outUse = C.readout({ label: { en: 'Useful power', hr: 'Korisna snaga' }, unit: 'W', digits: 0 });
       const outHeat = C.readout({ label: { en: 'Spread out as heat', hr: 'Raspršeno kao toplina' }, unit: 'W', digits: 0 });
       const outEff = C.readout({ label: { en: 'Overall efficiency', hr: 'Ukupna korisnost' }, unit: '%', digits: 1 });
       const outPs = C.readout({ label: { en: 'Power of the panel', hr: 'Snaga ploče' }, unit: 'W', digits: 0 });
       const outPct = C.readout({ label: { en: 'Share of the maximum', hr: 'Udio najveće snage' }, unit: '%', digits: 0 });
       const outAng = C.readout({ label: { en: 'Rays to the perpendicular', hr: 'Kut zraka i okomice' } });
-      const outDay = C.readout({ label: { en: 'Energy per day', hr: 'Energija na dan' }, unit: 'kWh', digits: 2 });
-      const outMonth = C.readout({ label: { en: 'Energy per month', hr: 'Energija na mjesec' }, unit: 'kWh', digits: 1 });
-      const outCost = C.readout({ label: { en: 'Cost per month', hr: 'Trošak na mjesec' }, unit: '€', digits: 2 });
+      const outDay = C.readout({ label: { en: 'Energy per day', hr: 'Energija dnevno' }, unit: 'kWh', digits: 2 });
+      const outMonth = C.readout({ label: { en: 'Energy per month', hr: 'Energija mjesečno' }, unit: 'kWh', digits: 1 });
+      const outCost = C.readout({ label: { en: 'Cost per month', hr: 'Trošak mjesečno' }, unit: '€', digits: 2 });
       const outTop = C.readout({ label: { en: 'Uses the most', hr: 'Najviše troši' } });
       const note = C.note({ text: '' });
 
@@ -318,7 +318,7 @@
         const ch = K.lineChart(c, { x: G.x, y: G.y, w: G.w, h: G.h, xMin: 6, xMax: 18, yMin: 0, yMax: PMAX, nice: false, xTicks: 4, yTicks: 3, xDigits: 0, yDigits: 0, lang, theme,
           yLabel: { en: 'power P (W)', hr: 'snaga P (W)' }, series });
         K.text(c, K.tr({ en: 'time of day (h)', hr: 'doba dana (h)' }, lang), ch.px + ch.pw - 5, ch.py + 12, { font: f11, color: theme.fg, align: 'right' });
-        if (d.pts.length < 2 && !d.prev) K.text(c, K.tr({ en: 'Press "Whole day"', hr: 'Pritisni "Cijeli dan"' }, lang), ch.px + ch.pw / 2, ch.py + ch.ph / 2, { font: '12px ' + theme.font, color: theme.muted, align: 'center', baseline: 'middle' });
+        if (d.pts.length < 2 && !d.prev) K.text(c, K.tr({ en: 'Press "Whole day"', hr: 'Pritisni „Cijeli dan“' }, lang), ch.px + ch.pw / 2, ch.py + ch.ph / 2, { font: '12px ' + theme.font, color: theme.muted, align: 'center', baseline: 'middle' });
       }
 
       // ---- (c) electricity at home ----
@@ -326,11 +326,11 @@
         const w = cv.w, h = cv.h, q = homeCalc(), a = st.apps[st.sel], d = a.def, f11 = '11px ' + theme.font, Wh = d.P * a.h * (d.duty || 1);
         head(c, 'E = P · t = ' + d.P + ' W · ' + K.fmt(a.h, a.h % 1 ? 2 : 0, lang) + ' h' + (d.duty ? ' · ⅓' : '') + ' = ' + K.fmt(Wh, 0, lang) + ' Wh = ' + K.fmt(Wh / 1000, 2, lang) + ' kWh',
           K.tr(d.label, lang) + (d.duty ? K.tr({ en: ' (runs ⅓ of the time)', hr: ' (radi ⅓ vremena)' }, lang) : '') +
-          K.tr({ en: ' · total ', hr: ' · ukupno ' }, lang) + K.fmt(q.day, 2, lang) + ' kWh ' + K.tr({ en: 'per day', hr: 'na dan' }, lang));
+          K.tr({ en: ' · total ', hr: ' · ukupno ' }, lang) + K.fmt(q.day, 2, lang) + ' kWh ' + K.tr({ en: 'per day', hr: 'dnevno' }, lang));
         const top = 48, n = q.rows.length, rowH = Math.min(34, (h - top - 8) / Math.max(1, n)), LW = K.clamp(w * 0.36, 112, 250), x0 = LW + 8, bw = w - x0 - 78;
         const Emax = q.rows.reduce((m, r) => Math.max(m, r.E), 0.001);
         geoH = { top, rowH, rows: q.rows };
-        if (!n) K.text(c, K.tr({ en: 'Nothing is switched on. Choose an appliance and turn on "Use it".', hr: 'Ništa nije uključeno. Odaberi uređaj i uključi "Koristi se".' }, lang), 12, top + 20, { font: '12px ' + theme.font, color: theme.muted, baseline: 'middle' });
+        if (!n) K.text(c, K.tr({ en: 'Nothing is switched on. Choose an appliance and turn on "Use it".', hr: 'Ništa nije uključeno. Odaberi uređaj i uključi „U upotrebi“.' }, lang), 12, top + 20, { font: '12px ' + theme.font, color: theme.muted, baseline: 'middle' });
         q.rows.forEach((r, i) => {
           const y = top + i * rowH, ym = y + rowH / 2, sel = r.a === a, bh = Math.max(6, rowH - 9), len = Math.max(2, bw * r.E / Emax), most = r.a === q.top;
           if (sel) { c.fillStyle = K.withAlpha(theme.fg, 0.09); K.roundRect(c, 4, y, w - 8, rowH, 5); c.fill(); }

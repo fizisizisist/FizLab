@@ -7,7 +7,7 @@
       params: R => ({ F: R.step(20, 150, 10), s: R.int(5, 60) }),
       text: {
         en: (p, f) => `A boy pulls a sled with a force of ${f(p.F)} N over a distance of ${f(p.s)} m. How much work does he do?`,
-        hr: (p, f) => `Dječak vuče sanjke silom ${f(p.F)} N na putu od ${f(p.s)} m. Koliki rad obavi?`
+        hr: (p, f) => `Dječak vuče sanjke silom od ${f(p.F)} N na putu od ${f(p.s)} m. Koliki rad obavi?`
       },
       answer: p => p.F * p.s, unit: 'J',
       hint: { en: 'Work = force × distance.', hr: 'Rad = sila × put.' },
@@ -21,7 +21,7 @@
       params: R => ({ m: R.int(2, 20), h: R.step(0.5, 3, 0.5) }),
       text: {
         en: (p, f) => `A bag of mass ${f(p.m)} kg is lifted onto a shelf ${f(p.h)} m above the floor. What is its gravitational potential energy relative to the floor? Use g = 10 N/kg.`,
-        hr: (p, f) => `Vreća mase ${f(p.m)} kg podignuta je na policu ${f(p.h)} m iznad poda. Kolika je njezina gravitacijska potencijalna energija u odnosu na pod? Uzmi g = 10 N/kg.`
+        hr: (p, f) => `Vreća mase ${f(p.m)} kg podignuta je na policu koja je ${f(p.h)} m iznad poda. Kolika je njezina gravitacijska potencijalna energija u odnosu na pod? Uzmi g = 10 N/kg.`
       },
       answer: p => p.m * 10 * p.h, unit: 'J',
       hint: { en: 'Potential energy = mass × g × height.', hr: 'Potencijalna energija = masa × g × visina.' },
@@ -38,7 +38,7 @@
         hr: (p, f) => `Biciklist zajedno s biciklom ima masu ${f(p.m)} kg i vozi brzinom ${f(p.v)} m/s. Kolika je njegova kinetička energija? (E_k = ½ · m · v²)`
       },
       answer: p => 0.5 * p.m * p.v * p.v, unit: 'J',
-      hint: { en: 'Square the speed first, then multiply by the mass and halve.', hr: 'Najprije kvadriraj brzinu, zatim pomnoži masom i podijeli s 2.' },
+      hint: { en: 'Square the speed first, then multiply by the mass and halve.', hr: 'Najprije kvadriraj brzinu, zatim je pomnoži s masom i podijeli s 2.' },
       steps: {
         en: (p, f) => ['E_k = ½ · m · v²', `E_k = ½ · ${f(p.m)} kg · (${f(p.v)} m/s)²`, `E_k = ½ · ${f(p.m)} kg · ${f(p.v * p.v)} m²/s²`, `E_k = ${f(0.5 * p.m * p.v * p.v)} J`],
         hr: (p, f) => ['E_k = ½ · m · v²', `E_k = ½ · ${f(p.m)} kg · (${f(p.v)} m/s)²`, `E_k = ½ · ${f(p.m)} kg · ${f(p.v * p.v)} m²/s²`, `E_k = ${f(0.5 * p.m * p.v * p.v)} J`]
@@ -91,7 +91,7 @@
       params: R => { const v = R.pick([4, 6, 8, 10, 12, 20, 30]); return { h: v * v / 20 }; },
       text: {
         en: (p, f) => `A roller coaster car starts from rest at the top of a hill ${f(p.h)} m high and rolls down without friction. What is its speed at the bottom? Use g = 10 N/kg. (All the potential energy turns into kinetic energy: m · g · h = ½ · m · v²)`,
-        hr: (p, f) => `Vagon vlaka u zabavnom parku kreće iz mirovanja s vrha uspona visokog ${f(p.h)} m i spušta se bez trenja. Kolikom brzinom stigne do dna? Uzmi g = 10 N/kg. (Sva potencijalna energija prelazi u kinetičku: m · g · h = ½ · m · v²)`
+        hr: (p, f) => `Vagon vlaka smrti kreće iz mirovanja s vrha brijega visokog ${f(p.h)} m i spušta se bez trenja. Kolikom brzinom stigne do podnožja? Uzmi g = 10 N/kg. (Sva potencijalna energija prelazi u kinetičku: m · g · h = ½ · m · v²)`
       },
       answer: p => Math.sqrt(2 * 10 * p.h), unit: 'm/s',
       hint: { en: 'The mass cancels: v² = 2 · g · h.', hr: 'Masa se pokrati: v² = 2 · g · h.' },
@@ -108,10 +108,10 @@
         hr: (p, f) => `Električna grijalica snage ${f(p.P)} W radi ${f(p.t)} h. Cijena električne energije je ${f(p.c)} € po kWh. Koliko košta to grijanje? (E = P · t)`
       },
       answer: p => p.Pk * p.t * p.c, unit: '€',
-      hint: { en: 'Convert W to kW, multiply by the hours to get kWh, then multiply by the price.', hr: 'Pretvori W u kW, pomnoži satima da dobiješ kWh, zatim pomnoži cijenom.' },
+      hint: { en: 'Convert W to kW, multiply by the hours to get kWh, then multiply by the price.', hr: 'Pretvori W u kW i pomnoži s brojem sati da dobiješ kWh, a zatim pomnoži s cijenom.' },
       steps: {
         en: (p, f) => [`P = ${f(p.P)} W = ${f(p.Pk)} kW`, `E = P · t = ${f(p.Pk)} kW · ${f(p.t)} h = ${f(p.Pk * p.t)} kWh`, `Cost = ${f(p.Pk * p.t)} kWh · ${f(p.c)} €/kWh = ${f(p.Pk * p.t * p.c)} €`],
-        hr: (p, f) => [`P = ${f(p.P)} W = ${f(p.Pk)} kW`, `E = P · t = ${f(p.Pk)} kW · ${f(p.t)} h = ${f(p.Pk * p.t)} kWh`, `Cijena = ${f(p.Pk * p.t)} kWh · ${f(p.c)} €/kWh = ${f(p.Pk * p.t * p.c)} €`]
+        hr: (p, f) => [`P = ${f(p.P)} W = ${f(p.Pk)} kW`, `E = P · t = ${f(p.Pk)} kW · ${f(p.t)} h = ${f(p.Pk * p.t)} kWh`, `Trošak = ${f(p.Pk * p.t)} kWh · ${f(p.c)} €/kWh = ${f(p.Pk * p.t * p.c)} €`]
       }
     },
     {
@@ -125,7 +125,7 @@
       },
       text: {
         en: (p, f) => `An electric motor uses ${f(p.E)} J of electrical energy to lift a load of mass ${f(p.m)} kg to a height of ${f(p.h)} m. What is the efficiency of the motor in percent? Use g = 10 N/kg.`,
-        hr: (p, f) => `Električni motor potroši ${f(p.E)} J električne energije da podigne teret mase ${f(p.m)} kg na visinu ${f(p.h)} m. Kolika je korisnost motora u postocima? Uzmi g = 10 N/kg.`
+        hr: (p, f) => `Električni motor potroši ${f(p.E)} J električne energije za podizanje tereta mase ${f(p.m)} kg na visinu ${f(p.h)} m. Kolika je korisnost motora u postocima? Uzmi g = 10 N/kg.`
       },
       answer: p => p.m * 10 * p.h / p.E * 100, unit: '%',
       hint: { en: 'Useful work = m · g · h; efficiency = useful work / energy used × 100 %.', hr: 'Korisni rad = m · g · h; korisnost = korisni rad / uložena energija × 100 %.' },

@@ -6,7 +6,7 @@
     { id: 'nail', mag: true, shape: 'nail', color: '#8e959e', w: 48, h: 10, name: { en: 'Iron nail', hr: 'Željezni čavao' }, mat: { en: 'iron', hr: 'željezo' } },
     { id: 'clip', mag: true, shape: 'clip', color: '#aab3bc', w: 16, h: 32, name: { en: 'Steel paperclip', hr: 'Čelična spajalica' }, mat: { en: 'steel', hr: 'čelik' } },
     { id: 'copper', mag: false, shape: 'coin', color: '#c07a3c', w: 26, h: 26, name: { en: 'Copper coin', hr: 'Bakreni novčić' }, mat: { en: 'copper', hr: 'bakar' } },
-    { id: 'foil', mag: false, shape: 'foil', color: '#cdd5dd', w: 34, h: 26, name: { en: 'Aluminium foil', hr: 'Alu-folija' }, mat: { en: 'aluminium', hr: 'aluminij' } },
+    { id: 'foil', mag: false, shape: 'foil', color: '#cdd5dd', w: 34, h: 26, name: { en: 'Aluminium foil', hr: 'Aluminijska folija' }, mat: { en: 'aluminium', hr: 'aluminij' } },
     { id: 'ruler', mag: false, shape: 'ruler', colorKey: 'c4', w: 58, h: 12, name: { en: 'Plastic ruler', hr: 'Plastično ravnalo' }, mat: { en: 'plastic', hr: 'plastika' } },
     { id: 'nickel', mag: true, shape: 'coin', color: '#b9bec4', w: 24, h: 24, name: { en: 'Nickel coin', hr: 'Niklov novčić' }, mat: { en: 'nickel (pure)', hr: 'nikal (čisti)' } },
     { id: 'wood', mag: false, shape: 'stick', color: '#a8744a', w: 52, h: 8, name: { en: 'Wooden stick', hr: 'Drveni štapić' }, mat: { en: 'wood', hr: 'drvo' } },
@@ -21,13 +21,13 @@
     title: { en: 'Magnets and Compasses', hr: 'Magneti i kompasi' },
     summary: {
       en: 'Drag bar magnets around and watch compass needles, field lines and iron filings follow the field. Then test which objects a magnet attracts.',
-      hr: 'Povlači štapićaste magnete i gledaj kako igle kompasa, silnice i željezna strugotina slijede polje. Zatim ispitaj koje predmete magnet privlači.'
+      hr: 'Povlači štapićaste magnete i promatraj kako se igle kompasa i željezna piljevina usmjeravaju u magnetskom polju te kako izgledaju magnetske silnice. Zatim ispitaj koje predmete magnet privlači.'
     },
     tasks: [
       { en: 'Where do the field lines start and end? Where are the compass needles turned the most?', hr: 'Gdje silnice počinju, a gdje završavaju? Gdje su igle kompasa najviše zakrenute?' },
-      { en: 'Add a second magnet and bring N near N. Then press Flip. When do the magnets attract?', hr: 'Dodaj drugi magnet i približi N k N. Zatim pritisni Okreni. Kad se magneti privlače?' },
-      { en: 'In "What sticks?" try every item. Which materials are magnetic? What do they have in common?', hr: 'U "Što privlači magnet?" ispitaj svaki predmet. Koji su materijali magnetični? Što im je zajedničko?' },
-      { en: 'Is the copper coin attracted? And the aluminium foil? Not every metal is magnetic!', hr: 'Privlači li magnet bakreni novčić? A alu-foliju? Nije svaki metal magnetičan!' }
+      { en: 'Add a second magnet and bring N near N. Then press Flip. When do the magnets attract?', hr: 'Dodaj drugi magnet i približi pol N jednog magneta polu N drugog. Zatim pritisni „Okreni magnet“. Kada se magneti privlače?' },
+      { en: 'In "What sticks?" try every item. Which materials are magnetic? What do they have in common?', hr: 'U načinu „Što privlači magnet?“ ispitaj svaki predmet. Koji su materijali magnetični? Što im je zajedničko?' },
+      { en: 'Is the copper coin attracted? And the aluminium foil? Not every metal is magnetic!', hr: 'Privlači li magnet bakreni novčić? A aluminijsku foliju? Nije svaki metal magnetičan!' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -46,13 +46,13 @@
         st.two = v; if (v) { st.mags[0].u = 0.3; st.mags[0].v = 0.5; st.mags[1] = { u: 0.7, v: 0.5, a: 0 }; } else { st.mags[0].u = 0.5; st.mags[0].v = 0.5; }
         btnFlip2.setDisabled(!v); st.dirty = true; updateOut(); draw(); } });
       const tgNeedles = C.toggle({ label: { en: 'Compass needles', hr: 'Igle kompasa' }, value: true, onChange: v => { st.needles = v; draw(); } });
-      const tgLines = C.toggle({ label: { en: 'Field lines', hr: 'Silnice polja' }, value: true, onChange: v => { st.lines = v; st.dirty = true; draw(); } });
-      const tgFil = C.toggle({ label: { en: 'Iron filings', hr: 'Željezna strugotina' }, value: false, onChange: v => { st.filings = v; st.dirty = true; draw(); } });
+      const tgLines = C.toggle({ label: { en: 'Field lines', hr: 'Magnetske silnice' }, value: true, onChange: v => { st.lines = v; st.dirty = true; draw(); } });
+      const tgFil = C.toggle({ label: { en: 'Iron filings', hr: 'Željezna piljevina' }, value: false, onChange: v => { st.filings = v; st.dirty = true; draw(); } });
       const btnFlip1 = C.button({ label: { en: 'Flip magnet 1', hr: 'Okreni magnet 1' }, onClick: () => { st.mags[0].a += Math.PI; st.dirty = true; updateOut(); draw(); } });
       const btnFlip2 = C.button({ label: { en: 'Flip magnet 2', hr: 'Okreni magnet 2' }, onClick: () => { st.mags[1].a += Math.PI; st.dirty = true; updateOut(); draw(); } });
       btnFlip2.setDisabled(true);
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
-      const outPoles = C.readout({ label: { en: 'Facing poles', hr: 'Sučeljeni polovi' } });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
+      const outPoles = C.readout({ label: { en: 'Facing poles', hr: 'Najbliži polovi' } });
       const outForce = C.readout({ label: { en: 'The magnets', hr: 'Magneti se' } });
       const outItem = C.readout({ label: { en: 'Item', hr: 'Predmet' } });
       const outMat = C.readout({ label: { en: 'Material', hr: 'Materijal' } });
@@ -79,14 +79,14 @@
         } else { outPoles.set({ en: 'one magnet', hr: 'jedan magnet' }); outForce.set('–'); outForce.setColor(''); }
         if (st.last) {
           outItem.set(st.last.def.name); outMat.set(st.last.def.mat);
-          outMag.set(st.last.def.mag ? { en: 'yes – it sticks', hr: 'da – privlači ga' } : { en: 'no – it does not stick', hr: 'ne – ne privlači ga' });
+          outMag.set(st.last.def.mag ? { en: 'yes – it sticks', hr: 'da – magnet ga privlači' } : { en: 'no – it does not stick', hr: 'ne – magnet ga ne privlači' });
           outMag.setColor(st.last.def.mag ? theme.good : theme.muted);
         } else { outItem.set({ en: 'drag an item to the magnet', hr: 'povuci predmet do magneta' }); outMat.set('–'); outMag.set('–'); outMag.setColor(''); }
         note.set(st.mode === 'field'
           ? { en: 'Field lines run from the N pole to the S pole outside the magnet. A compass needle turns so its red (north) end points along the field. Unlike poles attract, like poles repel.',
-              hr: 'Silnice izvan magneta idu od sjevernog (N) do južnog (S) pola. Igla kompasa zakrene se tako da njezin crveni (sjeverni) kraj pokazuje smjer polja. Raznoimeni polovi se privlače, istoimeni odbijaju.' }
+              hr: 'Izvan magneta silnice idu od sjevernog (N) prema južnom (S) polu. Igla kompasa zakrene se tako da joj crveni (sjeverni) kraj pokazuje smjer polja. Raznoimeni polovi privlače se, a istoimeni se odbijaju.' }
           : { en: 'A magnet attracts only a few materials: iron, steel (which is mostly iron), nickel and cobalt. Copper, aluminium, plastic and wood are not magnetic.',
-              hr: 'Magnet privlači samo neke materijale: željezo, čelik (uglavnom željezo), nikal i kobalt. Bakar, aluminij, plastika i drvo nisu magnetični.' });
+              hr: 'Magnet privlači samo neke materijale: željezo, čelik (koji se uglavnom sastoji od željeza), nikal i kobalt. Bakar, aluminij, plastika i drvo nisu magnetični.' });
       }
       function reset() {
         st.two = false; tgTwo.set(false); btnFlip2.setDisabled(true);
@@ -294,7 +294,7 @@
         st.items.forEach(it => { if (it !== st.dragItem) drawItem(c, it); });
         if (st.dragItem) drawItem(c, st.dragItem);
         K.text(c, K.tr({ en: 'Drag each item up to the magnet. What sticks?', hr: 'Povuci svaki predmet do magneta. Što se prilijepi?' }, lang), 12, 14, { font: 'bold 13px ' + theme.fontDisplay, color: theme.fg, baseline: 'middle' });
-        K.text(c, K.tr({ en: 'Magnetic: iron, steel, nickel, cobalt.', hr: 'Magnetično: željezo, čelik, nikal, kobalt.' }, lang), 12, 32, { font: '12px ' + theme.font, color: theme.muted, baseline: 'middle' });
+        K.text(c, K.tr({ en: 'Magnetic: iron, steel, nickel, cobalt.', hr: 'Magnet privlači: željezo, čelik, nikal, kobalt.' }, lang), 12, 32, { font: '12px ' + theme.font, color: theme.muted, baseline: 'middle' });
       }
       function draw() {
         const c = cv.ctx; c.clearRect(0, 0, cv.w, cv.h);

@@ -11,9 +11,9 @@
   const SCEN = [
     { id: 'ball', label: { en: 'Ball thrown straight up', hr: 'Lopta bačena uvis' }, param: 'speed', p: [2, 8, 0.5, 5], m: [0.5, 5, 0.5, 1], tscale: 0.5 },
     { id: 'slide', label: { en: 'Girl on a frictionless slide', hr: 'Djevojčica na toboganu bez trenja' }, param: 'height', p: [1, 4, 0.25, 3], m: [20, 60, 5, 35], tscale: 0.7 },
-    { id: 'box', label: { en: 'Box pulled at constant speed', hr: 'Kutija vučena stalnom brzinom' }, param: 'speed', p: [0.5, 2, 0.1, 1], m: [1, 20, 1, 5], tscale: 1 },
+    { id: 'box', label: { en: 'Box pulled at constant speed', hr: 'Vučenje kutije stalnom brzinom' }, param: 'speed', p: [0.5, 2, 0.1, 1], m: [1, 20, 1, 5], tscale: 1 },
     { id: 'pend', label: { en: 'Pendulum', hr: 'Njihalo' }, param: 'height', p: [0.1, 1, 0.05, 0.5], m: [0.5, 5, 0.5, 1], tscale: 1 },
-    { id: 'bounce', label: { en: 'Bouncing ball (loses 20 % per bounce)', hr: 'Lopta koja odskakuje (gubi 20 % po odskoku)' }, param: 'height', p: [1, 4, 0.25, 2], m: [0.5, 5, 0.5, 1], tscale: 0.6 },
+    { id: 'bounce', label: { en: 'Bouncing ball (loses 20 % per bounce)', hr: 'Lopta koja odskakuje (gubi 20 % pri svakom odskoku)' }, param: 'height', p: [1, 4, 0.25, 2], m: [0.5, 5, 0.5, 1], tscale: 0.6 },
     { id: 'crane', label: { en: 'Crate lifted by a crane', hr: 'Sanduk koji diže dizalica' }, param: 'height', p: [1, 5, 0.5, 3], m: [50, 500, 10, 200], tscale: 1 },
     { id: 'bag', label: { en: 'Carrying a bag at constant speed', hr: 'Nošenje torbe stalnom brzinom' }, param: 'speed', p: [0.5, 2, 0.1, 1], m: [0.5, 5, 0.5, 2], tscale: 1 }
   ];
@@ -28,13 +28,13 @@
     title: { en: 'Energy Bar Charts', hr: 'Stupčasti dijagram energije' },
     summary: {
       en: 'Watch a motion and its energy bar chart side by side: kinetic, potential, internal energy and work at the start and now. Energy changes form — it is never used up.',
-      hr: 'Prati gibanje i njegov stupčasti dijagram energije: kinetička, potencijalna, unutarnja energija i rad na početku i sada. Energija mijenja oblik — nikad se ne potroši.'
+      hr: 'Prati gibanje i uz njega stupčasti dijagram energije: kinetičku, potencijalnu i unutarnju energiju te rad, na početku i sada. Energija mijenja oblik — nikad se ne potroši.'
     },
     tasks: [
-      { en: 'Throw the ball up at 6 m/s. Pause and scrub to the top: where did the kinetic energy go? Now scrub to the same height on the way down.', hr: 'Baci loptu uvis brzinom 6 m/s. Pauziraj i povuci vrijeme do vrha: kamo je otišla kinetička energija? Zatim povuci do iste visine pri padu.' },
+      { en: 'Throw the ball up at 6 m/s. Pause and scrub to the top: where did the kinetic energy go? Now scrub to the same height on the way down.', hr: 'Baci loptu uvis brzinom 6 m/s. Zaustavi simulaciju i klizačem vremena dovedi loptu do vrha: u što je prešla kinetička energija? Zatim je dovedi do iste visine pri padu.' },
       { en: 'Change the zero level from floor to ceiling. Which bars change and which stay the same? Does the motion change?', hr: 'Promijeni nultu razinu s poda na strop. Koji se stupci mijenjaju, a koji ostaju isti? Mijenja li se gibanje?' },
-      { en: 'Box on the floor: compare "box only" with "box + floor". Where does the person\'s work end up?', hr: 'Kutija na podu: usporedi "samo kutija" i "kutija + pod". Gdje završava rad osobe?' },
-      { en: 'Bouncing ball: after 3 bounces, how much of the energy is internal? Was any energy destroyed?', hr: 'Lopta koja odskakuje: nakon 3 odskoka, koliko je energije unutarnje? Je li se energija uništila?' }
+      { en: 'Box on the floor: compare "box only" with "box + floor". Where does the person\'s work end up?', hr: 'Kutija na podu: usporedi „samo kutija“ i „kutija + pod“. Gdje završava rad osobe?' },
+      { en: 'Bouncing ball: after 3 bounces, how much of the energy is internal? Was any energy destroyed?', hr: 'Lopta koja odskakuje: koliki je dio energije nakon 3 odskoka prešao u unutarnju energiju? Je li išta od energije uništeno?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -48,18 +48,18 @@
       const slM = C.slider({ label: { en: 'Mass', hr: 'Masa' }, min: 0.5, max: 5, step: 0.5, value: 1, format: (v, l) => K.fmt(v, v >= 10 ? 0 : 1, l) + ' kg', onChange: v => { st.m = v; recompute(); refresh(); } });
       const slV = C.slider({ label: { en: 'Speed', hr: 'Brzina' }, min: 2, max: 8, step: 0.5, value: 5, unit: 'm/s', digits: 1, onChange: v => { st.p = v; st.t = 0; recompute(); refresh(); } });
       const slH = C.slider({ label: { en: 'Height', hr: 'Visina' }, min: 1, max: 4, step: 0.25, value: 3, unit: 'm', digits: 2, onChange: v => { st.p = v; st.t = 0; recompute(); refresh(); } });
-      const slT = C.slider({ label: { en: 'Time (scrub when paused)', hr: 'Vrijeme (povlači kad je pauza)' }, min: 0, max: 100, step: 0.5, value: 0, format: (v, l) => K.fmt(v, 0, l) + ' %',
+      const slT = C.slider({ label: { en: 'Time (scrub when paused)', hr: 'Vrijeme (pomiči u pauzi)' }, min: 0, max: 100, step: 0.5, value: 0, format: (v, l) => K.fmt(v, 0, l) + ' %',
         onChange: v => { L.stop(); st.t = duration() * v / 100; updatePlay(); refresh(); } });
       const segZero = C.segmented({ label: { en: 'Zero level for E_p', hr: 'Nulta razina za E_p' }, options: ZEROS, value: '0',
         onChange: v => { st.yZero = (ZEROS.find(z => z.value === v) || ZEROS[0]).y; recompute(); refresh(); } });
       const segSys = C.segmented({ label: { en: 'System', hr: 'Sustav' }, options: [{ value: 'box', label: { en: 'box only', hr: 'samo kutija' } }, { value: 'both', label: { en: 'box + floor', hr: 'kutija + pod' } }], value: 'both',
         onChange: v => { st.sys = v; refresh(); } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => { if (st.t >= duration() - 1e-9) st.t = 0; L.toggle(); updatePlay(); refresh(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outEk = C.readout({ label: { en: 'Kinetic energy E_k', hr: 'Kinetička energija E_k' }, unit: 'J', digits: 1 });
       const outEp = C.readout({ label: { en: 'Potential energy E_p', hr: 'Potencijalna energija E_p' }, unit: 'J', digits: 1 });
       const outEi = C.readout({ label: { en: 'Internal energy E_int', hr: 'Unutarnja energija E_un' }, unit: 'J', digits: 1 });
-      const outW = C.readout({ label: { en: 'Work done on the system W', hr: 'Rad na sustavu W' }, unit: 'J', digits: 1 });
+      const outW = C.readout({ label: { en: 'Work done on the system W', hr: 'Rad nad sustavom W' }, unit: 'J', digits: 1 });
       const outTot = C.readout({ label: { en: 'Total energy in the system', hr: 'Ukupna energija u sustavu' }, unit: 'J', digits: 1 });
       const note = C.note({ text: { en: '', hr: '' } });
 
@@ -158,14 +158,14 @@
           n = Math.abs(s.v) < 0.12 * st.p ? { en: 'At the top E_k = 0 — but the energy is not used up: it is all stored as E_p.', hr: 'Na vrhu je E_k = 0 — ali energija nije potrošena: sva je pohranjena kao E_p.' }
             : s.v > 0 ? { en: 'Going up the ball slows down: E_k turns into E_p. Nothing is lost.', hr: 'Pri usponu lopta usporava: E_k prelazi u E_p. Ništa se ne gubi.' }
               : { en: 'Coming down E_p turns back into E_k: at the same height the ball has the same E_k as on the way up.', hr: 'Pri padu E_p prelazi natrag u E_k: na istoj visini lopta ima istu E_k kao pri usponu.' };
-        } else if (id === 'slide') n = { en: 'The slide pushes on the girl but does no work — its force is perpendicular to the motion. E_p → E_k, the total stays the same.', hr: 'Tobogan gura djevojčicu, ali ne obavlja rad — sila je okomita na gibanje. E_p → E_k, ukupna energija ostaje ista.' };
+        } else if (id === 'slide') n = { en: 'The slide pushes on the girl but does no work — its force is perpendicular to the motion. E_p → E_k, the total stays the same.', hr: 'Tobogan gura djevojčicu, ali ne obavlja rad — njegova je sila okomita na smjer gibanja. E_p → E_k, ukupna energija ostaje ista.' };
         else if (id === 'box') n = out
-          ? { en: 'Box alone: the person\'s work does not speed it up (E_k constant) — it "leaves the system" as heat. Friction heats BOTH surfaces, so choose box + floor to see the energy stay inside.', hr: 'Samo kutija: rad osobe je ne ubrzava (E_k stalna) — "izlazi iz sustava" kao toplina. Trenje zagrijava OBJE površine, pa odaberi kutija + pod da energija ostane unutra.' }
-          : { en: 'Box + floor: the person\'s work becomes internal energy of both surfaces (they warm up). E_k stays constant — work does not have to mean "faster".', hr: 'Kutija + pod: rad osobe postaje unutarnja energija obiju površina (zagriju se). E_k ostaje stalna — rad ne znači nužno "brže".' };
+          ? { en: 'Box alone: the person\'s work does not speed it up (E_k constant) — it "leaves the system" as heat. Friction heats BOTH surfaces, so choose box + floor to see the energy stay inside.', hr: 'Samo kutija: rad osobe ne ubrzava kutiju (E_k je stalna) — energija „izlazi iz sustava“ kao toplina. Trenje zagrijava OBJE površine, pa odaberi „kutija + pod“ da energija ostane u sustavu.' }
+          : { en: 'Box + floor: the person\'s work becomes internal energy of both surfaces (they warm up). E_k stays constant — work does not have to mean "faster".', hr: 'Kutija + pod: rad osobe prelazi u unutarnju energiju obiju površina (one se zagriju). E_k ostaje stalna — rad ne znači nužno „brže“.' };
         else if (id === 'pend') n = { en: 'E_p ⇄ E_k, over and over. Without friction the total stays exactly the same (law of conservation of energy).', hr: 'E_p ⇄ E_k, uvijek iznova. Bez trenja ukupna energija ostaje točno ista (zakon očuvanja energije).' };
-        else if (id === 'bounce') n = { en: 'Each bounce turns 20 % of the energy into internal energy (heat) and sound. Energy is not destroyed — it spreads out and becomes hard to use.', hr: 'Svaki odskok pretvara 20 % energije u unutarnju energiju (toplinu) i zvuk. Energija se ne uništava — raspršuje se i postaje teško iskoristiva.' };
-        else if (id === 'crane') n = { en: 'The crane\'s work W = F·d = m·g·h becomes gravitational potential energy. E_k stays constant (constant speed).', hr: 'Rad dizalice W = F·d = m·g·h postaje gravitacijska potencijalna energija. E_k ostaje stalna (stalna brzina).' };
-        else n = { en: 'No work is done: the hand\'s force is vertical, the motion horizontal (W = F·d·cos 90° = 0). The bars do not change.', hr: 'Rad se ne obavlja: sila ruke je okomita, a gibanje vodoravno (W = F·d·cos 90° = 0). Stupci se ne mijenjaju.' };
+        else if (id === 'bounce') n = { en: 'Each bounce turns 20 % of the energy into internal energy (heat) and sound. Energy is not destroyed — it spreads out and becomes hard to use.', hr: 'Pri svakom odskoku 20 % energije prelazi u unutarnju energiju (toplinu) i zvuk. Energija se ne uništava — raspršuje se i postaje teško iskoristiva.' };
+        else if (id === 'crane') n = { en: 'The crane\'s work W = F·d = m·g·h becomes gravitational potential energy. E_k stays constant (constant speed).', hr: 'Rad dizalice W = F·d = m·g·h prelazi u gravitacijsku potencijalnu energiju. E_k ostaje stalna (stalna brzina).' };
+        else n = { en: 'No work is done: the hand\'s force is vertical, the motion horizontal (W = F·d·cos 90° = 0). The bars do not change.', hr: 'Rad se ne obavlja: sila ruke usmjerena je uvis, a gibanje je vodoravno (W = F·d·cos 90° = 0). Stupci se ne mijenjaju.' };
         if (st.yZero !== 0) n = { en: n.en + ' The zero level is our choice; only changes of E_p matter.', hr: n.hr + ' Nultu razinu biramo sami; važne su samo promjene E_p.' };
         note.set(n);
       }
@@ -279,7 +279,7 @@
           ball(ctx, bx, by, r, theme.c1);
           lab('h = ' + K.fmt(s.y, 2, lang) + ' m   v = ' + K.fmt(s.v, 1, lang) + ' m/s', bx, by + r + 14, 'center');
         } else if (id === 'bounce') {
-          if (s.n > 0) { heatMarks(ctx, cx - 10 - s.n * 7, cx + 10 + s.n * 7, gY - 3, theme.c3); lab(K.tr({ en: 'bounces: ', hr: 'odskoci: ' }, lang) + K.fmt(s.n, 0, lang), cx, gY + 12, 'center'); }
+          if (s.n > 0) { heatMarks(ctx, cx - 10 - s.n * 7, cx + 10 + s.n * 7, gY - 3, theme.c3); lab(K.tr({ en: 'bounces: ', hr: 'broj odskoka: ' }, lang) + K.fmt(s.n, 0, lang), cx, gY + 12, 'center'); }
           ball(ctx, cx, Y(s.y) - r, r, theme.c1);
           lab('h = ' + K.fmt(s.y, 2, lang) + ' m   v = ' + K.fmt(s.v, 1, lang) + ' m/s', cx + r + 12, Y(s.y) - r, 'left');
         } else { // crane

@@ -30,9 +30,9 @@
     },
     tasks: [
       { en: 'Count the rope segments that hold the load in the block and tackle with n = 4. How much rope must you pull to lift the load by 1 m?', hr: 'Prebroji dijelove užeta koji drže teret u koloturniku s n = 4. Koliko užeta moraš povući da teret podigneš za 1 m?' },
-      { en: 'Compare the two rectangles "force × distance" for every pulley system. What stays the same?', hr: 'Usporedi dva pravokutnika "sila × put" za svaki sustav kolotura. Što ostaje isto?' },
-      { en: 'Switch on "Real pulleys" and lift a 5 kg load with n = 4. Why is the efficiency so low?', hr: 'Uključi "Stvarne koloture" i podigni teret od 5 kg uz n = 4. Zašto je korisnost tako mala?' },
-      { en: 'Inclined plane: the crate has 100 kg and the height is 1 m. How long must the ramp be so that 200 N is enough (no friction)?', hr: 'Kosina: sanduk ima 100 kg, a visina je 1 m. Koliko duga mora biti kosina da bude dovoljno 200 N (bez trenja)?' }
+      { en: 'Compare the two rectangles "force × distance" for every pulley system. What stays the same?', hr: 'Usporedi dva pravokutnika „sila × put“ za svaki sustav kolotura. Što ostaje isto?' },
+      { en: 'Switch on "Real pulleys" and lift a 5 kg load with n = 4. Why is the efficiency so low?', hr: 'Uključi „Stvarne koloture“ i podigni teret od 5 kg uz n = 4. Zašto je korisnost tako mala?' },
+      { en: 'Inclined plane: the crate has 100 kg and the height is 1 m. How long must the ramp be so that 200 N is enough (no friction)?', hr: 'Kosina: masa sanduka je 100 kg, a visina kosine 1 m. Kolika mora biti duljina kosine da bude dovoljna sila od 200 N (bez trenja)?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -49,7 +49,7 @@
         { value: 'wind', label: { en: 'Wheel and axle', hr: 'Vitlo' } }], value: 'pulleys', onChange: v => { st.mode = v; drag = null; stop(); showControls(); refresh(); } });
       const selSys = C.select({ label: { en: 'Pulley system', hr: 'Sustav kolotura' }, options: SYS.map(s => ({ value: s.id, label: s.label })), value: 'fixed', onChange: v => { st.sys = v; refresh(); } });
       const slMass = C.slider({ label: { en: 'Mass of the load', hr: 'Masa tereta' }, min: 5, max: 100, step: 1, value: 20, unit: 'kg', digits: 0, onChange: v => { st.m = v; refresh(); } });
-      const slPull = C.slider({ label: { en: 'Rope pulled s', hr: 'Povučeno užeta s' }, min: 0, max: SMAX, step: 0.05, value: 0, unit: 'm', digits: 2, onChange: v => { st.s = v; refresh(); } });
+      const slPull = C.slider({ label: { en: 'Rope pulled s', hr: 'Povučeno uže s' }, min: 0, max: SMAX, step: 0.05, value: 0, unit: 'm', digits: 2, onChange: v => { st.s = v; refresh(); } });
       const tgReal = C.toggle({ label: { en: 'Real pulleys (weight and friction)', hr: 'Stvarne koloture (težina i trenje)' }, value: false, onChange: v => { st.real = v; refresh(); } });
       const slL = C.slider({ label: { en: 'Length of the ramp l', hr: 'Duljina kosine l' }, min: 1, max: 10, step: 0.1, value: 5, unit: 'm', digits: 1,
         onChange: v => { st.l = v; if (st.h > 0.95 * v) { st.h = Math.max(0.2, Math.floor(9.5 * v) / 10); slH.set(st.h); } refresh(); } });
@@ -61,18 +61,18 @@
       const slR = C.slider({ label: { en: 'Radius of the handle R', hr: 'Polumjer ručke R' }, min: 10, max: 60, step: 1, value: 40, unit: 'cm', digits: 0, onChange: v => { st.R = v; refresh(); } });
       const slr = C.slider({ label: { en: 'Radius of the drum r', hr: 'Polumjer vratila r' }, min: 3, max: 20, step: 1, value: 10, unit: 'cm', digits: 0, onChange: v => { st.r = v; st.turns = Math.min(st.turns, wind().maxT); slTurns.set(st.turns); refresh(); } });
       const slMb = C.slider({ label: { en: 'Mass of the full bucket', hr: 'Masa punog vjedra' }, min: 2, max: 30, step: 1, value: 10, unit: 'kg', digits: 0, onChange: v => { st.mb = v; refresh(); } });
-      const slTurns = C.slider({ label: { en: 'Turns of the handle', hr: 'Okretaji ručke' }, min: 0, max: 22, step: 0.25, value: 0, digits: 2, onChange: v => { st.turns = Math.min(v, wind().maxT); if (st.turns < v) slTurns.set(st.turns); refresh(); } });
+      const slTurns = C.slider({ label: { en: 'Turns of the handle', hr: 'Broj okretaja ručke' }, min: 0, max: 22, step: 0.25, value: 0, digits: 2, onChange: v => { st.turns = Math.min(v, wind().maxT); if (st.turns < v) slTurns.set(st.turns); refresh(); } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => {
         if (!L.running && atEnd()) { if (st.mode === 'pulleys') st.s = 0; else if (st.mode === 'ramp') st.pos = 0; else st.turns = 0; syncSliders(); }
         L.toggle(); updatePlay(); refresh();
       } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: reset });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: reset });
       const outF = C.readout({ label: { en: 'Force needed F', hr: 'Potrebna sila F' }, unit: 'N', digits: 1 });
-      const outS = C.readout({ label: { en: 'Rope pulled s', hr: 'Povučeno užeta s' }, unit: 'm', digits: 2 });
+      const outS = C.readout({ label: { en: 'Rope pulled s', hr: 'Povučeno uže s' }, unit: 'm', digits: 2 });
       const outH = C.readout({ label: { en: 'Load raised by h', hr: 'Teret podignut za h' }, unit: 'm', digits: 2 });
       const outAng = C.readout({ label: { en: 'Angle of the ramp α', hr: 'Kut kosine α' }, unit: '°', digits: 1 });
-      const outTurns = C.readout({ label: { en: 'Turns', hr: 'Okretaji' }, digits: 2 });
-      const outPer = C.readout({ label: { en: 'Bucket rise per turn 2πr', hr: 'Dizanje vjedra po okretu 2πr' }, unit: 'm', digits: 2 });
+      const outTurns = C.readout({ label: { en: 'Turns', hr: 'Broj okretaja' }, digits: 2 });
+      const outPer = C.readout({ label: { en: 'Bucket rise per turn 2πr', hr: 'Pomak vjedra po okretu 2πr' }, unit: 'm', digits: 2 });
       const outRise = C.readout({ label: { en: 'Bucket raised by', hr: 'Vjedro podignuto za' }, unit: 'm', digits: 2 });
       const outWin = C.readout({ label: { en: 'Work in (force × your distance)', hr: 'Uloženi rad (sila × tvoj put)' }, unit: 'J', digits: 0 });
       const outWout = C.readout({ label: { en: 'Work of lifting straight up G · h', hr: 'Rad dizanja ravno uvis G · h' }, unit: 'J', digits: 0 });
@@ -123,9 +123,9 @@
           const q = pul(), n = q.sys.n;
           outF.set(q.F); outS.set(st.s); outH.set(q.h); outWin.set(q.Win); outWout.set(q.Wout); outEff.set(q.eff * 100);
           if (st.real) note.set({ en: 'Real pulleys: you also lift the movable pulleys (2 kg per wheel) and overcome friction (10 % more force). The work you put in is bigger than the useful work, so the efficiency is below 100 %.',
-            hr: 'Stvarne koloture: dižeš i pomične koloture (2 kg po kolu) i svladavaš trenje (10 % više sile). Uloženi rad veći je od korisnog pa je korisnost manja od 100 %.' });
+            hr: 'Stvarne koloture: dižeš i pomične koloture (2 kg po koloturi) i svladavaš trenje (10 % više sile). Uloženi rad veći je od korisnog pa je korisnost manja od 100 %.' });
           else if (n === 1) note.set({ en: 'A fixed pulley does not make the force smaller. It only changes its direction: you pull down instead of lifting up. Rope pulled = load raised.',
-            hr: 'Nepomična kolotura ne smanjuje silu. Samo joj mijenja smjer: vučeš prema dolje umjesto da dižeš. Povučeno uže = podignuti teret.' });
+            hr: 'Nepomična kolotura ne smanjuje silu, nego joj samo mijenja smjer: vučeš prema dolje umjesto da dižeš prema gore. Za koliko povučeš uže, za toliko se teret podigne.' });
           else note.set({ en: 'Golden rule of mechanics: what you gain in force you lose in distance. ' + n + ' rope segments hold the load, so you pull with G / ' + n + ', but you must pull ' + n + ' times more rope. The work is the same.',
             hr: 'Zlatno pravilo mehanike: koliko dobiješ na sili, toliko izgubiš na putu. Teret drže ' + n + ' dijela užeta pa vučeš silom G / ' + n + ', ali moraš povući ' + n + ' puta više užeta. Rad je isti.' });
         } else if (st.mode === 'ramp') {
@@ -133,16 +133,16 @@
           outF.set(q.F); outAng.set(q.alpha * 180 / Math.PI); outWin.set(q.Win); outWout.set(q.Wout); outEff.set(q.eff * 100);
           note.set(q.mu === 0
             ? { en: 'On the ramp you need F = G · h / l: ' + K.fmt(k, 1, 'en') + ' times less force than lifting straight up, but along a path ' + K.fmt(k, 1, 'en') + ' times longer. The work is the same. A screw and a wedge are ramps too.',
-              hr: 'Na kosini treba F = G · h / l: ' + K.fmt(k, 1, 'hr') + ' puta manja sila nego pri dizanju ravno uvis, ali na ' + K.fmt(k, 1, 'hr') + ' puta duljem putu. Rad je isti. I vijak i klin su kosine.' }
+              hr: 'Na kosini je potrebna sila F = G · h / l, tj. ' + K.fmt(k, 1, 'hr') + ' puta manja nego pri dizanju ravno uvis, ali na ' + K.fmt(k, 1, 'hr') + ' puta duljem putu. Rad je isti. I vijak i klin zapravo su kosine.' }
             : { en: 'With friction you must add μ · G⊥ along the ramp (G⊥ is the part of the weight that presses on the ramp). The work up the ramp is then bigger than G · h. A screw and a wedge are ramps too.',
-              hr: 'Uz trenje treba dodati μ · G⊥ duž kosine (G⊥ je dio težine koji pritišće kosinu, pritisna sila). Rad uz kosinu tada je veći od G · h. I vijak i klin su kosine.' });
+              hr: 'Uz trenje treba dodati μ · G⊥ (G⊥ je sastavnica težine okomita na kosinu, tj. pritisna sila). Rad uz kosinu tada je veći od G · h. I vijak i klin zapravo su kosine.' });
         } else {
           const q = wind();
           outF.set(q.F); outTurns.set(q.turns); outPer.set(q.per); outRise.set(q.rise); outWin.set(q.F * q.dIn); outWout.set(q.Gw * q.rise);
           note.set(st.r > st.R
             ? { en: 'The drum is now bigger than the circle of the handle: you need MORE force than the weight of the bucket, but the bucket moves farther than your hand.', hr: 'Vratilo je sada veće od kružnice ručke: treba ti VEĆA sila od težine vjedra, ali vjedro prijeđe dulji put od tvoje ruke.' }
             : { en: 'Wheel and axle: the handle moves on a big circle (2πR), the rope winds on a small one (2πr). The force is only r / R of the weight, but your hand travels R / r times farther. Each turn lifts the bucket by 2πr.',
-              hr: 'Vitlo: ručka ide po velikoj kružnici (2πR), a uže se namata po maloj (2πr). Sila je samo r / R težine, ali ruka prijeđe R / r puta dulji put. Svaki okret podigne vjedro za 2πr.' });
+              hr: 'Vitlo: ručka se giba po velikoj kružnici (2πR), a uže se namata na malu (2πr). Sila je samo r / R težine, ali ruka prijeđe R / r puta dulji put. Svaki okret podigne vjedro za 2πr.' });
         }
       }
 
@@ -393,7 +393,7 @@
         label(c, 'F = ' + N(q.F, 1) + ' N', g.hx + lf * tx + 8, K.clamp(g.hy + lf * ty, 44, h - 12), { bold: true, maxX: g.sceneW });
         label(c, 'G = ' + N(q.Gw, 0) + ' N', sx0 - 12, yb + 12, { align: 'right', size: 11, maxX: g.sceneW });
         K.text(c, T({ en: 'windlass shown enlarged', hr: 'vitlo je prikazano uvećano' }), 8, 12, { font: '10px ' + theme.font, color: theme.muted, baseline: 'middle' });
-        K.text(c, T({ en: 'turns: ', hr: 'okretaji: ' }) + N(q.turns, 2), 8, 27, { font: 'bold 12px ' + theme.font, color: theme.fg, baseline: 'middle' });
+        K.text(c, T({ en: 'turns: ', hr: 'broj okretaja: ' }) + N(q.turns, 2), 8, 27, { font: 'bold 12px ' + theme.font, color: theme.fg, baseline: 'middle' });
         K.text(c, T({ en: 'Drag the handle round', hr: 'Vrti ručku' }), 8, h - 7, { font: '11px ' + theme.font, color: theme.fg });
         // panel
         const px = g.sceneW + 8, pw = w - px - 8;

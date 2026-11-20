@@ -17,19 +17,19 @@
   const DRIVES = [
     { value: 'crank', label: { en: 'hand crank', hr: 'ručica' } },
     { value: 'water', label: { en: 'water wheel', hr: 'vodeno kolo' } },
-    { value: 'wind', label: { en: 'wind turbine', hr: 'vjetrenjača' } }
+    { value: 'wind', label: { en: 'wind turbine', hr: 'vjetroturbina' } }
   ];
   const NOTES = {
     rest: { en: 'Magnet at rest: no voltage, however strong it is. Only a CHANGING magnetic field through the coil induces a voltage.',
       hr: 'Magnet miruje: nema napona, koliko god bio jak. Napon se inducira samo dok se magnetsko polje kroz zavojnicu MIJENJA.' },
     move: { en: 'Faster change → higher voltage. More turns and a stronger magnet help too. The voltage reverses when the motion or the pole reverses.',
-      hr: 'Brža promjena → veći napon. Pomažu i veći broj zavoja i jači magnet. Napon mijenja smjer kad se promijeni smjer gibanja ili okrene pol.' },
+      hr: 'Brža promjena → veći napon. Pomažu i veći broj zavoja i jači magnet. Napon mijenja smjer kad se promijeni smjer gibanja ili kad se magnet okrene drugim polom.' },
     gen: { en: 'The turning magnet keeps changing the field through the coil, so the voltage alternates. Faster turning → higher voltage AND higher frequency. This is how power stations and bicycle dynamos work.',
-      hr: 'Magnet koji se vrti stalno mijenja polje kroz zavojnicu pa je napon izmjeničan. Brža vrtnja → veći napon I veća frekvencija. Tako rade elektrane i dinamo na biciklu.' },
+      hr: 'Magnet koji se vrti stalno mijenja polje kroz zavojnicu pa je napon izmjeničan. Brža vrtnja → veći napon I veća frekvencija. Na tom načelu rade generatori u elektranama i dinamo na biciklu.' },
     motor: { en: 'The magnetic field pushes the two sides of the coil in opposite directions, so it turns; the commutator swaps the current every half turn. A motor is a generator run backwards: electrical energy → kinetic energy.',
-      hr: 'Magnetsko polje gura dvije strane zavojnice u suprotnim smjerovima pa se ona vrti; komutator svakih pola okreta zamijeni smjer struje. Elektromotor je generator koji radi unatrag: električna energija → kinetička energija.' },
+      hr: 'Magnetsko polje gura dvije strane zavojnice u suprotnim smjerovima pa se ona vrti; komutator svakih pola okreta promijeni smjer struje. Elektromotor radi obrnuto od generatora: električna energija → kinetička energija.' },
     motor0: { en: 'No current, no force: close the switch and raise the voltage. A motor is a generator run backwards: electrical energy → kinetic energy.',
-      hr: 'Nema struje, nema sile: zatvori prekidač i povećaj napon. Elektromotor je generator koji radi unatrag: električna energija → kinetička energija.' }
+      hr: 'Nema struje, nema sile: zatvori prekidač i povećaj napon. Elektromotor radi obrnuto od generatora: električna energija → kinetička energija.' }
   };
   const bell = x => Math.pow(1 + (x / BELL_A) * (x / BELL_A), -1.5);
   const nz = (v, d) => { const p = Math.pow(10, d); return Math.round(v * p) / p + 0; };   // rounded, never "−0"
@@ -39,13 +39,13 @@
     title: { en: 'Electromagnetic Induction', hr: 'Elektromagnetska indukcija' },
     summary: {
       en: 'Move a magnet into a coil and watch the galvanometer, turn a generator to make alternating voltage, then run an electric motor from a battery.',
-      hr: 'Guraj magnet u zavojnicu i prati galvanometar, okreći generator da dobiješ izmjenični napon, a zatim pokreni elektromotor baterijom.'
+      hr: 'Uguraj magnet u zavojnicu i prati galvanometar, vrti generator da dobiješ izmjenični napon, a zatim pokreni elektromotor pomoću baterije.'
     },
     tasks: [
-      { en: 'Hold the magnet still inside the coil. Is there a voltage? Now pull it out quickly, then slowly.', hr: 'Drži magnet mirno u zavojnici. Ima li napona? Sada ga izvuci brzo, pa polako.' },
-      { en: 'Switch on "Move by itself" and change the number of turns from 100 to 400. What happens to the highest voltage?', hr: 'Uključi "Giba se sam" i promijeni broj zavoja sa 100 na 400. Što se dogodi s najvećim naponom?' },
-      { en: 'In "Generator" double the rotation speed. What happens to the peak voltage and to the frequency?', hr: 'U "Generatoru" udvostruči brzinu vrtnje. Što se dogodi s vršnim naponom, a što s frekvencijom?' },
-      { en: 'In "Electric motor" press "Reverse battery", then "Swap magnets". Which way does the coil turn each time?', hr: 'U "Elektromotoru" pritisni "Obrni bateriju", pa "Zamijeni magnete". Na koju se stranu svaki put vrti zavojnica?' }
+      { en: 'Hold the magnet still inside the coil. Is there a voltage? Now pull it out quickly, then slowly.', hr: 'Drži magnet mirno u zavojnici. Postoji li napon? Zatim ga izvuci brzo, a onda polako.' },
+      { en: 'Switch on "Move by itself" and change the number of turns from 100 to 400. What happens to the highest voltage?', hr: 'Uključi „Giba se sam“ i promijeni broj zavoja sa 100 na 400. Što se dogodi s najvećim naponom?' },
+      { en: 'In "Generator" double the rotation speed. What happens to the peak voltage and to the frequency?', hr: 'U pokusu „Generator“ udvostruči brzinu vrtnje. Što se dogodi s vršnim naponom, a što s frekvencijom?' },
+      { en: 'In "Electric motor" press "Reverse battery", then "Swap magnets". Which way does the coil turn each time?', hr: 'U pokusu „Elektromotor“ pritisni „Okreni bateriju“, a zatim „Zamijeni magnete“. Na koju se stranu svaki put vrti zavojnica?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -79,10 +79,10 @@
       const slF = C.slider({ label: { en: 'Rotation speed', hr: 'Brzina vrtnje' }, min: 0, max: 5, step: 0.1, value: DEF.f, unit: { en: 'turns/s', hr: 'okr/s' }, digits: 1, onChange: v => { st.f = v; refresh(); } });
       const slU = C.slider({ label: { en: 'Battery voltage U', hr: 'Napon baterije U' }, min: 0, max: 9, step: 0.5, value: DEF.U, unit: 'V', digits: 1, onChange: v => { st.Um = v; refresh(); } });
       const tgSwitch = C.toggle({ label: { en: 'Switch closed', hr: 'Prekidač zatvoren' }, value: DEF.closed, onChange: v => { st.closed = v; refresh(); } });
-      const btnBat = C.button({ label: { en: 'Reverse battery', hr: 'Obrni bateriju' }, onClick: () => { st.bat = -st.bat; btnBat.setActive(st.bat < 0); refresh(); } });
+      const btnBat = C.button({ label: { en: 'Reverse battery', hr: 'Okreni bateriju' }, onClick: () => { st.bat = -st.bat; btnBat.setActive(st.bat < 0); refresh(); } });
       const btnMag = C.button({ label: { en: 'Swap magnets', hr: 'Zamijeni magnete' }, onClick: () => { st.mag = -st.mag; btnMag.setActive(st.mag < 0); refresh(); } });
       const btnPlay = C.button({ label: { en: 'Pause', hr: 'Pauza' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outU = C.readout({ label: { en: 'Induced voltage U', hr: 'Inducirani napon U' }, unit: 'mV', digits: 0 });
       const outV = C.readout({ label: { en: 'Speed of the magnet', hr: 'Brzina magneta' }, unit: 'm/s', digits: 2 });
       const outN = C.readout({ label: { en: 'Turns of the coil', hr: 'Broj zavoja' }, digits: 0 });
@@ -120,7 +120,7 @@
         } else {
           const I = motorI();
           outI.set(I); outW.set(Math.abs(st.om) / TAU);
-          outDir.set(Math.abs(st.om) < 0.3 ? { en: 'at rest', hr: 'miruje' } : (st.om > 0 ? { en: 'anticlockwise', hr: 'suprotno od kazaljke sata' } : { en: 'clockwise', hr: 'u smjeru kazaljke sata' }));
+          outDir.set(Math.abs(st.om) < 0.3 ? { en: 'at rest', hr: 'miruje' } : (st.om > 0 ? { en: 'anticlockwise', hr: 'suprotno od kazaljke na satu' } : { en: 'clockwise', hr: 'u smjeru kazaljke na satu' }));
           setNote(I > 0 ? 'motor' : 'motor0');
         }
       }
@@ -382,7 +382,7 @@
         }
         header(c, K.tr({ en: 'Electric motor: ', hr: 'Elektromotor: ' }, lang) + (st.closed ? 'I = U / R = ' + K.fmt(st.Um, 1, lang) + ' V / ' + MOT_R + ' Ω = ' + K.fmt(I, 2, lang) + ' A'
           : K.tr({ en: 'switch open, I = 0 A', hr: 'prekidač otvoren, I = 0 A' }, lang)),
-          K.tr({ en: 'Opposite forces F on the two sides turn the coil.', hr: 'Suprotne sile F na dvije strane okreću zavojnicu.' }, lang));
+          K.tr({ en: 'Opposite forces F on the two sides turn the coil.', hr: 'Suprotne sile F na dvjema stranama okreću zavojnicu.' }, lang));
       }
       function draw() {
         const c = cv.ctx, w = cv.w, h = cv.h;

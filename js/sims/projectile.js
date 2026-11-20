@@ -55,13 +55,13 @@
     title: { en: 'Throwing Things', hr: 'Hitci' },
     summary: {
       en: 'Drop one ball and throw another sideways, aim a cannon at a target on Earth, the Moon or Mars, and find out whether a ball thrown up, sideways or down hits the ground fastest.',
-      hr: 'Pusti jednu kuglicu, a drugu baci vodoravno, gađaj metu topom na Zemlji, Mjesecu ili Marsu i otkrij pada li na tlo najbrže kuglica bačena uvis, vodoravno ili prema dolje.'
+      hr: 'Pusti jednu kuglicu, a drugu baci vodoravno; gađaj metu topom na Zemlji, Mjesecu ili Marsu; otkrij koja kuglica udara o tlo najvećom brzinom – bačena uvis, vodoravno ili prema dolje.'
     },
     tasks: [
-      { en: 'Drop and throw: before you press Play, predict which ball lands first. Then double the throwing speed. What changes: the time, the distance, or both?', hr: 'Pusti i baci: prije pokretanja predvidi koja kuglica prije padne. Zatim udvostruči brzinu bacanja. Što se mijenja: vrijeme, put ili oboje?' },
-      { en: 'Cannon: fire at 30°, 45° and 60° with the same speed. Which shot goes farthest? Which two land at the same spot?', hr: 'Kosi hitac: ispali pod 30°, 45° i 60° istom brzinom. Koji hitac ima najveći domet? Koja dva padnu na isto mjesto?' },
+      { en: 'Drop and throw: before you press Play, predict which ball lands first. Then double the throwing speed. What changes: the time, the distance, or both?', hr: 'Pusti i baci: prije pokretanja predvidi koja će kuglica prva pasti. Zatim udvostruči brzinu bacanja. Što se mijenja: vrijeme, domet ili oboje?' },
+      { en: 'Cannon: fire at 30°, 45° and 60° with the same speed. Which shot goes farthest? Which two land at the same spot?', hr: 'Kosi hitac: ispali kuglu istom brzinom pod kutom od 30°, 45° i 60°. Koji hitac ima najveći domet? Koja dva hica padnu na isto mjesto?' },
       { en: 'Hit the target. Then switch on air resistance and fire again with the same settings. How does the path change?', hr: 'Pogodi metu. Zatim uključi otpor zraka i ispali ponovno s istim postavkama. Kako se promijeni putanja?' },
-      { en: 'Same speed at the ground? Predict which of the three balls lands with the greatest speed, then compare the speeds and the energy bars.', hr: 'Ista brzina pri tlu? Predvidi koja od triju kuglica padne najvećom brzinom, zatim usporedi brzine i stupce energije.' }
+      { en: 'Same speed at the ground? Predict which of the three balls lands with the greatest speed, then compare the speeds and the energy bars.', hr: 'Ista brzina pri tlu? Predvidi koja od triju kuglica udari o tlo najvećom brzinom, a zatim usporedi brzine i stupce energije.' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -85,13 +85,13 @@
         onChange: v => { st.planet = PLANETS.filter(p => p.id === v)[0] || PLANETS[0]; tgAir.input.disabled = st.planet.air === 0; clearShots(); placeTarget(0.78); updatePlay(); refresh(); } });
       const tgAir = C.toggle({ label: { en: 'Air resistance', hr: 'Otpor zraka' }, value: false, onChange: v => { st.air = v; refresh(); } });
       const btnTarget = C.button({ label: { en: 'New target', hr: 'Nova meta' }, onClick: () => { if (st.mode !== 'cannon') return; placeTarget(); refresh(); } });
-      C.segmented({ label: { en: 'Time speed', hr: 'Brzina vremena' }, options: [{ value: '0.25', label: '0.25×' }, { value: '0.5', label: '0.5×' }, { value: '1', label: '1×' }], value: '0.5', onChange: v => { st.rate = parseFloat(v); } });
+      C.segmented({ label: { en: 'Time speed', hr: 'Brzina simulacije' }, options: [{ value: '0.25', label: { en: '0.25×', hr: '0,25×' } }, { value: '0.5', label: { en: '0.5×', hr: '0,5×' } }, { value: '1', label: '1×' }], value: '0.5', onChange: v => { st.rate = parseFloat(v); } });
       const btnPlay = C.button({ label: { en: 'Drop and throw!', hr: 'Pusti i baci!' }, variant: 'primary', onClick: () => {
         if (st.mode === 'cannon') { if (!st.cur || st.cur.done) { launch(); updatePlay(); refresh(); return; } }
         else if (st.done) { st.t = 0; st.done = false; }
         L.toggle(); updatePlay(); refresh();
       } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const roD = [
         C.readout({ label: { en: 'Time', hr: 'Vrijeme' }, unit: 's', digits: 2 }),
         C.readout({ label: { en: 'Height of both balls', hr: 'Visina obiju kuglica' }, unit: 'm', digits: 1 }),
@@ -187,23 +187,23 @@
           roD[0].set(t); roD[1].set(Math.max(0, st.h - 0.5 * G * t * t)); roD[2].set(st.v0 * t); roD[3].set(vy); roD[4].set(Math.hypot(st.v0, vy));
           setNote('drop', {
             en: 'Horizontal and vertical motion do not affect each other: sideways the thrown ball keeps its speed v₀, downwards both balls fall in exactly the same way. That is why they are always at the same height and land at the same time, t = √(2h/g).',
-            hr: 'Vodoravno i okomito gibanje ne utječu jedno na drugo: bačena kuglica vodoravno zadržava brzinu v₀, a prema dolje obje padaju potpuno jednako. Zato su uvijek na istoj visini i padnu istodobno, t = √(2h/g).' });
+            hr: 'Vodoravno i okomito gibanje ne utječu jedno na drugo: u vodoravnom smjeru bačena kuglica zadržava brzinu v₀, a u okomitom obje kuglice padaju potpuno jednako. Zato su uvijek na istoj visini i padnu istodobno, t = √(2h/g).' });
         } else if (st.mode === 'cannon') {
           const p = st.cur, e = p ? posAt(p, p.t) : null;
           roC[0].set(p ? e[0] : null); roC[1].set(p ? (p.t >= p.tAp ? p.hmax : e[1]) : null); roC[2].set(p ? p.t : null);
           roC[3].set({ en: st.hits + ' / ' + st.fired, hr: st.hits + ' / ' + st.fired });
           if (dragK() > 0) setNote('air', {
             en: 'Air resistance always acts against the motion: the path is shorter, lower and no longer symmetric; the ball comes down more steeply than it went up. The dashed line shows the same shot without air.',
-            hr: 'Otpor zraka uvijek djeluje suprotno gibanju: putanja je kraća, niža i više nije simetrična; kuglica pada strmije nego što se penjala. Crtkana crta pokazuje isti hitac bez zraka.' });
+            hr: 'Otpor zraka uvijek djeluje suprotno gibanju: putanja je kraća, niža i više nije simetrična; kuglica pada strmije nego što se dizala. Crtkana crta pokazuje isti hitac bez otpora zraka.' });
           else setNote('vac', {
             en: 'Without air the path is a parabola. On level ground 45° gives the longest range, and two angles that add up to 90° (such as 30° and 60°) land at the same spot. Drag the cannon to aim.',
-            hr: 'Bez zraka putanja je parabola. Na ravnom tlu najveći domet daje kut od 45°, a dva kuta koja zajedno daju 90° (npr. 30° i 60°) padaju na isto mjesto. Povuci top da naciljaš.' });
+            hr: 'Bez otpora zraka putanja je parabola. Na ravnom tlu najveći se domet postiže pod kutom od 45°, a hici pod dvama kutovima kojima je zbroj 90° (npr. 30° i 60°) padaju na isto mjesto. Povuci top da naciljaš.' });
         } else {
           const b = threeBalls(st.t);
           roT[0].set(st.t); b.forEach((q, i) => roT[i + 1].set(Math.hypot(q.vx, q.vy)));
           setNote('three', {
             en: 'The three balls land at different times but with the SAME speed. Each one starts with the same energy ½·m·v² + m·g·h, and energy is conserved, so at the ground all of it is kinetic energy. Only the direction of the velocity differs.',
-            hr: 'Tri kuglice padnu u različitim trenucima, ali ISTOM brzinom. Svaka kreće s jednakom energijom ½·m·v² + m·g·h, a energija je očuvana pa je pri tlu sva kinetička. Razlikuje se samo smjer brzine.' });
+            hr: 'Tri kuglice padnu u različitim trenucima, ali ISTOM brzinom. Svaka kreće s jednakom energijom ½·m·v² + m·g·h, a energija je očuvana pa je pri tlu sva energija kinetička. Razlikuje se samo smjer brzine.' });
         }
       }
 
@@ -339,7 +339,7 @@
         ], wide ? 14 : 50);
         const l2 = st.done ? { en: 'Both land at the same moment: t = √(2h/g) = ' + K.fmt(tf, 2, 'en') + ' s.', hr: 'Obje padnu u istom trenutku: t = √(2h/g) = ' + K.fmt(tf, 2, 'hr') + ' s.' }
           : t > 0 ? { en: 'Look at the dashed lines: both balls are at the same height.', hr: 'Pogledaj crtkane crte: obje su kuglice na istoj visini.' }
-            : { en: 'One ball is dropped, the other thrown sideways at the same moment. Which lands first?', hr: 'Jedna se kuglica pusti, a druga u istom trenutku baci vodoravno. Koja prije padne?' };
+            : { en: 'One ball is dropped, the other thrown sideways at the same moment. Which lands first?', hr: 'Jednu kuglicu puštamo, a drugu u istom trenutku bacamo vodoravno. Koja će prva pasti?' };
         header(g, 'h = ' + K.fmt(st.h, 0, lang) + ' m  ·  v₀ = ' + K.fmt(st.v0, 0, lang) + ' m/s  ·  t = ' + K.fmt(t, 2, lang) + ' s', wide ? K.tr(l2, lang) : '', wide ? w - 20 - kw : w - 20);
       }
 
@@ -406,7 +406,7 @@
         const l2 = !p ? { en: 'Drag the cannon or use the sliders, then press Fire. Can you hit the target?', hr: 'Povuci top ili namjesti klizače pa pritisni Ispali. Možeš li pogoditi metu?' }
           : !p.done ? { en: 't = ' + K.fmt(p.t, 2, 'en') + ' s', hr: 't = ' + K.fmt(p.t, 2, 'hr') + ' s' }
             : p.hit ? { en: 'Hit! Range ' + K.fmt(p.range, 1, 'en') + ' m in ' + K.fmt(p.T, 2, 'en') + ' s.', hr: 'Pogodak! Domet ' + K.fmt(p.range, 1, 'hr') + ' m za ' + K.fmt(p.T, 2, 'hr') + ' s.' }
-              : { en: 'Missed: ' + K.fmt(Math.abs(miss), 1, 'en') + ' m too ' + (miss > 0 ? 'far' : 'short') + '. Change the angle or the speed.', hr: 'Promašaj: ' + K.fmt(Math.abs(miss), 1, 'hr') + ' m ' + (miss > 0 ? 'predaleko' : 'prekratko') + '. Promijeni kut ili brzinu.' };
+              : { en: 'Missed: ' + K.fmt(Math.abs(miss), 1, 'en') + ' m too ' + (miss > 0 ? 'far' : 'short') + '. Change the angle or the speed.', hr: 'Promašaj: ' + K.fmt(Math.abs(miss), 1, 'hr') + ' m ' + (miss > 0 ? 'predaleko' : 'preblizu') + '. Promijeni kut ili brzinu.' };
         header(g, K.tr(st.planet.name, lang) + '  ·  α = ' + K.fmt(st.ang, 0, lang) + '°  ·  v₀ = ' + K.fmt(st.v, 0, lang) + ' m/s' + (st.h0 > 0 ? '  ·  h₀ = ' + K.fmt(st.h0, 0, lang) + ' m' : '') +
           (airOn ? '  ·  ' + K.tr({ en: 'air resistance', hr: 'otpor zraka' }, lang) : ''), K.tr(l2, lang), w - 20 - kw);
       }

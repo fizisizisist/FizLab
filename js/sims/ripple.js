@@ -19,15 +19,15 @@
   const PLAY = { en: 'Play', hr: 'Pokreni' }, PAUSE = { en: 'Pause', hr: 'Pauza' };
   const NOTES = {
     one: { en: 'Each dip of the source sends out a circular wave. The distance between two neighbouring crests is the wavelength λ. Wave speed v = λ · f, so a higher frequency gives a shorter wavelength: λ = v / f.',
-      hr: 'Svaki uron izvora šalje kružni val. Udaljenost dvaju susjednih brjegova je valna duljina λ. Brzina vala v = λ · f, pa veća frekvencija daje kraću valnu duljinu: λ = v / f.' },
+      hr: 'Svakim uronom izvor stvara kružni val. Udaljenost dvaju susjednih brjegova valna je duljina λ. Brzina vala je v = λ · f pa je pri većoj frekvenciji valna duljina kraća: λ = v / f.' },
     two: { en: 'Interference: where a crest meets a crest the waves add up (strong waves); where a crest meets a trough they cancel and the water stays calm. The calm places form lines (dashed).',
-      hr: 'Interferencija: gdje se brijeg sretne s brijegom valovi se zbrajaju (jaki valovi), a gdje se brijeg sretne s dolom poništavaju se i voda miruje. Mirna mjesta čine linije (crtkano).' },
+      hr: 'Interferencija: gdje se brijeg susretne s brijegom, valovi se zbrajaju (nastaju jaki valovi), a gdje se brijeg susretne s dolom, valovi se poništavaju i voda miruje. Mirna mjesta tvore linije (crtkano).' },
     gap: { en: 'Diffraction: behind the gap the wave spreads into the "shadow" of the wall. The spreading is strongest when the gap is about one wavelength wide; a wide gap lets an almost straight beam through.',
-      hr: 'Ogib: iza otvora val se širi i u „sjenu” zida. Širenje je najjače kad je otvor širok otprilike jednu valnu duljinu; kroz širok otvor prolazi gotovo ravan snop.' },
+      hr: 'Ogib: iza otvora val se širi i u „sjenu“ zida. Širenje je najjače kad je otvor širok otprilike jednu valnu duljinu; kroz širok otvor prolazi gotovo ravan snop.' },
     reflect: { en: 'Reflection: waves bounce off a wall just as light bounces off a mirror: the angle of reflection equals the angle of incidence (both are measured from the normal, the dashed line).',
-      hr: 'Odbijanje: valovi se od zida odbijaju kao svjetlost od zrcala: kut odbijanja jednak je upadnom kutu (oba se mjere od okomice, crtkane linije).' },
+      hr: 'Odbijanje: valovi se od zida odbijaju kao svjetlost od zrcala – kut odbijanja jednak je upadnom kutu (oba se mjere od okomice, tj. crtkane linije).' },
     shallow: { en: 'Refraction: in shallow water the wave is slower (here 0.6 times). The frequency stays the same, so the wavelength gets shorter and the wavefronts turn towards the normal, just like light entering glass.',
-      hr: 'Lom: u plitkoj vodi val je sporiji (ovdje 0,6 puta). Frekvencija ostaje ista, pa je valna duljina kraća, a valne fronte zakreću prema okomici, baš kao svjetlost pri ulasku u staklo.' }
+      hr: 'Lom: u plitkoj vodi val je sporiji (ovdje ima 60 % brzine u dubokoj vodi). Frekvencija ostaje ista pa je valna duljina kraća, a smjer širenja vala zakreće se prema okomici, baš kao svjetlost pri ulasku u staklo.' }
   };
 
   window.Sims.register({
@@ -35,13 +35,13 @@
     title: { en: 'Ripple Tank', hr: 'Valovi na vodi' },
     summary: {
       en: 'Look at water waves from above: make circular waves, let two sources interfere, send waves through a gap, bounce them off a wall and slow them down in shallow water.',
-      hr: 'Promatraj valove na vodi odozgo: stvori kružne valove, pusti da dva izvora interferiraju, pošalji valove kroz otvor, odbij ih od zida i uspori u plitkoj vodi.'
+      hr: 'Promatraj valove na vodi odozgo: stvori kružne valove, prouči interferenciju valova iz dvaju izvora, pošalji valove kroz otvor, odbij ih od zida i uspori ih u plitkoj vodi.'
     },
     tasks: [
       { en: 'One source: double the frequency from 2 Hz to 4 Hz. What happens to the wavelength? Check λ = v / f.', hr: 'Jedan izvor: udvostruči frekvenciju s 2 Hz na 4 Hz. Što se događa s valnom duljinom? Provjeri λ = v / f.' },
-      { en: 'Two sources: find the lines where the water stays calm. Move the sources apart: do you get more or fewer lines of calm?', hr: 'Dva izvora: nađi linije na kojima voda miruje. Razmakni izvore: ima li linija mira više ili manje?' },
+      { en: 'Two sources: find the lines where the water stays calm. Move the sources apart: do you get more or fewer lines of calm?', hr: 'Dva izvora: pronađi linije na kojima voda miruje. Razmakni izvore: ima li tih linija više ili manje?' },
       { en: 'Wall with a gap: compare a gap of 4 cm with a gap of 20 cm. When does the wave spread out most behind the wall?', hr: 'Zid s otvorom: usporedi otvor od 4 cm s otvorom od 20 cm. Kada se val iza zida najviše širi?' },
-      { en: 'Shallow water: watch the side view. Where are the crests closer together, and what stays the same on both sides?', hr: 'Plitka voda: promatraj pogled sa strane. Gdje su brjegovi bliže jedan drugome i što ostaje isto s obje strane?' }
+      { en: 'Shallow water: watch the side view. Where are the crests closer together, and what stays the same on both sides?', hr: 'Plitka voda: promatraj pogled sa strane. Gdje su brjegovi bliže jedan drugome i što ostaje isto s obiju strana granice?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -63,12 +63,12 @@
       const slF = C.slider({ label: { en: 'Frequency f', hr: 'Frekvencija f' }, min: 1, max: 6, step: 0.5, value: 3, unit: 'Hz', digits: 1, onChange: v => { st.f = v; refresh(); } });
       const slAmp = C.slider({ label: { en: 'Amplitude', hr: 'Amplituda' }, min: 1, max: 5, step: 0.5, value: 3, unit: 'mm', digits: 1, onChange: v => { st.amp = v; } });
       const slSep = C.slider({ label: { en: 'Distance between the sources', hr: 'Razmak izvora' }, min: 4, max: 30, step: 1, value: 12, unit: 'cm', digits: 0, onChange: v => { st.sep = v; refresh(); } });
-      const tgNodal = C.toggle({ label: { en: 'Show the lines of calm', hr: 'Pokaži linije mira' }, value: true, onChange: v => { st.nodal = v; refresh(); } });
+      const tgNodal = C.toggle({ label: { en: 'Show the lines of calm', hr: 'Pokaži linije mirovanja' }, value: true, onChange: v => { st.nodal = v; refresh(); } });
       const slGap = C.slider({ label: { en: 'Gap width', hr: 'Širina otvora' }, min: 2, max: 24, step: 1, value: 8, unit: 'cm', digits: 0, onChange: v => { st.gap = v; rebuild(false); refresh(); } });
       const slAng = C.slider({ label: { en: 'Angle of incidence', hr: 'Upadni kut' }, min: 10, max: 55, step: 1, value: 30, unit: '°', digits: 0, onChange: v => { st.ang = v; rebuild(true); refresh(); } });
       const tgSlow = C.toggle({ label: { en: 'Slow motion (4× slower)', hr: 'Usporeno (4× sporije)' }, value: false, onChange: setSlow });
       const btnPlay = C.button({ label: PLAY, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => { reset(); } });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => { reset(); } });
       const outF = C.readout({ label: { en: 'Frequency f', hr: 'Frekvencija f' }, unit: 'Hz', digits: 1 });
       const outV = C.readout({ label: { en: 'Wave speed v', hr: 'Brzina vala v' }, unit: 'cm/s', digits: 1 });
       const outL = C.readout({ label: { en: 'Wavelength λ = v / f', hr: 'Valna duljina λ = v / f' }, unit: 'cm', digits: 1 });
@@ -238,7 +238,7 @@
               }
             }
             g.stroke(); g.restore();
-            tag(g, T(lines ? { en: 'dashed: lines of calm', hr: 'crtkano: linije mira' } : { en: 'no line of calm: the sources are closer than λ/2', hr: 'nema linije mira: izvori su bliže od λ/2' }), tx + tw - 8, ty + th - 16, 'right');
+            tag(g, T(lines ? { en: 'dashed: lines of calm', hr: 'crtkano: linije mirovanja' } : { en: 'no line of calm: the sources are closer than λ/2', hr: 'nema linija mirovanja: izvori su bliže od λ/2' }), tx + tw - 8, ty + th - 16, 'right');
           }
           dipper(g, X(NX / 2), Y(MID - o)); dipper(g, X(NX / 2), Y(MID + o - 1));
         } else if (m === 'gap') {
@@ -276,7 +276,7 @@
       }
       function strip(g, Q) { // side view: height of the water along the middle row (heights are drawn much enlarged)
         const { tx, tw, sy, sh } = Q, base = sy + sh * 0.46, pmm = sh * 0.36 / 5, lim = sh * 0.42, row = ((MID | 0) + PAD) * GX + PAD, u = cur, m = st.mode;
-        K.text(g, T({ en: 'Side view along the middle row; heights enlarged', hr: 'Pogled sa strane po srednjem redu; visine uvećane' }), tx, sy - 10, { font: '11px ' + theme.font, color: theme.muted, baseline: 'middle' });
+        K.text(g, T({ en: 'Side view along the middle row; heights enlarged', hr: 'Pogled sa strane duž srednjeg reda; visine su uvećane' }), tx, sy - 10, { font: '11px ' + theme.font, color: theme.muted, baseline: 'middle' });
         g.save(); g.fillStyle = theme.surface; g.fillRect(tx, sy, tw, sh); g.beginPath(); g.rect(tx, sy, tw, sh); g.clip();
         for (let pass = 0; pass < 2; pass++) { // filled water, then the surface line
           g.beginPath(); if (!pass) g.moveTo(tx, sy + sh);

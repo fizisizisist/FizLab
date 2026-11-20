@@ -124,7 +124,7 @@
       matter: {
         opening: {
           en: 'Close the tip of a syringe full of air with a finger and push the plunger, then do the same with a syringe full of water. Before the experiment pupils predict which one can be squeezed and draw how they imagine air and water under a magnifier that shows even the tiniest parts. Collect the drawings without comment: they reveal who pictures matter as continuous.',
-          hr: 'Prstom začepite štrcaljku punu zraka i pritisnite klip, a zatim isto učinite sa štrcaljkom punom vode. Prije pokusa učenici predviđaju što se može stlačiti i crtaju kako zamišljaju zrak i vodu pod povećalom koje vidi i najsitnije dijelove. Crteže prikupite bez komentara: oni otkrivaju tko tvar zamišlja kao neprekinutu.'
+          hr: 'Prstom začepite štrcaljku punu zraka i pritisnite klip, a zatim isto učinite sa štrcaljkom punom vode. Prije pokusa učenici predviđaju što se može stlačiti i crtaju kako zamišljaju zrak i vodu pod povećalom kroz koje bi se vidjeli i najsitniji dijelovi. Crteže prikupite bez komentara: oni otkrivaju tko tvar zamišlja kao neprekinutu.'
         },
         question: {
           en: 'What must matter be made of if a gas can be squeezed and a liquid or a solid hardly at all?',
@@ -132,7 +132,7 @@
         },
         investigate: {
           en: 'In the simulation "States of Matter" pupils keep the substance the same (water) and change only the temperature with Heat and Cool. For the solid, the liquid and the gas they record how the particles are arranged, how far apart they are and how they move, then repeat it for iron and oxygen. Hands-on: a drop of food colouring in cold and in warm water, same glass and same amount of water, timing how long the colour takes to spread.',
-          hr: 'U simulaciji "Agregacijska stanja" učenici zadrže istu tvar (vodu) i mijenjaju samo temperaturu tipkama Zagrijavaj i Hladi. Za čvrsto, tekuće i plinovito stanje bilježe kako su čestice raspoređene, koliko su razmaknute i kako se gibaju, a zatim isto ponove za željezo i kisik. Pokus u učionici: kap prehrambene boje u hladnoj i u toploj vodi, jednaka čaša i jednaka količina vode, mjeri se vrijeme za koje se boja raširi.'
+          hr: 'U simulaciji „Agregacijska stanja“ učenici zadrže istu tvar (vodu) i mijenjaju samo temperaturu tipkama „Zagrijavaj“ i „Hladi“. Za čvrsto, tekuće i plinovito stanje bilježe kako su čestice raspoređene, koliko su razmaknute i kako se gibaju, a zatim isto ponove za željezo i kisik. Pokus u učionici: kap prehrambene boje u hladnoj i u toploj vodi (jednake čaše, jednaka količina vode); mjeri se vrijeme za koje se boja raširi.'
         },
         keyIdea: {
           en: 'All matter is made of tiny particles that never stop moving, with empty space between them. The three states differ in how the particles are arranged and how freely they move, not in the particles themselves.',
@@ -164,7 +164,7 @@
         },
         investigate: {
           en: 'In the simulation "Float or Sink?" pupils first keep the material and the liquid the same and change only the volume of the cube, writing mass, volume and the ratio m / V in a table. Then they keep the volume and change only the material, and finally only the liquid, noting each time whether the cube floats. Hands-on: find the density of three plasticine lumps of different size with a kitchen scale and a measuring cylinder, measuring each three times.',
-          hr: 'U simulaciji "Pluta ili tone?" učenici najprije zadrže isti materijal i istu tekućinu, a mijenjaju samo obujam kocke te u tablicu upisuju masu, obujam i omjer m / V. Zatim zadrže obujam, a mijenjaju samo materijal i na kraju samo tekućinu, svaki put bilježeći pluta li kocka. Pokus u učionici: kuhinjskom vagom i menzurom odrede gustoću triju različito velikih komada plastelina, a svaki mjere tri puta.'
+          hr: 'U simulaciji „Pluta ili tone?“ učenici najprije zadrže isti materijal i istu tekućinu, a mijenjaju samo obujam kocke te u tablicu upisuju masu, obujam i omjer m / V. Zatim zadrže obujam, a mijenjaju samo materijal i na kraju samo tekućinu, svaki put bilježeći pluta li kocka. Pokus u učionici: kuhinjskom vagom i menzurom odrede gustoću triju različito velikih komada plastelina, a svaki mjere tri puta.'
         },
         keyIdea: {
           en: 'Density, ρ = m / V, is a property of the substance, not of the piece. A body floats when its average density is lower than the density of the liquid, however heavy it is.',
@@ -177,7 +177,7 @@
         ],
         exit: {
           en: 'A block has a mass of 240 g and a volume of 300 cm³. Will it float in water? Explain without using the words heavy and light.',
-          hr: 'Kvadar ima masu 240 g i obujam 300 cm³. Hoće li plutati u vodi? Objasni bez riječi teško i lagano.'
+          hr: 'Kvadar ima masu 240 g i obujam 300 cm³. Hoće li plutati u vodi? Objasni bez riječi „teško“ i „lagano“.'
         },
         watch: {
           en: 'Pupils say that heavy things sink and that a bigger piece is denser, because they treat density as another word for weight. Use the tiny paper clip that sinks and the big block that floats as a cognitive conflict, then ask for m / V of several pieces of the same material: the constant ratio lets density replace heaviness as the explanation.',
@@ -196,7 +196,7 @@
         },
         investigate: {
           en: 'In the simulation "Motion Graphs" pupils move the man at a steady pace, then faster, then let him stand still, and note how the slope of the position graph changes; then they try to reproduce a given graph. In "Speed and Distance" they keep the finish line fixed, change only the speed of the cyclist and measure the time. Hands-on: time a toy car over 1 m, 2 m and 3 m with a phone stopwatch, three runs each, and plot distance against time.',
-          hr: 'U simulaciji "Grafovi gibanja" učenici pomiču čovjeka stalnim korakom, zatim brže, pa ga ostave da miruje i bilježe kako se mijenja nagib grafa položaja; zatim pokušavaju ponoviti zadani graf. U simulaciji "Brzina i put" drže cilj na istom mjestu, mijenjaju samo brzinu biciklista i mjere vrijeme. Pokus u učionici: štopericom mobitela mjere vrijeme autića na 1 m, 2 m i 3 m, po tri puta, i crtaju graf puta u ovisnosti o vremenu.'
+          hr: 'U simulaciji „Grafovi gibanja“ učenici pomiču čovjeka stalnim korakom, zatim brže, pa ga ostave da miruje i bilježe kako se mijenja nagib grafa položaja; zatim pokušavaju ponoviti zadani graf. U simulaciji „Brzina i put“ drže cilj na istom mjestu, mijenjaju samo brzinu biciklista i mjere vrijeme. Pokus u učionici: štopericom mobitela mjere vrijeme autića na 1 m, 2 m i 3 m, po tri puta, i crtaju graf puta u ovisnosti o vremenu.'
         },
         keyIdea: {
           en: 'Speed is the distance covered per unit of time, v = s / t, and on a distance–time graph it is the steepness of the line. A straight line means uniform motion; a line that gets steeper means the body is speeding up.',
@@ -228,7 +228,7 @@
         },
         investigate: {
           en: 'In the simulation "Push the Crate" pupils keep the mass of the crate and the push force the same and change only the floor, from rubber through wood and ice to no friction, recording the friction force, the net force and the acceleration. Then they keep the floor and change only the push. "Galileo\'s Ramp" extends the idea: what happens when the second ramp becomes flat? Hands-on: pull a block with a dynamometer over different surfaces at a steady speed.',
-          hr: 'U simulaciji "Guranje sanduka" učenici drže masu sanduka i silu guranja stalnima, a mijenjaju samo podlogu, od gume preko drva i leda do podloge bez trenja, i bilježe silu trenja, rezultantnu silu i ubrzanje. Zatim zadrže podlogu, a mijenjaju samo silu guranja. "Galilejeva kosina" proširuje ideju: što se dogodi kad druga kosina postane vodoravna? Pokus u učionici: dinamometrom jednoliko vuku kvadar po različitim podlogama.'
+          hr: 'U simulaciji „Guranje sanduka“ učenici drže masu sanduka i silu guranja stalnima, a mijenjaju samo podlogu, od gume preko drva i leda do podloge bez trenja, i bilježe silu trenja, rezultantnu silu i ubrzanje. Zatim zadrže podlogu, a mijenjaju samo silu guranja. „Galilejeva kosina“ proširuje ideju: što se dogodi kad druga kosina postane vodoravna? Pokus u učionici: dinamometrom jednoliko vuku kvadar po različitim podlogama.'
         },
         keyIdea: {
           en: 'A force describes an interaction between two bodies, and a resultant force changes motion: it speeds a body up, slows it down or turns it. With balanced forces a body stays at rest or keeps moving at a steady speed.',
@@ -260,7 +260,7 @@
         },
         investigate: {
           en: 'In the simulation "Free Fall" pupils keep the drop height and the planet the same, change only the second object (stone, tennis ball, paper ball, feather) and compare its fall with that of the steel ball, first with air resistance and then without it. Then they keep the object and change only the planet, reading the speed graph. Hands-on: two equal plastic bottles, one empty and one full of water, dropped together from the same height and filmed in slow motion.',
-          hr: 'U simulaciji "Slobodni pad" učenici drže visinu i planet stalnima, mijenjaju samo drugo tijelo (kamen, teniska loptica, papirnata kuglica, pero) i njegov pad uspoređuju s padom čelične kuglice, najprije s otporom zraka, a zatim bez njega. Potom zadrže tijelo, a mijenjaju samo planet i čitaju graf brzine. Pokus u učionici: dvije jednake plastične boce, prazna i puna vode, puštene istodobno s iste visine i snimljene usporeno.'
+          hr: 'U simulaciji „Slobodni pad“ učenici drže visinu i planet stalnima, mijenjaju samo drugo tijelo (kamen, teniska loptica, papirnata kuglica, pero) i njegov pad uspoređuju s padom čelične kuglice, najprije s otporom zraka, a zatim bez njega. Potom zadrže tijelo, a mijenjaju samo planet i čitaju graf brzine. Pokus u učionici: dvije jednake plastične boce, prazna i puna vode, puštene istodobno s iste visine i snimljene usporeno.'
         },
         keyIdea: {
           en: 'Without air resistance all bodies fall with the same acceleration, about 9.81 m/s² on Earth, whatever their mass. Earth pulls a heavier body harder, but that body is also harder to speed up.',
@@ -273,11 +273,11 @@
         ],
         exit: {
           en: 'A 1 kg ball and a 5 kg ball of the same size are dropped together from 2 m. Which one lands first? Explain in two sentences.',
-          hr: 'Kugla od 1 kg i kugla od 5 kg jednake veličine puštene su istodobno s 2 m. Koja prije padne? Objasni u dvije rečenice.'
+          hr: 'Kugla od 1 kg i kugla od 5 kg jednake veličine puštene su istodobno s visine 2 m. Koja prije padne? Objasni u dvije rečenice.'
         },
         watch: {
           en: 'Everyday experience keeps confirming that heavier bodies fall faster, so one demonstration rarely removes the idea. Separate the two variables with a fair test (same shape, different mass; same mass, different shape) and use the crumpled sheet as a cognitive conflict: its mass did not change, yet its fall did, so mass cannot be the cause.',
-          hr: 'Svakodnevno iskustvo stalno potvrđuje da teža tijela padaju brže, pa jedan pokus tu ideju rijetko uklanja. Razdvojite dvije varijable poštenim pokusom (isti oblik, različita masa; ista masa, različit oblik) i iskoristite zgužvani list kao kognitivni konflikt: masa mu se nije promijenila, a pad jest, pa masa ne može biti uzrok.'
+          hr: 'Svakodnevno iskustvo stalno potvrđuje da teža tijela padaju brže, pa jedan pokus tu ideju rijetko uklanja. Razdvojite dvije varijable kontroliranim pokusom (isti oblik, različita masa; ista masa, različit oblik) i iskoristite zgužvani list kao kognitivni konflikt: masa mu se nije promijenila, a pad jest, pa masa ne može biti uzrok.'
         }
       },
 
@@ -292,7 +292,7 @@
         },
         investigate: {
           en: 'In the simulation "Pressure", mode "On a surface", pupils keep the force the same and change only the contact area, recording the pressure and how deep the block sinks into the sand; then they keep the area and change only the force. In the mode "In a liquid" they keep the liquid the same and change only the depth of the sensor, then change the liquid at a fixed depth. Hands-on: a brick on a sponge, lying flat, on its side and on its end.',
-          hr: 'U simulaciji "Tlak", u načinu "Na podlogu", učenici drže silu stalnom i mijenjaju samo dodirnu površinu te bilježe tlak i dubinu do koje blok utone u pijesak; zatim zadrže površinu, a mijenjaju samo silu. U načinu "U tekućini" zadrže istu tekućinu i mijenjaju samo dubinu senzora, a potom na stalnoj dubini mijenjaju tekućinu. Pokus u učionici: cigla na spužvi, položena na najveću, srednju i najmanju plohu.'
+          hr: 'U simulaciji „Tlak“, u načinu „Na podlogu“, učenici drže silu stalnom i mijenjaju samo dodirnu površinu te bilježe tlak i dubinu do koje blok utone u pijesak; zatim zadrže površinu, a mijenjaju samo silu. U načinu „U tekućini“ zadrže istu tekućinu i mijenjaju samo dubinu senzora, a potom na stalnoj dubini mijenjaju tekućinu. Pokus u učionici: cigla na spužvi, položena na najveću, srednju i najmanju plohu.'
         },
         keyIdea: {
           en: 'Pressure tells how concentrated a force is: p = F / A. The same force gives a large pressure on a small area and a small pressure on a large area; in a liquid, pressure grows with depth and acts in all directions.',
@@ -301,7 +301,7 @@
         talk: [
           { en: 'Why do you sink into deep snow in boots but not on skis, although your weight is the same?', hr: 'Zašto u dubok snijeg propadaš u čizmama, a na skijama ne, iako ti je težina ista?' },
           { en: 'A narrow pipe and a wide lake are both 10 m deep. Where is the pressure at the bottom greater?', hr: 'Uska cijev i široko jezero duboki su po 10 m. Gdje je tlak na dnu veći?' },
-          { en: 'When you drink through a straw, what pushes the juice up into your mouth?', hr: 'Kad piješ na slamku, što gura sok prema gore u tvoja usta?' }
+          { en: 'When you drink through a straw, what pushes the juice up into your mouth?', hr: 'Kad piješ na slamku, što gura sok uvis, prema ustima?' }
         ],
         exit: {
           en: 'The same brick first lies on its largest face and then stands on its smallest. Compare the force on the table and the pressure on the table in the two cases.',
@@ -324,7 +324,7 @@
         },
         investigate: {
           en: 'In the simulation "Balancing Act" pupils put a weight on a fixed mark on the left (for example 2 kg at 1 m) and look for the place on the right where a lighter weight balances it. They change only the right-hand weight and its distance from the fulcrum, write force and arm for both sides in a table and look for a pattern. Hands-on: a ruler on a pencil with equal coins in stacks of one, two and three.',
-          hr: 'U simulaciji "Ravnoteža na poluzi" učenici postave uteg na stalnu oznaku lijevo od oslonca (primjerice 2 kg na 1 m) i traže mjesto na desnoj strani na kojem ga uravnotežuje lakši uteg. Mijenjaju samo desni uteg i njegovu udaljenost od oslonca, za obje strane u tablicu upisuju silu i krak te traže pravilnost. Pokus u učionici: ravnalo na olovci i jednake kovanice u stupićima od jedne, dviju i triju.'
+          hr: 'U simulaciji „Ravnoteža na poluzi“ učenici postave uteg na stalnu oznaku lijevo od oslonca (primjerice 2 kg na 1 m) i traže mjesto na desnoj strani na kojem ga uravnotežuje lakši uteg. Mijenjaju samo desni uteg i njegovu udaljenost od oslonca, za obje strane u tablicu upisuju silu i krak te traže pravilnost. Pokus u učionici: ravnalo na olovci i jednake kovanice u stupićima od jedne, dviju i triju.'
         },
         keyIdea: {
           en: 'A lever is balanced when force times arm is equal on both sides: F₁ · d₁ = F₂ · d₂. A smaller force is paid for with a longer path, so no machine saves work.',
@@ -348,7 +348,7 @@
       energy: {
         opening: {
           en: 'Hang a heavy ball from the ceiling on a long string, pull it back until it touches your nose and let go without a push, standing perfectly still. Before the release pupils vote: on its way back, will the ball hit your nose, stop short of it or just reach it? Ask them to give reasons in their own words.',
-          hr: 'Tešku kuglu objesite o dugu nit sa stropa, povucite je do svog nosa i pustite bez guranja, stojeći posve mirno. Prije puštanja učenici glasuju: hoće li vas kugla pri povratku udariti u nos, stati prije nosa ili točno doći do njega? Tražite obrazloženje njihovim riječima.'
+          hr: 'Tešku kuglu objesite o dugu nit sa stropa, povucite je do svog nosa i pustite bez guranja, stojeći posve mirno. Prije puštanja učenici glasuju: hoće li vas kugla pri povratku udariti u nos, stati prije nosa ili točno doći do njega? Neka odgovor obrazlože svojim riječima.'
         },
         question: {
           en: 'Where does the energy of a moving body come from, and where does it go when the body stops?',
@@ -356,7 +356,7 @@
         },
         investigate: {
           en: 'In the simulation "Energy Skate Park" pupils keep the mass and the track the same, change only the height from which the skater starts and read the speed at the bottom and the energy bars, first without friction and then with it. In "Energy Bar Charts" they compare the chart at the start and at a later moment of the same motion. Hands-on: release a marble on a curved track from three heights, three times each, and measure how high it climbs on the other side.',
-          hr: 'U simulaciji "Energija na rampi" učenici drže masu i stazu stalnima, mijenjaju samo visinu s koje skejter kreće i očitavaju brzinu na dnu i stupce energije, najprije bez trenja, a zatim s trenjem. U simulaciji "Stupčasti dijagram energije" za isto gibanje uspoređuju dijagram na početku i u kasnijem trenutku. Pokus u učionici: pikulu puštaju niz zakrivljenu stazu s triju visina, po tri puta, i mjere do koje se visine popne na drugoj strani.'
+          hr: 'U simulaciji „Energija na rampi“ učenici drže masu i stazu stalnima, mijenjaju samo visinu s koje skejter kreće i očitavaju brzinu na dnu i stupce energije, najprije bez trenja, a zatim s trenjem. U simulaciji „Stupčasti dijagram energije“ za isto gibanje uspoređuju dijagram na početku i u kasnijem trenutku. Pokus u učionici: pikulu puštaju niz zakrivljenu stazu s triju visina, po tri puta, i mjere do koje se visine popne na drugoj strani.'
         },
         keyIdea: {
           en: 'Energy is never created or used up; it only changes form or passes from one body to another. With friction, part of it becomes internal energy of the bodies and the air, so the total stays the same although the motion dies away.',
@@ -364,7 +364,7 @@
         },
         talk: [
           { en: 'A ball dropped on the floor bounces lower each time. Where is the missing energy?', hr: 'Lopta puštena na pod svaki put odskoči niže. Gdje je energija koja nedostaje?' },
-          { en: 'You hold a heavy bag still for five minutes and get tired. Did you do work on the bag in the physics sense?', hr: 'Pet minuta mirno držiš tešku torbu i umoriš se. Jesi li u fizikalnom smislu obavio rad nad torbom?' },
+          { en: 'You hold a heavy bag still for five minutes and get tired. Did you do work on the bag in the physics sense?', hr: 'Pet minuta mirno držiš tešku torbu i umoriš se. Obavlja li se pritom u fizikalnom smislu rad nad torbom?' },
           { en: 'A 100 W bulb and a 2000 W heater: which one uses more energy? What else do you need to know?', hr: 'Žarulja od 100 W i grijalica od 2000 W: koja potroši više energije? Što još moraš znati?' }
         ],
         exit: {
@@ -388,7 +388,7 @@
         },
         investigate: {
           en: 'In the simulation "Hot Meets Cold" pupils first write down their prediction of the final temperature, then join two blocks of the same material and mass at different temperatures. Next they change only the mass of one block, and finally only its material, recording the starting temperatures, the final temperature and the heat transferred. Hands-on: mix 100 g of cold and 100 g of warm water, then 100 g and 200 g, measuring every temperature.',
-          hr: 'U simulaciji "Toplo i hladno" učenici najprije zapišu predviđanje konačne temperature, a zatim spoje dva bloka iste tvari i mase, a različitih temperatura. Potom mijenjaju samo masu jednog bloka, a na kraju samo njegovu tvar, i bilježe početne temperature, konačnu temperaturu i prenesenu toplinu. Pokus u učionici: pomiješaju 100 g hladne i 100 g tople vode, zatim 100 g i 200 g, i svaki put izmjere sve temperature.'
+          hr: 'U simulaciji „Toplo i hladno“ učenici najprije zapišu predviđanje konačne temperature, a zatim spoje dva bloka iste tvari i mase, a različitih temperatura. Potom mijenjaju samo masu jednog bloka, a na kraju samo njegovu tvar, i bilježe početne temperature, konačnu temperaturu i prenesenu toplinu. Pokus u učionici: pomiješaju 100 g hladne i 100 g tople vode, zatim 100 g i 200 g, i svaki put izmjere sve temperature.'
         },
         keyIdea: {
           en: 'Heat is energy that passes by itself from a warmer body to a colder one until their temperatures are equal. Temperature tells how fast the particles move on average; how much it changes depends on the mass and on the substance.',
@@ -405,7 +405,7 @@
         },
         watch: {
           en: 'Pupils treat heat and temperature as one thing and speak of cold as a substance that flows in; they also trust their skin as a thermometer. Use the equal thermometer readings on metal and wood as a cognitive conflict, and replace "the cold comes in" with a fixed sentence pattern: energy passes from ... to ... because ... is warmer.',
-          hr: 'Učenici toplinu i temperaturu smatraju istim, a o hladnoći govore kao o tvari koja ulazi; uz to vjeruju koži kao termometru. Jednaka očitanja termometra na metalu i drvu iskoristite kao kognitivni konflikt, a rečenicu "ulazi hladnoća" zamijenite stalnim obrascem: energija prelazi s ... na ... jer je ... toplije.'
+          hr: 'Učenici toplinu i temperaturu smatraju istim, a o hladnoći govore kao o tvari koja ulazi; uz to vjeruju koži kao termometru. Jednaka očitanja termometra na metalu i drvu iskoristite kao kognitivni konflikt, a rečenicu „ulazi hladnoća“ zamijenite stalnim obrascem: energija prelazi s ... na ... jer je ... toplije.'
         }
       },
 
@@ -420,7 +420,7 @@
         },
         investigate: {
           en: 'In the simulation "Build a Circuit" pupils keep the battery voltage and the bulb type the same, change only the number of bulbs connected in series and record the current, the voltage per bulb and the brightness; then they repeat it with the bulbs in parallel. With real equipment they move the same ammeter to a place before and after the bulb, changing nothing else, and compare the two readings.',
-          hr: 'U simulaciji "Strujni krug" učenici drže napon baterije i vrstu žaruljice stalnima, mijenjaju samo broj serijski spojenih žaruljica i bilježe jakost struje, napon na žaruljici i sjaj; zatim isto ponove s paralelno spojenim žaruljicama. S pravim priborom isti ampermetar premještaju ispred i iza žaruljice, ne mijenjajući ništa drugo, i uspoređuju dva očitanja.'
+          hr: 'U simulaciji „Strujni krug“ učenici drže napon baterije i vrstu žaruljice stalnima, mijenjaju samo broj serijski spojenih žaruljica i bilježe jakost struje, napon na žaruljici i sjaj; zatim isto ponove s paralelno spojenim žaruljicama. S pravim priborom isti ampermetar premještaju ispred i iza žaruljice, ne mijenjajući ništa drugo, i uspoređuju dva očitanja.'
         },
         keyIdea: {
           en: 'Current flows only in a closed loop and is the same before and after a bulb. The bulb does not use up current; it transforms the energy that the current carries from the source, and the voltage tells how strongly the source drives the current.',
@@ -452,14 +452,14 @@
         },
         investigate: {
           en: 'In the simulation "Magnets and Compasses", mode "What sticks?", pupils test the objects one by one with the same magnet and compare the result with their sorting. Then they move a compass needle around a single bar magnet, sketch its direction at ten places and compare the sketch with the field lines. Finally they add a second magnet and change only which poles face each other. Hands-on: the same with a magnet, a compass and iron filings on paper.',
-          hr: 'U simulaciji "Magneti i kompasi", u načinu "Što privlači magnet?", učenici istim magnetom ispituju predmete jedan po jedan i ishod uspoređuju sa svojim razvrstavanjem. Zatim iglu kompasa pomiču oko jednoga štapićastog magneta, skiciraju njezin smjer na deset mjesta i skicu uspoređuju sa silnicama polja. Na kraju dodaju drugi magnet i mijenjaju samo to koji su polovi okrenuti jedan prema drugome. Pokus u učionici: isto s magnetom, kompasom i željeznom strugotinom na papiru.'
+          hr: 'U simulaciji „Magneti i kompasi“, u načinu „Što privlači magnet?“, učenici istim magnetom ispituju predmete jedan po jedan i ishod uspoređuju sa svojim razvrstavanjem. Zatim iglu kompasa pomiču oko jednoga štapićastog magneta, skiciraju njezin smjer na deset mjesta i skicu uspoređuju sa silnicama polja. Na kraju dodaju drugi magnet i mijenjaju samo to koji su polovi okrenuti jedan prema drugome. Pokus u učionici: isto s magnetom, kompasom i željeznom strugotinom na papiru.'
         },
         keyIdea: {
           en: 'A magnet attracts only a few materials, such as iron, nickel and cobalt, not all metals. Around every magnet there is a magnetic field that acts at a distance; poles always come in pairs, like poles repel and unlike poles attract.',
           hr: 'Magnet privlači samo neke tvari, poput željeza, nikla i kobalta, a ne sve metale. Oko svakog magneta postoji magnetsko polje koje djeluje na daljinu; polovi uvijek dolaze u paru, istoimeni se odbijaju, a raznoimeni privlače.'
         },
         talk: [
-          { en: 'You break a bar magnet in half. What do you get, and how could you check it?', hr: 'Štapićasti magnet prelomiš napola. Što dobiješ i kako bi to provjerio?' },
+          { en: 'You break a bar magnet in half. What do you get, and how could you check it?', hr: 'Štapićasti magnet prelomiš napola. Što dobiješ i kako to možeš provjeriti?' },
           { en: 'A compass needle turns although nothing touches it. What is acting on it?', hr: 'Igla kompasa zakrene se iako je ništa ne dodiruje. Što na nju djeluje?' },
           { en: 'An electromagnet lifts five paper clips. Name two changes that would make it lift more.', hr: 'Elektromagnet podigne pet spajalica. Navedi dvije promjene uz koje bi ih podigao više.' }
         ],
@@ -484,7 +484,7 @@
         },
         investigate: {
           en: 'In the simulation "Wave on a String" pupils send a single pulse and follow one point of the rope: where does the point move, and where does the pulse go? Then they keep the tension the same, change only the frequency and record the wavelength and the wave speed; after that they keep the frequency and change only the tension. Hands-on: a long spring on the floor with a ribbon on one coil, timing a pulse over a measured distance three times.',
-          hr: 'U simulaciji "Val na užetu" učenici pošalju jedan puls i prate jednu točku užeta: kamo se giba ta točka, a kamo puls? Zatim drže napetost stalnom, mijenjaju samo frekvenciju i bilježe valnu duljinu i brzinu vala; nakon toga zadrže frekvenciju, a mijenjaju samo napetost. Pokus u učionici: duga opruga na podu s vrpcom na jednom zavoju, a vrijeme pulsa na izmjerenoj udaljenosti mjeri se tri puta.'
+          hr: 'U simulaciji „Val na užetu“ učenici pošalju jedan puls i prate jednu točku užeta: kamo se giba ta točka, a kamo puls? Zatim drže napetost stalnom, mijenjaju samo frekvenciju i bilježe valnu duljinu i brzinu vala; nakon toga zadrže frekvenciju, a mijenjaju samo napetost. Pokus u učionici: duga opruga na podu s vrpcom na jednom zavoju, a vrijeme koje je pulsu potrebno da prijeđe izmjerenu udaljenost mjeri se tri puta.'
         },
         keyIdea: {
           en: 'A wave carries energy from place to place, while the particles of the medium only oscillate around their own positions. The speed of the wave is set by the medium, and v = λ · f links it to the wavelength and the frequency.',
@@ -493,7 +493,7 @@
         talk: [
           { en: 'You shake the rope twice as often with the same tension. Does the wave reach the wall sooner?', hr: 'Uže treseš dvostruko češće uz istu napetost. Hoće li val prije stići do zida?' },
           { en: 'Why can astronauts outside the space station not hear each other without a radio?', hr: 'Zašto se astronauti izvan svemirske postaje ne mogu čuti bez radija?' },
-          { en: 'A big drum and a small whistle: which is louder, which is higher, and what in the vibration decides each?', hr: 'Veliki bubanj i mala zviždaljka: što je glasnije, što je više i o čemu u titranju ovisi jedno, a o čemu drugo?' }
+          { en: 'A big drum and a small whistle: which is louder, which is higher, and what in the vibration decides each?', hr: 'Veliki bubanj i mala zviždaljka: što je glasnije, što daje viši ton i o čemu u titranju ovisi jedno, a o čemu drugo?' }
         ],
         exit: {
           en: 'A leaf floats on a pond while waves pass under it. Describe the motion of the leaf and say what the wave carried to the shore.',
@@ -516,7 +516,7 @@
         },
         investigate: {
           en: 'In the simulation "Light Rays", mode "Mirror", pupils change only the angle of incidence (for example 20°, 40°, 60°) and record the angle of reflection in a table; with the candle and its image shown, they compare the distances of the object and of the image from the mirror. In the mode "Shadows" they keep the object and the wall where they are and change only the distance of the lamp, recording the height of the shadow. Hands-on: a torch, a comb and a mirror on paper.',
-          hr: 'U simulaciji "Zrake svjetlosti", u načinu "Zrcalo", učenici mijenjaju samo upadni kut (primjerice 20°, 40°, 60°) i u tablicu upisuju kut odbijanja; uz prikazanu svijeću i njezinu sliku uspoređuju udaljenost predmeta i udaljenost slike od zrcala. U načinu "Sjene" predmet i zid ostaju na mjestu, mijenja se samo udaljenost lampe, a bilježi se visina sjene. Pokus u učionici: svjetiljka, češalj i zrcalo na papiru.'
+          hr: 'U simulaciji „Zrake svjetlosti“, u načinu „Zrcalo“, učenici mijenjaju samo upadni kut (primjerice 20°, 40°, 60°) i u tablicu upisuju kut odbijanja; uz prikazanu svijeću i njezinu sliku uspoređuju udaljenost predmeta i udaljenost slike od zrcala. U načinu „Sjene“ predmet i zid ostaju na mjestu, mijenja se samo udaljenost lampe, a bilježi se visina sjene. Pokus u učionici: svjetiljka, češalj i zrcalo na papiru.'
         },
         keyIdea: {
           en: 'Light travels in straight lines from a source. We see an object when light from it enters our eye, either its own light or light it reflects; at a mirror the angle of reflection equals the angle of incidence.',
@@ -524,7 +524,7 @@
         },
         talk: [
           { en: 'Can you see the beam of a torch from the side in clean air? What does that tell us about seeing?', hr: 'Vidiš li sa strane snop svjetiljke u čistom zraku? Što nam to govori o gledanju?' },
-          { en: 'Where is your image in a plane mirror: on the glass, or behind it? How could you check?', hr: 'Gdje je tvoja slika u ravnom zrcalu: na staklu ili iza njega? Kako bi to provjerio?' },
+          { en: 'Where is your image in a plane mirror: on the glass, or behind it? How could you check?', hr: 'Gdje je tvoja slika u ravnom zrcalu: na staklu ili iza njega? Kako to možeš provjeriti?' },
           { en: 'A red apple is lit only with blue light. What colour does it appear, and why?', hr: 'Crvenu jabuku obasjamo samo plavom svjetlošću. Kakve nam se boje čini i zašto?' }
         ],
         exit: {
@@ -548,20 +548,20 @@
         },
         investigate: {
           en: 'Hands-on model in a darkened room: a lamp is the Sun, the head of the pupil is the Earth and a ball on a stick is the Moon. The lamp and the ball stay the same; pupils change only the position of the ball around their head in eight steps and draw the lit part they see each time. Then they check the order in the simulation "Earth, Moon and Sun", mode "Moon phases", and note where the Moon is at full Moon and at new Moon.',
-          hr: 'Model u zamračenoj učionici: lampa je Sunce, učenikova glava Zemlja, a lopta na štapiću Mjesec. Lampa i lopta ostaju iste; učenici mijenjaju samo položaj lopte oko svoje glave u osam koraka i svaki put nacrtaju osvijetljeni dio koji vide. Zatim redoslijed provjere u simulaciji "Zemlja, Mjesec i Sunce", u načinu "Mjesečeve mijene", i zabilježe gdje je Mjesec za punog Mjeseca, a gdje za mlađaka.'
+          hr: 'Model u zamračenoj učionici: lampa je Sunce, učenikova glava Zemlja, a lopta na štapiću Mjesec. Lampa i lopta ostaju iste; učenici mijenjaju samo položaj lopte oko svoje glave u osam koraka i svaki put nacrtaju osvijetljeni dio koji vide. Zatim redoslijed provjere u simulaciji „Zemlja, Mjesec i Sunce“, u načinu „Mjesečeve mijene“, i zabilježe gdje je Mjesec za punog Mjeseca, a gdje za mlađaka.'
         },
         keyIdea: {
           en: 'The Sun always lights one half of the Moon. The phases arise because, as the Moon circles the Earth, we see a different part of that lit half; the shadow of the Earth matters only during a lunar eclipse.',
           hr: 'Sunce uvijek osvjetljava jednu polovicu Mjeseca. Mijene nastaju zato što, dok Mjesec kruži oko Zemlje, vidimo različit dio te osvijetljene polovice; Zemljina sjena važna je samo za pomrčine Mjeseca.'
         },
         talk: [
-          { en: 'Where are the Sun, the Earth and the Moon at full Moon? Why is there not a lunar eclipse every month?', hr: 'Gdje su Sunce, Zemlja i Mjesec za punog Mjeseca? Zašto pomrčina Mjeseca nije svaki mjesec?' },
+          { en: 'Where are the Sun, the Earth and the Moon at full Moon? Why is there not a lunar eclipse every month?', hr: 'Gdje su Sunce, Zemlja i Mjesec za punog Mjeseca? Zašto pomrčine Mjeseca nema svakog mjeseca?' },
           { en: 'Earth is closest to the Sun in early January. What does that say about the cause of the seasons?', hr: 'Zemlja je Suncu najbliža početkom siječnja. Što to govori o uzroku godišnjih doba?' },
           { en: 'Astronauts float in the space station 400 km above the ground. Does gravity act there?', hr: 'Astronauti lebde u svemirskoj postaji 400 km iznad tla. Djeluje li ondje gravitacija?' }
         ],
         exit: {
           en: 'Draw the Sun, the Earth and the Moon at first quarter, shade the dark half of the Moon and mark the part we see from the Earth.',
-          hr: 'Nacrtaj Sunce, Zemlju i Mjesec za prve četvrti, osjenčaj tamnu polovicu Mjeseca i označi dio koji vidimo sa Zemlje.'
+          hr: 'Nacrtaj Sunce, Zemlju i Mjesec kad je Mjesec u prvoj četvrti, osjenčaj tamnu polovicu Mjeseca i označi dio koji vidimo sa Zemlje.'
         },
         watch: {
           en: 'The shadow of the Earth as the cause of the phases and distance as the cause of the seasons are among the most stable ideas in school science; a correct explanation from the teacher rarely changes them. Let pupils hold the model themselves: when the ball looks like a crescent, ask where the shadow of their head falls. For the seasons, the January fact is the cognitive conflict.',
@@ -580,15 +580,15 @@
         },
         investigate: {
           en: 'In the simulation "Design a Fair Test" pupils choose the pendulum, state a hypothesis, pick the one variable they will change, say what they measure and what they keep the same, write the prediction and only then run the trials. With a real pendulum they do the same: for three masses on the same string and with the same starting angle they time 10 swings three times, take the mean and compare the differences with the measurement uncertainty.',
-          hr: 'U simulaciji "Osmisli pošten pokus" učenici odaberu njihalo, postave hipotezu, izaberu jednu varijablu koju će mijenjati, navedu što mjere i što drže stalnim, zapišu predviđanje i tek tada izvode mjerenja. Isto rade i s pravim njihalom: za tri mase na istoj niti i uz isti početni otklon triput mjere trajanje 10 titraja, računaju srednju vrijednost i razlike uspoređuju s mjernom nesigurnošću.'
+          hr: 'U simulaciji „Osmisli kontrolirani pokus“ učenici odaberu njihalo, postave hipotezu, izaberu jednu varijablu koju će mijenjati, navedu što mjere i što drže stalnim, zapišu predviđanje i tek tada izvode mjerenja. Isto rade i s pravim njihalom: za tri mase na istoj niti i uz isti početni otklon triput mjere trajanje 10 titraja, računaju srednju vrijednost i razlike uspoređuju s mjernom nesigurnošću.'
         },
         keyIdea: {
           en: 'In a fair test we change one variable, measure another and keep all the others the same. A prediction derived from the hypothesis is compared with the measurement: disagreement rejects the hypothesis, agreement supports it but never proves it for good.',
-          hr: 'U poštenom pokusu jednu varijablu mijenjamo, drugu mjerimo, a sve ostale držimo stalnima. Predviđanje izvedeno iz hipoteze uspoređujemo s mjerenjem: neslaganje hipotezu odbacuje, a slaganje je podupire, ali je nikad konačno ne dokazuje.'
+          hr: 'U kontroliranom pokusu jednu varijablu mijenjamo, drugu mjerimo, a sve ostale držimo stalnima. Predviđanje izvedeno iz hipoteze uspoređujemo s mjerenjem: neslaganje hipotezu odbacuje, a slaganje je podupire, ali je nikad konačno ne dokazuje.'
         },
         talk: [
           { en: 'Three timings of the same 10 swings give 20.1 s, 19.8 s and 20.2 s. Which one is right?', hr: 'Tri mjerenja istih 10 titraja daju 20,1 s, 19,8 s i 20,2 s. Koje je točno?' },
-          { en: 'With a heavier bob you measured 20.0 s instead of 20.1 s. Does the period depend on the mass?', hr: 'S težim utegom izmjerio si 20,0 s umjesto 20,1 s. Ovisi li period o masi?' },
+          { en: 'With a heavier bob you measured 20.0 s instead of 20.1 s. Does the period depend on the mass?', hr: 'S težim utegom izmjereno je 20,0 s umjesto 20,1 s. Ovisi li period o masi?' },
           { en: 'Your result contradicts your hypothesis. Was the experiment a failure?', hr: 'Rezultat proturječi tvojoj hipotezi. Je li pokus propao?' }
         ],
         exit: {
@@ -608,7 +608,7 @@
         },
         question: {
           en: 'How can we carry out an experiment at home so that someone else can trust our result and repeat it?',
-          hr: 'Kako pokus izvesti kod kuće tako da našem rezultatu netko drugi može vjerovati i ponoviti ga?'
+          hr: 'Kako izvesti pokus kod kuće tako da netko drugi može vjerovati našem rezultatu i ponoviti pokus?'
         },
         investigate: {
           en: 'Each pupil chooses a test from the Home experiments library, for example a pendulum made of string and a key. The length of the string is changed (five values), the time of 10 swings is measured with the phone stopwatch three times for each length, and the bob and the starting angle are kept the same. A prediction is written down first; the readings go into a table, the means into a graph, and the report states the measurement uncertainty and one thing that went wrong.',
@@ -621,11 +621,11 @@
         talk: [
           { en: 'Your three timings differ by a few tenths of a second. What does that tell you about your result, and how will you write it down?', hr: 'Tvoja se tri mjerenja razlikuju za nekoliko desetinki sekunde. Što ti to govori o rezultatu i kako ćeš ga zapisati?' },
           { en: 'Why is it better to time 10 swings and divide by 10 than to time a single swing?', hr: 'Zašto je bolje izmjeriti trajanje 10 titraja i podijeliti s 10 nego mjeriti jedan titraj?' },
-          { en: 'A classmate got a different value in the same experiment. How would the two of you find out why?', hr: 'Prijatelj iz razreda u istom je pokusu dobio drukčiju vrijednost. Kako biste vas dvoje otkrili zašto?' }
+          { en: 'A classmate got a different value in the same experiment. How would the two of you find out why?', hr: 'Netko iz razreda u istom je pokusu dobio drukčiju vrijednost. Kako biste zajedno otkrili zašto?' }
         ],
         exit: {
           en: 'Name one thing that you kept the same in your home experiment and explain what could have happened to the result if you had not.',
-          hr: 'Navedi jednu stvar koju si u kućnom pokusu držao stalnom i objasni što se moglo dogoditi s rezultatom da nisi.'
+          hr: 'Navedi jednu stvar koja je u tvom kućnom pokusu ostala ista i objasni što bi se moglo dogoditi s rezultatom da se mijenjala.'
         },
         watch: {
           en: 'At home pupils tend to measure once, tidy up numbers that look wrong and write the report from memory, because they believe the aim is to get the value from the textbook. Assess the method, not the closeness to the expected number: ask for the original table, the spread of the readings and a photo of the set-up, and discuss an honest odd result in class.',
@@ -637,7 +637,7 @@
     /* ---------- 3. Research-based teaching methods ---------- */
     methods: [
       { id: 'peer-instruction',
-        name:   { en: 'Peer Instruction', hr: 'Konceptualna pitanja s karticama (Peer Instruction)' },
+        name:   { en: 'Peer Instruction', hr: 'Vršnjačko poučavanje (Peer Instruction)' },
         origin: { en: 'Eric Mazur, Harvard University', hr: 'Eric Mazur, Sveučilište Harvard' },
         idea:   {
           en: 'Short conceptual questions turn a lecture into a discussion: pupils commit to an answer on their own and then try to convince a neighbour, so that understanding grows through explaining.',
@@ -686,12 +686,12 @@
             'Učenici raspravljaju u malim skupinama i zapišu konačno predviđanje.',
             'Izvedite pokus tako da svi mogu opažati ishod.',
             'Nekoliko učenika opiše ishod, a razred ga objašnjava i uspoređuje s predviđanjima.',
-            'Proširite ideju na analognu situaciju koja naizgled izgleda drukčije.'
+            'Proširite ideju na analognu situaciju koja na prvi pogled izgleda drukčije.'
           ]
         },
         inApp:  {
           en: 'Every simulation opens with a "Predict first" card: pupils choose an answer, check it in the simulation by following the suggested steps and then read the explanation. The home experiments follow the same order.',
-          hr: 'Svaka simulacija počinje karticom "Prvo predvidi": učenici odaberu odgovor, provjere ga u simulaciji prema predloženim koracima i zatim pročitaju objašnjenje. Isti redoslijed imaju i pokusi kod kuće.'
+          hr: 'Svaka simulacija počinje karticom „Prvo predvidi“: učenici odaberu odgovor, provjere ga u simulaciji prema predloženim koracima i zatim pročitaju objašnjenje. Isti redoslijed imaju i pokusi kod kuće.'
         } },
 
       { id: 'isle-cycle',
@@ -719,7 +719,7 @@
         },
         inApp:  {
           en: 'The Home experiments library labels every experiment as observe, test, apply or project, so a whole cycle for a topic can be assembled from experiments of the first three kinds.',
-          hr: 'U zbirci Pokusi kod kuće svaki je pokus označen kao opažanje, provjera, primjena ili projekt, pa se cijeli ciklus za neku temu može složiti od pokusa prvih triju vrsta.'
+          hr: 'U zbirci Pokusi kod kuće svaki je pokus označen kao opažanje, mjerenje, primjena ili izrada, pa se cijeli ciklus za neku temu može složiti od pokusa prvih triju vrsta.'
         } },
 
       { id: 'inquiry-lesson',
@@ -750,11 +750,11 @@
         },
         inApp:  {
           en: 'The lesson outlines in the teacher corner follow these three parts for every topic. The Concept check, the same test before and after teaching, shows the normalised gain of the class.',
-          hr: 'Skice sati u dijelu Za učitelje za svaku temu slijede ta tri dijela. Provjera razumijevanja, isti test prije i poslije poučavanja, pokazuje normalizirani dobitak razreda.'
+          hr: 'Nacrti sati u dijelu Za učitelje za svaku temu slijede ta tri dijela. Provjera razumijevanja, isti test prije i poslije poučavanja, pokazuje normalizirani dobitak razreda.'
         } },
 
       { id: 'fair-test',
-        name:   { en: 'The fair test and if–then reasoning', hr: 'Pošten pokus i zaključivanje ako–onda' },
+        name:   { en: 'The fair test and if–then reasoning', hr: 'Kontrolirani pokus i zaključivanje ako–onda' },
         origin: {
           en: 'Control of variables and hypothetico-deductive reasoning in science education research',
           hr: 'Kontrola varijabli i hipotetičko-deduktivno zaključivanje u istraživanjima prirodoslovnog obrazovanja'
@@ -773,7 +773,7 @@
           ],
           hr: [
             'Postavite tri pitanja: što mijenjam, što mjerim, što držim stalnim?',
-            'AKO je hipoteza točna I izvedem ovaj pokus, ONDA bih trebao opaziti ovaj ishod.',
+            'AKO je hipoteza točna I izvedem ovaj pokus, ONDA očekujem ovaj ishod.',
             'Izvedite pokus i svako mjerenje ponovite najmanje tri puta.',
             'ALI ishod je drukčiji, DAKLE hipotezu odbacujemo; ili: I ishod se slaže, DAKLE hipoteza je poduprta.',
             'Prije zaključka procijenite je li razlika veća od mjerne nesigurnosti.'
@@ -781,7 +781,7 @@
         },
         inApp:  {
           en: 'The simulation "Design a Fair Test" leads pupils through hypothesis, choice of variables, prediction, trials and conclusion; "Measure It!" practises repeated measurement, the mean and the uncertainty.',
-          hr: 'Simulacija "Osmisli pošten pokus" vodi učenike kroz hipotezu, izbor varijabli, predviđanje, mjerenja i zaključak, a u simulaciji "Izmjeri!" vježbaju ponavljanje mjerenja, srednju vrijednost i mjernu nesigurnost.'
+          hr: 'Simulacija „Osmisli kontrolirani pokus“ vodi učenike kroz hipotezu, izbor varijabli, predviđanje, mjerenja i zaključak, a u simulaciji „Izmjeri!“ vježbaju ponavljanje mjerenja, srednju vrijednost i mjernu nesigurnost.'
         } },
 
       { id: 'elicit-confront-resolve',
@@ -792,7 +792,7 @@
         },
         idea:   {
           en: 'A known difficulty is deliberately brought to the surface, pupils meet evidence that contradicts it, and guided questions help them resolve the contradiction themselves.',
-          hr: 'Poznatu poteškoću namjerno izvodimo na vidjelo, učenici se susreću s dokazom koji joj proturječi, a vođena pitanja pomažu im da proturječje sami razriješe.'
+          hr: 'Poznatu poteškoću namjerno iznosimo na vidjelo, učenici se susreću s dokazom koji joj proturječi, a vođena pitanja pomažu im da proturječje sami razriješe.'
         },
         steps:  {
           en: [
@@ -810,7 +810,7 @@
         },
         inApp:  {
           en: 'The Common mistakes box in every topic summary, the misconception named with each brain teaser and the Concept check taken before teaching tell you which idea to elicit; the "Predict first" cards supply the confrontation.',
-          hr: 'Okvir Česte zablude u sažetku svake teme, zabluda navedena uz svaku mozgalicu i Provjera razumijevanja riješena prije poučavanja govore vam koju ideju treba izazvati, a kartice "Prvo predvidi" donose suočavanje.'
+          hr: 'Okvir Česte zablude u sažetku svake teme, zabluda navedena uz svaku mozgalicu i Provjera razumijevanja riješena prije poučavanja govore vam koju ideju treba izazvati, a kartice „Prvo predvidi“ donose suočavanje.'
         } },
 
       { id: 'context-rich-problems',
@@ -833,15 +833,15 @@
           ],
           hr: [
             'Usmjeri se na problem: prepričaj priču, nacrtaj skicu i reci što se traži.',
-            'Opiši fiziku: odaberi model, nacrtaj dijagram i imenuj poznate i nepoznate veličine.',
-            'Isplaniraj rješenje: zapiši relacije i preuredi ih prije uvrštavanja brojeva.',
+            'Opiši fizikalnu situaciju: odaberi model, nacrtaj dijagram i imenuj poznate i nepoznate veličine.',
+            'Isplaniraj rješenje: zapiši jednadžbe i preoblikuj ih prije uvrštavanja brojeva.',
             'Provedi plan: računaj s mjernim jedinicama.',
             'Vrednuj rezultat: je li razuman, ima li ispravnu jedinicu i odgovara li na pitanje?'
           ]
         },
         inApp:  {
           en: 'The practice problems include context-rich problems written as short stories, and every problem has a step-by-step solution. Worksheets and practice exams let groups work on them on paper.',
-          hr: 'Među zadacima za vježbu nalaze se i zadaci bogati kontekstom napisani kao kratke priče, a svaki zadatak ima postupak rješavanja korak po korak. Radni listići i ispiti za vježbu omogućuju skupinama rad na papiru.'
+          hr: 'Među zadacima za vježbu nalaze se i zadaci bogati kontekstom napisani kao kratke priče, a svaki zadatak ima postupak rješavanja korak po korak. Radni listići i probne provjere omogućuju skupinama rad na papiru.'
         } },
 
       { id: 'ranking-tasks',
@@ -898,7 +898,7 @@
         },
         inApp:  {
           en: 'The simulations "Motion Graphs", "Energy Bar Charts" and "Forces Come in Pairs" show an event side by side with its graph, bar chart or force diagram, so pupils can move between representations of the same event.',
-          hr: 'Simulacije "Grafovi gibanja", "Stupčasti dijagram energije" i "Sile dolaze u parovima" prikazuju događaj usporedno s njegovim grafom, stupčastim dijagramom ili dijagramom sila, pa učenici mogu prelaziti s jednog prikaza istog događaja na drugi.'
+          hr: 'Simulacije „Grafovi gibanja“, „Stupčasti dijagram energije“ i „Sile dolaze u parovima“ prikazuju događaj usporedno s njegovim grafom, stupčastim dijagramom ili dijagramom sila, pa učenici mogu prelaziti s jednog prikaza istog događaja na drugi.'
         } }
     ],
 
@@ -944,7 +944,7 @@
           en: 'The group at the Department of Physics that researches the teaching and learning of physics and educates future physics teachers in Croatia.',
           hr: 'Grupa na Fizičkom odsjeku koja istražuje učenje i poučavanje fizike te obrazuje buduće nastavnike fizike u Hrvatskoj.'
         } },
-      { name: 'Kurikulum nastavnog predmeta Fizika (NN 10/2019)', by: 'Ministarstvo znanosti i obrazovanja', url: 'https://narodne-novine.nn.hr/clanci/sluzbeni/2019_01_10_210.html',
+      { name: 'Kurikulum za nastavni predmet Fizike (NN 10/2019)', by: 'Ministarstvo znanosti i obrazovanja', url: 'https://narodne-novine.nn.hr/clanci/sluzbeni/2019_01_10_210.html',
         note: {
           en: 'The official Croatian physics curriculum for primary schools and grammar schools: the outcomes, their elaboration and recommendations for achieving them.',
           hr: 'Službeni kurikulum fizike za osnovne škole i gimnazije: ishodi, njihova razrada i preporuke za njihovo ostvarivanje.'

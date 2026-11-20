@@ -25,13 +25,13 @@
     title: { en: 'Going Round in Circles', hr: 'Kružno gibanje' },
     summary: {
       en: 'Whirl a ball on a string and let go, ride the rotor, and drive a car round a bend. Where does the force point — and what happens without it?',
-      hr: 'Zavrti kuglicu na niti i pusti je, provozaj se rotorom i provezi automobil kroz zavoj. Kamo pokazuje sila — i što se dogodi bez nje?'
+      hr: 'Zavrti kuglicu na niti i pusti je, provozaj se rotorom i provezi automobil kroz zavoj. Kamo je usmjerena sila — i što se dogodi bez nje?'
     },
     tasks: [
-      { en: 'Before you press "Let go!", guess where the ball will fly. Then check. Was it a straight line?', hr: 'Prije nego pritisneš „Pusti!”, pogodi kamo će kuglica odletjeti. Zatim provjeri. Je li to bila ravna crta?' },
-      { en: 'Double the speed of the ball. How many times bigger does the force F = m·v²/r become?', hr: 'Udvostruči brzinu kuglice. Koliko puta se poveća sila F = m·v²/r?' },
-      { en: 'In the rotor, slow down until the rider slides. Which force got too small — and in which direction does the wall push?', hr: 'U rotoru usporavaj dok osoba ne proklizi. Koja je sila postala premala — i u kojem smjeru gura zid?' },
-      { en: 'Car on a bend: find the fastest speed for a 30 m bend on dry road, then switch to ice. What changes?', hr: 'Automobil u zavoju: nađi najveću brzinu za zavoj od 30 m na suhoj cesti, pa prebaci na led. Što se mijenja?' }
+      { en: 'Before you press "Let go!", guess where the ball will fly. Then check. Was it a straight line?', hr: 'Prije nego što pritisneš „Pusti!“, predvidi kamo će kuglica odletjeti. Zatim provjeri. Je li to bila ravna crta?' },
+      { en: 'Double the speed of the ball. How many times bigger does the force F = m·v²/r become?', hr: 'Udvostruči brzinu kuglice. Koliko se puta poveća sila F = m·v²/r?' },
+      { en: 'In the rotor, slow down until the rider slides. Which force got too small — and in which direction does the wall push?', hr: 'U rotoru smanjuj brzinu dok osoba ne počne kliziti. Koja je sila postala premala — i u kojem smjeru gura zid?' },
+      { en: 'Car on a bend: find the fastest speed for a 30 m bend on dry road, then switch to ice. What changes?', hr: 'Automobil u zavoju: pronađi najveću brzinu za zavoj polumjera 30 m na suhoj cesti, a zatim odaberi led. Što se mijenja?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -68,7 +68,7 @@
         if (finished()) clearRun();
         L.toggle(); updatePlay(); refresh();
       } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       // readouts (one set per mode; the others are hidden)
       const roS = [
         C.readout({ label: { en: 'Speed', hr: 'Brzina' }, unit: 'm/s', digits: 1 }),
@@ -79,8 +79,8 @@
       const roR = [
         C.readout({ label: { en: 'Speed', hr: 'Brzina' }, unit: 'm/s', digits: 1 }),
         C.readout({ label: { en: 'Wall push (normal force)', hr: 'Sila zida (normalna sila)' }, unit: 'N', digits: 0 }),
-        C.readout({ label: { en: 'Friction needed (= weight)', hr: 'Potrebno trenje (= težina)' }, unit: 'N', digits: 0 }),
-        C.readout({ label: { en: 'Friction available', hr: 'Raspoloživo trenje' }, unit: 'N', digits: 0 })
+        C.readout({ label: { en: 'Friction needed (= weight)', hr: 'Potrebna sila trenja (= težina)' }, unit: 'N', digits: 0 }),
+        C.readout({ label: { en: 'Friction available', hr: 'Najveće moguće trenje' }, unit: 'N', digits: 0 })
       ];
       const roC = [
         C.readout({ label: { en: 'Speed', hr: 'Brzina' }, unit: 'm/s', digits: 1 }),
@@ -167,21 +167,21 @@
           roS[0].set(st.v); roS[1].set(st.released ? 0 : fString()); roS[2].set(period()); roS[3].set(1 / period());
           note.set(st.released
             ? { en: 'No string, no force: the ball keeps its velocity and flies straight along the tangent at constant speed (inertia). It does not curve on by itself.',
-              hr: 'Nema niti, nema sile: kuglica zadržava brzinu i leti ravno po tangenti stalnom brzinom (tromost). Ne nastavlja sama zavijati.' }
+              hr: 'Nema niti, nema sile: zbog tromosti kuglica se nastavlja gibati stalnom brzinom, ravno po tangenti. Sama od sebe ne skreće.' }
             : { en: 'The string pulls towards the centre. That force only changes the direction of the velocity, not its size.',
-              hr: 'Nit vuče prema središtu. Ta sila mijenja samo smjer brzine, ne njezin iznos.' });
+              hr: 'Nit vuče kuglicu prema središtu. Ta sila mijenja samo smjer brzine, a ne njezin iznos.' });
         } else if (st.mode === 'rotor') {
           const N = rotorN(), fmax = rotorFmax(), need = PERSON_M * G;
           roR[0].set(st.rv); roR[1].set(N); roR[2].set(need); roR[3].set(fmax);
           roR[3].setColor(fmax >= need ? theme.good : theme.bad);
           note.set({ en: 'Seen from the ground, the only horizontal force on the rider is the wall pushing inward (towards the centre). The "centrifugal force" pushing outward is how it feels inside the spinning room — it is not a real push.',
-            hr: 'Gledano sa zemlje, jedina vodoravna sila na osobu je zid koji je gura prema unutra (prema središtu). „Centrifugalna sila” prema van jest ono što se osjeća u vrtećoj sobi — nije stvarna sila.' });
+            hr: 'Gledano s tla, jedina vodoravna sila na osobu jest sila kojom je zid gura prema unutra (prema središtu). „Centrifugalna sila“ prema van samo je osjećaj u vrtećoj sobi — to nije stvarna sila.' });
         } else {
           const need = carNeeded(), fmax = carMax();
           roC[0].set(st.skid ? Math.hypot(st.cv.x, st.cv.y) : st.cvel); roC[1].set(need); roC[2].set(fmax); roC[3].set(carVmax());
           roC[1].setColor(need > fmax ? theme.bad : theme.good);
           note.set({ en: 'Friction between the tyres and the road is what turns the car: it has to supply m·v²/r. If the road cannot give that much (wet, ice, too fast, tight bend), the car carries straight on — it skids.',
-            hr: 'Trenje između guma i ceste zakreće automobil: ono mora dati m·v²/r. Ako cesta ne može dati toliko (mokro, led, prebrzo, oštar zavoj), automobil nastavlja ravno — proklizava.' });
+            hr: 'Automobil skreće zahvaljujući trenju između guma i ceste: sila trenja mora iznositi m·v²/r. Ako trenje ne može biti toliko (mokra cesta, led, prevelika brzina, oštar zavoj), automobil nastavlja ravno — proklizava.' });
         }
       }
 
@@ -308,7 +308,7 @@
         const status = st.onFloor ? { en: 'on the floor', hr: 'na podu' } : holds ? { en: 'holds: friction = weight', hr: 'drži: trenje = težina' } : { en: 'slides down! friction < weight', hr: 'klizi prema dolje! trenje < težina' };
         label(g, K.tr(status, lang), S.x0, 14, { color: holds && !st.onFloor ? theme.good : theme.bad, font: 'bold 13px ' + theme.fontDisplay });
         const vminTxt = w >= 760
-          ? K.tr({ en: 'minimum speed to hold: ', hr: 'najmanja brzina da drži: ' }, lang) + K.fmt(rotorVmin(), 1, lang) + ' m/s  (μ = ' + K.fmt(ROTOR_MU, 1, lang) + ', m = ' + K.fmt(PERSON_M, 0, lang) + ' kg, r = ' + K.fmt(ROTOR_R, 0, lang) + ' m)'
+          ? K.tr({ en: 'minimum speed to hold: ', hr: 'najmanja potrebna brzina: ' }, lang) + K.fmt(rotorVmin(), 1, lang) + ' m/s  (μ = ' + K.fmt(ROTOR_MU, 1, lang) + ', m = ' + K.fmt(PERSON_M, 0, lang) + ' kg, r = ' + K.fmt(ROTOR_R, 0, lang) + ' m)'
           : K.tr({ en: 'min. speed ', hr: 'najmanja brzina ' }, lang) + K.fmt(rotorVmin(), 1, lang) + ' m/s (μ = ' + K.fmt(ROTOR_MU, 1, lang) + ')';
         label(g, vminTxt, S.x0, 32, { color: theme.muted, font: '11px ' + theme.font });
       }
@@ -344,7 +344,7 @@
         // header + bars: needed vs available
         label(g, K.tr({ en: 'top view', hr: 'pogled odozgo' }, lang) + '   ' + K.tr(st.surf.label, lang), 10, 14, { font: 'bold 13px ' + theme.fontDisplay });
         label(g, K.tr({ en: 'max safe speed √(μ·g·r) = ', hr: 'najveća sigurna brzina √(μ·g·r) = ' }, lang) + K.fmt(carVmax(), 1, lang) + ' m/s (' + K.fmt(carVmax() * 3.6, 0, lang) + ' km/h)', 10, 32, { font: '12px ' + theme.font });
-        const statusTxt = K.tr(need > fmax ? { en: 'friction is not enough → skids', hr: 'trenje nije dovoljno → proklizava' } : { en: 'friction is enough → turns', hr: 'trenje je dovoljno → zakreće' }, lang);
+        const statusTxt = K.tr(need > fmax ? { en: 'friction is not enough → skids', hr: 'trenje nije dovoljno → proklizava' } : { en: 'friction is enough → turns', hr: 'trenje je dovoljno → skreće' }, lang);
         if (w >= 560) {
           const bw = Math.min(150, w * 0.3), bx = w - bw - 70, by = 8, mx = Math.max(need, fmax, 1);
           [[{ en: 'needed m·v²/r', hr: 'potrebno m·v²/r' }, need, theme.c1], [{ en: 'max friction μ·m·g', hr: 'najveće trenje μ·m·g' }, fmax, theme.c2]].forEach((r, i) => {

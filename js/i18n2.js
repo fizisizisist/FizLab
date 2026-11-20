@@ -3,8 +3,19 @@
   'use strict';
   function merge(dst, src) { Object.keys(src).forEach(k => { if (src[k] && typeof src[k] === 'object' && !Array.isArray(src[k])) { dst[k] = dst[k] || {}; merge(dst[k], src[k]); } else dst[k] = src[k]; }); }
   merge(window.I18N.en, {
+    common: { score: 'Score: ', langEn: 'English', langHr: 'Croatian' },
+    read: {
+      title: 'Reading options',
+      dys: 'Dyslexia-friendly text',
+      dysHint: 'More space between letters, words and lines, a cream background and no italics.',
+      bold: 'Bold word beginnings (ADHD)',
+      boldHint: 'Helps some readers keep their eyes moving along the line. Keep it only if reading feels easier.',
+      guide: 'Reading ruler',
+      guideHint: 'A band follows your mouse or finger and dims the rest of the page.',
+      note: 'Everyone reads differently: try the options and keep what helps you. They can be combined.'
+    },
     nav: { train: 'Practice', tests: 'Tests', lab: 'Home lab', reference: 'Reference', teachers: 'Teachers' },
-    stats: { experiments: 'home experiments' },
+    stats: { experiments: ['home experiment', 'home experiments'] },
     hub: {
       all: 'See all', more: 'More',
       train: { title: 'Practice', lede: 'Calculation problems with fresh numbers, graph reading, story problems, brain teasers and quick drills.' },
@@ -76,76 +87,87 @@
     progress: { experiments: 'experiments done', exams: 'best practice exam' }
   });
   merge(window.I18N.hr, {
-    nav: { train: 'Vježba', tests: 'Ispiti', lab: 'Kućni laboratorij', reference: 'Podsjetnik', teachers: 'Za učitelje' },
-    stats: { experiments: 'pokusa kod kuće' },
+    common: { score: 'Bodovi: ', langEn: 'Engleski', langHr: 'Hrvatski' },
+    read: {
+      title: 'Prilagodba čitanja',
+      dys: 'Tekst za lakše čitanje (disleksija)',
+      dysHint: 'Više razmaka između slova, riječi i redaka, krem pozadina i tekst bez kurziva.',
+      bold: 'Podebljani počeci riječi (ADHD)',
+      boldHint: 'Nekima pomaže da pogled lakše prati redak. Ostavi uključeno samo ako ti je tako lakše čitati.',
+      guide: 'Ravnalo za čitanje',
+      guideHint: 'Traka prati miš ili prst i zatamnjuje ostatak stranice.',
+      note: 'Svatko čita drukčije: isprobaj mogućnosti i zadrži ono što ti pomaže. Možeš ih i kombinirati.'
+    },
+    nav: { train: 'Vježba', tests: 'Provjere', lab: 'Kućni laboratorij', reference: 'Priručnik', teachers: 'Za učitelje' },
+    stats: { experiments: ['pokus kod kuće', 'pokusa kod kuće', 'pokusa kod kuće'] },
     hub: {
-      all: 'Prikaži sve', more: 'Još',
-      train: { title: 'Vježba', lede: 'Računski zadaci sa svježim brojevima, očitavanje grafova, problemski zadaci, mozgalice i brzi trening.' },
-      tests: { title: 'Ispiti', lede: 'Provjeri što znaš: ispit za vježbu s ocjenom, provjera razumijevanja prije i poslije, miješani kviz i dnevni izazov.' },
-      lab: { title: 'Kućni laboratorij', lede: 'Pravi pokusi sa stvarima koje imaš kod kuće i alati koji mobitel ili računalo pretvaraju u mjerni instrument.' },
-      reference: { title: 'Podsjetnik', lede: 'Potraži: pojmove na dva jezika, sve formule, kartice, ljude iza ideja i pretvarač jedinica.' },
-      teachers: { title: 'Za učitelje', lede: 'Karta kurikuluma, okviri istraživačkih sati, metode utemeljene na istraživanjima, radni listići i ispiti s rješenjima.' },
+      all: 'Prikaži sve', more: 'Ostalo',
+      train: { title: 'Vježba', lede: 'Računski zadaci s uvijek novim brojevima, zadaci s grafovima, problemski zadaci, mozgalice i brzi trening.' },
+      tests: { title: 'Provjere', lede: 'Saznaj koliko znaš: probna provjera s ocjenom, provjera razumijevanja prije i nakon učenja, miješani kviz i dnevni izazov.' },
+      lab: { title: 'Kućni laboratorij', lede: 'Pravi pokusi s predmetima koje imaš kod kuće i alati koji mobitel ili računalo pretvaraju u mjerni instrument.' },
+      reference: { title: 'Priručnik', lede: 'Sve za brzo snalaženje: pojmovi na dva jezika, sve formule, kartice, znanstvenici i njihova otkrića te pretvarač jedinica.' },
+      teachers: { title: 'Za učitelje', lede: 'Pregled ishoda kurikuluma, nacrti istraživačkih sati, metode utemeljene na istraživanjima, radni listići i provjere znanja s rješenjima.' },
       cards: {
-        graphs: { t: 'Zadaci s grafom', d: 'Očitaj brzinu, put, otpor i drugo izravno iz grafa: nagib, površina i pojedine točke.' },
-        stories: { t: 'Problemski zadaci', d: 'Situacije iz života u kojima sam odlučuješ koji su podaci važni. Jedan je podatak uvijek višak.' },
-        drills: { t: 'Brzi trening', d: 'Deset brzih pitanja: pretvori jedinice, preoblikuj formulu, poveži veličine s jedinicama i instrumentima.' },
-        exam: { t: 'Ispit za vježbu', d: 'Cijeli ispit za temu ili razred, s ocjenom od 1 do 5 i objašnjenjem svakog odgovora na kraju.' },
+        graphs: { t: 'Zadaci s grafom', d: 'Očitaj brzinu, put, otpor i druge veličine izravno iz grafa – iz nagiba, površine ispod grafa ili pojedinih točaka.' },
+        stories: { t: 'Problemski zadaci', d: 'Svakodnevne situacije u kojima sam odlučuješ koji su podaci važni. Jedan je podatak uvijek suvišan.' },
+        drills: { t: 'Brzi trening', d: 'Deset brzih pitanja: pretvori jedinice, preoblikuj formulu, poveži veličine s jedinicama i mjernim instrumentima.' },
+        exam: { t: 'Probna provjera', d: 'Cijela provjera znanja za temu ili razred, s ocjenom od 1 do 5. Na kraju je objašnjen svaki odgovor.' },
         check: { t: 'Provjera razumijevanja', d: 'Riješi istih 20 konceptualnih pitanja prije i nakon učenja i pogledaj koliki je napredak.' },
-        experiments: { t: 'Pokusi kod kuće', d: 'Predvidi, izvedi, opazi, objasni: pokusi i projekti s kućnim priborom za svaku temu.' },
-        homelab: { t: 'Kako izvoditi pokuse kod kuće', d: 'Kratka lekcija o sigurnosti, dobrom mjerenju, tablicama, grafovima i izvješću o pokusu.' }
+        experiments: { t: 'Pokusi kod kuće', d: 'Predvidi, izvedi, opazi, objasni: pokusi i projekti s predmetima iz kućanstva za svaku temu.' },
+        homelab: { t: 'Kako izvoditi pokuse kod kuće', d: 'Kratka lekcija o sigurnosti, pravilnom mjerenju, tablicama, grafovima i pisanju izvješća o pokusu.' }
       }
     },
     practice: { kindAll: 'Sve vrste', kindCalc: 'Računski', kindGraph: 'S grafom', kindStory: 'Problemski' },
     exp: {
       title: 'Pokusi kod kuće', lede: 'Najprije predvidi što će se dogoditi, zatim izvedi pokus pa usporedi. Pogrešno predviđanje najbolji je način da naučiš nešto novo.',
-      rules: 'Samo baterije, nikad struja iz utičnice. Vruća voda, svijeće i škare samo uz odraslu osobu. Nikad ne gledaj u Sunce. Na kraju pospremi.',
-      kind: 'Vrsta', count: 'pokusa', doneCount: 'izvedeno',
+      rules: 'Upotrebljavaj samo baterije, nikad struju iz utičnice. S vrućom vodom, svijećama i škarama radi samo uz odraslu osobu. Nikad ne gledaj u Sunce. Kad završiš, pospremi za sobom.',
+      kind: 'Vrsta', count: 'u odabiru', doneCount: 'izvedeno',
       type: { observe: 'Opažanje', test: 'Mjerenje', apply: 'Primjena', project: 'Izrada' },
       measure: 'Što mjeriti', tool: 'Alat', sim: 'Simulacija',
-      predictHint: 'Odaberi predviđanje prije početka. Možeš ga mijenjati dok ne otkriješ rezultat.',
-      reveal: 'Izveo/la sam pokus: pokaži što se trebalo dogoditi', matched: 'Tvoje se predviđanje ostvarilo.', surprised: 'Iznenađenje! Predvidio/la si nešto drugo, a upravo tako uče i znanstvenici.',
-      notes: 'Moje bilješke', notesPh: 'Što sam opazio/la, moja mjerenja, što bih idući put promijenio/la…', done: 'Izveo/la sam ovaj pokus', moreForTopic: 'Još pokusa iz ove teme'
+      predictHint: 'Odaberi predviđanje prije nego što počneš. Možeš ga mijenjati sve dok ne otkriješ rezultat.',
+      reveal: 'Pokus je izveden – pokaži što se trebalo dogoditi', matched: 'Tvoje se predviđanje ostvarilo.', surprised: 'Iznenađenje! Predviđanje je bilo drukčije, a upravo tako uče i znanstvenici.',
+      notes: 'Moje bilješke', notesPh: 'Opažanja, rezultati mjerenja, što promijeniti idući put…', done: 'Pokus je izveden', moreForTopic: 'Još pokusa iz ove teme'
     },
-    poe: { title: 'Prvo predvidi', try: 'Sad provjeri:', show: 'Provjerio/la sam: pokaži objašnjenje', right: 'Tvoje je predviđanje bilo točno.', wrong: 'Simulacija pokazuje nešto drugo.', next: 'Drugo predviđanje' },
+    poe: { title: 'Prvo predvidi', try: 'Sad provjeri:', show: 'Provjereno – pokaži objašnjenje', right: 'Tvoje je predviđanje bilo točno.', wrong: 'Simulacija pokazuje nešto drugo.', next: 'Sljedeće predviđanje' },
     exam: {
-      title: 'Ispit za vježbu', lede: 'Ispit kao u školi: pitanja iz kviza, konceptualna pitanja i računski zadaci. Ništa se ne ocjenjuje dok ne predaš.',
-      scope: 'Što se ispituje', scopeAll: 'Sve (7. i 8. razred)', length: 'Duljina', short: 'Kratki', standard: 'Standardni', long: 'Dugi',
-      timed: 'Mjeri vrijeme (1,5 minuta po pitanju)', start: 'Započni ispit',
-      note: 'Pomoću koda dobiva se isti ispit, pa cijeli razred može pisati isti. Ostavi prazno za novi ispit.',
-      taken: 'Riješenih ispita', grade: 'Ocjena', grades: { 1: 'nedovoljan', 2: 'dovoljan', 3: 'dobar', 4: 'vrlo dobar', 5: 'odličan' },
-      scale: 'Ljestvica: 90 % i više je 5, od 77 % je 4, od 64 % je 3, od 50 % je 2. Tvoja škola može imati drukčije pragove.',
-      submit: 'Predaj ispit', submitAnyway: 'Ipak predaj', unanswered: 'pitanja još nije odgovoreno. Pritisni ponovno za predaju.', blank: 'Bez odgovora.', timeLeft: 'Preostalo:', newExam: 'Novi ispit'
+      title: 'Probna provjera', lede: 'Provjera kao u školi: pitanja iz kvizova, konceptualna pitanja i računski zadaci. Ništa se ne ocjenjuje dok provjeru ne predaš.',
+      scope: 'Gradivo', scopeAll: 'Sve (7. i 8. razred)', length: 'Duljina', short: 'Kratka', standard: 'Srednja', long: 'Duga',
+      timed: 'Ograniči vrijeme (1,5 minuta po pitanju)', start: 'Započni provjeru',
+      note: 'S istim kodom dobiva se ista provjera, pa je cijeli razred može pisati zajedno. Za novu provjeru ostavi polje prazno.',
+      taken: 'Riješenih provjera', grade: 'Ocjena', grades: { 1: 'nedovoljan', 2: 'dovoljan', 3: 'dobar', 4: 'vrlo dobar', 5: 'odličan' },
+      scale: 'Ljestvica: od 90 % ocjena 5, od 77 % ocjena 4, od 64 % ocjena 3, od 50 % ocjena 2. U tvojoj školi granice mogu biti drukčije.',
+      submit: 'Predaj provjeru', submitAnyway: 'Ipak predaj', unanswered: 'bez odgovora. Ako ipak želiš predati, pritisni ponovno.', blank: 'Bez odgovora.', timeLeft: 'Preostalo vrijeme:', newExam: 'Nova provjera'
     },
     check: {
-      title: 'Provjera razumijevanja', lede: 'Dvadeset pitanja o idejama, a ne o računanju. Riješi je prije nego što počneš temu i ponovno nakon nje: razlika pokazuje što si stvarno naučio/la.',
-      how: 'Vidiš samo rezultat, ne i odgovore, da drugi pokušaj ostane pošten. Nastavnici fizike rezultat zovu normalizirani dobitak: udio onoga što prije nisi znao/la, a sada znaš.',
-      first: 'Još nisi rješavao/la provjeru.', before: 'Prije', after: 'Poslije', gain: 'Dobitak',
-      high: 'Velik dobitak: naučio/la si većinu onoga što nisi znao/la.', medium: 'Srednji dobitak: tipičan za interaktivnu nastavu.', low: 'Malen dobitak: za ideje koje ti nisu jasne iskoristi mozgalice i simulacije.', negative: 'Niže nego prije: možda si prvi put dobro pogađao/la. Pokušaj ponovno nakon još vježbe.',
-      maxed: 'Već si prvi put imao/la sve točno.', comeBack: 'Vrati se nakon učenja i riješi je ponovno.',
-      startBefore: 'Započni provjeru prije', startAfter: 'Riješi ponovno (provjera poslije)', reset: 'Kreni ispočetka', showAnswers: 'Prikaži odgovore i objašnjenja', dontPeek: 'Ako ovo planiraš riješiti još jednom kao provjeru poslije, nemoj još gledati odgovore.'
+      title: 'Provjera razumijevanja', lede: 'Dvadeset pitanja o idejama, a ne o računanju. Riješi je prije nego što počneš učiti temu i ponovno nakon toga: razlika pokazuje koliko je novoga naučeno.',
+      how: 'Vidiš samo rezultat, ne i točne odgovore, kako bi drugi pokušaj ostao pošten. Nastavnici fizike taj rezultat nazivaju normaliziranim dobitkom: to je udio onoga što ti je prije bilo nepoznato, a sada to znaš.',
+      first: 'Provjera još nije riješena.', before: 'Prije', after: 'Poslije', gain: 'Dobitak',
+      high: 'Velik dobitak: većinu onoga što ti je bilo nepoznato sada znaš.', medium: 'Srednji dobitak: uobičajen za interaktivnu nastavu.', low: 'Malen dobitak: za ideje koje ti nisu jasne iskoristi mozgalice i simulacije.', negative: 'Rezultat je niži nego prije: možda je prvi put bilo i sretnog pogađanja. Pokušaj ponovno nakon još malo vježbe.',
+      maxed: 'Već je prvi put sve bilo točno.', comeBack: 'Vrati se nakon učenja i riješi provjeru ponovno.',
+      startBefore: 'Započni početnu provjeru', startAfter: 'Riješi ponovno (završna provjera)', reset: 'Kreni ispočetka', showAnswers: 'Prikaži odgovore i objašnjenja', dontPeek: 'Ako ćeš provjeru rješavati još jednom kao završnu, nemoj još gledati odgovore.'
     },
     drills: {
-      title: 'Brzi trening', lede: 'Deset pitanja, što brže možeš. Nadmaši svoj najbolji rezultat i vrijeme.',
+      title: 'Brzi trening', lede: 'Deset pitanja – odgovori što brže možeš. Nadmaši svoj najbolji rezultat i vrijeme.',
       kinds: { units: 'Pretvaranje jedinica', formulas: 'Preoblikovanje formula', quantities: 'Veličine i jedinice' },
-      convert: 'Pretvori', into: 'u', from: 'Iz', express: 'izrazi',
-      howDivide: 'Podijeli obje strane s {x}.', howMultiply: 'Pomnoži obje strane s {x}.', howSwap: 'Pomnoži obje strane s {x}, zatim podijeli s {y}.',
-      unitOf: 'Koja mjerna jedinica pripada veličini:', measuredIn: 'Koja se veličina mjeri jedinicom', instrumentFor: 'Kojim se instrumentom mjeri veličina:', symbolOf: 'Koja je uobičajena oznaka za veličinu:', time: 'Vrijeme'
+      convert: 'Pretvori', into: 'u', from: 'Iz formule', express: 'izrazi',
+      howDivide: 'Podijeli obje strane veličinom {x}.', howMultiply: 'Pomnoži obje strane veličinom {x}.', howSwap: 'Pomnoži obje strane veličinom {x}, a zatim ih podijeli veličinom {y}.',
+      unitOf: 'Koja je mjerna jedinica veličine:', measuredIn: 'Koja se veličina mjeri jedinicom', instrumentFor: 'Kojim se mjernim instrumentom mjeri veličina:', symbolOf: 'Koja je uobičajena oznaka veličine:', time: 'Vrijeme'
     },
     teach: {
-      title: 'Za učitelje', lede: 'FizLab prati hrvatski kurikulum za 7. i 8. razred i rezultate edukacijskih istraživanja u fizici. Poslužit će za uvodne probleme, vođena istraživanja, konceptualna pitanja, domaće zadaće i ispite.',
-      tools: 'Spremno za razred', toolWorksheet: 'Svježi zadaci s rješenjima; isti se listić ponovno dobiva pomoću koda.', toolExam: 'Ispit za temu ili razred; pomoću koda cijeli razred dobiva isti ispit.',
-      toolCheck: 'Isti konceptualni test prije i nakon poučavanja, s normaliziranim dobitkom.', toolConcepts: 'Konceptualna pitanja, zadaci rangiranja i procjene za glasovanje i raspravu u paru.', toolExperiments: 'Opservacijski, istraživački i aplikacijski pokusi te projekti za domaću zadaću.',
-      outlines: 'Okviri istraživačkih sati', outlinesLede: 'Kostur sata za svaku temu u tri dijela: uvodni problem, vođeno istraživanje te primjena s konceptualnim pitanjima.',
-      outcomes: 'Ishodi kurikuluma', opening: 'Uvodni problem', question: 'Istraživačko pitanje', investigate: 'Vođeno istraživanje', keyIdea: 'Ključna ideja', talk: 'Pitanja za raspravu u paru',
-      peer: 'Konceptualna pitanja (odgovor podebljan)', apply: 'Primjena i provjera', exit: 'Izlazna kartica', homework: 'Domaća zadaća: pokusi', watch: 'Na što paziti',
-      curriculum: 'Karta kurikuluma', curriculumLede: 'Odgojno-obrazovni ishodi kurikuluma Fizike za osnovnu školu (NN 10/2019) i mjesta gdje ih FizLab podržava.',
-      code: 'Oznaka', outcome: 'Ishod', methods: 'Metode utemeljene na istraživanjima', inApp: 'U FizLabu', resources: 'Otvoreni izvori koje vrijedi poznavati'
+      title: 'Za učitelje', lede: 'FizLab prati hrvatski kurikulum Fizike za 7. i 8. razred i rezultate istraživanja u nastavi fizike. Može poslužiti za uvodne probleme, vođena istraživanja, konceptualna pitanja, domaće zadaće i provjere znanja.',
+      tools: 'Spremno za nastavu', toolWorksheet: 'Novi zadaci s rješenjima; s istim kodom ponovno se dobiva isti listić.', toolExam: 'Provjera znanja za temu ili razred; s istim kodom cijeli razred dobiva istu provjeru.',
+      toolCheck: 'Isti konceptualni test prije i nakon obrade gradiva, s izračunom normaliziranog dobitka.', toolConcepts: 'Konceptualna pitanja, zadaci rangiranja i procjene za glasovanje i raspravu u paru.', toolExperiments: 'Pokusi opažanja, mjerenja i primjene te projekti izrade za domaću zadaću.',
+      outlines: 'Nacrti istraživačkih sati', outlinesLede: 'Kostur sata za svaku temu u tri dijela: uvodni problem, vođeno istraživanje te primjena s konceptualnim pitanjima.',
+      outcomes: 'Odgojno-obrazovni ishodi', opening: 'Uvodni problem', question: 'Istraživačko pitanje', investigate: 'Vođeno istraživanje', keyIdea: 'Ključna ideja', talk: 'Pitanja za raspravu u paru',
+      peer: 'Konceptualna pitanja (točan odgovor podebljan)', apply: 'Primjena i provjera', exit: 'Izlazna kartica', homework: 'Domaća zadaća: pokusi', watch: 'Na što paziti',
+      curriculum: 'Pregled ishoda kurikuluma', curriculumLede: 'Odgojno-obrazovni ishodi iz kurikuluma za nastavni predmet Fizike za osnovne škole i gimnazije (NN 10/2019) i dijelovi FizLaba koji ih podupiru.',
+      code: 'Oznaka', outcome: 'Ishod', methods: 'Metode utemeljene na istraživanjima', inApp: 'U FizLabu', resources: 'Otvoreni obrazovni sadržaji koje vrijedi upoznati'
     },
     badges: {
       experimenter: { t: 'Eksperimentator', d: 'Izvedi 5 pokusa kod kuće.' },
-      predictor: { t: 'Prorok', d: 'Zapiši 10 predviđanja prije provjere.' },
-      examAce: { t: 'Čista petica', d: 'Osvoji ocjenu 5 na ispitu za vježbu.' }
+      predictor: { t: 'Prorok', d: 'Daj 10 predviđanja prije nego što ih provjeriš.' },
+      examAce: { t: 'Čista petica', d: 'Dobij peticu na probnoj provjeri.' }
     },
-    progress: { experiments: 'izvedenih pokusa', exams: 'najbolji ispit za vježbu' }
+    progress: { experiments: 'izvedenih pokusa', exams: 'najbolja probna provjera' }
   });
 })();

@@ -22,13 +22,13 @@
     title: { en: 'Pressure', hr: 'Tlak' },
     summary: {
       en: 'Press a block into sand with different areas, then dive a pressure sensor into a tank and open holes in its wall.',
-      hr: 'Pritisni blok u pijesak različitim površinama, zatim uroni senzor tlaka u spremnik i otvori rupe u zidu.'
+      hr: 'Utiskuj tijelo u pijesak preko različitih dodirnih površina, zatim uroni senzor tlaka u spremnik i otvori rupe u njegovoj stijenci.'
     },
     tasks: [
-      { en: 'Keep the force at 600 N (an adult). Switch between "High heel" and "Snowshoe". Which sinks deeper and why?', hr: 'Ostavi silu na 600 N (odrasla osoba). Mijenjaj "Štiklu" i "Krplje". Što tone dublje i zašto?' },
+      { en: 'Keep the force at 600 N (an adult). Switch between "High heel" and "Snowshoe". Which sinks deeper and why?', hr: 'Neka sila ostane 600 N (odrasla osoba). Prebacuj između „Štikla“ i „Krplje“. Što tone dublje i zašto?' },
       { en: 'Find a force and an area that give exactly 100 000 Pa (100 kPa, about the pressure of the air).', hr: 'Pronađi silu i površinu koje daju točno 100 000 Pa (100 kPa, otprilike tlak zraka).' },
-      { en: 'In the liquid: drag the sensor to 1 m depth in water, then switch to mercury. How many times bigger is the pressure?', hr: 'U tekućini: povuci senzor na dubinu 1 m u vodi, pa prebaci na živu. Koliko je puta veći tlak?' },
-      { en: 'Open the holes in the wall. Which jet is fastest? Would a wider tank change the pressure?', hr: 'Otvori rupe u zidu. Koji je mlaz najbrži? Bi li širi spremnik promijenio tlak?' }
+      { en: 'In the liquid: drag the sensor to 1 m depth in water, then switch to mercury. How many times bigger is the pressure?', hr: 'U tekućini: povuci senzor na dubinu 1 m u vodi, a zatim odaberi živu. Koliko je puta tlak veći?' },
+      { en: 'Open the holes in the wall. Which jet is fastest? Would a wider tank change the pressure?', hr: 'Otvori rupe u stijenci spremnika. Koji je mlaz najbrži? Bi li širi spremnik promijenio tlak?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -39,7 +39,7 @@
 
       // ---------- controls ----------
       const seg = C.segmented({ label: { en: 'Mode', hr: 'Način' }, options: [
-        { value: 'surface', label: { en: 'On a surface', hr: 'Na podlogu' } }, { value: 'liquid', label: { en: 'In a liquid', hr: 'U tekućini' } }], value: 'surface', onChange: setMode });
+        { value: 'surface', label: { en: 'On a surface', hr: 'Na podlozi' } }, { value: 'liquid', label: { en: 'In a liquid', hr: 'U tekućini' } }], value: 'surface', onChange: setMode });
       const slF = C.slider({ label: { en: 'Force (weight)', hr: 'Sila (težina)' }, min: 10, max: 1000, step: 10, value: 600, unit: 'N', digits: 0, onChange: v => { st.F = v; refresh(); } });
       const slA = C.slider({ label: { en: 'Contact area', hr: 'Dodirna površina' }, min: 1, max: 400, step: 1, value: 50,
         format: (v, l) => K.fmt(v, 0, l) + ' cm² = ' + K.fmt(v / 10000, 4, l) + ' m²', onChange: v => { st.A = v; refresh(); } });
@@ -48,10 +48,10 @@
         onChange: v => { st.liq = LIQUIDS.find(l => l.id === v) || LIQUIDS[0]; refresh(); } });
       const slH = C.slider({ label: { en: 'Liquid height', hr: 'Visina tekućine' }, min: 0.2, max: 3, step: 0.1, value: 2, unit: 'm', digits: 1,
         onChange: v => { st.H = v; st.sensor.d = Math.min(st.sensor.d, st.H); st.parts.length = 0; refresh(); } });
-      const tgHoles = C.toggle({ label: { en: 'Holes in the wall', hr: 'Rupe u zidu' }, value: false, onChange: v => { st.holes = v; st.parts.length = 0; refresh(); } });
+      const tgHoles = C.toggle({ label: { en: 'Holes in the wall', hr: 'Rupe u stijenci' }, value: false, onChange: v => { st.holes = v; st.parts.length = 0; refresh(); } });
       const tgArrows = C.toggle({ label: { en: 'Show pressure arrows', hr: 'Prikaži strelice tlaka' }, value: false, onChange: v => { st.arrows = v; draw(); } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: reset });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: reset });
       const outP = C.readout({ label: { en: 'Pressure', hr: 'Tlak' }, unit: 'Pa', digits: 0 });
       const outPk = C.readout({ label: { en: 'Pressure', hr: 'Tlak' }, unit: 'kPa', digits: 2 });
       const outF = C.readout({ label: { en: 'Force', hr: 'Sila' }, unit: 'N', digits: 0 });
@@ -59,7 +59,7 @@
       const outD = C.readout({ label: { en: 'Sensor depth', hr: 'Dubina senzora' }, unit: 'm', digits: 2 });
       const outPh = C.readout({ label: { en: 'Liquid pressure ρ·g·h', hr: 'Tlak tekućine ρ·g·h' }, unit: 'Pa', digits: 0 });
       const outPhk = C.readout({ label: { en: 'Liquid pressure', hr: 'Tlak tekućine' }, unit: 'kPa', digits: 2 });
-      const outTot = C.readout({ label: { en: 'Total with air (+101.3 kPa)', hr: 'Ukupno sa zrakom (+101,3 kPa)' }, unit: 'kPa', digits: 1 });
+      const outTot = C.readout({ label: { en: 'Total with air (+101.3 kPa)', hr: 'Uz tlak zraka (+101,3 kPa)' }, unit: 'kPa', digits: 1 });
       const note = C.note({ text: { en: '', hr: '' } });
 
       function fieldOf(ctrl) { const el = ctrl.el; return el.classList.contains('sk-field') ? el : el.parentElement; }
@@ -84,17 +84,17 @@
           const p = pressureSurface();
           outP.set(p); outPk.set(p / 1000); outF.set(st.F); outA.set(st.A / 10000);
           if (st.A <= 5) note.set({ en: 'Tiny area: the whole force presses through a few cm² — huge pressure, it sinks in deep. (A real nail tip is only ~0.01 cm², 100× more!)',
-            hr: 'Sićušna površina: sva sila tlači kroz nekoliko cm² — golem tlak, duboko tone. (Pravi vrh čavla ima samo ~0,01 cm², 100 puta više!)' });
+            hr: 'Sićušna površina: cijela sila djeluje na samo nekoliko cm² — tlak je golem i tijelo duboko tone. (Pravi vrh čavla ima samo oko 0,01 cm² pa je tlak još 100 puta veći!)' });
           else if (st.A >= 200) note.set({ en: 'A big area spreads the same force out → small pressure. That is why snowshoes do not sink into snow.',
-            hr: 'Velika površina raspodijeli istu silu → mali tlak. Zato krplje ne tonu u snijeg.' });
+            hr: 'Na velikoj površini ista se sila raspodijeli → tlak je mali. Zato krplje ne propadaju u snijeg.' });
           else note.set({ en: 'Pressure = force ÷ area. Make the area smaller and watch the block sink deeper into the sand.',
-            hr: 'Tlak = sila ÷ površina. Smanji površinu i gledaj kako blok tone dublje u pijesak.' });
+            hr: 'Tlak = sila ÷ površina. Smanji površinu i promatraj kako tijelo tone sve dublje u pijesak.' });
         } else {
           const p = pressureLiquid(st.sensor.d);
           outD.set(st.sensor.d); outPh.set(p); outPhk.set(p / 1000); outTot.set((p + P_ATM) / 1000);
           const extra = st.holes ? { en: ' Deeper hole → bigger pressure → faster jet, v = √(2gh).', hr: ' Dublja rupa → veći tlak → brži mlaz, v = √(2gh).' } : { en: '', hr: '' };
           note.set({ en: 'Pressure in a liquid grows with depth and with the liquid\'s density: p = ρ·g·h. It does not depend on the width of the tank.' + extra.en,
-            hr: 'Tlak u tekućini raste s dubinom i s gustoćom tekućine: p = ρ·g·h. Ne ovisi o širini spremnika.' + extra.hr });
+            hr: 'Hidrostatski tlak raste s dubinom i s gustoćom tekućine: p = ρ·g·h. Ne ovisi o širini spremnika.' + extra.hr });
         }
       }
       function liquidLayout(w, h) {
@@ -259,7 +259,7 @@
         K.text(c, K.tr({ en: 'Pressure', hr: 'Tlak' }, lang) + '   p = ρ · g · h', bx + 12, y, { font: fB, color: theme.fg }); y += lh;
         K.text(c, '= ' + K.fmt(st.liq.rho, 0, lang) + ' · ' + K.fmt(G, 2, lang) + ' · ' + K.fmt(st.sensor.d, 2, lang), bx + 12, y, { font: fN, color: theme.fg }); y += lh;
         K.text(c, '= ' + K.fmt(p, 0, lang) + ' Pa = ' + K.fmt(p / 1000, 1, lang) + ' kPa', bx + 12, y, { font: fN, color: theme.fg }); y += lh;
-        K.text(c, '+ ' + K.fmt(P_ATM / 1000, 1, lang) + ' kPa ' + K.tr({ en: 'air', hr: 'zrak' }, lang) + ' = ' + K.fmt((p + P_ATM) / 1000, 1, lang) + ' kPa', bx + 12, y, { font: fN, color: theme.fg });
+        K.text(c, '+ ' + K.fmt(P_ATM / 1000, 1, lang) + ' kPa ' + K.tr({ en: 'air', hr: 'zraka' }, lang) + ' = ' + K.fmt((p + P_ATM) / 1000, 1, lang) + ' kPa', bx + 12, y, { font: fN, color: theme.fg });
         K.text(c, K.tr({ en: 'Drag the sensor', hr: 'Povuci senzor' }, lang) + ' · h = ' + K.fmt(st.sensor.d, 2, lang) + ' m · p = ' + K.fmt(p / 1000, 1, lang) + ' kPa', tx - 8, Lo.floorY + 15, { font: '11px ' + theme.font, color: theme.fg });
       }
 

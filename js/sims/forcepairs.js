@@ -17,7 +17,7 @@
   const VARIANTS = [
     { value: 'book', m: 1, label: { en: 'Book on a table', hr: 'Knjiga na stolu' }, name: { en: 'book', hr: 'knjigu' }, holder: { en: 'table', hr: 'stol' } },
     { value: 'lamp', m: 2, label: { en: 'Hanging lamp', hr: 'Viseća lampa' }, name: { en: 'lamp', hr: 'lampu' }, holder: { en: 'rope', hr: 'nit' } },
-    { value: 'box', m: 10, label: { en: 'Box pushed at constant speed', hr: 'Kutija gurana stalnom brzinom' }, name: { en: 'box', hr: 'kutiju' }, holder: { en: 'floor', hr: 'pod' } }
+    { value: 'box', m: 10, label: { en: 'Box pushed at constant speed', hr: 'Guranje kutije stalnom brzinom' }, name: { en: 'box', hr: 'kutiju' }, holder: { en: 'floor', hr: 'pod' } }
   ];
   // candidate forces for the diagram builder (the label of two of them depends on the situation)
   const CANDS = [
@@ -26,10 +26,10 @@
       book: { en: 'The table pushes the book up (normal force)', hr: 'Stol gura knjigu prema gore (sila podloge)' },
       lamp: { en: 'The rope pulls the lamp up (tension)', hr: 'Nit vuče lampu prema gore (napetost niti)' },
       box: { en: 'The floor pushes the box up (normal force)', hr: 'Pod gura kutiju prema gore (sila podloge)' } } },
-    { id: 'hand', short: { en: 'Push of the hand', hr: 'Sila ruke' }, label: { en: 'A hand pushes it forward', hr: 'Ruka ga gura naprijed' } },
-    { id: 'friction', short: { en: 'Friction', hr: 'Trenje' }, label: { en: 'Friction from the surface', hr: 'Trenje s podloge' } },
-    { id: 'motion', short: { en: '"Force of motion"', hr: '"Sila gibanja"' }, label: { en: '"Force of motion" inside the object', hr: '"Sila gibanja" u tijelu' } },
-    { id: 'onsupport', short: { en: 'Push on the support', hr: 'Pritisak na podlogu' }, label: {
+    { id: 'hand', short: { en: 'Push of the hand', hr: 'Sila ruke' }, label: { en: 'A hand pushes it forward', hr: 'Ruka gura tijelo naprijed' } },
+    { id: 'friction', short: { en: 'Friction', hr: 'Trenje' }, label: { en: 'Friction from the surface', hr: 'Trenje o podlogu' } },
+    { id: 'motion', short: { en: '"Force of motion"', hr: '„Sila gibanja“' }, label: { en: '"Force of motion" inside the object', hr: '„Sila gibanja“ u tijelu' } },
+    { id: 'onsupport', short: { en: 'Push on the support', hr: 'Sila na podlogu' }, label: {
       book: { en: 'The book\'s push on the table', hr: 'Sila kojom knjiga pritišće stol' },
       lamp: { en: 'The lamp\'s pull on the rope', hr: 'Sila kojom lampa vuče nit' },
       box: { en: 'The box\'s push on the floor', hr: 'Sila kojom kutija pritišće pod' } } },
@@ -49,12 +49,12 @@
     title: { en: 'Forces Come in Pairs', hr: 'Sile dolaze u parovima' },
     summary: {
       en: 'Crash a truck into a car, tug on a spring scale, build a force diagram and drop an apple: every force has an equal and opposite partner on the other body.',
-      hr: 'Sudari kamion s autom, povuci dinamometar, nacrtaj dijagram sila i pusti jabuku: svaka sila ima jednaku protusilu na drugom tijelu.'
+      hr: 'Sudari kamion s autom, povuci dinamometar, nacrtaj dijagram sila i pusti jabuku: svaka sila ima protusilu jednakog iznosa i suprotnog smjera koja djeluje na drugo tijelo.'
     },
     tasks: [
-      { en: 'Crash a 10 000 kg truck into a 500 kg car. Compare the two force meters — then compare the two accelerations.', hr: 'Sudari kamion od 10 000 kg s autom od 500 kg. Usporedi dva mjerača sile — zatim usporedi dva ubrzanja.' },
-      { en: 'Dynamometer: both kids pull with 100 N. Does the scale read 0, 100 or 200 N? Now tie one end to the wall.', hr: 'Dinamometar: oba djeteta vuku silom 100 N. Pokazuje li dinamometar 0, 100 ili 200 N? Zatim veži jedan kraj na zid.' },
-      { en: 'Book on a table: tick only the forces that act ON the book and press Check. Which pairs are true third-law pairs?', hr: 'Knjiga na stolu: označi samo sile koje djeluju NA knjigu i provjeri. Koji su parovi pravi parovi sile i protusile?' },
+      { en: 'Crash a 10 000 kg truck into a 500 kg car. Compare the two force meters — then compare the two accelerations.', hr: 'Sudari kamion od 10 000 kg s autom od 500 kg. Usporedi pokazivanja obaju mjerača sile, a zatim oba ubrzanja.' },
+      { en: 'Dynamometer: both kids pull with 100 N. Does the scale read 0, 100 or 200 N? Now tie one end to the wall.', hr: 'Dinamometar: oba djeteta vuku silom 100 N. Pokazuje li dinamometar 0, 100 ili 200 N? Zatim jedan kraj veži za zid.' },
+      { en: 'Book on a table: tick only the forces that act ON the book and press Check. Which pairs are true third-law pairs?', hr: 'Knjiga na stolu: označi samo sile koje djeluju NA knjigu i pritisni „Provjeri dijagram“. Koje su sile pravi parovi sile i protusile?' },
       { en: 'Apple and Earth: the two forces are equal. Why does only the apple visibly move?', hr: 'Jabuka i Zemlja: dvije su sile jednake. Zašto se vidljivo giba samo jabuka?' }
     ],
     mount(container, ctx) {
@@ -78,7 +78,7 @@
       const slVC = C.slider({ label: { en: 'Car speed', hr: 'Brzina auta' }, min: 2, max: 10, step: 0.5, value: 5, unit: 'm/s', digits: 1, onChange: v => { st.tr.vC0 = v; resetTruck(); refresh(); } });
       const slFA = C.slider({ label: { en: 'Ana pulls to the left', hr: 'Ana vuče ulijevo' }, min: 0, max: 200, step: 5, value: 100, unit: 'N', digits: 0, onChange: v => { st.dy.FA = v; refresh(); } });
       const slFB = C.slider({ label: { en: 'Bruno pulls to the right', hr: 'Bruno vuče udesno' }, min: 0, max: 200, step: 5, value: 100, unit: 'N', digits: 0, onChange: v => { st.dy.FB = v; refresh(); } });
-      const tgWall = C.toggle({ label: { en: 'Tie the left end to a wall', hr: 'Lijevi kraj veži na zid' }, value: false, onChange: v => { st.dy.wall = v; slFA.setDisabled(v); resetDyno(); refresh(); } });
+      const tgWall = C.toggle({ label: { en: 'Tie the left end to a wall', hr: 'Lijevi kraj veži za zid' }, value: false, onChange: v => { st.dy.wall = v; slFA.setDisabled(v); resetDyno(); refresh(); } });
       const selVar = C.select({ label: { en: 'Situation', hr: 'Situacija' }, options: VARIANTS.map(v => ({ value: v.value, label: v.label })), value: 'book',
         onChange: v => { st.fb.variant = VARIANTS.find(x => x.value === v) || VARIANTS[0]; st.fb.m = st.fb.variant.m; slFM.set(st.fb.m); clearPicks(); applyFbdLabels(); showControls(); refresh(); } });
       const slFM = C.slider({ label: { en: 'Mass of the object', hr: 'Masa tijela' }, min: 0.5, max: 10, step: 0.5, value: 1, unit: 'kg', digits: 1, onChange: v => { st.fb.m = v; refresh(); } });
@@ -88,7 +88,7 @@
       const btnCheck = C.button({ label: { en: 'Check my diagram', hr: 'Provjeri dijagram' }, variant: 'primary', onClick: checkFbd });
       const slAM = C.slider({ label: { en: 'Apple mass', hr: 'Masa jabuke' }, min: 0.1, max: 0.5, step: 0.05, value: 0.2, unit: 'kg', digits: 2, onChange: v => { st.ap.m = v; refresh(); } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => { if (finished()) resetMode(); L.toggle(); updatePlay(); refresh(); } });
-      const btnReset = C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => { resetMode(); refresh(); } });
+      const btnReset = C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => { resetMode(); refresh(); } });
       // readouts
       const outFC = C.readout({ label: { en: 'Force on the car', hr: 'Sila na auto' }, unit: 'N', digits: 0 });
       const outFT = C.readout({ label: { en: 'Force on the truck', hr: 'Sila na kamion' }, unit: 'N', digits: 0 });
@@ -198,9 +198,9 @@
             : { en: 'The ' + v.holder.en + ' pushes up with ' + nW('en') + ' — the ' + v.name.en + ' does not sink in.', hr: K.tr(v.holder, 'hr').replace(/^./, c => c.toUpperCase()) + ' gura prema gore silom ' + nW('hr') + ' — tijelo ne propada.' };
           case 'hand': return isBox ? { en: 'The hand pushes forward with ' + nP('en') + '.', hr: 'Ruka gura naprijed silom ' + nP('hr') + '.' } : { en: 'Nobody is pushing it.', hr: 'Nitko ga ne gura.' };
           case 'friction': return isBox
-            ? { en: 'Friction pulls back with ' + nP('en') + ' — equal to the push, so the speed stays constant.', hr: 'Trenje vuče natrag silom ' + nP('hr') + ' — jednako guranju, zato je brzina stalna.' }
+            ? { en: 'Friction pulls back with ' + nP('en') + ' — equal to the push, so the speed stays constant.', hr: 'Trenje djeluje unatrag silom ' + nP('hr') + ' — jednakom sili ruke, pa je brzina stalna.' }
             : { en: 'Nothing pushes the ' + v.name.en + ' sideways, so there is no friction.', hr: 'Ništa ne gura tijelo bočno, pa nema trenja.' };
-          case 'motion': return { en: 'There is no "force of motion". A body keeps moving (or resting) with no force at all — 1st law.', hr: 'Ne postoji "sila gibanja". Tijelo se giba (ili miruje) i bez ikakve sile — 1. Newtonov zakon.' };
+          case 'motion': return { en: 'There is no "force of motion". A body keeps moving (or resting) with no force at all — 1st law.', hr: 'Ne postoji „sila gibanja“. Tijelo se nastavlja gibati (ili ostaje mirovati) i bez ikakve sile — 1. Newtonov zakon.' };
           case 'onsupport': return { en: 'A real force — but it acts ON THE ' + v.holder.en.toUpperCase() + ', not on the ' + v.name.en + '. It belongs in the ' + v.holder.en + '\'s diagram.', hr: 'Prava sila — ali djeluje NA ' + v.holder.hr.toUpperCase() + ', a ne na tijelo. Pripada dijagramu drugog tijela.' };
           default: return { en: 'Air presses almost equally from all sides — the net push is negligible.', hr: 'Zrak tlači gotovo jednako sa svih strana — ukupni učinak je zanemariv.' };
         }
@@ -227,30 +227,30 @@
           const T = st.tr, Fshow = T.F > 0 ? T.F : T.peakF;
           outFC.set(Fshow); outFT.set(Fshow); outAC.set(Fshow / T.mC); outAT.set(Fshow / T.mT); outP.set(T.mT * T.vT + T.mC * T.vC);
           note.set(T.hit
-            ? { en: 'Equal forces, very different effects: the smaller mass gets the bigger acceleration (a = F/m). The total momentum stays the same.', hr: 'Jednake sile, vrlo različiti učinci: manja masa dobiva veće ubrzanje (a = F/m). Ukupna količina gibanja ostaje ista.' }
-            : { en: 'Press Play. During the crash the truck pushes the car and the car pushes the truck back — with exactly the same force.', hr: 'Pokreni. Za vrijeme sudara kamion gura auto, a auto gura kamion natrag — potpuno jednakom silom.' });
+            ? { en: 'Equal forces, very different effects: the smaller mass gets the bigger acceleration (a = F/m). The total momentum stays the same.', hr: 'Jednake sile, vrlo različiti učinci: tijelo manje mase dobiva veće ubrzanje (a = F/m). Ukupna količina gibanja ostaje ista.' }
+            : { en: 'Press Play. During the crash the truck pushes the car and the car pushes the truck back — with exactly the same force.', hr: 'Pritisni „Pokreni“. Tijekom sudara kamion gura auto, a auto gura kamion natrag — potpuno jednakom silom.' });
         } else if (st.mode === 'dyno') {
           const D = st.dy, f = dynoForces();
           outTen.set(f.T); outAcc.set(Math.abs(f.a)); outWall.set(D.wall ? f.wall : { en: '–', hr: '–' });
           const te = K.fmt(f.T, 0, 'en'), th = K.fmt(f.T, 0, 'hr');
           note.set(D.wall
-            ? { en: 'The scale reads ' + te + ' N and the wall pulls back with exactly ' + te + ' N — otherwise the scale would fly off. A spring shows ONE force: the pull at its ends.', hr: 'Dinamometar pokazuje ' + th + ' N, a zid vuče natrag točno ' + th + ' N — inače bi odletio. Opruga pokazuje JEDNU silu: vlak na svojim krajevima.' }
+            ? { en: 'The scale reads ' + te + ' N and the wall pulls back with exactly ' + te + ' N — otherwise the scale would fly off. A spring shows ONE force: the pull at its ends.', hr: 'Dinamometar pokazuje ' + th + ' N, a zid vuče natrag točno ' + th + ' N — inače bi dinamometar odletio. Opruga pokazuje JEDNU silu: silu kojom je vučemo na krajevima.' }
             : Math.abs(f.a) < 1e-9
-              ? { en: 'A stretched spring is pulled from BOTH ends and shows ONE force — the tension: ' + te + ' N, not ' + K.fmt(2 * f.T, 0, 'en') + ' N and not 0 N.', hr: 'Rastegnutu oprugu vuku s OBA kraja, a pokazuje JEDNU silu — napetost: ' + th + ' N, a ne ' + K.fmt(2 * f.T, 0, 'hr') + ' N i ne 0 N.' }
-              : { en: 'Unequal pulls: everything accelerates towards the stronger kid, a = (F_B − F_A)/(m_A + m_B). The scale still shows one force, the tension T = ' + te + ' N — between the two pulls.', hr: 'Nejednaki vlakovi: sve ubrzava prema jačem djetetu, a = (F_B − F_A)/(m_A + m_B). Dinamometar i dalje pokazuje jednu silu, napetost T = ' + th + ' N — između dvaju vlakova.' });
+              ? { en: 'A stretched spring is pulled from BOTH ends and shows ONE force — the tension: ' + te + ' N, not ' + K.fmt(2 * f.T, 0, 'en') + ' N and not 0 N.', hr: 'Rastegnutu oprugu vuku s OBA kraja, a pokazuje JEDNU silu — napetost: ' + th + ' N, a ne ' + K.fmt(2 * f.T, 0, 'hr') + ' N ni 0 N.' }
+              : { en: 'Unequal pulls: everything accelerates towards the stronger kid, a = (F_B − F_A)/(m_A + m_B). The scale still shows one force, the tension T = ' + te + ' N — between the two pulls.', hr: 'Nejednake sile: sve se ubrzava prema jačem djetetu, a = (F_B − F_A)/(m_A + m_B). Dinamometar i dalje pokazuje jednu silu, napetost T = ' + th + ' N — vrijednost između iznosa dviju sila.' });
         } else if (st.mode === 'fbd') {
           const f = fbdForces(), v = st.fb.variant;
           outW.set(f.W); outN.set(f.N); outFr.set(f.fr); outPush.set(f.push);
           note.set(st.fb.checked
-            ? { en: 'Weight and the ' + v.holder.en + '\'s force are NOT a third-law pair: they act on the same body. A pair always acts on two different bodies.', hr: 'Težina i sila ' + (v.value === 'lamp' ? 'niti' : v.value === 'book' ? 'stola' : 'poda') + ' NISU par sile i protusile: djeluju na isto tijelo. Par uvijek djeluje na dva različita tijela.' }
-            : { en: 'Tick every force that acts ON the ' + v.name.en + ' — and only those — then press Check.', hr: 'Označi svaku silu koja djeluje NA tijelo — i samo njih — zatim pritisni Provjeri.' });
+            ? { en: 'Weight and the ' + v.holder.en + '\'s force are NOT a third-law pair: they act on the same body. A pair always acts on two different bodies.', hr: 'Težina i sila ' + (v.value === 'lamp' ? 'niti' : v.value === 'book' ? 'stola' : 'poda') + ' NISU par sile i protusile: djeluju na isto tijelo. Sila i protusila uvijek djeluju na dva različita tijela.' }
+            : { en: 'Tick every force that acts ON the ' + v.name.en + ' — and only those — then press Check.', hr: 'Označi svaku silu koja djeluje NA tijelo — i samo takve — a zatim pritisni „Provjeri dijagram“.' });
         } else {
           const A = st.ap, F = A.m * G, aE = F / M_EARTH;
           outF.set(F); outAA.set(G);
           const sE = sci(aE, lang), sD = sci(0.5 * aE * A.t * A.t, lang);
           outAE.set({ en: sE + ' (≈ 0)', hr: sE + ' (≈ 0)' });
           outDE.set(A.t > 0 ? { en: sD + ' (≈ 0)', hr: sD + ' (≈ 0)' } : 0);
-          note.set({ en: 'The same force acts on both. The apple: a = F/m = ' + K.fmt(G, 2, 'en') + ' m/s². Earth: a = F/M = ' + sci(aE, 'en') + ' m/s² — practically zero, because Earth\'s mass is enormous (5.97·10²⁴ kg).', hr: 'Ista sila djeluje na oboje. Jabuka: a = F/m = ' + K.fmt(G, 2, 'hr') + ' m/s². Zemlja: a = F/M = ' + sci(aE, 'hr') + ' m/s² — praktički nula, jer je masa Zemlje golema (5,97·10²⁴ kg).' });
+          note.set({ en: 'The same force acts on both. The apple: a = F/m = ' + K.fmt(G, 2, 'en') + ' m/s². Earth: a = F/M = ' + sci(aE, 'en') + ' m/s² — practically zero, because Earth\'s mass is enormous (5.97·10²⁴ kg).', hr: 'Ista sila djeluje na oba tijela. Jabuka: a = F/m = ' + K.fmt(G, 2, 'hr') + ' m/s². Zemlja: a = F/M = ' + sci(aE, 'hr') + ' m/s² — praktički nula jer je masa Zemlje golema (5,97·10²⁴ kg).' });
         }
       }
 
@@ -337,7 +337,7 @@
         K.text(ctx, 'v = ' + K.fmt(Math.abs(T.vC), 1, lang) + ' m/s ' + (T.vC < 0 ? '←' : '→') + '   a = ' + K.fmt(Fshow / T.mC, 1, lang) + ' m/s²', w - 10, ib - 8, { font, color: theme.fg, align: 'right', baseline: 'middle' });
         const ratio = T.mT / T.mC;
         header(ctx, MODES[0].label, T.slow && !T.done ? { en: 'SLOW MOTION ×8 — watch the two meters', hr: 'USPORENO ×8 — gledaj oba mjerača' }
-          : T.hit ? { en: 'Same force on both, but a = F/m: the car\'s acceleration is ' + K.fmt(ratio, 1, 'en') + '× bigger', hr: 'Ista sila na oboje, ali a = F/m: ubrzanje auta je ' + K.fmt(ratio, 1, 'hr') + '× veće' }
+          : T.hit ? { en: 'Same force on both, but a = F/m: the car\'s acceleration is ' + K.fmt(ratio, 1, 'en') + '× bigger', hr: 'Ista sila na oba vozila, ali a = F/m: ubrzanje auta je ' + K.fmt(ratio, 1, 'hr') + '× veće' }
             : { en: 'Press Play and watch the crash', hr: 'Pokreni i gledaj sudar' });
       }
 
@@ -373,9 +373,9 @@
           K.arrow(ctx, cx, 60, cx + la, 60, { color: theme.c7, width: 3, head: 10 });
           pill(ctx, 'a = ' + K.fmt(Math.abs(f.a), 2, lang) + ' m/s²', cx + la + (la > 0 ? 8 : -8), 60, la > 0 ? 'left' : 'right', 'bold 12px ' + theme.font);
         }
-        K.text(ctx, K.tr({ en: 'both kids 40 kg', hr: 'oba djeteta 40 kg' }, lang), w - 10, h - 8, { font: '11px ' + theme.font, color: theme.muted, align: 'right' });
-        header(ctx, MODES[1].label, D.gone ? { en: 'Dragged out of the room! Press Reset.', hr: 'Odvučeni iz sobe! Pritisni Vrati.' }
-          : Math.abs(f.a) > 0.005 ? { en: 'Unequal pulls — press Play to see who gets dragged', hr: 'Nejednaki vlakovi — pokreni i vidi tko će biti odvučen' }
+        K.text(ctx, K.tr({ en: 'both kids 40 kg', hr: 'oba djeteta po 40 kg' }, lang), w - 10, h - 8, { font: '11px ' + theme.font, color: theme.muted, align: 'right' });
+        header(ctx, MODES[1].label, D.gone ? { en: 'Dragged out of the room! Press Reset.', hr: 'Odvučeni su iz sobe! Pritisni „Ispočetka“.' }
+          : Math.abs(f.a) > 0.005 ? { en: 'Unequal pulls — press Play to see who gets dragged', hr: 'Nejednake sile — pokreni i vidi koga će odvući' }
             : { en: 'What does the scale read when both pull with the same force?', hr: 'Što pokazuje dinamometar kad oboje vuku jednakom silom?' });
       }
 
@@ -404,7 +404,7 @@
           ctx.fillStyle = theme.fg; K.roundRect(ctx, cx - ow / 2 - 16, oy - 14, 12, 24, 5); ctx.fill();
           ctx.strokeStyle = theme.fg; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(cx - ow / 2 - 20, oy); ctx.lineTo(cx - ow / 2 - 46, oy + 8); ctx.stroke();
           K.arrow(ctx, cx - 20, oy - oh / 2 - 16, cx + 20, oy - oh / 2 - 16, { color: theme.muted, width: 2, head: 7 });
-          K.text(ctx, 'v = ' + K.tr({ en: 'const.', hr: 'stalno' }, lang), cx + 26, oy - oh / 2 - 16, { font: '11px ' + theme.font, color: theme.muted, baseline: 'middle' });
+          K.text(ctx, 'v = ' + K.tr({ en: 'const.', hr: 'konst.' }, lang), cx + 26, oy - oh / 2 - 16, { font: '11px ' + theme.font, color: theme.muted, baseline: 'middle' });
         }
         ctx.fillStyle = theme.ground; ctx.fillRect(0, gnd, sw, sh - gnd);
         K.text(ctx, K.tr({ en: 'Earth', hr: 'Zemlja' }, lang), 8, sh - 8, { font: '11px ' + theme.font, color: theme.fg });
@@ -414,8 +414,8 @@
         if (picked('support')) { K.arrow(ctx, cx, oy, cx, oy - L(f.N), { color: theme.c2, width: 3, head: 10 }); pill(ctx, (v === 'lamp' ? 'T = ' : 'N = ') + nW, cx + 8, oy - L(f.N) + 8, 'left', fn, sw); }
         if (picked('hand')) { K.arrow(ctx, cx, oy + 8, cx + L(f.push || f.W * 0.4), oy + 8, { color: theme.c4, width: 3, head: 10 }); pill(ctx, 'F = ' + (f.push ? nP : '?'), cx + L(f.push || f.W * 0.4) + 6, oy + 20, 'left', fn, sw); }
         if (picked('friction')) { K.arrow(ctx, cx, oy + 8, cx - L(f.fr || f.W * 0.4), oy + 8, { color: theme.c3, width: 3, head: 10 }); pill(ctx, K.tr({ en: 'F_fr = ', hr: 'F_tr = ' }, lang) + (f.fr ? nP : '?'), cx - L(f.fr || f.W * 0.4) - 6, oy + 26, 'right', fn, sw); }
-        if (picked('motion')) { ctx.save(); ctx.setLineDash([5, 4]); K.arrow(ctx, cx, oy - 8, cx + unit * 0.6, oy - 8, { color: theme.c7, width: 3, head: 10 }); ctx.restore(); pill(ctx, K.tr({ en: '"force of motion"?', hr: '"sila gibanja"?' }, lang), cx + unit * 0.6 + 6, oy - 20, 'left', fn, sw); }
-        if (picked('onsupport')) { K.arrow(ctx, cx + 22, oy + oh / 2, cx + 22, oy + oh / 2 + L(f.W) * 0.8, { color: theme.c5, width: 3, head: 10 }); pill(ctx, K.tr({ en: 'push on the ', hr: 'pritisak na ' }, lang) + K.tr(F.variant.holder, lang) + '?', cx + 30, oy + oh / 2 + L(f.W) * 0.8, 'left', fn, sw); }
+        if (picked('motion')) { ctx.save(); ctx.setLineDash([5, 4]); K.arrow(ctx, cx, oy - 8, cx + unit * 0.6, oy - 8, { color: theme.c7, width: 3, head: 10 }); ctx.restore(); pill(ctx, K.tr({ en: '"force of motion"?', hr: '„sila gibanja“?' }, lang), cx + unit * 0.6 + 6, oy - 20, 'left', fn, sw); }
+        if (picked('onsupport')) { K.arrow(ctx, cx + 22, oy + oh / 2, cx + 22, oy + oh / 2 + L(f.W) * 0.8, { color: theme.c5, width: 3, head: 10 }); pill(ctx, K.tr({ en: 'push on the ', hr: 'sila na ' }, lang) + K.tr(F.variant.holder, lang) + '?', cx + 30, oy + oh / 2 + L(f.W) * 0.8, 'left', fn, sw); }
         if (picked('air')) { [[-1, 0], [1, 0], [0, -1], [0, 1]].forEach(([dx, dy]) => K.arrow(ctx, cx + dx * (ow / 2 + 22) + dy * 30, oy + dy * (oh / 2 + 22) + dx * 30, cx + dx * (ow / 2 + 4) + dy * 30, oy + dy * (oh / 2 + 4) + dx * 30, { color: theme.c6, width: 2, head: 6 })); }
         // after Check: the real third-law partners, drawn on the OTHER bodies
         if (F.checked) {
@@ -441,7 +441,7 @@
         if (!F.checked) {
           const n = CANDS.filter(c => F.picks[c.id]).length;
           items.push({ s: K.tr({ en: 'Which forces act ON the ' + F.variant.name.en + '?', hr: 'Koje sile djeluju NA tijelo?' }, lang), c: theme.fg, b: true });
-          items.push({ s: K.tr({ en: 'Tick them below, then press Check.', hr: 'Označi ih dolje, zatim pritisni Provjeri.' }, lang), c: theme.muted });
+          items.push({ s: K.tr({ en: 'Tick them below, then press Check.', hr: 'Označi ih ispod i pritisni „Provjeri dijagram“.' }, lang), c: theme.muted });
           items.push({ s: K.tr({ en: 'Ticked: ', hr: 'Označeno: ' }, lang) + K.fmt(n, 0, lang), c: theme.fg });
           CANDS.filter(c => F.picks[c.id]).forEach(c => items.push({ s: '• ' + K.tr(c.short, lang), c: theme.fg }));
         } else {
@@ -486,7 +486,7 @@
         // readings beside the apple
         pill(ctx, 'm = ' + K.fmt(A.m, 2, lang) + ' kg   v = ' + K.fmt(A.v, 1, lang) + ' m/s   a = ' + K.fmt(G, 2, lang) + ' m/s²', ax - r - 8, ay, 'right', '11px ' + theme.font);
         pill(ctx, 'M = ' + K.fmt(5.97, 2, lang) + '·10²⁴ kg   a = ' + sci(F / M_EARTH, lang) + ' m/s² ≈ 0', ex + 10, gy + 24, 'left', '11px ' + theme.font);
-        header(ctx, MODES[3].label, A.landed ? { en: 'Landed. Both forces were equal the whole time — only the accelerations differ.', hr: 'Pala je. Obje sile bile su jednake cijelo vrijeme — razlikuju se samo ubrzanja.' }
+        header(ctx, MODES[3].label, A.landed ? { en: 'Landed. Both forces were equal the whole time — only the accelerations differ.', hr: 'Jabuka je pala. Obje su sile cijelo vrijeme bile jednake — razlikuju se samo ubrzanja.' }
           : L.running ? { en: 'slow motion ×2', hr: 'usporeno ×2' } : { en: 'Press Play to drop the apple from ' + K.fmt(APPLE_H, 0, 'en') + ' m', hr: 'Pokreni i pusti jabuku s ' + K.fmt(APPLE_H, 0, 'hr') + ' m' });
       }
 

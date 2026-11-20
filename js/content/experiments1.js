@@ -19,7 +19,7 @@
       },
       materials: {
         en: ['a 5 L plastic water bottle with a cap (or the biggest bottle you have)', 'a large basin or a sink', 'a bendy straw or about 50 cm of clean flexible tube', 'a kitchen measuring jug', 'a waterproof marker', 'water'],
-        hr: ['plastična boca za vodu od 5 L s čepom (ili najveća koju imaš)', 'veliki lavor ili sudoper', 'savitljiva slamka ili oko 50 cm čiste savitljive cijevi', 'kuhinjska mjerica', 'vodootporni flomaster', 'voda']
+        hr: ['plastična boca za vodu od 5 L s čepom (ili najveća koju imaš)', 'veliki lavor ili sudoper', 'savitljiva slamka ili oko 50 cm čiste savitljive cjevčice', 'mjerni vrč', 'vodootporni flomaster', 'voda']
       },
       steps: {
         en: [
@@ -31,11 +31,11 @@
           'Read on your scale how much air is now in the bottle. Refill the bottle and repeat twice more; then try one calm, ordinary breath out.'
         ],
         hr: [
-          'Napravi ljestvicu na boci: mjericom ulijevaj vodu po pola litre i svaku razinu označi flomasterom (0,5 L, 1 L, 1,5 L i tako dalje).',
+          'Izradi ljestvicu na boci: mjernim vrčem ulijevaj vodu po pola litre i flomasterom označi svaku razinu (0,5 L, 1 L, 1,5 L itd.).',
           'Napuni bocu do samog vrha i zatvori je čepom. U lavor ulij vodu do visine od oko 10 cm.',
           'Okreni bocu naopako, uroni joj grlo pod vodu u lavoru i tek tada odvrni čep. Voda ostaje u boci. Drži bocu uspravno ili zamoli nekoga da je pridrži.',
           'Kraći kraj savitljive slamke uguraj pod vodom u grlo boce.',
-          'Duboko udahni i kroz slamku jednim dugim izdahom ispuhni sav zrak. Mjehurići se skupljaju na vrhu boce i istiskuju vodu.',
+          'Duboko udahni i jednim dugim izdahom ispuhni sav zrak kroz slamku. Mjehurići se skupljaju na vrhu boce i istiskuju vodu.',
           'Na ljestvici očitaj koliko je zraka sada u boci. Ponovno napuni bocu i ponovi još dvaput; zatim pokušaj s jednim mirnim, običnim izdahom.'
         ]
       },
@@ -50,15 +50,15 @@
       },
       observe: {
         en: 'The air you blow in collects at the top of the bottle and pushes the same volume of water out into the basin. After a deep breath most pupils your age reach 2 to 3.5 litres; a calm breath is only about half a litre.',
-        hr: 'Zrak koji upuhneš skuplja se na vrhu boce i istiskuje jednak obujam vode u lavor. Nakon dubokog udaha većina učenika tvoje dobi dosegne 2 do 3,5 litre; miran izdah ima tek oko pola litre.'
+        hr: 'Zrak koji upuhneš skuplja se na vrhu boce i istiskuje jednak obujam vode u lavor. Nakon dubokog udaha većina učenika tvoje dobi dosegne 2 do 3,5 litre, a pri mirnom izdahu izađe tek oko pola litre.'
       },
       explain: {
         en: 'Air is matter: it takes up space, so it pushes the water out of the bottle, and the volume of water that leaves equals the volume of air that came in. It is the same displacement method you use for a stone, only upside down. Your lungs never empty completely: about one litre of air always stays inside, so their real volume is even larger than the number you measured.',
-        hr: 'Zrak je tvar: zauzima prostor, pa istiskuje vodu iz boce, a obujam vode koja izađe jednak je obujmu zraka koji je ušao. To je ista metoda istiskivanja kojom mjeriš obujam kamena, samo okrenuta naopako. Pluća se nikad ne isprazne do kraja: u njima uvijek ostane oko litra zraka, pa je njihov stvarni obujam još veći od izmjerenog broja.'
+        hr: 'Zrak je tvar: zauzima prostor, pa istiskuje vodu iz boce, a obujam vode koja izađe jednak je obujmu zraka koji je ušao. To je ista metoda istiskivanja kojom mjeriš obujam kamena, samo okrenuta naopako. Pluća se nikad ne isprazne do kraja: u njima uvijek ostane oko jedne litre zraka, pa je njihov stvarni obujam još veći od izmjerene vrijednosti.'
       },
       safety: {
         en: 'Use your own clean straw and do not share it. Stop and rest if you feel dizzy from blowing hard.',
-        hr: 'Koristi svoju čistu slamku i ne dijeli je s drugima. Stani i odmori se ako ti se od snažnog puhanja zavrti u glavi.'
+        hr: 'Upotrijebi vlastitu čistu slamku i ne posuđuj je drugima. Prekini i odmori se ako ti se od snažnog puhanja zavrti u glavi.'
       },
       sim: 'measure'
     },
@@ -89,10 +89,10 @@
           'Finally try to measure a single sheet directly with the ruler. Why does that not work?'
         ],
         hr: [
-          'Uhvati prstima točno 100 listova knjige, bez korica. Pazi: jedan list ima dvije stranice, pa je 100 listova 200 brojeva stranica, na primjer od 1. do 200. stranice.',
+          'Uhvati prstima točno 100 listova knjige, bez korica. Pazi: jedan list ima dvije stranice, pa 100 listova ima 200 stranica, na primjer od 1. do 200. stranice.',
           'Čvrsto stisni tih 100 listova i izmjeri debljinu snopa u milimetrima. Zapiši je.',
           'Podijeli debljinu sa 100. To je debljina jednog lista.',
-          'Ponovi s 50 listova i s 200 listova, svaki put jednako čvrsto stišćući.',
+          'Ponovi s 50 i s 200 listova i svaki ih put stisni jednako čvrsto.',
           'Usporedi tri rezultata za jedan list i izračunaj njihovu srednju vrijednost.',
           'Na kraju pokušaj ravnalom izravno izmjeriti jedan jedini list. Zašto to ne uspijeva?'
         ]
@@ -112,11 +112,11 @@
       },
       explain: {
         en: 'The smallest division of the ruler is 1 mm, so every reading can be wrong by about half a millimetre. For one sheet that error is five times larger than the sheet itself. When you measure 100 sheets together, the same half millimetre is shared among all of them, so each sheet carries an error of only 0.005 mm. Measuring many equal things at once and dividing is a trick physicists also use for the mass of a grain of rice or the time of one swing of a pendulum.',
-        hr: 'Najmanji podjeljak ravnala je 1 mm, pa svako očitanje može biti pogrešno za oko pola milimetra. Za jedan list ta je pogreška pet puta veća od samog lista. Kad mjeriš 100 listova zajedno, istih se pola milimetra podijeli na sve njih, pa na svaki list otpada pogreška od samo 0,005 mm. Mjerenje mnogo jednakih stvari odjednom i dijeljenje trik je kojim se fizičari služe i za masu zrna riže ili trajanje jednog titraja njihala.'
+        hr: 'Najmanji podjeljak ravnala je 1 mm, pa svako očitanje može biti pogrešno za oko pola milimetra. Za jedan list ta je pogreška pet puta veća od samog lista. Kad mjeriš 100 listova zajedno, istih se pola milimetra podijeli na sve njih, pa na svaki list otpada pogreška od samo 0,005 mm. Istim se trikom (izmjeriti mnogo jednakih predmeta odjednom pa podijeliti) fizičari služe i kad određuju masu zrna riže ili trajanje jednog titraja njihala.'
       },
       measure: {
         en: 'Change: the number of sheets (50, 100, 200). Measure: the thickness of the bundle in millimetres. Keep the same: the book, the ruler and how hard you press. Make a table with the number of sheets, the thickness of the bundle and the thickness of one sheet, and work out the mean of the three results.',
-        hr: 'Mijenjaš: broj listova (50, 100, 200). Mjeriš: debljinu snopa u milimetrima. Ne mijenjaš: knjigu, ravnalo ni snagu kojom stišćeš. Napravi tablicu s brojem listova, debljinom snopa i debljinom jednog lista te izračunaj srednju vrijednost triju rezultata.'
+        hr: 'Mijenjaš: broj listova (50, 100, 200). Mjeriš: debljinu snopa u milimetrima. Ne mijenjaš: knjigu, ravnalo ni to koliko čvrsto stišćeš. Napravi tablicu s brojem listova, debljinom snopa i debljinom jednog lista te izračunaj srednju vrijednost triju rezultata.'
       },
       sim: 'measure'
     },
@@ -135,7 +135,7 @@
       },
       materials: {
         en: ['a clear drinking glass', 'a paper tissue', 'a large bowl or a sink, deeper than the glass', 'water', 'a small piece of sticky tape'],
-        hr: ['prozirna čaša', 'papirnata maramica', 'velika zdjela ili sudoper, dublji od čaše', 'voda', 'komadić selotejpa']
+        hr: ['prozirna čaša', 'papirnata maramica', 'velika zdjela ili sudoper (dublji od visine čaše)', 'voda', 'komadić selotejpa']
       },
       steps: {
         en: [
@@ -149,9 +149,9 @@
         hr: [
           'Zgužvaj maramicu i čvrsto je utisni na dno čaše. Okreni čašu naopako: maramica ne smije ispasti. Ako ispada, pričvrsti je selotejpom.',
           'Napuni zdjelu vodom tako da voda bude dublja nego što je čaša visoka.',
-          'Drži čašu naopako i sasvim ravno te je gurni ravno dolje dok ne bude cijela pod vodom. Broji do deset.',
+          'Drži čašu naopako i potpuno okomito te je potiskuj ravno prema dolje dok cijela ne bude pod vodom. Izbroji do deset.',
           'Pogledaj kroz stijenku čaše: dokle je voda ušla?',
-          'Izvadi čašu ravno prema gore, obriši ruku i izvadi maramicu. Je li mokra?',
+          'Podigni čašu ravno iz vode, obriši ruku i izvuci maramicu. Je li mokra?',
           'Ponovi, ali ovaj put čašu pod vodom malo nagni. Promatraj što izlazi, a što ulazi.'
         ]
       },
@@ -159,7 +159,7 @@
         q: { en: 'What will the tissue be like when you lift the glass out of the water?', hr: 'Kakva će biti maramica kad izvadiš čašu iz vode?' },
         options: [
           { en: 'Dry, although it was under water', hr: 'Suha, iako je bila pod vodom' },
-          { en: 'Soaked, because water fills the glass', hr: 'Potpuno mokra, jer voda napuni čašu' },
+          { en: 'Soaked, because water fills the glass', hr: 'Potpuno mokra jer voda napuni čašu' },
           { en: 'Wet only at its lower edge', hr: 'Mokra samo na donjem rubu' }
         ],
         answer: 0
@@ -189,7 +189,7 @@
       },
       materials: {
         en: ['a kitchen scale', 'a kitchen measuring jug', 'a large glass', 'a small dry cup', 'sugar (about 100 g)', 'warm tap water', 'a spoon'],
-        hr: ['kuhinjska vaga', 'kuhinjska mjerica', 'velika čaša', 'mala suha šalica', 'šećer (oko 100 g)', 'topla voda iz slavine', 'žlica']
+        hr: ['kuhinjska vaga', 'mjerni vrč', 'velika čaša', 'mala suha šalica', 'šećer (oko 100 g)', 'topla voda iz slavine', 'žlica']
       },
       steps: {
         en: [
@@ -201,12 +201,12 @@
           'Pour the sugar water into the measuring jug and read its volume. Is it 300 mL, as 200 mL plus 100 mL would suggest?'
         ],
         hr: [
-          'Suhu mjericu napuni šećerom do oznake 100 mL pa šećer istresi u malu šalicu.',
-          'Mjericom odmjeri 200 mL tople vode iz slavine i ulij je u čašu.',
+          'Suhi mjerni vrč napuni šećerom do oznake 100 mL pa šećer istresi u malu šalicu.',
+          'Mjernim vrčem odmjeri 200 mL tople vode iz slavine i ulij je u čašu.',
           'Stavi čašu s vodom, šalicu sa šećerom i žlicu zajedno na vagu. Zapiši ukupnu masu.',
           'Istresi šećer u vodu i miješaj dok više ne vidiš nijedno zrnce. To traje dvije do tri minute.',
           'Vrati sve na vagu: čašu, praznu šalicu i žlicu. Usporedi s prvom masom.',
-          'Prelij zašećerenu vodu u mjericu i očitaj obujam. Je li 300 mL, kako bi se očekivalo od 200 mL i 100 mL?'
+          'Prelij zaslađenu vodu u mjerni vrč i očitaj obujam. Je li 300 mL, koliko bi se očekivalo zbrajanjem 200 mL i 100 mL?'
         ]
       },
       predict: {
@@ -220,11 +220,11 @@
       },
       observe: {
         en: 'The scale shows the same mass as before, to within a gram or two. The volume, however, is not 300 mL but only about 250 to 260 mL: clearly less than the water and the sugar measured separately.',
-        hr: 'Vaga pokazuje istu masu kao i prije, uz razliku od najviše gram ili dva. Obujam, međutim, nije 300 mL, nego tek oko 250 do 260 mL: jasno manje nego voda i šećer mjereni odvojeno.'
+        hr: 'Vaga pokazuje istu masu kao i prije, uz odstupanje od najviše gram-dva. Obujam, međutim, nije 300 mL, nego tek oko 250 do 260 mL: osjetno manje od zbroja obujmova vode i šećera mjerenih odvojeno.'
       },
       explain: {
         en: 'Dissolving does not destroy matter. The sugar crystals break up into particles far too small to see, which spread among the particles of water, but every one of them is still there. That is why the mass stays the same and the water tastes sweet. The volume is smaller because the heap of sugar was not solid sugar: almost half of it was air between the grains, and that air escaped. Masses always add up; volumes do not have to.',
-        hr: 'Otapanjem tvar ne nestaje. Kristali šećera raspadnu se na čestice premalene da bismo ih vidjeli, koje se rasporede među čestice vode, ali svaka je od njih još uvijek ondje. Zato masa ostaje ista, a voda je slatka. Obujam je manji jer hrpa šećera nije bila sam šećer: gotovo polovicu činio je zrak među zrncima, a taj je zrak izašao. Mase se uvijek zbrajaju, a obujmi ne moraju.'
+        hr: 'Otapanjem tvar ne nestaje. Kristali šećera raspadnu se na čestice koje su premalene da bismo ih vidjeli i koje se rasporede među česticama vode, ali sve su one još uvijek ondje. Zato masa ostaje ista, a voda je slatka. Obujam je manji jer hrpa šećera nije bila sam šećer: gotovo polovicu činio je zrak među zrncima, a taj je zrak izašao. Mase se uvijek zbrajaju, a obujmi ne moraju.'
       },
       sim: 'states'
     },
@@ -244,7 +244,7 @@
       },
       materials: {
         en: ['a fresh raw egg', 'a tall clear glass or jar (at least 0.5 L)', 'a kitchen measuring jug', 'table salt (about 150 g)', 'a teaspoon and a ruler to level it', 'a tablespoon for lifting the egg', 'paper and a pencil'],
-        hr: ['svježe sirovo jaje', 'visoka prozirna čaša ili staklenka (najmanje 0,5 L)', 'kuhinjska mjerica', 'kuhinjska sol (oko 150 g)', 'čajna žličica i ravnalo za poravnavanje', 'jušna žlica za vađenje jajeta', 'papir i olovka']
+        hr: ['svježe sirovo jaje', 'visoka prozirna čaša ili staklenka (najmanje 0,5 L)', 'mjerni vrč', 'kuhinjska sol (oko 150 g)', 'čajna žličica i ravnalo za poravnavanje', 'jušna žlica za vađenje jajeta', 'papir i olovka']
       },
       steps: {
         en: [
@@ -260,8 +260,8 @@
           'Izvadi jaje. Dodaj jednu ravnu žličicu soli (višak skini ravnalom), miješaj dok se ne otopi i vrati jaje.',
           'Nastavi dodavati sol, po jednu ravnu žličicu, a jaje izvadi prije svakog miješanja. Broji žličice.',
           'Stani kad se jaje odvoji od dna i zapluta. Zapiši broj žličica.',
-          'Izlij slanu vodu i počni iznova s 300 mL svježe vode i istim jajetom. Cijeli postupak ponovi tri puta.',
-          'Na kraju, dok jaje pluta, polako preko žlice dolij svježe vode na slanu, bez miješanja. Gdje jaje sada stoji?'
+          'Izlij slanu vodu i počni iznova s 300 mL svježe vode i istim jajetom. Cijeli postupak izvedi tri puta.',
+          'Na kraju, dok jaje pluta, polako preko žlice dolij svježu vodu na slanu, bez miješanja. Gdje se jaje sada zadržava?'
         ]
       },
       predict: {
@@ -275,7 +275,7 @@
       },
       observe: {
         en: 'After the first few spoons nothing seems to happen. Then, usually between the fourth and the eighth spoon, the egg lifts off the bottom and floats with a small patch above the surface. The three runs agree to within one spoon. Under the layer of fresh water the egg hovers in the middle of the glass.',
-        hr: 'Nakon prvih nekoliko žličica čini se da se ništa ne događa. Zatim se, obično između četvrte i osme žličice, jaje odvoji od dna i zapluta tako da mu mali dio viri iznad površine. Tri se pokušaja slažu unutar jedne žličice. Ispod sloja svježe vode jaje lebdi u sredini čaše.'
+        hr: 'Nakon prvih nekoliko žličica čini se da se ništa ne događa. Zatim se, obično između četvrte i osme žličice, jaje odvoji od dna i zapluta tako da mu mali dio viri iznad površine. Rezultati triju pokušaja razlikuju se najviše za jednu žličicu. Ispod sloja svježe vode jaje lebdi u sredini čaše.'
       },
       explain: {
         en: 'The egg does not change: its mass and volume stay the same. What changes is the water. Dissolved salt adds a lot of mass and only a little volume, so the density of the water grows. A fresh egg has a density of about 1.03 to 1.09 g/cm³. As soon as the salty water is denser than the egg, the buoyant force is larger than the weight of the egg and the egg rises. Floating is decided by comparing densities, not by how heavy a thing is. An older egg has a bigger air pocket and needs less salt.',
@@ -283,11 +283,11 @@
       },
       measure: {
         en: 'Change: the amount of salt. Measure: the number of level teaspoons at which the egg first floats. Keep the same: 300 mL of water, the same egg, the same spoon levelled each time. Write down the three numbers and work out their mean. With a kitchen scale you can weigh one level teaspoon of salt and calculate the grams of salt per litre.',
-        hr: 'Mijenjaš: količinu soli. Mjeriš: broj ravnih žličica pri kojem jaje prvi put zapluta. Ne mijenjaš: 300 mL vode, isto jaje, istu žličicu svaki put poravnatu. Zapiši tri broja i izračunaj srednju vrijednost. Kuhinjskom vagom možeš izvagati jednu ravnu žličicu soli i izračunati koliko je grama soli po litri.'
+        hr: 'Mijenjaš: količinu soli. Mjeriš: broj ravnih žličica pri kojem jaje prvi put zapluta. Ne mijenjaš: 300 mL vode, isto jaje, istu žličicu, svaki put poravnatu. Zapiši tri broja i izračunaj srednju vrijednost. Kuhinjskom vagom možeš izvagati jednu ravnu žličicu soli i izračunati koliko je grama soli otopljeno u jednoj litri vode.'
       },
       safety: {
         en: 'Wash your hands after touching the raw egg and do not drink the water from the experiment.',
-        hr: 'Operi ruke nakon dodirivanja sirovog jajeta i ne pij vodu iz pokusa.'
+        hr: 'Operi ruke nakon što dodirneš sirovo jaje i nemoj piti vodu iz pokusa.'
       },
       sim: 'density'
     },
@@ -299,7 +299,7 @@
       level: 3,
       minutes: 40,
       outcome: 'A.7.1',
-      title: { en: 'Build a hydrometer from a straw', hr: 'Napravi areometar od slamke' },
+      title: { en: 'Build a hydrometer from a straw', hr: 'Izradi areometar od slamke' },
       question: {
         en: 'Can a floating straw tell you which of two liquids is denser, without a scale and without tasting?',
         hr: 'Može li slamka koja pluta pokazati koja je od dviju tekućina gušća, bez vage i bez kušanja?'
@@ -319,11 +319,11 @@
           'Test your instrument: ask someone to give you two glasses, one with tap water and one with salty water, without telling you which is which. Find the salty one with your hydrometer.'
         ],
         hr: [
-          'Odreži ravan komad slamke dug oko 12 cm. Jedan kraj zatvori kuglicom plastelina veličine lješnjaka, tako da slamku utisneš u nju i voda ne može ući.',
-          'Napuni visoku čašu vodom iz slavine i stavi slamku u nju, plastelinom prema dolje. Treba plutati uspravno, s otprilike trećinom duljine iznad vode. Ako se prevrće, dodaj malo plastelina; ako potone, malo ga skini.',
+          'Odreži ravan komad slamke dug oko 12 cm. Jedan kraj zatvori kuglicom plastelina veličine lješnjaka: slamku utisni u nju tako da voda ne može ući.',
+          'Napuni visoku čašu vodom iz slavine i stavi slamku u nju, plastelinom prema dolje. Slamka treba plutati uspravno, s otprilike trećinom duljine iznad vode. Ako se prevrće, dodaj malo plastelina; ako potone, malo ga skini.',
           'Kad mirno pluta, flomasterom označi na slamci razinu vode. To je oznaka za vodu, 1,0 g/cm³.',
-          'U drugoj čaši otopi 3 ravne jušne žlice soli u oko 250 mL vode. Stavi slamku da pluta i označi novu razinu.',
-          'Usporedi dvije oznake. U kojoj tekućini viri veći dio slamke?',
+          'U drugoj čaši otopi 3 ravne jušne žlice soli u oko 250 mL vode. Stavi u nju slamku da pluta i označi novu razinu vode.',
+          'Usporedi obje oznake. U kojoj tekućini viri veći dio slamke?',
           'Pomiješaj pola čaše vode iz slavine i pola čaše svoje slane vode. Predvidi gdje će biti razina, pa provjeri.',
           'Ispitaj svoj instrument: zamoli nekoga da ti da dvije čaše, jednu s vodom iz slavine i jednu sa slanom vodom, a da ti ne kaže koja je koja. Pronađi slanu svojim areometrom.'
         ]
@@ -343,7 +343,7 @@
       },
       explain: {
         en: 'A floating body sinks in until the liquid it pushes aside weighs exactly as much as the body itself. The weight of the straw never changes. Salty water is denser, so a smaller volume of it already weighs as much as the straw, and the straw does not have to sink as far. That is why a hydrometer floats higher in a denser liquid, although many people expect the opposite. Wine makers and dairies use glass hydrometers in the same way to check grape juice and milk.',
-        hr: 'Tijelo koje pluta uranja dok tekućina koju istisne ne bude teška točno koliko i samo tijelo. Težina slamke se ne mijenja. Slana je voda gušća, pa već manji obujam te vode teži koliko i slamka i slamka ne mora uroniti toliko duboko. Zato areometar u gušćoj tekućini pluta više, iako mnogi očekuju suprotno. Vinari i mljekare na isti način staklenim areometrima provjeravaju mošt i mlijeko.'
+        hr: 'Tijelo koje pluta uranja sve dok težina tekućine koju istisne ne postane jednaka težini samog tijela. Težina slamke se ne mijenja. Slana voda ima veću gustoću, pa već manji obujam te vode ima jednaku težinu kao slamka, i slamka ne mora uroniti tako duboko. Zato areometar u gušćoj tekućini pluta više, iako mnogi očekuju suprotno. U vinarijama i mljekarama na isti način staklenim areometrima provjeravaju mošt i mlijeko.'
       },
       sim: 'density'
     },
@@ -374,7 +374,7 @@
           'Look closely at the water inside the straw while you squeeze and release. Can you make the diver hover in the middle of the bottle?'
         ],
         hr: [
-          'Odreži komad slamke dug oko 6 cm. Presavij ga napola i oba otvorena kraja spoji spajalicom, tako da izgleda kao usko slovo U.',
+          'Odreži komad slamke dug oko 6 cm. Presavij ga na pola i oba otvorena kraja spoji spajalicom tako da izgleda kao usko slovo U.',
           'Na prvu spajalicu objesi još jednu ili dvije kao uteg.',
           'Isprobaj ronioca u čaši vode, pregibom gore, a otvorenim krajevima dolje. Mora jedva plutati, s vrhom pregiba na samoj površini. Ako pluta previsoko, dodaj spajalicu ili mrvicu plastelina; ako tone, skini dio tereta.',
           'Napuni bocu vodom do samog vrha, ubaci ronioca i čvrsto zavrni čep.',
@@ -386,18 +386,18 @@
         q: { en: 'You squeeze the sides of the closed bottle. What does the diver do?', hr: 'Stisneš stijenke zatvorene boce. Što će učiniti ronilac?' },
         options: [
           { en: 'It sinks towards the bottom', hr: 'Tone prema dnu' },
-          { en: 'It shoots up towards the cap', hr: 'Poleti gore prema čepu' },
+          { en: 'It shoots up towards the cap', hr: 'Naglo se podigne prema čepu' },
           { en: 'It stays where it is', hr: 'Ostaje gdje je i bio' }
         ],
         answer: 0
       },
       observe: {
         en: 'When you squeeze, the diver sinks; when you let go, it rises again. Look closely: while you squeeze, water pushes a little way into the straw and the air bubble inside gets smaller. If the diver refuses to sink, it is too light, so add a crumb of plasticine. If it stays at the bottom, it is too heavy.',
-        hr: 'Kad stisneš bocu, ronilac tone; kad popustiš, opet izranja. Pogledaj pažljivo: dok stišćeš, voda malo uđe u slamku, a mjehurić zraka u njoj se smanji. Ako ronilac ne želi potonuti, prelagan je, pa dodaj mrvicu plastelina. Ako ostane na dnu, pretežak je.'
+        hr: 'Kad stisneš bocu, ronilac tone; kad popustiš, opet izranja. Pogledaj pažljivo: dok stišćeš, voda malo uđe u slamku, a mjehurić zraka u njoj se smanji. Ako ronilac nikako ne tone, prelagan je, pa dodaj mrvicu plastelina. Ako ostaje na dnu, pretežak je.'
       },
       explain: {
         en: 'Squeezing raises the pressure everywhere in the bottle, because a liquid passes pressure on in all directions. Water can hardly be compressed, but the air trapped in the straw can: it shrinks, and water moves into the straw. The diver now pushes aside less water, so the buoyant force on it is smaller, while its weight has not changed. Its average density becomes larger than that of water and it sinks. When you let go, the air expands and the diver floats again. A submarine dives and surfaces in a similar way, by letting water in and out of its tanks.',
-        hr: 'Stiskanjem povećavaš tlak svugdje u boci jer tekućina prenosi tlak u svim smjerovima. Voda se gotovo ne može stlačiti, ali zrak zarobljen u slamci može: on se stisne i voda uđe u slamku. Ronilac sada istiskuje manje vode, pa je uzgon na njega manji, a težina mu se nije promijenila. Njegova prosječna gustoća postane veća od gustoće vode i on tone. Kad popustiš, zrak se raširi i ronilac ponovno pluta. Podmornica zaranja i izranja na sličan način, puštajući vodu u svoje spremnike i iz njih.'
+        hr: 'Stiskanjem povećavaš tlak svugdje u boci jer tekućina prenosi tlak u svim smjerovima. Voda se gotovo ne može stlačiti, ali zrak zarobljen u slamci može: on se stisne i voda uđe u slamku. Ronilac sada istiskuje manje vode, pa je uzgon na njega manji, a težina mu se nije promijenila. Njegova prosječna gustoća postane veća od gustoće vode i on tone. Kad popustiš, zrak se raširi i ronilac opet izroni. Podmornica zaranja i izranja na sličan način: pušta vodu u svoje spremnike i izbacuje je iz njih.'
       },
       sim: 'density'
     },
@@ -416,7 +416,7 @@
       },
       materials: {
         en: ['one large potato', 'a knife and a chopping board (an adult cuts)', 'a kitchen scale', 'a kitchen measuring jug, the narrower the better', 'water', 'a paper towel', 'paper and a pencil'],
-        hr: ['jedan veliki krumpir', 'nož i daska za rezanje (reže odrasla osoba)', 'kuhinjska vaga', 'kuhinjska mjerica, što uža to bolje', 'voda', 'papirnati ručnik', 'papir i olovka']
+        hr: ['jedan veliki krumpir', 'nož i daska za rezanje (reže odrasla osoba)', 'kuhinjska vaga', 'mjerni vrč (što uži, to bolji)', 'voda', 'papirnati ručnik', 'papir i olovka']
       },
       steps: {
         en: [
@@ -431,33 +431,33 @@
         hr: [
           'Zamoli odraslu osobu da krumpir razreže na tri komada jasno različite veličine: otprilike polovicu, trećinu i šestinu.',
           'Izvaži svaki komad na kuhinjskoj vagi i zapiši masu u gramima.',
-          'Ulij vodu u mjericu do okrugle oznake, na primjer 300 mL, i očitaj je s okom u visini površine.',
+          'Ulij vodu u mjerni vrč do okrugle oznake, na primjer 300 mL. Očitavaj tako da ti oko bude u visini površine vode.',
           'Najveći komad polako spusti u vodu i očitaj novu razinu. Porast u mililitrima obujam je komada u kubnim centimetrima.',
           'Izvadi komad, dolij vodu do početne oznake i isti komad izmjeri još dvaput. Zatim isto napravi s ostala dva komada.',
           'Za svaki komad izračunaj srednju vrijednost obujma, a zatim gustoću: masu podijeli obujmom.',
-          'Nacrtaj graf s obujmom na vodoravnoj i masom na okomitoj osi. Leže li tri točke na istom pravcu kroz ishodište?'
+          'Nacrtaj graf s obujmom na vodoravnoj i masom na okomitoj osi. Leže li sve tri točke na istom pravcu koji prolazi kroz ishodište?'
         ]
       },
       predict: {
         q: { en: 'Which piece of the potato will have the greatest density?', hr: 'Koji će komad krumpira imati najveću gustoću?' },
         options: [
-          { en: 'The biggest, because it is the heaviest', hr: 'Najveći, jer je najteži' },
-          { en: 'The smallest, because it is the most compact', hr: 'Najmanji, jer je najzbijeniji' },
+          { en: 'The biggest, because it is the heaviest', hr: 'Najveći jer je najteži' },
+          { en: 'The smallest, because it is the most compact', hr: 'Najmanji jer je najzbijeniji' },
           { en: 'All three will have about the same density', hr: 'Sva tri imat će približno jednaku gustoću' }
         ],
         answer: 2
       },
       observe: {
         en: 'The masses and the volumes are very different, but mass divided by volume comes out nearly the same for every piece: about 1.1 g/cm³, or anywhere between 1.0 and 1.2 with a kitchen jug. On the graph the three points lie close to one straight line through zero.',
-        hr: 'Mase i obujmi vrlo su različiti, ali omjer mase i obujma ispada gotovo jednak za svaki komad: oko 1,1 g/cm³, odnosno između 1,0 i 1,2 kad se mjeri kuhinjskom mjericom. Na grafu tri točke leže blizu istog pravca kroz ishodište.'
+        hr: 'Mase i obujmi vrlo su različiti, ali omjer mase i obujma ispada gotovo jednak za svaki komad: oko 1,1 g/cm³, odnosno između 1,0 i 1,2 kad se mjeri kuhinjskim mjernim vrčem. Na grafu sve tri točke leže blizu istog pravca koji prolazi kroz ishodište.'
       },
       explain: {
         en: 'Density tells you how much mass is packed into each cubic centimetre, so it is a property of the material, not of the piece. A piece twice as big has twice the mass but also twice the volume, and the ratio stays the same. That is why a whole potato and a crumb of it both sink in water: the density of potato is a little above 1 g/cm³. The small differences between your results come from reading the level in the jug: a mistake of 5 mL matters most for the smallest piece.',
-        hr: 'Gustoća govori koliko je mase smješteno u svakom kubnom centimetru, pa je ona svojstvo tvari, a ne komada. Dvostruko veći komad ima dvostruko veću masu, ali i dvostruko veći obujam, pa omjer ostaje isti. Zato u vodi potonu i cijeli krumpir i njegova mrvica: gustoća krumpira malo je veća od 1 g/cm³. Male razlike među tvojim rezultatima dolaze od očitavanja razine u mjerici: pogreška od 5 mL najviše se osjeti kod najmanjeg komada.'
+        hr: 'Gustoća govori koliko je mase smješteno u svakom kubnom centimetru, pa je ona svojstvo tvari, a ne komada. Dvostruko veći komad ima dvostruko veću masu, ali i dvostruko veći obujam, pa omjer ostaje isti. Zato u vodi potonu i cijeli krumpir i njegova mrvica: gustoća krumpira malo je veća od 1 g/cm³. Male razlike među tvojim rezultatima nastaju pri očitavanju razine u mjernom vrču: pogreška od 5 mL najviše se osjeti kod najmanjeg komada.'
       },
       measure: {
         en: 'Change: the size of the piece. Measure: its mass on the scale and its volume by the rise of the water, three times for each piece. Keep the same: the potato, the jug, your eye level with the surface. Table: piece, mass in g, volume in cm³, density in g/cm³. Plot mass against volume (the FizLab data tool draws the best-fit line for you): the slope of the line is the density.',
-        hr: 'Mijenjaš: veličinu komada. Mjeriš: masu vagom i obujam porastom razine vode, tri puta za svaki komad. Ne mijenjaš: krumpir, mjericu ni položaj oka u visini površine. Tablica: komad, masa u g, obujam u cm³, gustoća u g/cm³. Nacrtaj graf ovisnosti mase o obujmu (FizLabov alat za podatke sam će povući pravac koji najbolje pristaje točkama): nagib pravca jest gustoća.'
+        hr: 'Mijenjaš: veličinu komada. Mjeriš: masu vagom i obujam porastom razine vode, tri puta za svaki komad. Ne mijenjaš: krumpir, mjerni vrč ni položaj oka (u visini površine). Tablica: komad, masa u g, obujam u cm³, gustoća u g/cm³. Nacrtaj graf ovisnosti mase o obujmu (alat Tablica i graf sam će povući pravac koji najbolje odgovara točkama): nagib pravca jest gustoća.'
       },
       safety: {
         en: 'Let an adult cut the potato. Wipe up spilled water so nobody slips.',
@@ -482,7 +482,7 @@
       },
       materials: {
         en: ['4 identical paper cupcake cases (or paper coffee filters)', 'a tape measure', 'sticky tape to mark the height', 'a phone with a stopwatch', 'paper and a pencil'],
-        hr: ['4 jednake papirnate košarice za muffine (ili papirnata filtra za kavu)', 'mjerna vrpca', 'selotejp za oznaku visine', 'mobitel sa štopericom', 'papir i olovka']
+        hr: ['4 jednake papirnate košarice za muffine (ili papirnati filtri za kavu)', 'mjerna vrpca (metar)', 'selotejp za označavanje visine', 'mobitel sa štopericom', 'papir i olovka']
       },
       steps: {
         en: [
@@ -495,11 +495,11 @@
         ],
         hr: [
           'Označi visinu od 2 m na zidu ili dovratku (ili najveću visinu koju možeš dosegnuti bez penjanja). Zatvori prozore: ne smije biti propuha.',
-          'Drži jednu košaricu kod oznake, otvorom prema gore, i pusti je bez guranja. Izmjeri vrijeme pada do poda. Učini to pet puta.',
+          'Drži jednu košaricu kod oznake, otvorom prema gore, i pusti je bez guranja. Izmjeri vrijeme pada do poda. Izvedi to pet puta.',
           'Čvrsto utisni dvije košarice jednu u drugu: oblik je isti, a masa dvostruka. Izmjeri vrijeme pet padova.',
           'Isto napravi sa sve četiri košarice složene jedna u drugu.',
           'Izračunaj srednje vrijeme za jednu, dvije i četiri košarice te srednju brzinu: 2 m podijeli srednjim vremenom.',
-          'Na kraju pusti jednu košaricu s 1 m pa s 2 m i usporedi vremena. Je li vrijeme s 2 m otprilike dvostruko dulje?'
+          'Na kraju pusti jednu košaricu s visine od 1 m, a zatim od 2 m i usporedi vremena. Je li vrijeme pada s 2 m otprilike dvostruko dulje?'
         ]
       },
       predict: {
@@ -513,15 +513,15 @@
       },
       observe: {
         en: 'A single case speeds up only over the first few centimetres and then drifts down at a steady speed of roughly 1.5 m/s. The nested cases fall clearly faster, but far from four times faster: four cases are about one and a half to two times as fast as one. From 2 m a single case takes almost twice as long as from 1 m.',
-        hr: 'Jedna košarica ubrzava samo prvih nekoliko centimetara, a zatim se spušta stalnom brzinom od otprilike 1,5 m/s. Složene košarice padaju jasno brže, ali ni izdaleka četiri puta brže: četiri košarice brže su od jedne oko jedan i pol do dva puta. S 2 m jednoj košarici treba gotovo dvostruko više vremena nego s 1 m.'
+        hr: 'Jedna košarica ubrzava samo na prvih nekoliko centimetara, a zatim se spušta stalnom brzinom od otprilike 1,5 m/s. Složene košarice padaju osjetno brže, ali ni izdaleka četiri puta brže: četiri su košarice otprilike jedan i pol do dva puta brže od jedne. S visine od 2 m jednoj košarici treba gotovo dvostruko više vremena nego s 1 m.'
       },
       explain: {
         en: 'Two forces act on a falling case: its weight pulls it down and air resistance pushes up. Air resistance grows with speed. A light case very soon reaches the speed at which air resistance equals its weight; from then on the forces are balanced and it falls at a constant speed, which is why twice the height takes twice the time. Four cases have four times the weight but the same shape, so they must fall faster before the air pushes back hard enough. Air resistance grows roughly with the square of the speed, so about twice the speed is enough. All bodies fall equally fast only when air resistance can be neglected.',
-        hr: 'Na košaricu koja pada djeluju dvije sile: sila teža vuče je dolje, a otpor zraka gura gore. Otpor zraka raste s brzinom. Lagana košarica vrlo brzo postigne brzinu pri kojoj je otpor zraka jednak sili teži; otad su sile u ravnoteži i ona pada stalnom brzinom, pa zato za dvostruku visinu treba dvostruko vrijeme. Četiri košarice imaju četiri puta veću težinu, ali isti oblik, pa moraju padati brže prije nego što ih zrak dovoljno snažno zakoči. Otpor zraka raste otprilike s kvadratom brzine, pa je dovoljna oko dvostruko veća brzina. Sva tijela padaju jednako brzo samo kad se otpor zraka može zanemariti.'
+        hr: 'Na košaricu koja pada djeluju dvije sile: sila teža vuče je dolje, a otpor zraka gura gore. Otpor zraka raste s brzinom. Lagana košarica vrlo brzo postigne brzinu pri kojoj je otpor zraka jednak sili teži; otad su sile u ravnoteži i ona pada stalnom brzinom, pa joj za dvostruko veću visinu treba dvostruko više vremena. Četiri košarice imaju četiri puta veću težinu, ali isti oblik, pa moraju padati brže prije nego što ih zrak dovoljno snažno zakoči. Otpor zraka raste otprilike s kvadratom brzine, pa je dovoljna oko dvostruko veća brzina. Sva tijela padaju jednako brzo samo kad se otpor zraka može zanemariti.'
       },
       measure: {
         en: 'Change: the number of nested cases (1, 2, 4). Measure: the time of fall from 2 m, five times for each. Keep the same: the height, the way you let go, the open side up, no draught. Table: number of cases, five times, mean time, speed. Leave out any fall in which the case tumbled or drifted sideways.',
-        hr: 'Mijenjaš: broj složenih košarica (1, 2, 4). Mjeriš: vrijeme pada s 2 m, pet puta za svaki broj. Ne mijenjaš: visinu, način puštanja, otvor prema gore, prostor bez propuha. Tablica: broj košarica, pet vremena, srednje vrijeme, brzina. Izostavi svaki pad u kojem se košarica prevrtala ili odlutala u stranu.'
+        hr: 'Mijenjaš: broj složenih košarica (1, 2, 4). Mjeriš: vrijeme pada s 2 m, pet puta za svaki broj. Ne mijenjaš: visinu, način puštanja, otvor prema gore, prostor bez propuha. Tablica: broj košarica, pet vremena, srednje vrijeme, brzina. Izostavi svaki pad u kojem se košarica prevrtala ili skrenula u stranu.'
       },
       tool: 'stopwatch',
       sim: 'freefall'
@@ -556,11 +556,11 @@
         hr: [
           'Osloni zapešće na rub stola, s palcem i kažiprstom razmaknutima oko 2 cm. Pomoćnik drži ravnalo za gornji kraj tako da visi ravno dolje, s oznakom nula između tvojih prstiju.',
           'Pomoćnik bez ikakva upozorenja pusti ravnalo. Uhvati ga što brže možeš.',
-          'Očitaj oznaku tik iznad palca: toliko je ravnalo palo. Zapiši u centimetrima.',
-          'Napravi deset pokušaja. Izostavi svaki u kojem si pogađao i prerano stisnuo prste. Izračunaj srednju vrijednost puta.',
+          'Očitaj oznaku tik iznad palca: toliko je ravnalo palo. Zapiši rezultat u centimetrima.',
+          'Izvedi deset pokušaja. Izostavi svaki u kojem si pogađao i prerano stisnuo prste. Izračunaj srednju vrijednost puta.',
           'Pretvori put u vrijeme: 5 cm je 0,10 s, 8 cm je 0,13 s, 11 cm je 0,15 s, 15 cm je 0,17 s, 20 cm je 0,20 s, 25 cm je 0,23 s, 30 cm je 0,25 s.',
-          'Napravi još deset pokušaja dok naglas brojiš unatrag od 100 po tri. Usporedi dvije srednje vrijednosti.',
-          'Usporedi svoj rezultat s testom reakcije u FizLabovoj štoperici.'
+          'Izvedi još deset pokušaja dok naglas brojiš unatrag od 100 po tri. Usporedi obje srednje vrijednosti.',
+          'Usporedi svoj rezultat s testom reakcije u alatu Štoperica.'
         ]
       },
       predict: {
@@ -574,11 +574,11 @@
       },
       observe: {
         en: 'Most people catch the ruler between 12 and 22 cm, which means a reaction time of 0.16 to 0.21 s. The distance changes by a few centimetres from drop to drop, which is why you need ten drops. While you are counting backwards the ruler falls noticeably farther.',
-        hr: 'Većina ljudi uhvati ravnalo između 12 i 22 cm, što znači vrijeme reakcije od 0,16 do 0,21 s. Put se od pokušaja do pokušaja mijenja za nekoliko centimetara, i zato ti treba deset pokušaja. Dok brojiš unatrag, ravnalo padne primjetno dalje.'
+        hr: 'Većina ljudi uhvati ravnalo između 12 i 22 cm, što znači vrijeme reakcije od 0,16 do 0,21 s. Put se od pokušaja do pokušaja mijenja za nekoliko centimetara i zato ti treba deset pokušaja. Dok brojiš unatrag, ravnalo padne primjetno dalje.'
       },
       explain: {
         en: 'Between the moment your eyes see the ruler move and the moment your fingers close, a signal has to travel from the eye to the brain and from the brain to the muscles of your hand. That takes about two tenths of a second, and all that time the ruler is in free fall. A falling body speeds up, so the distance grows with the square of the time, s = g·t²/2: twice the reaction time means four times the distance. The ruler turns a time too short for a stopwatch into a length that is easy to read. Even 0.2 s matters: a cyclist riding at 18 km/h covers a whole metre in that time.',
-        hr: 'Od trenutka kad oči vide da se ravnalo pomaknulo do trenutka kad se prsti stisnu, signal mora prijeći put od oka do mozga i od mozga do mišića šake. To traje oko dvije desetinke sekunde, a cijelo to vrijeme ravnalo slobodno pada. Tijelo koje pada ubrzava, pa put raste s kvadratom vremena, s = g·t²/2: dvostruko dulje vrijeme reakcije znači četiri puta veći put. Ravnalo pretvara vrijeme prekratko za štopericu u duljinu koju je lako očitati. I 0,2 s je važno: biciklist koji vozi 18 km/h u tom vremenu prijeđe cijeli metar.'
+        hr: 'Od trenutka kad oči vide da se ravnalo pomaknulo do trenutka kad se prsti stisnu, signal mora prijeći put od oka do mozga i od mozga do mišića šake. To traje oko dvije desetinke sekunde, a cijelo to vrijeme ravnalo slobodno pada. Tijelo koje pada ubrzava, pa put raste s kvadratom vremena, s = g·t²/2: dvostruko dulje vrijeme reakcije znači četiri puta veći put. Ravnalo pretvara vrijeme koje je prekratko za štopericu u duljinu koju je lako očitati. Čak su i dvije desetinke sekunde važne: biciklist koji vozi brzinom 18 km/h za to vrijeme prijeđe cijeli metar.'
       },
       measure: {
         en: 'Change: with or without a distraction (counting backwards aloud). Measure: the distance the ruler falls, ten drops for each case. Keep the same: the hand, the gap between your fingers, the helper, the wrist resting on the table. Table: number of the drop and distance in cm; work out the mean and turn it into time.',
@@ -595,14 +595,14 @@
       level: 3,
       minutes: 45,
       outcome: '7.10',
-      title: { en: 'Build a water clock', hr: 'Napravi vodeni sat' },
+      title: { en: 'Build a water clock', hr: 'Izradi vodeni sat' },
       question: {
         en: 'People measured time long before there were clocks with springs and batteries. Can running water measure three minutes for you?',
         hr: 'Ljudi su mjerili vrijeme mnogo prije satova s oprugama i baterijama. Može li ti voda koja istječe izmjeriti tri minute?'
       },
       materials: {
         en: ['a 1.5 L plastic bottle with a cap', 'scissors and a drawing pin (an adult cuts and pierces)', 'paper tape or sticky tape you can write on', 'a waterproof marker', 'a phone with a stopwatch', 'water'],
-        hr: ['plastična boca od 1,5 L s čepom', 'škare i čavlić za ploču (reže i buši odrasla osoba)', 'papirnata ljepljiva traka ili selotejp po kojem se može pisati', 'vodootporni flomaster', 'mobitel sa štopericom', 'voda']
+        hr: ['plastična boca od 1,5 L s čepom', 'škare i pribadača (reže i buši odrasla osoba)', 'papirnata ljepljiva traka ili selotejp po kojem možeš pisati', 'vodootporni flomaster', 'mobitel sa štopericom', 'voda']
       },
       steps: {
         en: [
@@ -614,12 +614,12 @@
           'Repeat the test three times and write down how many seconds your clock was off each time.'
         ],
         hr: [
-          'Zamoli odraslu osobu da bocu prereže napola po sredini i da čavlićem probuši rupicu u sredini čepa. Vrati čep na bocu.',
+          'Zamoli odraslu osobu da bocu poprečno prereže po sredini i da pribadačom probuši rupicu u sredini čepa. Zatim vrati čep na bocu.',
           'Gornju polovicu okreni naopako i postavi je u donju polovicu kao lijevak. Uz stijenku donje polovice okomito zalijepi traku.',
           'Blizu vrha lijevka nacrtaj crtu punjenja. Prstom zatvori rupicu i napuni lijevak vodom točno do te crte.',
           'Makni prst i u istom trenutku pokreni štopericu. Nakon svake pune minute označi na traci razinu vode u donjoj polovici i uz oznake napiši brojeve.',
           'Isprazni donju polovicu i ponovno napuni lijevak do crte. Sad se posluži svojim satom: ne gledajući mobitel, reci „sad“ kad voda dođe do oznake za 3 minute. Pomoćnik očitava štopericu.',
-          'Ponovi provjeru tri puta i svaki put zapiši za koliko je sekundi tvoj sat pogriješio.'
+          'Provjeru izvedi tri puta i svaki put zapiši za koliko je sekundi tvoj sat pogriješio.'
         ]
       },
       predict: {
@@ -633,11 +633,11 @@
       },
       observe: {
         en: 'The first marks are far apart and the later ones crowd together: the water runs fast at first and then more and more slowly as the funnel empties. Filled to the same line, your clock repeats its times to within a few seconds. If the water only drips or stops, the hole is too small: ask an adult to widen it a little.',
-        hr: 'Prve su oznake daleko jedna od druge, a kasnije se zbijaju: voda isprva istječe brzo, a zatim sve sporije kako se lijevak prazni. Napunjen do iste crte, tvoj sat ponavlja svoja vremena uz razliku od nekoliko sekundi. Ako voda samo kaplje ili stane, rupica je premalena: zamoli odraslu osobu da je malo proširi.'
+        hr: 'Prve su oznake daleko jedna od druge, a kasnije se zbijaju: voda isprva istječe brzo, a zatim sve sporije kako se lijevak prazni. Kad ga napuniš do iste crte, tvoj sat svaki put pokaže gotovo isto vrijeme, uz razliku od nekoliko sekundi. Ako voda samo kaplje ili prestane teći, rupica je premalena: zamoli odraslu osobu da je malo proširi.'
       },
       explain: {
         en: 'The water is pushed through the hole by the pressure of the water above it, and that pressure depends on depth. A full funnel means a large depth, a high pressure and a fast stream; as the level falls, the pressure and the flow get smaller. So equal times do not give equal amounts of water. A clock does not need even marks, though: it only has to repeat itself exactly, which is why you always fill to the same line. The ancient Egyptians and Greeks evened out the flow with specially shaped vessels or by keeping the upper vessel full all the time.',
-        hr: 'Vodu kroz rupicu gura tlak vode iznad nje, a taj tlak ovisi o dubini. Pun lijevak znači veliku dubinu, velik tlak i brz mlaz; kako razina pada, tlak i protok se smanjuju. Zato u jednakim vremenima ne isteče jednaka količina vode. Satu, međutim, ne trebaju jednako razmaknute oznake: mora se samo točno ponavljati, i zato lijevak uvijek puniš do iste crte. Stari Egipćani i Grci ujednačavali su istjecanje posebno oblikovanim posudama ili tako da je gornja posuda stalno bila puna.'
+        hr: 'Vodu kroz rupicu gura tlak vode iznad nje, a taj tlak ovisi o dubini. Pun lijevak znači veliku dubinu, velik tlak i brz mlaz; kako razina pada, tlak i protok se smanjuju. Zato u jednakim vremenima ne isteče jednaka količina vode. Satu, međutim, ne trebaju jednako razmaknute oznake: mora samo svaki put jednako mjeriti, i zato lijevak uvijek puniš do iste crte. Stari Egipćani i Grci ujednačavali su istjecanje posebno oblikovanim posudama ili tako što su gornju posudu stalno držali punom.'
       },
       safety: {
         en: 'An adult should cut the bottle and pierce the cap. Cover the cut edges with tape, because they can be sharp.',
@@ -662,7 +662,7 @@
       },
       materials: {
         en: ['a full 1 L drink carton with a wide and a narrow side', 'a second full carton or a 1 kg bag of sugar as a load', 'string', 'a strong rubber band', 'a paper clip', 'a ruler', 'a smooth table'],
-        hr: ['pun tetrapak od 1 L sa širom i užom bočnom stranom', 'drugi pun tetrapak ili vrećica šećera od 1 kg kao teret', 'špaga', 'jaka gumica', 'spajalica', 'ravnalo', 'gladak stol']
+        hr: ['pun tetrapak od 1 L sa širom i užom bočnom stranom', 'drugi pun tetrapak ili vrećica šećera od 1 kg kao teret', 'uzica', 'jaka gumica', 'spajalica', 'ravnalo', 'gladak stol']
       },
       steps: {
         en: [
@@ -674,12 +674,12 @@
           'Compare the three mean stretches. Which change made a difference: the area or the weight?'
         ],
         hr: [
-          'Zaveži špagu oko tetrapaka kao oko paketa i spajalicom zakvači gumicu za špagu. Izmjeri duljinu nerastegnute gumice.',
-          'Položi tetrapak na širu stranu. Vuci gumicu vodoravno, polako i ravnomjerno, tako da tetrapak klizi stalnom brzinom. Dok klizi, ravnalom koje držiš uz gumicu izmjeri njezinu duljinu (lakše je uz pomoćnika).',
+          'Zaveži uzicu oko tetrapaka kao oko paketa i spajalicom zakvači gumicu za uzicu. Izmjeri duljinu nerastegnute gumice.',
+          'Položi tetrapak na širu stranu. Vuci gumicu vodoravno, polako i jednoliko, tako da tetrapak klizi stalnom brzinom. Dok klizi, ravnalom koje držiš uz gumicu izmjeri njezinu duljinu (lakše je uz pomoćnika).',
           'Produljenje je ta duljina umanjena za duljinu nerastegnute gumice. Ponovi tri puta i izračunaj srednju vrijednost.',
           'Okreni tetrapak na užu stranu: manja dodirna ploha, ista težina. Izmjeri produljenje tri puta.',
           'Ponovno položi tetrapak na širu stranu i na njega stavi drugi tetrapak: ista ploha, dvostruka težina. Izmjeri tri puta.',
-          'Usporedi tri srednja produljenja. Koja je promjena nešto promijenila: ploha ili težina?'
+          'Usporedi sva tri srednja produljenja. Što je utjecalo na rezultat: veličina plohe ili težina?'
         ]
       },
       predict: {
@@ -687,17 +687,17 @@
         options: [
           { en: 'On the wide side: more surface is rubbing', hr: 'Na široj strani: tare se veća površina' },
           { en: 'On the narrow side: the weight is concentrated', hr: 'Na užoj strani: težina je skupljena na manjoj plohi' },
-          { en: 'It is about the same both times', hr: 'Oba je puta približno jednako' }
+          { en: 'It is about the same both times', hr: 'U oba je slučaja približno jednako' }
         ],
         answer: 2
       },
       observe: {
         en: 'The band stretches practically the same on the wide side and on the narrow side; the difference is within your measuring error. With the second carton on top the stretch, and so the friction, roughly doubles. Just before the carton starts to move, the band stretches a little more than during sliding.',
-        hr: 'Gumica se na široj i na užoj strani rastegne praktički jednako; razlika je unutar tvoje mjerne pogreške. S drugim tetrapakom na vrhu produljenje, a time i trenje, otprilike se udvostruči. Tik prije nego što se tetrapak pokrene, gumica se rastegne malo više nego tijekom klizanja.'
+        hr: 'Gumica se na široj i na užoj strani rastegne praktički jednako; razlika nije veća od mjerne nesigurnosti. Kad je drugi tetrapak na prvome, produljenje se, a time i trenje, otprilike udvostruči. Tik prije nego što se tetrapak pokrene, gumica se rastegne malo više nego tijekom klizanja.'
       },
       explain: {
         en: 'While the carton slides at a steady speed, the pull of the band is equal to the friction, so the stretch shows how large the friction is. Sliding friction depends on how hard the two surfaces are pressed together, here by the weight, and on what the surfaces are like. It does not depend on the area of contact: on the narrow side the same weight presses on fewer square centimetres, so each of them is pressed harder, and that exactly makes up for the smaller area. Double the weight gives double the friction. The slightly larger pull needed to start the motion is static friction.',
-        hr: 'Dok tetrapak klizi stalnom brzinom, sila kojom vuče gumica jednaka je trenju, pa produljenje pokazuje koliko je trenje. Trenje klizanja ovisi o tome koliko su snažno dvije plohe pritisnute jedna uz drugu, ovdje težinom, i o tome kakve su te plohe. Ne ovisi o veličini dodirne plohe: na užoj strani ista težina pritišće manje kvadratnih centimetara, pa je svaki od njih jače pritisnut, što točno nadoknadi manju plohu. Dvostruka težina daje dvostruko trenje. Nešto veća sila potrebna za pokretanje jest trenje mirovanja.'
+        hr: 'Dok tetrapak klizi stalnom brzinom, sila kojom vuče gumica jednaka je sili trenja, pa produljenje pokazuje koliko je trenje. Trenje klizanja ovisi o tome koliko su snažno dvije plohe pritisnute jedna uz drugu, ovdje težinom, i o tome kakve su te plohe. Ne ovisi o veličini dodirne plohe: na užoj strani ista težina pritišće manje kvadratnih centimetara, pa je svaki od njih jače pritisnut, što točno nadoknadi manju plohu. Dvostruko veća težina daje dvostruko veće trenje. Nešto veća sila potrebna je za pokretanje zbog trenja mirovanja.'
       },
       measure: {
         en: 'Change: first the area of contact (wide or narrow side), then the weight (one or two cartons). Measure: the stretch of the band during steady sliding, three times for each case. Keep the same: the table, the band, a slow steady speed, a horizontal pull. Table: case, three stretches, mean.',
@@ -741,7 +741,7 @@
           'Vrati kovanicu, a ovaj put kartu izvuci polako. Što sad napravi kovanica?',
           'Na stolu složi uredan toranj od šest kovanica.',
           'Sedmu kovanicu položi na stol na udaljenosti od jednog dlana i snažno je kvrcni prema donjoj kovanici tornja.',
-          'Pokušaj još jednom, blagim i sporim udarcem, pa usporedi.'
+          'Pokušaj još jednom, laganim i sporim kvrcom, pa usporedi.'
         ]
       },
       predict: {
@@ -759,7 +759,7 @@
       },
       explain: {
         en: 'Every body stays at rest, or keeps moving the way it is moving, until a force changes that. This property is called inertia. The only sideways force on the coin is friction with the card. During a fast flick friction acts for such a short time that it hardly gets the coin moving, so the coin stays where it was and gravity then pulls it down into the glass. Pulled slowly, the same friction has plenty of time to drag the coin along. The greater the mass of a body, the greater its inertia.',
-        hr: 'Svako tijelo miruje, ili se nastavlja gibati onako kako se giba, sve dok to ne promijeni neka sila. To se svojstvo zove tromost. Jedina sila koja kovanicu gura u stranu jest trenje s kartom. Pri brzom udarcu trenje djeluje tako kratko da kovanicu jedva pokrene, pa ona ostane gdje je bila, a sila teža je zatim povuče dolje u čašu. Kad kartu vučeš polako, isto trenje ima dovoljno vremena da povuče kovanicu sa sobom. Što je masa tijela veća, veća je i njegova tromost.'
+        hr: 'Svako tijelo ostaje mirovati ili se nastavlja gibati jednako kao dotad sve dok to ne promijeni neka sila. To se svojstvo zove tromost. Jedina sila koja kovanicu gura u stranu jest trenje između kovanice i karte. Pri brzom udarcu trenje djeluje tako kratko da kovanicu jedva pokrene, pa ona ostane gdje je bila, a zatim je sila teža povuče dolje u čašu. Kad kartu vučeš polako, isto trenje ima dovoljno vremena da povuče kovanicu sa sobom. Što je masa tijela veća, veća je i njegova tromost.'
       },
       sim: 'forces'
     },
@@ -771,14 +771,14 @@
       level: 2,
       minutes: 25,
       outcome: 'B.7.2',
-      title: { en: 'A balloon rocket on a string', hr: 'Raketa od balona na špagi' },
+      title: { en: 'A balloon rocket on a string', hr: 'Raketa od balona na uzici' },
       question: {
         en: 'A balloon has no wheels and no engine. What pushes it forward when the air rushes out, and how much cargo can it carry?',
         hr: 'Balon nema ni kotače ni motor. Što ga gura naprijed dok zrak izlazi i koliko tereta može ponijeti?'
       },
       materials: {
         en: ['a balloon (a long one is best)', '4 to 5 m of smooth string or thread', 'a drinking straw', 'sticky tape', 'a clothes peg', 'two chairs', 'paper clips as cargo', 'a tape measure'],
-        hr: ['balon (najbolji je duguljasti)', '4 do 5 m glatke špage ili konca', 'slamka', 'selotejp', 'štipaljka', 'dva stolca', 'spajalice kao teret', 'mjerna vrpca']
+        hr: ['balon (najbolji je duguljasti)', '4 do 5 m glatke uzice ili konca', 'slamka', 'selotejp', 'štipaljka', 'dva stolca', 'spajalice kao teret', 'mjerna vrpca']
       },
       steps: {
         en: [
@@ -790,12 +790,12 @@
           'Now the task: tape paper clips under the balloon, two at a time. What is the largest cargo with which the rocket still reaches the other chair? Then try a string that slopes upwards.'
         ],
         hr: [
-          'Provuci špagu kroz slamku. Krajeve zaveži za dva stolca udaljena oko 4 m i razmakni stolce dok špaga ne bude napeta i vodoravna.',
+          'Provuci uzicu kroz slamku. Krajeve zaveži za dva stolca udaljena oko 4 m i razmiči stolce dok uzica ne bude napeta i vodoravna.',
           'Napuhni balon, zavrni mu grlo i zatvori ga štipaljkom. Nemoj vezati čvor.',
-          'Dvjema trakama selotejpa zalijepi balon za slamku, s otvorom u smjeru špage, i odgurni ga do stolca koji je iza otvora.',
-          'Odluči na koju će stranu krenuti, pa skini štipaljku.',
+          'Dvjema trakama selotejpa zalijepi balon za slamku tako da mu otvor bude okrenut uzduž uzice, pa ga pomakni do stolca na strani otvora.',
+          'Predvidi na koju će stranu krenuti, a zatim skini štipaljku.',
           'Izmjeri koliko je daleko raketa stigla. Ponovi tri puta s balonom napuhanim do iste veličine.',
-          'Sad zadatak: ispod balona lijepi spajalice, po dvije odjednom. S kojim najvećim teretom raketa još stigne do drugog stolca? Zatim pokušaj sa špagom koja se penje ukoso.'
+          'Sad zadatak: ispod balona lijepi spajalice, po dvije odjednom. S kojim najvećim teretom raketa još stigne do drugog stolca? Zatim pokušaj s uzicom napetom ukoso prema gore.'
         ]
       },
       predict: {
@@ -803,13 +803,13 @@
         options: [
           { en: 'To the left, following the air that rushes out', hr: 'Ulijevo, za zrakom koji izlazi' },
           { en: 'To the right: the balloon pushes air out to the left, and that air pushes the balloon to the right', hr: 'Udesno: balon gura zrak ulijevo, a taj zrak gura balon udesno' },
-          { en: 'To the right, because the jet pushes off against the air in the room', hr: 'Udesno, jer se mlaz odupire o zrak u sobi' }
+          { en: 'To the right, because the jet pushes off against the air in the room', hr: 'Udesno jer se mlaz odupire o zrak u sobi' }
         ],
         answer: 1
       },
       observe: {
         en: 'The balloon shoots along the string in the direction opposite to the jet of air, fast at first and more slowly as it empties. With more cargo it starts off more slowly and stops sooner.',
-        hr: 'Balon pojuri po špagi u smjeru suprotnom od mlaza zraka, isprva brzo, a zatim sve sporije kako se prazni. S više tereta kreće sporije i staje ranije.'
+        hr: 'Balon pojuri po uzici u smjeru suprotnom od mlaza zraka, isprva brzo, a zatim sve sporije kako se prazni. S više tereta kreće sporije i staje ranije.'
       },
       explain: {
         en: 'The stretched rubber squeezes the air and pushes it out backwards. By the law of action and reaction the air pushes the balloon with an equally large force in the opposite direction, forwards. The two forces act on different bodies, one on the air and one on the balloon, so they do not cancel. The rocket does not need outside air to push against: real rockets work even better in empty space, where they throw hot gas backwards. More cargo means more mass, and the same force then gives a smaller acceleration.',
@@ -855,18 +855,18 @@
         q: { en: 'The sheet lies on top of the book and you drop them together. What does the paper do?', hr: 'List leži na knjizi i pustiš ih zajedno. Što će učiniti papir?' },
         options: [
           { en: 'It stays on the book all the way down', hr: 'Ostaje na knjizi cijelim putem do poda' },
-          { en: 'It lags behind and flutters down slowly, as before', hr: 'Zaostaje i polako lebdi dolje, kao i prije' },
+          { en: 'It lags behind and flutters down slowly, as before', hr: 'Zaostaje i polako lepršajući pada, kao i prije' },
           { en: 'It is blown off sideways at once', hr: 'Odmah ga otpuhne u stranu' }
         ],
         answer: 0
       },
       observe: {
         en: 'On its own the flat sheet glides and flutters and lands long after the book. Lying on the book, it falls together with it as if it were glued on. The crumpled ball lands almost together with the book, although its mass has not changed at all.',
-        hr: 'Sam ravan list jedri i leprša te padne mnogo nakon knjige. Kad leži na knjizi, pada zajedno s njom kao da je zalijepljen. Zgužvana loptica padne gotovo zajedno s knjigom, iako joj se masa nije nimalo promijenila.'
+        hr: 'Sam ravan list jedri i leprša te padne tek dugo nakon knjige. Kad leži na knjizi, pada zajedno s njom kao da je zalijepljen. Zgužvana loptica padne gotovo zajedno s knjigom, iako joj se masa nije nimalo promijenila.'
       },
       explain: {
         en: 'The sheet is not slow because it is light. It is slow because the air pushes hard against its large surface compared with its small weight. On top of the book the paper travels in the shelter of the book: the book pushes the air aside, almost no air resistance acts on the paper, and it falls just as fast as the book. Crumpling does not change the mass, only the surface the air can push against. Without air all bodies fall with the same acceleration: gravity pulls a heavier body harder, but a heavier body is also harder to speed up.',
-        hr: 'List nije spor zato što je lagan. Spor je zato što zrak snažno gura njegovu veliku površinu u usporedbi s njegovom malom težinom. Na knjizi papir putuje u njezinu zaklonu: knjiga razmiče zrak, na papir gotovo da i ne djeluje otpor zraka i on pada jednako brzo kao knjiga. Gužvanjem se ne mijenja masa, nego samo površina na koju zrak može djelovati. Bez zraka sva tijela padaju jednakim ubrzanjem: sila teža teže tijelo vuče jače, ali teže je tijelo i teže ubrzati.'
+        hr: 'List nije spor zato što je lagan. Spor je zato što zrak snažno djeluje na njegovu veliku površinu, a težina mu je mala. Na knjizi papir putuje u njezinu zaklonu: knjiga razmiče zrak, na papir gotovo da i ne djeluje otpor zraka i on pada jednako brzo kao knjiga. Gužvanjem se ne mijenja masa, nego samo površina na koju zrak može djelovati. Bez zraka sva tijela padaju jednakim ubrzanjem: sila teža jače privlači tijelo veće mase, ali tijelo veće mase teže je i ubrzati.'
       },
       sim: 'freefall'
     },
@@ -885,7 +885,7 @@
       },
       materials: {
         en: ['about 1.5 m of thin string', 'a heavy bob (a bunch of keys or a large metal nut) and a light one (a single key)', 'strong sticky tape', 'a door frame or the edge of a table', 'a tape measure', 'a phone with a stopwatch', 'paper, a pencil and a calculator'],
-        hr: ['oko 1,5 m tanke špage', 'teži uteg (svežanj ključeva ili velika matica) i lakši uteg (jedan ključ)', 'jaka ljepljiva traka', 'dovratak ili rub stola', 'mjerna vrpca', 'mobitel sa štopericom', 'papir, olovka i kalkulator']
+        hr: ['oko 1,5 m tanke uzice', 'teži uteg (svežanj ključeva ili velika matica) i lakši uteg (jedan ključ)', 'jaka ljepljiva traka', 'dovratak ili rub stola', 'mjerna vrpca', 'mobitel sa štopericom', 'papir, olovka i kalkulator']
       },
       steps: {
         en: [
@@ -897,8 +897,8 @@
           'From the result for 1.00 m calculate g = 39.5 · L / T², with L in metres and T in seconds.'
         ],
         hr: [
-          'Zaveži teži uteg za špagu i špagu čvrsto zalijepi za vrh dovratka tako da se uteg može slobodno njihati. Namjesti duljinu na 1,00 m, mjereno od učvršćenja do sredine utega.',
-          'Otkloni uteg oko 10 cm u stranu i pusti ga bez guranja. Izmjeri vrijeme 10 punih titraja (tamo i natrag jedan je titraj) i podijeli s 10: to je period T. Učini to tri puta.',
+          'Zaveži teži uteg za uzicu, a uzicu čvrsto zalijepi za vrh dovratka tako da se uteg može slobodno njihati. Namjesti duljinu na 1,00 m, mjereno od mjesta učvršćenja do sredine utega.',
+          'Otkloni uteg oko 10 cm u stranu i pusti ga bez guranja. Izmjeri vrijeme 10 punih titraja (tamo i natrag jedan je titraj) i podijeli ga s 10: to je period T. Izvedi to tri puta.',
           'Skrati njihalo na 0,50 m, a zatim na 0,25 m i za svaku duljinu tri puta izmjeri vrijeme 10 titraja.',
           'Vrati duljinu na 1,00 m i promijeni samo masu: umjesto težeg utega objesi jedan ključ. Tri puta izmjeri vrijeme 10 titraja.',
           'S težim utegom na 1,00 m promijeni samo početni otklon: 5 cm, a zatim 20 cm.',
@@ -906,7 +906,7 @@
         ]
       },
       predict: {
-        q: { en: 'You hang a much heavier bob on the same string. What happens to the period?', hr: 'Na istu špagu objesiš mnogo teži uteg. Što se događa s periodom?' },
+        q: { en: 'You hang a much heavier bob on the same string. What happens to the period?', hr: 'Na istu uzicu objesiš mnogo teži uteg. Što se događa s periodom?' },
         options: [
           { en: 'It gets shorter: a heavy bob swings faster', hr: 'Skrati se: teži uteg titra brže' },
           { en: 'It gets longer: a heavy bob is slower', hr: 'Produlji se: teži je uteg sporiji' },
@@ -916,15 +916,15 @@
       },
       observe: {
         en: 'With a length of 1 m ten swings take about 20 s, so T is about 2.0 s. For 0.5 m you get about 1.4 s and for 0.25 m about 1.0 s. Changing the bob or the starting pull does not change the period by more than your timing error. Your g should come out between 9.5 and 10.1 m/s².',
-        hr: 'Uz duljinu od 1 m deset titraja traje oko 20 s, pa je T oko 2,0 s. Za 0,5 m dobije se oko 1,4 s, a za 0,25 m oko 1,0 s. Promjena utega ili početnog otklona ne mijenja period više od tvoje pogreške mjerenja vremena. Tvoj g trebao bi ispasti između 9,5 i 10,1 m/s².'
+        hr: 'Pri duljini od 1 m deset titraja traje oko 20 s, pa je T oko 2,0 s. Za 0,5 m dobiješ oko 1,4 s, a za 0,25 m oko 1,0 s. Kad promijeniš uteg ili početni otklon, period se promijeni manje od mjerne nesigurnosti tvog mjerenja vremena. Vrijednost g trebala bi ti ispasti između 9,5 i 10,1 m/s².'
       },
       explain: {
         en: 'The period of a pendulum depends only on its length and on gravity: T = 2π·√(L/g). A heavier bob is pulled harder by gravity, but it is also harder to set in motion, and the two effects cancel exactly, just as in free fall. A pendulum four times as long has a period only twice as long, because the period grows with the square root of the length. Timing ten swings spreads the error of your reaction over ten periods. That is why a piece of string and a key can measure g to within a few per cent.',
-        hr: 'Period njihala ovisi samo o njegovoj duljini i o sili teži: T = 2π·√(L/g). Teži uteg sila teža vuče jače, ali njega je i teže pokrenuti, pa se ta dva učinka točno poništavaju, baš kao pri slobodnom padu. Četiri puta dulje njihalo ima samo dvostruko dulji period jer period raste s drugim korijenom duljine. Mjerenjem deset titraja pogreška tvoje reakcije raspodijeli se na deset perioda. Zato komad špage i ključ mogu izmjeriti g s pogreškom od samo nekoliko posto.'
+        hr: 'Period njihala ovisi samo o njegovoj duljini i o ubrzanju slobodnog pada g: T = 2π·√(L/g). Teži uteg sila teža vuče jače, ali njega je i teže pokrenuti, pa se ta dva učinka točno poništavaju, baš kao pri slobodnom padu. Četiri puta dulje njihalo ima samo dvostruko dulji period jer period raste s drugim korijenom duljine. Mjerenjem deset titraja pogreška tvoje reakcije raspodijeli se na deset perioda. Zato komad uzice i ključ mogu izmjeriti g s pogreškom od samo nekoliko posto.'
       },
       measure: {
         en: 'Change one thing at a time: the length (1.00 m, 0.50 m, 0.25 m), then the mass, then the starting pull. Measure: the time of 10 swings, three times for each case; T is the mean time divided by 10. Table: length, three times, mean, T, T². Plot T² against L (the FizLab data tool can do it): the points lie on a straight line through zero with a slope of about 4 s²/m.',
-        hr: 'Mijenjaš jedno po jedno: duljinu (1,00 m, 0,50 m, 0,25 m), zatim masu, zatim početni otklon. Mjeriš: vrijeme 10 titraja, tri puta za svaki slučaj; T je srednje vrijeme podijeljeno s 10. Tablica: duljina, tri vremena, srednja vrijednost, T, T². Nacrtaj T² u ovisnosti o L (može i u FizLabovu alatu za podatke): točke leže na pravcu kroz ishodište s nagibom od oko 4 s²/m.'
+        hr: 'Mijenjaš jedno po jedno: duljinu (1,00 m, 0,50 m, 0,25 m), zatim masu, zatim početni otklon. Mjeriš: vrijeme 10 titraja, tri puta za svaki slučaj; T je srednje vrijeme podijeljeno s 10. Tablica: duljina, tri vremena, srednja vrijednost, T, T². Nacrtaj graf ovisnosti T² o L (možeš se poslužiti alatom Tablica i graf): točke leže na pravcu kroz ishodište s nagibom od oko 4 s²/m.'
       },
       tool: 'stopwatch',
       sim: 'pendulum'
@@ -959,29 +959,29 @@
           'Izađi van ili stani ispred kade. Prstima zatvori rupice i napuni čašu vodom.',
           'Makni prste s rupica i drži čašu za rub. Promatraj dva mlaza.',
           'Ponovno napuni čašu, drži je visoko iznad tla dok mlazovi teku i pusti je. Promatraj rupice dok čaša pada ili pad snimi usporeno.',
-          'Ponovi nekoliko puta. Zatim čašu koja curi lagano baci uvis: teku li mlazovi dok se penje?'
+          'Ponovi nekoliko puta. Zatim čašu koja curi lagano baci uvis: teku li mlazovi dok leti prema gore?'
         ]
       },
       predict: {
         q: { en: 'While the cup is falling, what happens to the two jets of water?', hr: 'Što se događa s dvama mlazovima vode dok čaša pada?' },
         options: [
           { en: 'They keep running just as before', hr: 'Teku jednako kao i prije' },
-          { en: 'They become stronger, because everything is moving downwards', hr: 'Pojačaju se, jer se sve giba prema dolje' },
+          { en: 'They become stronger, because everything is moving downwards', hr: 'Pojačaju se jer se sve giba prema dolje' },
           { en: 'They stop: no water comes out during the fall', hr: 'Prestanu: tijekom pada voda ne izlazi' }
         ],
         answer: 2
       },
       observe: {
         en: 'As long as you hold the cup, water pours out of both holes. The moment you let go, the jets stop, and the cup and the water fall together until they hit the ground. A slow-motion video shows it clearly. The same happens while the cup is flying upwards after a toss.',
-        hr: 'Dok držiš čašu, voda istječe iz obiju rupica. U trenutku kad je pustiš mlazovi prestanu, a čaša i voda padaju zajedno sve do tla. Na usporenoj snimci to se jasno vidi. Isto se događa i dok čaša nakon bacanja leti uvis.'
+        hr: 'Dok držiš čašu, voda istječe iz obiju rupica. U trenutku kad je pustiš, mlazovi prestanu, a čaša i voda padaju zajedno sve do tla. Na usporenoj snimci to se jasno vidi. Isto se događa i dok čaša nakon bacanja leti uvis.'
       },
       explain: {
         en: 'In a cup at rest the water presses on the bottom and on the walls with its weight, and that pressure pushes water out through the holes. In free fall the cup and the water fall with the same acceleration, so the water no longer presses on the cup: it is weightless, and without pressure nothing pushes it out. Gravity has not disappeared. It still pulls on both, which is exactly why they fall. Astronauts on a space station float for the same reason: the station and everything in it are in free fall around the Earth all the time.',
-        hr: 'U čaši koja miruje voda svojom težinom pritišće dno i stijenke, a taj tlak istiskuje vodu kroz rupice. U slobodnom padu čaša i voda padaju jednakim ubrzanjem, pa voda više ne pritišće čašu: u bestežinskom je stanju, a bez tlaka ništa je ne gura van. Sila teža nije nestala. Ona i dalje vuče i čašu i vodu, i upravo zato one padaju. Astronauti na svemirskoj postaji lebde iz istog razloga: postaja i sve u njoj neprestano slobodno padaju oko Zemlje.'
+        hr: 'U čaši koja miruje voda svojom težinom pritišće dno i stijenke, a taj tlak istiskuje vodu kroz rupice. U slobodnom padu čaša i voda padaju jednakim ubrzanjem, pa voda više ne pritišće čašu: u bestežinskom je stanju, a bez tlaka ništa je ne gura van. Sila teža nije nestala. Ona i dalje privlači i čašu i vodu, i upravo zato one padaju. Astronauti na svemirskoj postaji lebde iz istog razloga: postaja i sve u njoj neprestano slobodno padaju oko Zemlje.'
       },
       safety: {
         en: 'Do this outdoors or over a bathtub and wipe the floor afterwards: wet floors are slippery.',
-        hr: 'Pokus radi vani ili iznad kade i poslije obriši pod: mokar je pod sklizak.'
+        hr: 'Pokus izvodi vani ili iznad kade i poslije obriši pod: mokar je pod sklizak.'
       },
       sim: 'freefall'
     },
@@ -1000,7 +1000,7 @@
       },
       materials: {
         en: ['a phone with the FizLab sound stopwatch', 'a coin', 'a ruler and a wooden spoon', 'a tape measure', 'a chair, a table and a shelf at about head height', 'a metal baking tray or a pot lid for the coin to land on', 'paper, a pencil and a calculator'],
-        hr: ['mobitel s FizLabovom zvučnom štopericom', 'kovanica', 'ravnalo i kuhača', 'mjerna vrpca', 'stolac, stol i polica otprilike u visini glave', 'metalni lim za pečenje ili poklopac lonca na koji će kovanica pasti', 'papir, olovka i kalkulator']
+        hr: ['mobitel s alatom Senzori mobitela (zvučna štoperica)', 'kovanica', 'ravnalo i kuhača', 'mjerna vrpca', 'stolac, stol i polica otprilike u visini glave', 'metalni lim za pečenje ili poklopac lonca na koji će kovanica pasti', 'papir, olovka i kalkulator']
       },
       steps: {
         en: [
@@ -1016,10 +1016,10 @@
           'Stavi lim za pečenje na pod ispod ruba stola. Izmjeri visinu od ploče stola do lima, u metrima.',
           'Položi mobitel na stol blizu ruba i otvori zvučnu štopericu. Ona se pokreće na prvi oštar zvuk, a zaustavlja na drugi, pa u sobi mora biti tiho.',
           'Položi ravnalo na stol tako da 5 cm viri preko ruba i na taj kraj stavi kovanicu. Drugi kraj lagano pridrži prstom.',
-          'Kuhačom naglo udari sa strane kraj koji viri, tako da ravnalo izbiješ ispod kovanice. Udarac pokreće štopericu, a pad kovanice na lim je zaustavlja.',
-          'Zapiši vrijeme. Prikupi pet dobrih vremena i izračunaj njihovu srednju vrijednost.',
-          'Isto napravi sa sjedala stolca i s police, s limom premještenim ispod. Izmjeri svaku visinu.',
-          'Za svaku visinu izračunaj g = 2 · h / t², uz srednje vrijeme.'
+          'Kuhačom naglo udari sa strane kraj koji viri, tako da ravnalo izbiješ ispod kovanice. Udarac pokreće štopericu, a udarac kovanice o lim zaustavlja je.',
+          'Zapiši vrijeme. Prikupi pet dobrih mjerenja i izračunaj njihovu srednju vrijednost.',
+          'Isto ponovi sa sjedala stolca i s police, a lim svaki put premjesti ispod. Izmjeri svaku visinu.',
+          'Za svaku visinu izračunaj g = 2 · h / t², uzimajući srednje vrijeme.'
         ]
       },
       predict: {
@@ -1033,11 +1033,11 @@
       },
       observe: {
         en: 'From a table 75 cm high the fall takes about 0.39 s, from 45 cm about 0.30 s and from 150 cm about 0.55 s. Twice the height gives only about 1.4 times the time. Your values of g should lie between 9 and 10.5 m/s². If one time is far off, another noise triggered the stopwatch: leave it out.',
-        hr: 'Sa stola visokog 75 cm pad traje oko 0,39 s, s 45 cm oko 0,30 s, a sa 150 cm oko 0,55 s. Dvostruka visina daje samo oko 1,4 puta dulje vrijeme. Tvoje vrijednosti za g trebale bi biti između 9 i 10,5 m/s². Ako neko vrijeme jako odstupa, štopericu je pokrenuo neki drugi zvuk: izostavi ga.'
+        hr: 'Sa stola visokog 75 cm pad traje oko 0,39 s, s 45 cm oko 0,30 s, a sa 150 cm oko 0,55 s. Dvostruka visina daje samo oko 1,4 puta dulje vrijeme. Tvoje vrijednosti za g trebale bi biti između 9 i 10,5 m/s². Ako neki rezultat jako odstupa, štopericu je pokrenuo neki drugi zvuk: izostavi taj rezultat.'
       },
       explain: {
         en: 'A falling coin speeds up all the time: every second its speed grows by about 10 m/s. In the second half of the fall time it therefore covers much more distance than in the first half, and the height grows with the square of the time: h = g·t²/2. Twice the time means four times the height, and twice the height means only √2, about 1.4, times the time. Turned around, the formula gives g = 2h/t². The microphone reacts within thousandths of a second, while your thumb is late by about two tenths of a second, which is half of the whole fall.',
-        hr: 'Kovanica koja pada neprestano ubrzava: svake sekunde brzina joj poraste za oko 10 m/s. Zato u drugoj polovici vremena pada prijeđe mnogo veći put nego u prvoj, a visina raste s kvadratom vremena: h = g·t²/2. Dvostruko vrijeme znači četiri puta veću visinu, a dvostruka visina samo √2, oko 1,4 puta dulje vrijeme. Iz iste formule slijedi g = 2h/t². Mikrofon reagira za nekoliko tisućinki sekunde, a tvoj palac kasni oko dvije desetinke, što je polovica cijelog pada.'
+        hr: 'Kovanica koja pada neprestano ubrzava: svake sekunde brzina joj poraste za oko 10 m/s. Zato u drugoj polovici vremena pada prijeđe mnogo veći put nego u prvoj, a visina raste s kvadratom vremena: h = g·t²/2. Dvostruko dulje vrijeme znači četiri puta veću visinu, a dvostruko veća visina samo √2, tj. oko 1,4 puta dulje vrijeme. Iz iste formule slijedi g = 2h/t². Mikrofon reagira za nekoliko tisućinki sekunde, a tvoj palac kasni oko dvije desetinke, što je polovica cijelog pada.'
       },
       measure: {
         en: 'Change: the height of the fall (three heights). Measure: the time of the fall with the sound stopwatch, five times for each height. Keep the same: the coin, the way you knock the ruler away, a quiet room. Table: height, five times, mean time, g = 2h/t². How far is your mean g from 9.81 m/s²?',
@@ -1074,7 +1074,7 @@
           'Now the other way round: close a cold empty bottle tightly and hold it under the hot tap. Feel how hard it becomes.'
         ],
         hr: [
-          'Pusti vruću vodu da teče dok ne postane najtoplija što može biti. Napuni otprilike četvrtinu boce, držeći je za grlo.',
+          'Pusti vruću vodu iz slavine da teče dok ne postane što toplija. Napuni otprilike četvrtinu boce, držeći je za grlo.',
           'Pola minute kružno mućkaj vruću vodu u boci da se zrak u njoj zagrije, a zatim je izlij.',
           'Odmah zavrni čep što čvršće možeš.',
           'Drži zatvorenu bocu pod hladnom vodom ili je jednostavno ostavi nekoliko minuta na stolu. Gledaj i slušaj.',
@@ -1093,7 +1093,7 @@
       },
       observe: {
         en: 'Within half a minute the walls of the bottle buckle inwards with a crackling sound, as if an invisible hand were squeezing it. When you unscrew the cap, air hisses in and the bottle springs back into shape. The cold bottle under hot water becomes hard and tight.',
-        hr: 'Za pola minute stijenke boce uvuku se uz pucketanje, kao da je stišće nevidljiva ruka. Kad odvrneš čep, zrak uz šištanje uđe i boca se vrati u svoj oblik. Hladna boca pod vrućom vodom postane tvrda i napeta.'
+        hr: 'Unutar pola minute stijenke boce uvuku se uz pucketanje, kao da je stišće nevidljiva ruka. Kad odvrneš čep, zrak uz šištanje uđe i boca se vrati u svoj oblik. Hladna boca pod vrućom vodom postane tvrda i napeta.'
       },
       explain: {
         en: 'The particles of warm air move fast and hit the walls hard. After you close the bottle and cool it, the particles inside slow down and hit the walls more weakly, and some of the water vapour turns back into droplets, so the pressure inside drops. Nothing inside pulls the walls in. It is the outside air, pressing with about 10 N on every square centimetre, that pushes them in until the pressures are equal again. What we call suction is always a larger pressure pushing from the other side.',
@@ -1101,7 +1101,7 @@
       },
       safety: {
         en: 'Use hot tap water only, never boiling water. Hold the bottle by the neck and keep your hand out of the hot stream.',
-        hr: 'Koristi samo vruću vodu iz slavine, nikad kipuću. Drži bocu za grlo i pazi da ti ruka ne dođe pod vrući mlaz.'
+        hr: 'Upotrijebi samo vruću vodu iz slavine, nikad kipuću. Drži bocu za grlo i pazi da ti ruka ne dođe pod vrući mlaz.'
       },
       sim: 'gas'
     },
@@ -1132,12 +1132,12 @@
           'Test your barometer: on the days with the highest reported pressure, was the tip up or down? Finally warm the jar with your hands for a minute and watch the pointer.'
         ],
         hr: [
-          'Odreži grlo balona, a ostatak čvrsto napni preko otvora staklenke, kao kožu na bubnju. Učvrsti ga gumicom tako da zrak nigdje ne može izlaziti.',
+          'Odreži grlo balona, a ostatak čvrsto napni preko otvora staklenke, kao kožu na bubnju. Učvrsti ga gumicom tako da zrak nigdje ne može izaći.',
           'Jedan kraj slamke zalijepi selotejpom na sredinu napetog balona. Slamka treba ležati vodoravno i viriti daleko preko ruba staklenke: to je tvoja kazaljka.',
-          'Postavi staklenku uza zid, na mjesto sa stalnom temperaturom, daleko od sunca, radijatora i prozora. Iza vrha kazaljke pričvrsti karton na zid.',
+          'Postavi staklenku uza zid, na mjesto sa stalnom temperaturom, podalje od izravnog sunca, radijatora i prozora. Iza vrha kazaljke pričvrsti karton na zid.',
           'Označi kamo vrh danas pokazuje. Uz oznaku napiši datum i tlak zraka iz vremenske prognoze.',
           'Tjedan dana svaki dan u isto vrijeme napravi novu oznaku, uvijek s datumom i tlakom iz prognoze.',
-          'Provjeri svoj barometar: je li u dane s najvišim tlakom iz prognoze vrh bio gore ili dolje? Na kraju minutu grij staklenku dlanovima i promatraj kazaljku.'
+          'Provjeri svoj barometar: je li u dane s najvišim tlakom iz prognoze vrh kazaljke bio gore ili dolje? Na kraju minutu grij staklenku dlanovima i promatraj kazaljku.'
         ]
       },
       predict: {
@@ -1155,7 +1155,7 @@
       },
       explain: {
         en: 'When you sealed the jar you trapped air at the pressure of that day. If the pressure outside rises, the outside air pushes the balloon skin a little way into the jar, until the trapped air is squeezed to the same pressure. The middle of the skin sinks and, like a seesaw resting on the rim of the jar, the free end of the straw rises. When the outside pressure falls, the trapped air pushes the skin outwards and the pointer drops. Rising pressure usually brings settled, clear weather, and falling pressure brings clouds and rain. Warm air in the jar expands, so temperature can fool your barometer.',
-        hr: 'Kad si zatvorio staklenku, u njoj si zarobio zrak pri tlaku toga dana. Ako vanjski tlak poraste, vanjski zrak malo utisne balon u staklenku, sve dok se zarobljeni zrak ne stlači na isti tlak. Sredina balona se spusti, a slobodni kraj slamke podigne se, kao klackalica oslonjena na rub staklenke. Kad vanjski tlak padne, zarobljeni zrak izboči balon i kazaljka se spusti. Porast tlaka obično donosi stabilno i vedro vrijeme, a pad tlaka oblake i kišu. Topli zrak u staklenci širi se, pa temperatura može prevariti tvoj barometar.'
+        hr: 'Kad si zatvorio staklenku, u njoj si zarobio zrak pri tlaku toga dana. Ako vanjski tlak poraste, vanjski zrak malo utisne balon u staklenku, sve dok se zarobljeni zrak ne stlači na isti tlak. Sredina balona spusti se, a slobodni kraj slamke podigne se, kao na klackalici oslonjenoj na rub staklenke. Kad vanjski tlak padne, zarobljeni zrak izboči balon i kazaljka se spusti. Porast tlaka obično donosi stabilno i vedro vrijeme, a pad tlaka oblake i kišu. Topli zrak u staklenci širi se, pa temperatura može prevariti tvoj barometar.'
       },
       sim: 'hydraulics'
     },
@@ -1174,7 +1174,7 @@
       },
       materials: {
         en: ['a clear drinking straw', 'a glass of water', 'an empty glass', 'a few drops of juice or food colouring, so that the water is easier to see'],
-        hr: ['prozirna slamka', 'čaša vode', 'prazna čaša', 'nekoliko kapi soka ili jestive boje, da se voda bolje vidi']
+        hr: ['prozirna slamka', 'čaša vode', 'prazna čaša', 'nekoliko kapi soka ili prehrambene boje da se voda bolje vidi']
       },
       steps: {
         en: [
@@ -1186,10 +1186,10 @@
           'Fill the straw once more and lift your finger just a little, for a moment. Can you let the water out one drop at a time?'
         ],
         hr: [
-          'Uroni slamku u vodu, otvorenu na oba kraja. Usporedi razinu vode u slamci s razinom izvan nje.',
+          'Uroni u vodu slamku otvorenu na oba kraja. Usporedi razinu vode u slamci s razinom izvan nje.',
           'Čvrsto pritisni prst na gornji kraj i izvadi slamku iz vode. Istječe li voda?',
           'Drži slamku iznad prazne čaše i podigni prst.',
-          'Na taj način prenesi vodu iz pune čaše u praznu, deset punih slamki.',
+          'Na taj način deset puta prenesi punu slamku vode iz pune čaše u praznu.',
           'Sad najprije stavi prst na vrh, a tek onda gurni slamku u vodu. Koliko vode uđe?',
           'Još jednom napuni slamku i samo malo, na trenutak, odmakni prst. Možeš li ispuštati vodu kap po kap?'
         ]
@@ -1197,7 +1197,7 @@
       predict: {
         q: { en: 'You lift the straw out with your finger closing the top end. What does the water in it do?', hr: 'Izvadiš slamku držeći prst na gornjem kraju. Što učini voda u njoj?' },
         options: [
-          { en: 'It all runs out, because nothing holds it from below', hr: 'Sva isteče, jer je ništa ne drži odozdo' },
+          { en: 'It all runs out, because nothing holds it from below', hr: 'Sva isteče jer je ništa ne drži odozdo' },
           { en: 'It stays in the straw', hr: 'Ostane u slamci' },
           { en: 'About half of it runs out', hr: 'Otprilike polovica isteče' }
         ],
@@ -1209,7 +1209,7 @@
       },
       explain: {
         en: 'The water is not held by your finger and it is not sucked up: it is pushed up by the air below. The atmosphere presses on the open bottom end with about 10 N on every square centimetre. With the top closed, as soon as the water slips down by a hair, the small pocket of air under your finger expands and its pressure falls a little below the pressure outside. That small difference is enough to carry the weight of the water. Lift the finger, and the air presses equally from above and from below, so gravity wins. A medicine dropper and a laboratory pipette work in the same way.',
-        hr: 'Vodu ne drži tvoj prst niti je išta usisava: gura je zrak odozdo. Atmosfera pritišće otvoreni donji kraj silom od oko 10 N na svaki kvadratni centimetar. Kad je vrh zatvoren, čim voda sklizne za dlaku, mali džep zraka ispod prsta raširi se i tlak mu padne malo ispod vanjskog tlaka. Ta je mala razlika dovoljna da nosi težinu vode. Podigneš li prst, zrak pritišće jednako odozgo i odozdo, pa pobjeđuje sila teža. Kapaljka i laboratorijska pipeta rade na isti način.'
+        hr: 'Vodu ne drži tvoj prst niti je išta usisava: gura je zrak odozdo. Atmosfera pritišće otvoreni donji kraj silom od oko 10 N na svaki kvadratni centimetar. Kad je vrh zatvoren, čim voda sklizne za dlaku, ono malo zraka ispod prsta raširi se i tlak mu padne malo ispod vanjskog tlaka. Ta je mala razlika dovoljna da drži težinu vode. Podigneš li prst, zrak pritišće jednako odozgo i odozdo, pa pobjeđuje sila teža. Kapaljka i laboratorijska pipeta rade na isti način.'
       },
       sim: 'hydraulics'
     },
@@ -1221,14 +1221,14 @@
       level: 2,
       minutes: 15,
       outcome: 'B.7.5',
-      title: { en: 'A balloon on a bed of pins', hr: 'Balon na ležaju od čavlića' },
+      title: { en: 'A balloon on a bed of pins', hr: 'Balon na ležaju od pribadača' },
       question: {
         en: 'One drawing pin pops a balloon at once. What happens when you press the balloon onto fifty pins at the same time?',
-        hr: 'Jedan čavlić odmah probuši balon. Što se dogodi kad balon pritisneš na pedeset čavlića odjednom?'
+        hr: 'Jedna pribadača odmah probuši balon. Što se dogodi kad balon pritisneš na pedeset pribadača odjednom?'
       },
       materials: {
         en: ['2 or 3 balloons', 'about 50 identical drawing pins with flat heads', 'a tray or a large hardcover book as a base', 'a second book to press with'],
-        hr: ['2 ili 3 balona', 'oko 50 jednakih čavlića za ploču s plosnatom glavom', 'pladanj ili velika knjiga tvrdih korica kao podloga', 'druga knjiga za pritiskanje']
+        hr: ['2 ili 3 balona', 'oko 50 jednakih pribadača s plosnatom glavom', 'pladanj ili velika knjiga tvrdih korica kao podloga', 'druga knjiga za pritiskanje']
       },
       steps: {
         en: [
@@ -1240,34 +1240,34 @@
           'Take away half of the pins, then half again. With how few pins does the balloon still survive the same force?'
         ],
         hr: [
-          'Napuhni dva balona do srednje veličine, ne prenapeto, i zaveži ih.',
-          'Stavi jedan čavlić na podlogu, šiljkom prema gore. Položi balon na njega i polako pritišći knjigom. Uoči kako je mala sila dovoljna da balon pukne.',
-          'Složi oko 50 čavlića šiljkom prema gore u zbijen blok, glavu uz glavu, na primjer 5 redova po 10. Svi šiljci moraju biti na istoj visini.',
-          'Položi drugi balon na ležaj od čavlića i pritišći knjigom ravno dolje, polako i bez pomicanja u stranu.',
+          'Napuhni dva balona do srednje veličine, ne prejako, i zaveži ih.',
+          'Stavi jednu pribadaču na podlogu, šiljkom prema gore. Položi balon na nju i polako pritišći knjigom. Uoči kako je malena sila dovoljna da balon pukne.',
+          'Složi oko 50 pribadača šiljkom prema gore u zbijen blok, glavu uz glavu, na primjer 5 redova po 10. Svi šiljci moraju biti na istoj visini.',
+          'Položi drugi balon na ležaj od pribadača i pritišći knjigom ravno prema dolje, polako i bez pomicanja u stranu.',
           'Pritisni jače i usporedi sa silom pri kojoj je puknuo prvi balon.',
-          'Makni polovicu čavlića, pa još jednu polovicu. Uz koliko malo čavlića balon još izdrži istu silu?'
+          'Makni polovicu pribadača, a zatim polovicu preostalih. S koliko najmanje pribadača balon još izdrži istu silu?'
         ]
       },
       predict: {
-        q: { en: 'You press the balloon onto 50 pins instead of one. What happens?', hr: 'Balon pritisneš na 50 čavlića umjesto na jedan. Što se dogodi?' },
+        q: { en: 'You press the balloon onto 50 pins instead of one. What happens?', hr: 'Balon pritisneš na 50 pribadača umjesto na jednu. Što se dogodi?' },
         options: [
           { en: 'It pops even sooner: fifty points are worse than one', hr: 'Pukne još prije: pedeset šiljaka gore je od jednoga' },
           { en: 'It pops just as easily as before', hr: 'Pukne jednako lako kao i prije' },
-          { en: 'It survives a much stronger push', hr: 'Izdrži mnogo jače pritiskanje' }
+          { en: 'It survives a much stronger push', hr: 'Izdrži mnogo jaču silu' }
         ],
         answer: 2
       },
       observe: {
         en: 'On a single pin the balloon bursts after a light push. On the bed of pins you can lean on the book quite hard: the balloon flattens and small dimples appear, but it does not burst. If one pin stands higher than the others, it can still pop the balloon, so check that they are all level.',
-        hr: 'Na jednom čavliću balon pukne već nakon laganog pritiskanja. Na ležaju od čavlića možeš se na knjigu prilično jako nasloniti: balon se spljošti i na njemu se pojave male udubine, ali ne pukne. Ako jedan čavlić strši više od ostalih, i dalje može probušiti balon, zato provjeri jesu li svi u ravnini.'
+        hr: 'Na jednoj pribadači balon pukne već pri laganom pritiskanju. Na ležaju od pribadača možeš se na knjigu prilično jako nasloniti: balon se spljošti i na njemu se pojave male udubine, ali ne pukne. Ako jedna pribadača strši više od ostalih, i dalje može probušiti balon, zato provjeri jesu li sve u ravnini.'
       },
       explain: {
         en: 'What breaks the rubber is not the force alone but the pressure: the force divided by the area it acts on, p = F/A. The point of a pin has a tiny area, so even a small force gives an enormous pressure. On fifty pins the same push is shared among fifty points. Each point gets only one fiftieth of the force, so the pressure under it is fifty times smaller, too small to pierce the rubber. The same idea explains why snowshoes keep you from sinking into snow and why a knife has to be sharp to cut well.',
-        hr: 'Gumu ne probija sama sila, nego tlak: sila podijeljena površinom na koju djeluje, p = F/A. Šiljak čavlića ima sićušnu površinu, pa već mala sila daje golem tlak. Na pedeset čavlića ista se sila raspodijeli na pedeset šiljaka. Svaki šiljak dobije samo pedeseti dio sile, pa je tlak pod njim pedeset puta manji, premalen da probije gumu. Ista ideja objašnjava zašto krplje ne daju da propadneš u snijeg i zašto nož mora biti oštar da bi dobro rezao.'
+        hr: 'Gumu ne probija sama sila, nego tlak: sila podijeljena površinom na koju djeluje, p = F/A. Šiljak pribadače ima sićušnu površinu, pa već mala sila daje golem tlak. Na pedeset pribadača ista se sila raspodijeli na pedeset šiljaka. Svaki šiljak dobije samo pedeseti dio sile, pa je tlak pod njim pedeset puta manji, premalen da probije gumu. Ista ideja objašnjava zašto krplje ne daju da propadneš u snijeg i zašto nož mora biti oštar da bi dobro rezao.'
       },
       safety: {
         en: 'The bang is loud: keep the balloon away from your face and warn the others in the room. Drawing pins are sharp, so count them before and after and never leave one on the floor.',
-        hr: 'Prasak je glasan: drži balon dalje od lica i upozori ostale u sobi. Čavlići su oštri, zato ih prebroji prije i poslije i nijedan ne ostavljaj na podu.'
+        hr: 'Prasak je glasan: drži balon dalje od lica i upozori ostale u sobi. Pribadače su oštre, zato ih prebroji prije i poslije i nijednu ne ostavljaj na podu.'
       },
       sim: 'pressure'
     },
@@ -1287,7 +1287,7 @@
       },
       materials: {
         en: ['a 30 cm ruler', 'a pencil with flat sides', 'sticky tape', 'three 1 euro coins (7.5 g each)', 'a small object of 10 to 30 g: an eraser, a key or a glue stick', 'a kitchen scale for checking at the end', 'paper and a calculator'],
-        hr: ['ravnalo od 30 cm', 'olovka s bridovima', 'selotejp', 'tri kovanice od 1 eura (svaka ima 7,5 g)', 'mali predmet mase 10 do 30 g: gumica za brisanje, ključ ili ljepilo u stiku', 'kuhinjska vaga za provjeru na kraju', 'papir i kalkulator']
+        hr: ['ravnalo od 30 cm', 'šesterokutna olovka (s plosnatim stranama)', 'selotejp', 'tri kovanice od 1 eura (svaka ima 7,5 g)', 'mali predmet mase 10 do 30 g: gumica za brisanje, ključ ili ljepilo u stiku', 'kuhinjska vaga za provjeru na kraju', 'papir i kalkulator']
       },
       steps: {
         en: [
@@ -1299,7 +1299,7 @@
           'Work out the mean of the three results and check it on the kitchen scale.'
         ],
         hr: [
-          'Zalijepi olovku za stol i preko nje uravnoteži prazno ravnalo. Zapamti oznaku na kojoj je u ravnoteži, blizu 15 cm: to je oslonac, i ravnalo ondje ostaje tijekom svih mjerenja.',
+          'Zalijepi olovku za stol i preko nje uravnoteži prazno ravnalo. Zabilježi oznaku pri kojoj je ravnalo u ravnoteži, blizu 15 cm: to je oslonac i ravnalo ondje ostaje tijekom svih mjerenja.',
           'Stavi predmet na ravnalo tako da mu je sredina točno 5 cm od oslonca.',
           'Na drugoj strani pomiči jednu kovanicu dok ravnalo ne bude u ravnoteži. Očitaj udaljenost od oslonca do sredine kovanice. Ako ni kraj ravnala nije dovoljno daleko, premjesti predmet na 3 cm i počni iznova.',
           'Izračunaj: masa predmeta = masa kovanica × udaljenost kovanica / udaljenost predmeta.',
@@ -1318,11 +1318,11 @@
       },
       observe: {
         en: 'The lighter side has to sit farther out. One coin balances far from the fulcrum, two coins at half that distance and three at a third of it. All three calculations give nearly the same mass, usually within a gram or two of what the kitchen scale shows.',
-        hr: 'Lakša strana mora biti dalje od oslonca. Jedna je kovanica u ravnoteži daleko od oslonca, dvije na polovici te udaljenosti, a tri na trećini. Sva tri računa daju gotovo istu masu, obično unutar grama ili dva od onoga što pokaže kuhinjska vaga.'
+        hr: 'Lakša strana mora biti dalje od oslonca. Jedna je kovanica u ravnoteži daleko od oslonca, dvije na polovici te udaljenosti, a tri na trećini. Sva tri računa daju gotovo istu masu, koja se od onoga što pokaže kuhinjska vaga obično razlikuje najviše za gram-dva.'
       },
       explain: {
         en: 'A lever is balanced when force times arm is the same on both sides. Weight is proportional to mass, so you can write mass × distance on one side equals mass × distance on the other, and the only unknown is the mass of the object. A balanced lever therefore does not mean equal masses: it means equal products. The closer the object is to the fulcrum, the farther out the coin has to go. Balancing the empty ruler first takes the weight of the ruler itself out of the calculation. Old market scales with a sliding weight work in exactly this way.',
-        hr: 'Poluga je u ravnoteži kad je umnožak sile i kraka jednak na obje strane. Težina je razmjerna masi, pa možeš pisati da je masa × udaljenost na jednoj strani jednako masa × udaljenost na drugoj, a jedina je nepoznanica masa predmeta. Poluga u ravnoteži zato ne znači jednake mase, nego jednake umnoške. Što je predmet bliže osloncu, to kovanica mora biti dalje. Time što najprije uravnotežiš prazno ravnalo, iz računa izbacuješ težinu samog ravnala. Stare tržne vage s pomičnim utegom, kantari, rade upravo tako.'
+        hr: 'Poluga je u ravnoteži kad je umnožak sile i kraka jednak na obje strane. Težina je razmjerna masi, pa možeš pisati: masa × udaljenost na jednoj strani jednako je masa × udaljenost na drugoj, a jedina je nepoznanica masa predmeta. Poluga u ravnoteži zato ne znači jednake mase, nego jednake umnoške. Što je predmet bliže osloncu, to kovanica mora biti dalje. Time što najprije uravnotežiš prazno ravnalo, iz računa izbacuješ težinu samog ravnala. Stare vage s pomičnim utegom (kantari) rade upravo tako.'
       },
       measure: {
         en: 'Change: the number of coins (1, 2, 3). Measure: the distance from the fulcrum to the middle of the coins when the ruler balances. Keep the same: the object, its distance from the fulcrum, the position of the ruler on the pencil. Table: number of coins, their mass, their distance, calculated mass of the object. Work out the mean and compare it with the kitchen scale.',
@@ -1359,7 +1359,7 @@
         hr: [
           'Dvoje pomoćnika stane jedno nasuprot drugome, na udaljenosti od oko jednog metra. Svatko drži dršku vodoravno ispred tijela, s rukama široko razmaknutima.',
           'Zaveži jedan kraj užeta za jednu dršku. Namotaj uže naprijed-natrag oko obiju drški, između ruku pomoćnika, sve dok između drški ne budu četiri dijela užeta.',
-          'Pomoćnici pokušavaju držati drške razmaknute. Ti vuci slobodni kraj užeta, ravnomjerno i bez trzanja.',
+          'Pomoćnici pokušavaju držati drške razmaknute. Ti vuci slobodni kraj užeta, jednoliko i bez trzanja.',
           'Uoči koliko ti užeta prođe kroz ruke dok se drške pomaknu tek malo.',
           'Ponovi s užetom namotanim samo jednom, tako da su između drški samo dva dijela užeta, pa usporedi.',
           'Zamijenite uloge, da svatko osjeti obje strane.'
@@ -1376,15 +1376,15 @@
       },
       observe: {
         en: 'You pull the sticks together quite easily, however hard the helpers resist. But you have to pull a lot of rope: with four strands about four times as much as the distance the sticks move. With the rope wound round only once it is much harder.',
-        hr: 'Drške privučeš prilično lako, koliko god se pomoćnici opirali. Ali moraš povući mnogo užeta: uz četiri dijela užeta oko četiri puta više nego što se drške pomaknu. S užetom namotanim samo jednom mnogo je teže.'
+        hr: 'Drške prilično lako privučeš jednu drugoj, koliko god se pomoćnici opirali. Ali moraš povući mnogo užeta: uz četiri dijela užeta oko četiri puta više nego što se drške pomaknu. S užetom namotanim samo jednom mnogo je teže.'
       },
       explain: {
         en: 'The sticks and the rope work like a set of pulleys. The same tension runs along the whole rope, and every strand between the sticks pulls them together with that force. With four strands your pull acts four times over, minus what the friction between rope and wood takes away. Nothing comes for free, though: to bring the sticks 10 cm closer you have to pull about 40 cm of rope. You gain force and lose distance, and the work stays the same. This is the golden rule of mechanics, and cranes and sailing boats use it every day.',
-        hr: 'Drške i uže djeluju kao koloturnik. Duž cijelog užeta napetost je jednaka i svaki dio užeta između drški privlači ih tom silom. Uz četiri dijela užeta tvoja sila djeluje četiri puta, umanjeno za ono što odnese trenje između užeta i drveta. Ipak, ništa nije besplatno: da drške približiš za 10 cm, moraš povući oko 40 cm užeta. Dobivaš na sili, a gubiš na putu, dok rad ostaje isti. To je zlatno pravilo mehanike, a dizalice i jedrilice njime se služe svaki dan.'
+        hr: 'Drške i uže djeluju kao koloturnik. Duž cijelog užeta napetost je jednaka i svaki dio užeta između drški privlači ih tom silom. Uz četiri dijela užeta tvoja sila djeluje četiri puta, pa je ukupna sila gotovo četiri puta veća (nešto manja zbog trenja između užeta i drveta). Ipak, ništa nije besplatno: da drške približiš za 10 cm, moraš povući oko 40 cm užeta. Dobivaš na sili, a gubiš na putu, dok rad ostaje isti. To je zlatno pravilo mehanike, a dizalice i jedrilice njime se služe svaki dan.'
       },
       safety: {
         en: 'Pull steadily, never with a jerk, and warn the helpers before you start. Nobody may put fingers between the sticks or wrap the rope around a hand.',
-        hr: 'Vuci ravnomjerno, nikad naglo, i upozori pomoćnike prije nego što počneš. Nitko ne smije stavljati prste između drški ni omatati uže oko šake.'
+        hr: 'Vuci jednoliko, nikad naglo, i upozori pomoćnike prije nego što počneš. Nitko ne smije stavljati prste između drški ni omatati uže oko šake.'
       },
       sim: 'pulleys'
     },
@@ -1417,7 +1417,7 @@
         hr: [
           'Izreži iz kartona tri mala oblika. Na prvi pričvrsti 1 spajalicu, na drugi 2, a na treći 3 te za svaki oblik zaveži oko 15 cm konca.',
           'Počni odozdo. Oblik s 1 spajalicom objesi na jedan kraj slamke, a oblik s 2 spajalice na drugi kraj i učvrsti konce selotejpom.',
-          'Oko te slamke zaveži omču od konca. Drži slamku za omču i pomiči je dok slamka ne stane vodoravno. Učvrsti omču komadićem selotejpa.',
+          'Oko te slamke zaveži omču od konca. Drži slamku za omču i pomiči omču duž slamke dok slamka ne bude vodoravna. Učvrsti omču komadićem selotejpa.',
           'Cijelu tu prečku objesi na jedan kraj druge slamke, a na njezin drugi kraj oblik s 3 spajalice.',
           'Na isti način pronađi točku ravnoteže gornje slamke i objesi mobil na dovratak.',
           'Provjeri ga: lagano puhni u njega. Dobro napravljen mobil okreće se i njiše, ali se uvijek vrati u vodoravan položaj. Ako želiš, dodaj i treći kat.'
@@ -1458,7 +1458,7 @@
       },
       materials: {
         en: ['a tennis ball or another bouncy ball', 'a tape measure', 'sticky tape', 'a wall and a hard floor', 'a helper or a phone that films in slow motion', 'a carpet or a doormat', 'paper and a pencil'],
-        hr: ['teniska loptica ili neka druga skočna loptica', 'mjerna vrpca', 'selotejp', 'zid i tvrd pod', 'pomoćnik ili mobitel koji snima usporeno', 'tepih ili otirač', 'papir i olovka']
+        hr: ['teniska loptica ili neka druga loptica koja dobro odskače', 'mjerna vrpca', 'selotejp', 'zid i tvrd pod', 'pomoćnik ili mobitel koji snima usporeno', 'tepih ili otirač', 'papir i olovka']
       },
       steps: {
         en: [
@@ -1471,15 +1471,15 @@
         ],
         hr: [
           'Zalijepi mjernu vrpcu okomito na zid, s nulom na podu.',
-          'Drži lopticu tako da joj je najniža točka na oznaci 50 cm i pusti je bez bacanja. Pomoćnik gleda s očima u visini odskoka i očitava najvišu točku do koje dođe dno loptice. Još je bolja usporena snimka.',
+          'Drži lopticu tako da joj je najniža točka na oznaci 50 cm i pusti je bez bacanja. Pomoćnik drži oči u visini odskoka i očitava najvišu točku do koje dođe dno loptice. Još je bolja usporena snimka.',
           'Ponovi tri puta i izračunaj srednju vrijednost.',
-          'Isto napravi sa 100 cm i sa 150 cm.',
+          'Isto ponovi s visine od 100 cm i od 150 cm.',
           'Za svaku početnu visinu izračunaj omjer: visinu odskoka podijeli početnom visinom.',
           'Promijeni podlogu: pusti lopticu sa 100 cm na tepih, tri puta, pa usporedi.'
         ]
       },
       predict: {
-        q: { en: 'Dropped from 50 cm, your ball bounces back to 30 cm. How high will it bounce from 100 cm?', hr: 'Ispuštena s 50 cm, tvoja loptica odskoči do 30 cm. Koliko će visoko odskočiti sa 100 cm?' },
+        q: { en: 'Dropped from 50 cm, your ball bounces back to 30 cm. How high will it bounce from 100 cm?', hr: 'Tvoja loptica ispuštena s 50 cm odskoči do 30 cm. Koliko će visoko odskočiti kad je ispustiš sa 100 cm?' },
         options: [
           { en: 'To about 60 cm: the same share as before', hr: 'Do oko 60 cm: isti udio kao i prije' },
           { en: 'To about 80 cm: it loses the same 20 cm', hr: 'Do oko 80 cm: izgubi istih 20 cm' },
@@ -1489,15 +1489,15 @@
       },
       observe: {
         en: 'The ball never returns to the height from which it started. A tennis ball comes back to a little more than half of the drop height, a rubber bouncy ball to about four fifths. The ratio of bounce height to drop height is nearly the same for all three heights. On the carpet the bounce is clearly lower.',
-        hr: 'Loptica se nikad ne vrati na visinu s koje je krenula. Teniska loptica vrati se na nešto više od polovice početne visine, a gumena skočna loptica na oko četiri petine. Omjer visine odskoka i početne visine gotovo je jednak za sve tri visine. Na tepihu je odskok jasno niži.'
+        hr: 'Loptica se nikad ne vrati na visinu s koje je krenula. Teniska loptica vrati se na nešto više od polovice početne visine, a mala loptica od tvrde gume na oko četiri petine. Omjer visine odskoka i početne visine gotovo je jednak za sve tri visine. Na tepihu je odskok osjetno niži.'
       },
       explain: {
         en: 'At the top the ball has gravitational potential energy, which depends on height. During the fall this turns into kinetic energy. On the floor the ball is squashed for an instant and the energy is stored as elastic energy, which then turns back into motion and height. At every bounce a part of the energy is converted into internal energy, because the ball and the floor warm up a little, and into sound, so the ball cannot reach its starting height. Since potential energy is proportional to height, the ratio of the heights tells you what share of the energy the ball kept. The energy is not lost: it has only changed into forms that cannot lift the ball.',
-        hr: 'Na vrhu loptica ima gravitacijsku potencijalnu energiju, koja ovisi o visini. Tijekom pada ona se pretvara u kinetičku energiju. Na podu se loptica na trenutak spljošti i energija se pohrani kao elastična energija, koja se zatim ponovno pretvara u gibanje i visinu. Pri svakom odskoku dio energije prijeđe u unutarnju energiju, jer se loptica i pod malo zagriju, i u zvuk, pa loptica ne može dosegnuti početnu visinu. Budući da je potencijalna energija razmjerna visini, omjer visina govori koliki je dio energije loptica zadržala. Energija nije izgubljena: samo je prešla u oblike koji lopticu ne mogu podići.'
+        hr: 'Na najvišoj točki loptica ima gravitacijsku potencijalnu energiju, koja ovisi o visini. Tijekom pada ona se pretvara u kinetičku energiju. Na podu se loptica na trenutak spljošti i energija se pohrani kao elastična potencijalna energija, koja se zatim ponovno pretvara u kinetičku, a potom u gravitacijsku potencijalnu energiju. Pri svakom odskoku dio energije prijeđe u unutarnju energiju (loptica i pod malo se zagriju) i u zvuk, pa loptica ne može dosegnuti početnu visinu. Budući da je potencijalna energija razmjerna visini, omjer visina govori koliki je dio energije loptica zadržala. Energija nije izgubljena: samo je prešla u oblike koji lopticu ne mogu podići.'
       },
       measure: {
         en: 'Change: the drop height (50, 100, 150 cm). Measure: the bounce height, three times for each, reading the bottom of the ball. Keep the same: the ball, the floor, letting go without a push. Table: drop height, three bounce heights, mean, ratio. Plot bounce height against drop height (the FizLab data tool draws the best-fit line): the slope is the share of energy the ball keeps.',
-        hr: 'Mijenjaš: početnu visinu (50, 100, 150 cm). Mjeriš: visinu odskoka, tri puta za svaku, očitavajući dno loptice. Ne mijenjaš: lopticu, podlogu, puštanje bez guranja. Tablica: početna visina, tri visine odskoka, srednja vrijednost, omjer. Nacrtaj visinu odskoka u ovisnosti o početnoj visini (FizLabov alat za podatke povući će pravac): nagib je udio energije koji loptica zadrži.'
+        hr: 'Mijenjaš: početnu visinu (50, 100, 150 cm). Mjeriš: visinu odskoka, tri puta za svaku, očitavajući dno loptice. Ne mijenjaš: lopticu, podlogu, puštanje bez guranja. Tablica: početna visina, tri visine odskoka, srednja vrijednost, omjer. Nacrtaj graf ovisnosti visine odskoka o početnoj visini (alat Tablica i graf povući će pravac): nagib je udio energije koji loptica zadrži.'
       },
       tool: 'datalab',
       sim: 'energybars'
@@ -1513,11 +1513,11 @@
       title: { en: 'The can that rolls back by itself', hr: 'Limenka koja se sama vraća' },
       question: {
         en: 'Can you build a can that stops and rolls back to you after you have pushed it away?',
-        hr: 'Možeš li napraviti limenku koja stane i otkotrlja se natrag k tebi nakon što je odgurneš?'
+        hr: 'Možeš li izraditi limenku koja stane i otkotrlja se natrag k tebi nakon što je odgurneš?'
       },
       materials: {
         en: ['a tube-shaped box with a plastic lid, for example a crisp tube or a cocoa tin', 'a long rubber band (or two looped together)', 'a heavy weight: a large metal nut or five coins taped together', 'a short piece of string', 'two paper clips', 'sticky tape', 'a nail for making the holes (an adult does this)'],
-        hr: ['valjkasta kutija s plastičnim poklopcem, na primjer tuba od čipsa ili kutija od kakaa', 'duga gumica (ili dvije povezane u jednu)', 'težak uteg: velika matica ili pet kovanica slijepljenih selotejpom', 'kratak komad špage', 'dvije spajalice', 'selotejp', 'čavao za bušenje rupa (to radi odrasla osoba)']
+        hr: ['valjkasta kutija s plastičnim poklopcem, na primjer tuba od čipsa ili kutija od kakaa', 'duga gumica (ili dvije povezane u jednu)', 'težak uteg: velika matica ili pet kovanica slijepljenih selotejpom', 'kratak komad uzice', 'dvije spajalice', 'selotejp', 'čavao za bušenje rupa (to radi odrasla osoba)']
       },
       steps: {
         en: [
@@ -1530,10 +1530,10 @@
         ],
         hr: [
           'Zamoli odraslu osobu da u sredini dna i u sredini poklopca probuši rupu široku oko 5 mm.',
-          'Špagom zaveži uteg za sredinu gumice tako da visi 1 do 2 cm ispod nje.',
+          'Uzicom zaveži uteg za sredinu gumice tako da visi 1 do 2 cm ispod nje.',
           'Jedan kraj gumice provuci iznutra kroz rupu na dnu. Izvana kroz omču provuci spajalicu i zalijepi je selotejpom uz dno.',
           'Drugi kraj provuci kroz rupu na poklopcu, zatvori poklopac i tu omču učvrsti drugom spajalicom. Gumica treba biti lagano napeta, a uteg mora slobodno visjeti i ne dodirivati stijenku.',
-          'Položi limenku na gladak, vodoravan pod i lagano je otkotrljaj od sebe. Promatraj što radi.',
+          'Položi limenku na gladak, vodoravan pod i lagano je otkotrljaj od sebe. Promatraj što se događa.',
           'Ispitaj je i poboljšaj: koliko je daleko možeš otkotrljati, a da se još vrati do kraja? Ako se ne vraća, uteg je prelagan i vrti se zajedno s gumicom ili struže o stijenku.'
         ]
       },
@@ -1548,11 +1548,11 @@
       },
       observe: {
         en: 'The can slows down sooner than an empty can would, stops for a moment and then rolls back towards you. Often it overshoots and goes back and forth a few times before it comes to rest.',
-        hr: 'Limenka uspori prije nego što bi usporila prazna, na trenutak stane, a zatim se otkotrlja natrag prema tebi. Često te i prijeđe pa se nekoliko puta zakotrlja naprijed-natrag prije nego što se smiri.'
+        hr: 'Limenka uspori brže nego što bi usporila prazna limenka, na trenutak stane, a zatim se otkotrlja natrag prema tebi. Često prijeđe i preko početnog položaja pa se nekoliko puta zakotrlja naprijed-natrag prije nego što se smiri.'
       },
       explain: {
         en: 'Your push gives the can kinetic energy. Inside, the weight keeps hanging straight down while the can turns around it, so the rubber band is twisted. Twisting the band takes work: the kinetic energy of the can is stored as elastic potential energy in the band. When the can stops, all that energy is in the twisted band, which now untwists and turns the can the other way, so elastic energy becomes kinetic energy again. Each time a little energy is turned into heat by friction, so every trip is shorter. A wind-up toy stores energy in its spring in the same way.',
-        hr: 'Guranjem daješ limenci kinetičku energiju. Unutra uteg stalno visi ravno dolje dok se limenka okreće oko njega, pa se gumica uvija. Za uvijanje gumice potreban je rad: kinetička energija limenke pohranjuje se kao elastična potencijalna energija gumice. Kad limenka stane, sva je ta energija u uvijenoj gumici, koja se sada odvija i okreće limenku u suprotnom smjeru, pa elastična energija ponovno postaje kinetička. Svaki put trenje pretvori malo energije u toplinu, pa je svaki put kraći. Igračka na navijanje na isti način sprema energiju u svojoj opruzi.'
+        hr: 'Guranjem daješ limenci kinetičku energiju. Unutra uteg stalno visi ravno dolje dok se limenka okreće oko njega, pa se gumica uvija. Za uvijanje gumice potreban je rad: kinetička energija limenke pohranjuje se kao elastična potencijalna energija gumice. Kad limenka stane, sva je ta energija u uvijenoj gumici, koja se sada odvija i okreće limenku u suprotnom smjeru, pa elastična energija ponovno postaje kinetička. Svaki put trenje pretvori malo energije u toplinu, pa je svako sljedeće kotrljanje kraće. Igračka na navijanje na isti način sprema energiju u svojoj opruzi.'
       },
       safety: {
         en: 'Let an adult make the holes. Keep your face away from the rubber band while you thread it: it can snap back.',
@@ -1575,7 +1575,7 @@
       },
       materials: {
         en: ['thin card from cereal boxes (or a piece of foam pipe insulation cut in half lengthways)', 'scissors', 'sticky tape', 'a marble', 'books and a small box as supports', 'a ruler', 'a cup to catch the marble'],
-        hr: ['tanki karton od kutija žitarica (ili komad spužvaste izolacije za cijevi prerezan po duljini)', 'škare', 'selotejp', 'staklena kuglica (špekula)', 'knjige i mala kutija kao potpornji', 'ravnalo', 'čaša u koju će kuglica upasti']
+        hr: ['tanki karton od kutija žitnih pahuljica (ili komad spužvaste izolacije za cijevi prerezan po duljini)', 'škare', 'selotejp', 'staklena kuglica (kliker)', 'knjige i mala kutija kao potpornji', 'ravnalo', 'čaša u koju će kuglica upasti']
       },
       steps: {
         en: [
@@ -1587,11 +1587,11 @@
           'Now make the hill 15 cm high. Predict the new starting height first, then test it. Can you add a second hill that is higher than the first?'
         ],
         hr: [
-          'Izreži trake kartona široke 7 cm i uz svaki dulji rub presavij 2 cm prema gore, tako da dobiješ žlijeb sa stijenkama. Selotejpom spoji trake u stazu dugu oko 1,5 m. Ondje gdje se staza mora savijati zareži stijenke svaka 2 cm.',
-          'Početak staze zalijepi na hrpu knjiga visoku oko 30 cm. Povedi stazu dolje do stola, zatim preko brijega visokog 10 cm napravljenog od male kutije, pa opet dolje u čašu.',
+          'Izreži trake kartona široke 7 cm i uz svaki dulji rub presavij 2 cm prema gore, tako da dobiješ žlijeb sa stijenkama. Selotejpom spoji trake u stazu dugu oko 1,5 m. Ondje gdje se staza mora savijati, zareži stijenke svaka 2 cm.',
+          'Početak staze zalijepi na hrpu knjiga visoku oko 30 cm. Spusti stazu do stola, zatim je provedi preko brijega visokog 10 cm (od male kutije) i opet dolje do čaše.',
           'Pusti kuglicu, bez guranja, s mjesta koje je 5 cm iznad stola. Prijeđe li brijeg?',
-          'Pomiči početnu točku naviše u koracima od 2 cm sve dok kuglica jedva ne prijeđe brijeg. Izmjeri tu visinu iznad stola i provjeri je tri puta.',
-          'Usporedi najmanju početnu visinu koja uspijeva s visinom brijega.',
+          'Podiži početnu točku za po 2 cm sve dok kuglica ne prijeđe brijeg, makar i jedva. Izmjeri tu visinu iznad stola i provjeri je tri puta.',
+          'Usporedi najmanju početnu visinu pri kojoj kuglica prijeđe brijeg s visinom brijega.',
           'Sad napravi brijeg visok 15 cm. Najprije predvidi novu početnu visinu, a zatim je provjeri. Možeš li dodati drugi brijeg koji je viši od prvoga?'
         ]
       },
@@ -1606,11 +1606,11 @@
       },
       observe: {
         en: 'Starting lower than the top of the hill, the marble never gets over: it climbs, stops below the top and rolls back. It clears the hill only from a start a few centimetres higher than the hill, typically 12 to 15 cm for a hill of 10 cm. How steep the start is hardly matters; what counts is how high it is.',
-        hr: 'Kad krene s visine manje od vrha brijega, kuglica ga nikad ne prijeđe: popne se, stane ispod vrha i otkotrlja se natrag. Brijeg prijeđe tek kad krene nekoliko centimetara više od njega, obično s 12 do 15 cm za brijeg od 10 cm. Strmina početka gotovo da i nije važna; važna je visina.'
+        hr: 'Kad krene s visine niže od vrha brijega, kuglica ga nikad ne prijeđe: popne se, stane ispod vrha i otkotrlja se natrag. Brijeg prijeđe tek kad krene s nekoliko centimetara veće visine, obično s 12 do 15 cm za brijeg od 10 cm. Strmina početka gotovo da i nije važna; važna je visina.'
       },
       explain: {
         en: 'At the start the marble has gravitational potential energy, which depends only on height. On the way down it turns into kinetic energy, and on the way up the hill it turns back into potential energy. If nothing were lost, the marble would climb exactly to the height from which it started, whatever the shape of the track. But friction and the bumps at the joins turn part of the energy into heat and sound, so the marble needs some extra height to pay for these losses. That is why the first hill of a roller coaster is always the highest.',
-        hr: 'Na početku kuglica ima gravitacijsku potencijalnu energiju, koja ovisi samo o visini. Na putu prema dolje ona se pretvara u kinetičku energiju, a na usponu uz brijeg ponovno u potencijalnu. Kad se ništa ne bi gubilo, kuglica bi se popela točno na visinu s koje je krenula, kakav god bio oblik staze. No trenje i neravnine na spojevima pretvaraju dio energije u toplinu i zvuk, pa kuglici treba nešto dodatne visine da pokrije te gubitke. Zato je prvi brijeg vlaka smrti uvijek najviši.'
+        hr: 'Na početku kuglica ima gravitacijsku potencijalnu energiju, koja ovisi samo o visini. Na putu prema dolje ona se pretvara u kinetičku energiju, a na usponu uz brijeg ponovno u potencijalnu. Kad se energija ne bi gubila, kuglica bi se popela točno na visinu s koje je krenula, kakav god bio oblik staze. No trenje i neravnine na spojevima pretvaraju dio energije u toplinu i zvuk, pa kuglici treba malo dodatne visine da pokrije te gubitke. Zato je prvi brijeg vlaka smrti uvijek najviši.'
       },
       safety: {
         en: 'Cut the card carefully, and pick the marble up from the floor so that nobody slips on it.',

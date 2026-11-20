@@ -57,12 +57,12 @@
     title: { en: 'Energy Skate Park', hr: 'Energija na rampi' },
     summary: {
       en: 'Drag the skater onto the track and watch potential energy turn into kinetic energy. Add friction and see where the energy goes.',
-      hr: 'Povuci skejtera na stazu i gledaj kako se potencijalna energija pretvara u kinetičku. Dodaj trenje i vidi kamo odlazi energija.'
+      hr: 'Povuci skejtera na stazu i gledaj kako se potencijalna energija pretvara u kinetičku. Dodaj trenje i pogledaj kamo odlazi energija.'
     },
     tasks: [
-      { en: 'Place the skater high on the half-pipe with no friction. How high does it get on the other side?', hr: 'Postavi skejtera visoko na U-rampu bez trenja. Koliko visoko stigne na drugoj strani?' },
-      { en: 'Read the speed at the lowest point. Check: ½·m·v² should equal the potential energy you started with.', hr: 'Pročitaj brzinu u najnižoj točki. Provjeri: ½·m·v² treba biti jednako početnoj potencijalnoj energiji.' },
-      { en: 'Turn friction up. Watch the thermal bar grow — the total stays the same!', hr: 'Pojačaj trenje. Gledaj kako raste stupac unutarnje energije – ukupna ostaje ista!' },
+      { en: 'Place the skater high on the half-pipe with no friction. How high does it get on the other side?', hr: 'Postavi skejtera visoko na U-rampu bez trenja. Do koje se visine popne na drugoj strani?' },
+      { en: 'Read the speed at the lowest point. Check: ½·m·v² should equal the potential energy you started with.', hr: 'Očitaj brzinu u najnižoj točki. Provjeri: ½·m·v² treba biti jednako početnoj potencijalnoj energiji.' },
+      { en: 'Turn friction up. Watch the thermal bar grow — the total stays the same!', hr: 'Povećaj trenje. Promatraj kako raste stupac unutarnje energije – ukupna energija ostaje ista!' },
       { en: 'Change the mass. Do the energies change? Does the motion change?', hr: 'Promijeni masu. Mijenjaju li se energije? Mijenja li se gibanje?' }
     ],
     mount(container, ctx) {
@@ -81,7 +81,7 @@
       const slM = C.slider({ label: { en: 'Mass', hr: 'Masa' }, min: 20, max: 80, step: 5, value: 50, unit: 'kg', digits: 0,
         onChange: v => { const r = v / st.m; st.E *= r; st.Eth *= r; st.m = v; } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => { reset(); } });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => { reset(); } });
       const tgBars = C.toggle({ label: { en: 'Show energy bars', hr: 'Prikaži stupce energije' }, value: true, onChange: v => { st.showBars = v; } });
       const outH = C.readout({ label: { en: 'Height', hr: 'Visina' }, unit: 'm', digits: 2 });
       const outV = C.readout({ label: { en: 'Speed', hr: 'Brzina' }, unit: 'm/s', digits: 1 });

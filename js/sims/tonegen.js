@@ -6,7 +6,7 @@
   const V_SOUND = 340, F_MIN = 20, F_MAX = 20000, MAX_GAIN = 0.2;
   const MODES = [
     { value: 'one', label: { en: 'One tone', hr: 'Jedan ton' } },
-    { value: 'range', label: { en: 'Hearing range', hr: 'Raspon sluha' } },
+    { value: 'range', label: { en: 'Hearing range', hr: 'Područje čujnosti' } },
     { value: 'beats', label: { en: 'Two tones: beats', hr: 'Dva tona: udari' } },
     { value: 'scale', label: { en: 'Scale', hr: 'Ljestvica' } }
   ];
@@ -22,10 +22,10 @@
   const SCALE = [0, 2, 4, 5, 7, 9, 11, 12].map(s => ({ semi: s - 9, f: 440 * Math.pow(2, (s - 9) / 12) }));   // C4 … C5 with A4 = 440 Hz
   const NAMES = { en: ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'], hr: ['c', 'cis', 'd', 'dis', 'e', 'f', 'fis', 'g', 'gis', 'a', 'ais', 'h'] };
   const SUP = ['', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷'];
-  const PLAY = { en: 'Play', hr: 'Sviraj' }, STOP = { en: 'Stop', hr: 'Zaustavi' }, PLAY_BOTH = { en: 'Play both tones', hr: 'Sviraj oba tona' };
+  const PLAY = { en: 'Play', hr: 'Pusti' }, STOP = { en: 'Stop', hr: 'Zaustavi' }, PLAY_BOTH = { en: 'Play both tones', hr: 'Pusti oba tona' };
   const NO_AUDIO = { en: 'This browser cannot play sound here (Web Audio is not available). The pictures and numbers still work.', hr: 'Ovaj preglednik ovdje ne može reproducirati zvuk (Web Audio nije dostupan). Crteži i brojevi i dalje rade.' };
   const SAFE = { en: 'Safety: keep the volume low. Never do this test with earphones at high volume: very high tones can harm your hearing even when you can barely hear them.',
-    hr: 'Sigurnost: glasnoća neka bude mala. Ovaj pokus nikad ne radi sa slušalicama uz veliku glasnoću: vrlo visoki tonovi mogu oštetiti sluh i kad ih jedva čuješ.' };
+    hr: 'Sigurnost: glasnoća neka bude mala. Ovaj pokus nikad ne izvodi sa slušalicama pri velikoj glasnoći: vrlo visoki tonovi mogu oštetiti sluh i kad ih jedva čuješ.' };
 
   function el(tag, cls, parent) { const e = document.createElement(tag); if (cls) e.className = cls; if (parent) parent.appendChild(e); return e; }
   const bi = f => ({ en: f('en'), hr: f('hr') });
@@ -50,12 +50,12 @@
     title: { en: 'Tone Generator', hr: 'Generator tona' },
     summary: {
       en: 'Play a pure tone of any frequency, find the highest tone you can hear, listen to the beats of two close tones and play a scale.',
-      hr: 'Odsviraj čisti ton bilo koje frekvencije, pronađi najviši ton koji čuješ, poslušaj udare dvaju bliskih tonova i odsviraj ljestvicu.'
+      hr: 'Pusti čisti ton bilo koje frekvencije, pronađi najviši ton koji čuješ, poslušaj udare dvaju tonova bliskih frekvencija i odsviraj ljestvicu.'
     },
     tasks: [
-      { en: 'Play 440 Hz, then 880 Hz. How do the period and the wavelength change when the frequency doubles?', hr: 'Odsviraj 440 Hz, zatim 880 Hz. Kako se promijene period i valna duljina kad se frekvencija udvostruči?' },
-      { en: 'Hearing range: with the volume low, start the sweep up and press the button when the tone disappears. Compare with an adult.', hr: 'Raspon sluha: uz malu glasnoću pokreni rastući ton i pritisni tipku kad ton nestane. Usporedi s odraslom osobom.' },
-      { en: 'Beats: set 440 Hz and 444 Hz. Count the beats in 5 seconds. Does it match |f₁ − f₂|?', hr: 'Udari: namjesti 440 Hz i 444 Hz. Izbroji udare u 5 sekundi. Slaže li se to s |f₁ − f₂|?' },
+      { en: 'Play 440 Hz, then 880 Hz. How do the period and the wavelength change when the frequency doubles?', hr: 'Pusti ton od 440 Hz, a zatim ton od 880 Hz. Kako se mijenjaju period i valna duljina kad se frekvencija udvostruči?' },
+      { en: 'Hearing range: with the volume low, start the sweep up and press the button when the tone disappears. Compare with an adult.', hr: 'Područje čujnosti: uz malu glasnoću pokreni rastući ton i pritisni „Više ne čujem“ kad ton nestane. Usporedi svoj rezultat s rezultatom odrasle osobe.' },
+      { en: 'Beats: set 440 Hz and 444 Hz. Count the beats in 5 seconds. Does it match |f₁ − f₂|?', hr: 'Udari: namjesti 440 Hz i 444 Hz. Izbroji udare tijekom 5 sekundi. Slaže li se to s |f₁ − f₂|?' },
       { en: 'Scale: divide the frequency of C5 by the frequency of C4. What do you get for an octave?', hr: 'Ljestvica: podijeli frekvenciju tona c² s frekvencijom tona c¹. Što dobiješ za oktavu?' }
     ],
     mount(container, ctx) {
@@ -107,26 +107,26 @@
       const outT = C1.readout({ label: { en: 'Period T = 1/f', hr: 'Period T = 1/f' }, unit: 'ms', digits: 2 });
       const outLam = C1.readout({ label: { en: 'Wavelength in air λ = 340 m/s : f', hr: 'Valna duljina u zraku λ = 340 m/s : f' } });
       C1.note({ text: { en: 'Higher frequency = higher pitch, shorter period and shorter wavelength. Louder = bigger amplitude (a taller wave). A sine sounds pure; square and sawtooth waves contain extra higher tones and sound sharper.',
-        hr: 'Veća frekvencija = viši ton, kraći period i kraća valna duljina. Glasnije = veća amplituda (viši val). Sinusni ton zvuči čisto; pravokutni i pilasti val sadrže dodatne više tonove pa zvuče oštrije.' } });
+        hr: 'Veća frekvencija = viši ton, kraći period i kraća valna duljina. Glasniji ton = veća amplituda (viši val). Sinusni ton zvuči čisto; pravokutni i pilasti val sadrže dodatne više tonove pa zvuče oštrije.' } });
 
       const outUp = C2.readout({ label: { en: 'Your upper limit', hr: 'Tvoja gornja granica' }, unit: 'Hz', digits: 0 });
       const outLow = C2.readout({ label: { en: 'Your lower limit (with this speaker)', hr: 'Tvoja donja granica (s ovim zvučnikom)' }, unit: 'Hz', digits: 0 });
       C2.note({ text: { en: 'Typical upper limits: a child about 20 kHz, a 30-year-old about 16 kHz, a 60-year-old about 12 kHz. Hearing for high tones fades with age.',
         hr: 'Tipične gornje granice: dijete oko 20 kHz, osoba od 30 godina oko 16 kHz, osoba od 60 godina oko 12 kHz. Sluh za visoke tonove s godinama slabi.' } });
       C2.note({ text: { en: 'Small laptop and phone speakers cannot play very low tones (often nothing below 100–200 Hz). The lower limit you find is the limit of the speaker, not of your ear, which hears down to about 20 Hz.',
-        hr: 'Mali zvučnici prijenosnog računala i mobitela ne mogu reproducirati vrlo duboke tonove (često ništa ispod 100–200 Hz). Donja granica koju nađeš granica je zvučnika, a ne tvog uha, koje čuje do oko 20 Hz.' } });
+        hr: 'Mali zvučnici prijenosnog računala i mobitela ne mogu reproducirati vrlo duboke tonove (često ništa ispod 100–200 Hz). Donja granica koju pronađeš granica je zvučnika, a ne tvojega uha, koje čuje tonove sve do oko 20 Hz.' } });
 
       const slF1 = C3.slider({ label: { en: 'Tone 1, f₁', hr: 'Ton 1, f₁' }, min: 200, max: 600, step: 1, value: 440, unit: 'Hz', digits: 0, onChange: v => { st.f1 = v; retune(); render(); } });
       const slF2 = C3.slider({ label: { en: 'Tone 2, f₂', hr: 'Ton 2, f₂' }, min: 200, max: 600, step: 1, value: 444, unit: 'Hz', digits: 0, onChange: v => { st.f2 = v; retune(); render(); } });
       const outBeat = C3.readout({ label: { en: 'Beat frequency |f₁ − f₂|', hr: 'Frekvencija udara |f₁ − f₂|' }, unit: 'Hz', digits: 0 });
       const outBeatT = C3.readout({ label: { en: 'One beat lasts', hr: 'Jedan udar traje' }, unit: 's', digits: 2 });
       C3.note({ text: { en: 'Musicians tune their instruments like this: they play two strings together and turn the peg until the beats slow down and disappear. Then both frequencies are equal.',
-        hr: 'Glazbenici ovako ugađaju glazbala: odsviraju dvije žice zajedno i okreću vijak dok udari ne uspore i ne nestanu. Tada su obje frekvencije jednake.' } });
+        hr: 'Glazbenici ovako ugađaju glazbala: istodobno sviraju dvije žice i okreću čiviju dok udari ne postanu sve sporiji i ne nestanu. Tada su obje frekvencije jednake.' } });
 
       const outNoteF = C4.readout({ label: { en: 'Frequency of the note', hr: 'Frekvencija tona' }, unit: 'Hz', digits: 1 });
       const outRatio = C4.readout({ label: { en: 'Compared with C4', hr: 'U odnosu na c¹' }, unit: '×', digits: 2 });
       C4.note({ text: { en: 'One octave up = double the frequency: C5 (523 Hz) has twice the frequency of C4 (262 Hz). Play them one after the other: they sound alike, only higher.',
-        hr: 'Jedna oktava više = dvostruka frekvencija: c² (523 Hz) ima dvostruko veću frekvenciju od c¹ (262 Hz). Odsviraj ih jedan za drugim: zvuče slično, samo više.' } });
+        hr: 'Jedna oktava više = dvostruka frekvencija: c² (523 Hz) ima dvostruko veću frekvenciju od c¹ (262 Hz). Odsviraj ih jedan za drugim: zvuče slično, samo je drugi viši.' } });
 
       // ---------- Web Audio (created on the first Play click only) ----------
       function ensureAudio() {
@@ -200,17 +200,17 @@
       // ---------- text ----------
       function noteText(f, l) {
         const nt = nearest(f), c = Math.round(Math.abs(nt.cents));
-        return noteName(nt.n, l) + (c >= 1 ? ' ' + (nt.cents > 0 ? '+' : '−') + c + (l === 'hr' ? ' centi' : ' cent') : '');
+        return noteName(nt.n, l) + (c >= 1 ? ' ' + (nt.cents > 0 ? '+' : '−') + c + (l === 'hr' ? ' ct' : ' cent') : '');
       }
       const lamText = (f, l) => { const lam = V_SOUND / f; return lam >= 1 ? K.fmt(lam, 2, l) + ' m' : K.fmt(lam * 100, 1, l) + ' cm'; };
       function rangeText(l) {
         const en = l === 'en', s = st.sweep, lim = st.said === 'up' ? st.upper : st.said === 'down' ? st.lower : null;
-        if (s) return s.dir === 'up' ? (en ? 'The tone is rising. Press "I can\'t hear it any more" the moment it disappears.' : 'Ton raste. Pritisni „Više ne čujem” čim nestane.')
-          : (en ? 'The tone is falling. Press "I can\'t hear it any more" the moment it disappears.' : 'Ton pada. Pritisni „Više ne čujem” čim nestane.');
+        if (s) return s.dir === 'up' ? (en ? 'The tone is rising. Press „I can\'t hear it any more“ the moment it disappears.' : 'Frekvencija raste. Pritisni „Više ne čujem“ čim ton nestane.')
+          : (en ? 'The tone is falling. Press „I can\'t hear it any more“ the moment it disappears.' : 'Frekvencija se smanjuje. Pritisni „Više ne čujem“ čim ton nestane.');
         if (st.said === 'idle') return en ? 'Start a sweep first, then press the button when the tone disappears.' : 'Najprije pokreni ton, a zatim pritisni tipku kad ton nestane.';
         if (lim && lim.all) return en ? 'You heard the tone right to the end of the sweep (' + fmtHz(lim.f, l) + ' Hz).' : 'Ton se čuo sve do kraja (' + fmtHz(lim.f, l) + ' Hz).';
         if (lim) return (st.said === 'up' ? (en ? 'Your upper limit is about ' : 'Tvoja gornja granica je oko ') : (en ? 'Your lower limit with this speaker is about ' : 'Tvoja donja granica s ovim zvučnikom je oko ')) + fmtHz(lim.f, l) + ' Hz.';
-        return en ? 'Start a sweep and listen. Press "I can\'t hear it any more" the moment the tone disappears.' : 'Pokreni ton i slušaj. Pritisni „Više ne čujem” čim ton nestane.';
+        return en ? 'Start a sweep and listen. Press „I can\'t hear it any more“ the moment the tone disappears.' : 'Pokreni ton i slušaj. Pritisni „Više ne čujem“ čim ton nestane.';
       }
       function renderHead() {
         const d = Math.abs(st.f1 - st.f2);
@@ -218,12 +218,12 @@
         else if (mode === 'range') { disp.textContent = (st.sweep ? K.fmt(st.sweep.f, 0, lang) : '–') + ' Hz'; sub.textContent = rangeText(lang); }
         else if (mode === 'beats') {
           disp.textContent = K.fmt(d, 0, lang) + ' Hz';
-          sub.textContent = d > 0 ? K.tr({ en: 'Beat frequency |f₁ − f₂|: the sound swells and fades ', hr: 'Frekvencija udara |f₁ − f₂|: zvuk se pojača i utiša ' }, lang) + K.fmt(d, 0, lang) + K.tr({ en: ' times every second.', hr: ' puta u sekundi.' }, lang)
+          sub.textContent = d > 0 ? K.tr({ en: 'Beat frequency |f₁ − f₂|: the sound swells and fades ', hr: 'Frekvencija udara |f₁ − f₂|: broj udara u sekundi = ' }, lang) + K.fmt(d, 0, lang) + K.tr({ en: ' times every second.', hr: '.' }, lang)
             : K.tr({ en: 'The two tones are equal: no beats.', hr: 'Tonovi su jednaki: nema udara.' }, lang);
         } else {
           const s = SCALE[st.note];
           disp.textContent = s ? noteName(s.semi, lang) + ' = ' + K.fmt(s.f, 1, lang) + ' Hz' : '♪';
-          sub.textContent = s ? K.fmt(s.f / SCALE[0].f, 2, lang) + ' × ' + noteName(SCALE[0].semi, lang) + ' (' + K.fmt(SCALE[0].f, 1, lang) + ' Hz)' : K.tr({ en: 'Press a note.', hr: 'Pritisni ton.' }, lang);
+          sub.textContent = s ? K.fmt(s.f / SCALE[0].f, 2, lang) + ' × ' + noteName(SCALE[0].semi, lang) + ' (' + K.fmt(SCALE[0].f, 1, lang) + ' Hz)' : K.tr({ en: 'Press a note.', hr: 'Odaberi ton.' }, lang);
         }
       }
       function render() {

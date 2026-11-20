@@ -14,9 +14,9 @@
   const RULER_CM = 20, MAXR = 10, TRUE_C = 10, TOL = 0.1, HALF_DIV = 0.05, PREC_LIM = 0.15, ACC_LIM = 0.25;
   const NEW_LABEL = { ruler: { en: 'New object', hr: 'Novi predmet' }, repeat: { en: 'New object', hr: 'Novi predmet' }, target: { en: 'New instrument', hr: 'Novi instrument' } };
   const HINT_A = { en: 'Where does the object end? Where does it start? Type the length with one decimal (mm) and press Check.', hr: 'Gdje predmet završava? Gdje počinje? Upiši duljinu s jednom decimalom (mm) i pritisni Provjeri.' };
-  const HINT_B = { en: 'Press Measure several times. Every reading is a little different — that is normal.', hr: 'Pritisni Izmjeri nekoliko puta. Svako se mjerenje malo razlikuje — to je normalno.' };
+  const HINT_B = { en: 'Press Measure several times. Every reading is a little different — that is normal.', hr: 'Pritisni Izmjeri nekoliko puta. Rezultati se malo razlikuju — to je normalno.' };
   const NUDGE_B = { en: 'One reading looks very different from the others. Is it a gross error? Click it and press Discard selected.', hr: 'Jedno mjerenje jako odskače. Je li to gruba pogreška? Klikni na njega i pritisni Odbaci označeno.' };
-  const HINT_C = { en: 'A hidden instrument measures a rod of exactly 10.00 cm. Press Measure 5–10 times, then describe the instrument.', hr: 'Skriveni instrument mjeri štap duljine točno 10,00 cm. Pritisni Izmjeri 5–10 puta, a zatim opiši instrument.' };
+  const HINT_C = { en: 'A hidden instrument measures a rod of exactly 10.00 cm. Press Measure 5–10 times, then describe the instrument.', hr: 'Skrivenim instrumentom mjeri se štap duljine točno 10,00 cm. Pritisni Izmjeri 5–10 puta, a zatim opiši instrument.' };
   const DISCARD = { en: 'Discard selected', hr: 'Odbaci označeno' }, RESTORE = { en: 'Restore selected', hr: 'Vrati označeno' };
   const DESC = { pa: { en: 'precise and accurate', hr: 'precizan i točan' }, pn: { en: 'precise but not accurate', hr: 'precizan, ali netočan' },
     ia: { en: 'accurate but not precise', hr: 'točan, ali neprecizan' }, in: { en: 'neither precise nor accurate', hr: 'ni precizan ni točan' } };
@@ -45,13 +45,13 @@
     title: { en: 'Measure It!', hr: 'Izmjeri!' },
     summary: {
       en: 'Read a ruler to the millimetre, measure the same object many times and write the result with its error, and learn the difference between precise and accurate.',
-      hr: 'Očitaj ravnalo do milimetra, izmjeri isti predmet više puta i zapiši rezultat s pogreškom te nauči razliku između preciznog i točnog.'
+      hr: 'Očitaj ravnalo do milimetra, izmjeri isti predmet više puta, zapiši rezultat s pogreškom mjerenja i nauči razliku između preciznog i točnog mjerenja.'
     },
     tasks: [
       { en: 'Read the ruler: with the magnifier on, estimate where the object ends between the mm marks and type the length with one decimal (e.g. 12.3 cm).', hr: 'Očitaj ravnalo: uz uključeno povećalo procijeni gdje predmet završava između milimetarskih crtica i upiši duljinu s jednom decimalom (npr. 12,3 cm).' },
-      { en: 'Careful: sometimes the object does not start at 0! Where does it start? Subtract.', hr: 'Pažljivo: predmet katkad ne počinje na 0! Gdje počinje? Oduzmi.' },
+      { en: 'Careful: sometimes the object does not start at 0! Where does it start? Subtract.', hr: 'Pazi: predmet katkad ne počinje na nuli! Gdje počinje? Oduzmi početak od kraja.' },
       { en: 'Measure many times: press Measure 8 times. Does one reading stand out? Discard it, press Compute and read the result (x̄ ± Δx) cm.', hr: 'Mjeri više puta: pritisni Izmjeri 8 puta. Odskače li neko mjerenje? Odbaci ga, pritisni Izračunaj i pročitaj rezultat (x̄ ± Δx) cm.' },
-      { en: 'Precise or accurate? Measure 6 times and describe the hidden instrument. How does a systematic error look on the target?', hr: 'Precizno ili točno? Izmjeri 6 puta i opiši skriveni instrument. Kako sustavna pogreška izgleda na meti?' }
+      { en: 'Precise or accurate? Measure 6 times and describe the hidden instrument. How does a systematic error look on the target?', hr: 'Precizno ili točno? Izmjeri 6 puta i opiši skriveni instrument. Kako na meti izgleda sustavna pogreška?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -119,7 +119,7 @@
         if (st.mode !== 'ruler') return;
         const raw = inp.value.trim().replace(',', '.'), v = parseFloat(raw);
         if (!raw || Number.isNaN(v)) { st.fbA = { en: 'Type the length in cm, e.g. 12.3', hr: 'Upiši duljinu u cm, npr. 12,3' }; st.kindA = 'warn'; }
-        else if (st.solved) { st.fbA = { en: 'Done — press New object for the next one.', hr: 'Riješeno — pritisni Novi predmet za sljedeći.' }; st.kindA = null; }
+        else if (st.solved) { st.fbA = { en: 'Done — press New object for the next one.', hr: 'Riješeno — za sljedeći zadatak pritisni Novi predmet.' }; st.kindA = null; }
         else {
           const decimals = (raw.split('.')[1] || '').length, end = st.x0 + st.len;
           if (st.attempts === 0) st.scoreA.n++;
@@ -129,20 +129,20 @@
             st.solved = true; st.scoreA.ok++; st.kindA = 'good';
             st.fbA = decimals > 1
               ? bi(l => T(l, 'Right value, but too many digits! A ruler with mm marks cannot give ' + raw + ': the smallest division sets the limit, write ' + f(st.len, 1, l) + ' cm.',
-                'Vrijednost je dobra, ali previše znamenki! Ravnalo s milimetrima ne može dati ' + raw.replace('.', ',') + ': najmanji podjeljak određuje granicu, piši ' + f(st.len, 1, l) + ' cm.'))
+                'Vrijednost je dobra, ali ima previše znamenaka! Ravnalom s milimetarskom podjelom ne može se izmjeriti ' + raw.replace('.', ',') + ': najmanji podjeljak određuje preciznost, zato piši ' + f(st.len, 1, l) + ' cm.'))
               : bi(l => T(l, 'Correct! ' + f(st.len, 1, l) + ' cm. The smallest division sets the limit: write ' + f(st.len, 1, l) + ' cm, not ' + f(st.len, 4, l) + '.',
-                'Točno! ' + f(st.len, 1, l) + ' cm. Najmanji podjeljak određuje granicu: piši ' + f(st.len, 1, l) + ' cm, a ne ' + f(st.len, 4, l) + '.'));
+                'Točno! ' + f(st.len, 1, l) + ' cm. Najmanji podjeljak određuje preciznost: piši ' + f(st.len, 1, l) + ' cm, a ne ' + f(st.len, 4, l) + '.'));
           } else if (st.x0 > 0 && Math.abs(v - end) <= TOL + 1e-9) {
             st.kindA = 'bad';
-            st.fbA = bi(l => T(l, 'The "zero" mistake! The object does not start at 0 but at ' + f(st.x0, 1, l) + ' cm. Length = end − start = ' + f(end, 1, l) + ' − ' + f(st.x0, 1, l) + ' cm. Try again.',
-              'Pogreška „nule”! Predmet ne počinje na 0 nego na ' + f(st.x0, 1, l) + ' cm. Duljina = kraj − početak = ' + f(end, 1, l) + ' − ' + f(st.x0, 1, l) + ' cm. Pokušaj ponovno.'));
+            st.fbA = bi(l => T(l, 'The „zero“ mistake! The object does not start at 0 but at ' + f(st.x0, 1, l) + ' cm. Length = end − start = ' + f(end, 1, l) + ' − ' + f(st.x0, 1, l) + ' cm. Try again.',
+              'Pazi na „nulu“! Predmet ne počinje na 0 nego na ' + f(st.x0, 1, l) + ' cm. Duljina = kraj − početak = ' + f(end, 1, l) + ' − ' + f(st.x0, 1, l) + ' cm. Pokušaj ponovno.'));
           } else if (st.attempts >= 2) {
             st.solved = true; st.kindA = 'bad';
             st.fbA = bi(l => T(l, 'Not within ±0.1 cm. The length is ' + f(st.len, 1, l) + ' cm (end ' + f(end, 1, l) + ' cm − start ' + f(st.x0, 1, l) + ' cm). Press New object.',
-              'Nije unutar ±0,1 cm. Duljina je ' + f(st.len, 1, l) + ' cm (kraj ' + f(end, 1, l) + ' cm − početak ' + f(st.x0, 1, l) + ' cm). Pritisni Novi predmet.'));
+              'Odstupanje je veće od 0,1 cm. Duljina je ' + f(st.len, 1, l) + ' cm (kraj ' + f(end, 1, l) + ' cm − početak ' + f(st.x0, 1, l) + ' cm). Pritisni Novi predmet.'));
           } else {
             st.kindA = 'warn';
-            st.fbA = { en: 'Not within ±0.1 cm. Look at the end of the object in the magnifier and estimate between the mm marks. Try again.', hr: 'Nije unutar ±0,1 cm. Pogledaj kraj predmeta u povećalu i procijeni između milimetarskih crtica. Pokušaj ponovno.' };
+            st.fbA = { en: 'Not within ±0.1 cm. Look at the end of the object in the magnifier and estimate between the mm marks. Try again.', hr: 'Odstupanje je veće od 0,1 cm. Pogledaj kraj predmeta u povećalu i procijeni njegov položaj između milimetarskih crtica. Pokušaj ponovno.' };
           }
         }
         updateNote(); updateOut(); draw();
@@ -155,7 +155,7 @@
         btnDiscard.setLabel(DISCARD);
       }
       function measureB() {
-        if (st.readings.length >= MAXR) { st.fbB = { en: 'That is 10 readings — enough. Check for gross errors and press Compute.', hr: 'To je 10 mjerenja — dovoljno. Provjeri ima li grubih pogrešaka i pritisni Izračunaj.' }; updateNote(); return; }
+        if (st.readings.length >= MAXR) { st.fbB = { en: 'That is 10 readings — enough. Check for gross errors and press Compute.', hr: 'Imaš 10 mjerenja — to je dovoljno. Provjeri ima li grubih pogrešaka i pritisni Izračunaj.' }; updateNote(); return; }
         let v = st.rLen + gauss() * 0.07, gross = false;
         const p = (st.readings.length === 5 && st.grossN === 0) ? 0.5 : 1 / 8;
         if (st.readings.length >= 2 && st.grossN < 2 && Math.random() < p) { v += Math.random() < 0.6 ? 1.7 : -1.2; gross = true; st.grossN++; }
@@ -178,7 +178,7 @@
       function compute() {
         if (st.mode !== 'repeat') return;
         const act = active();
-        if (act.length < 3) { st.fbB = { en: 'Measure at least 3 times before computing.', hr: 'Izmjeri barem 3 puta prije računanja.' }; updateNote(); return; }
+        if (act.length < 3) { st.fbB = { en: 'Measure at least 3 times before computing.', hr: 'Prije računanja izmjeri barem 3 puta.' }; updateNote(); return; }
         const s = stats(act.map(r => r.v));
         const floored = s.maxDev < HALF_DIV, dx = Math.max(s.maxDev, HALF_DIV);
         st.res = { n: s.n, mean: s.mean, maxDev: s.maxDev, dx, rel: dx / s.mean * 100, floored, grossIn: act.some(r => r.gross) };
@@ -193,7 +193,7 @@
         return bi(l => {
           let s = T(l, 'Result: x = (' + K.fmt(r.mean, 2, l) + ' ± ' + K.fmt(r.dx, 2, l) + ') cm, relative error ' + K.fmt(r.rel, 1, l) + ' % — ' + (r.rel <= 10 ? 'good (≤ 10 %).' : 'large (> 10 %), measure more carefully.'),
             'Rezultat: x = (' + K.fmt(r.mean, 2, l) + ' ± ' + K.fmt(r.dx, 2, l) + ') cm, relativna pogreška ' + K.fmt(r.rel, 1, l) + ' % — ' + (r.rel <= 10 ? 'dobro (≤ 10 %).' : 'velika (> 10 %), mjeri pažljivije.'));
-          if (r.floored) s += T(l, ' All readings agree, so Δx is half of the smallest division (0.05 cm).', ' Sva se mjerenja slažu, pa je Δx pola najmanjeg podjeljka (0,05 cm).');
+          if (r.floored) s += T(l, ' All readings agree, so Δx is half of the smallest division (0.05 cm).', ' Sva se mjerenja slažu pa je Δx jednak polovini najmanjeg podjeljka (0,05 cm).');
           if (st.reveal) { const inside = Math.abs(st.rLen - r.mean) <= r.dx; s += T(l, ' The true value ' + K.fmt(st.rLen, 2, l) + ' cm ' + (inside ? 'is' : 'is not') + ' inside the interval.', ' Prava vrijednost ' + K.fmt(st.rLen, 2, l) + ' cm ' + (inside ? 'je' : 'nije') + ' unutar intervala.'); }
           return s;
         });
@@ -219,8 +219,8 @@
         st.fbC = bi(l => T(l,
           (ok ? '✓ Right! ' : '✗ Not quite. ') + 'Max deviation ' + K.fmt(s.maxDev, 2, l) + ' cm → ' + (precise ? 'precise (the readings agree)' : 'not precise (the readings scatter)') +
             '. Mean ' + K.fmt(s.mean, 2, l) + ' cm is ' + K.fmt(Math.abs(s.mean - TRUE_C), 2, l) + ' cm from 10.00 cm → ' + (accurate ? 'accurate' : 'not accurate (a systematic error shifts every reading)') + '. So: ' + DESC[key].en + '.',
-          (ok ? '✓ Točno! ' : '✗ Nije baš. ') + 'Maks. odstupanje ' + K.fmt(s.maxDev, 2, l) + ' cm → ' + (precise ? 'precizan (mjerenja se slažu)' : 'neprecizan (mjerenja su raspršena)') +
-            '. Srednja vrijednost ' + K.fmt(s.mean, 2, l) + ' cm odstupa ' + K.fmt(Math.abs(s.mean - TRUE_C), 2, l) + ' cm od 10,00 cm → ' + (accurate ? 'točan' : 'netočan (sustavna pogreška pomiče sva mjerenja)') + '. Dakle: ' + DESC[key].hr + '.'));
+          (ok ? '✓ Točno! ' : '✗ Nije sasvim točno. ') + 'Maks. odstupanje ' + K.fmt(s.maxDev, 2, l) + ' cm → ' + (precise ? 'precizan (mjerenja se slažu)' : 'neprecizan (mjerenja su raspršena)') +
+            '. Srednja vrijednost ' + K.fmt(s.mean, 2, l) + ' cm odstupa za ' + K.fmt(Math.abs(s.mean - TRUE_C), 2, l) + ' cm od 10,00 cm → ' + (accurate ? 'točan' : 'netočan (sustavna pogreška pomiče sva mjerenja)') + '. Dakle: ' + DESC[key].hr + '.'));
         updateNote(); updateOut(); draw();
       }
 
@@ -399,7 +399,7 @@
         K.text(g, K.tr({ en: 'Result', hr: 'Rezultat' }, lang), x, y, { font: bold, color: theme.fg, baseline: 'middle' }); y += lh + 2;
         const r = st.res;
         if (!r) {
-          wrap(g, K.tr({ en: 'Press Compute to get the mean x̄, the deviations |x − x̄|, the biggest one Δx, the result (x̄ ± Δx) cm and the relative error Δx / x̄.', hr: 'Pritisni Izračunaj za srednju vrijednost x̄, odstupanja |x − x̄|, najveće od njih Δx, rezultat (x̄ ± Δx) cm i relativnu pogrešku Δx / x̄.' }, lang), pw - 24, norm)
+          wrap(g, K.tr({ en: 'Press Compute to get the mean x̄, the deviations |x − x̄|, the biggest one Δx, the result (x̄ ± Δx) cm and the relative error Δx / x̄.', hr: 'Pritisni Izračunaj i dobit ćeš srednju vrijednost x̄, odstupanja |x − x̄|, najveće od njih Δx, rezultat (x̄ ± Δx) cm i relativnu pogrešku Δx / x̄.' }, lang), pw - 24, norm)
             .forEach(ln => { K.text(g, ln, x, y, { font: norm, color: theme.muted, baseline: 'middle' }); y += lh - 2; });
         } else {
           K.text(g, 'x̄ = Σx / n = ' + K.fmt(r.mean, 2, lang) + ' cm  (n = ' + r.n + ')', x, y, { font: norm, color: theme.fg, baseline: 'middle' }); y += lh;
@@ -421,7 +421,7 @@
           if (st.reveal) {
             const tx = X(st.rLen);
             g.fillStyle = theme.c3; g.beginPath(); g.moveTo(tx, ny - 2); g.lineTo(tx - 6, ny - 14); g.lineTo(tx + 6, ny - 14); g.closePath(); g.fill();
-            K.text(g, K.tr({ en: 'true ', hr: 'pravo ' }, lang) + K.fmt(st.rLen, 2, lang), tx, ny - 16, { font: '10px ' + theme.font, color: theme.fg, align: 'center', baseline: 'bottom' });
+            K.text(g, K.tr({ en: 'true ', hr: 'prava vr. ' }, lang) + K.fmt(st.rLen, 2, lang), tx, ny - 16, { font: '10px ' + theme.font, color: theme.fg, align: 'center', baseline: 'bottom' });
           }
         }
       }
@@ -455,9 +455,9 @@
         // numbers
         const lines = [];
         const n = st.dots.length;
-        lines.push(K.tr({ en: 'readings: ', hr: 'mjerenja: ' }, lang) + n);
+        lines.push(K.tr({ en: 'readings: ', hr: 'broj mjerenja: ' }, lang) + n);
         if (st_) lines.push('x̄ = ' + K.fmt(st_.mean, 2, lang) + ' cm');
-        if (st_) lines.push(K.tr({ en: 'x̄ − true = ', hr: 'x̄ − pravo = ' }, lang) + K.fmt(st_.mean - TRUE_C, 2, lang) + ' cm  ' + K.tr({ en: '(systematic error)', hr: '(sustavna pogreška)' }, lang));
+        if (st_) lines.push(K.tr({ en: 'x̄ − true = ', hr: 'x̄ − prava vr. = ' }, lang) + K.fmt(st_.mean - TRUE_C, 2, lang) + ' cm  ' + K.tr({ en: '(systematic error)', hr: '(sustavna pogreška)' }, lang));
         if (st_ && n > 1) lines.push('Δx = ' + K.fmt(st_.maxDev, 2, lang) + ' cm  ' + K.tr({ en: '(random error)', hr: '(slučajna pogreška)' }, lang));
         if (st.answered) {
           lines.push(K.tr({ en: 'precise: ', hr: 'precizan: ' }, lang) + (st.answered.precise ? '✓' : '✗') + '   ' + K.tr({ en: 'accurate: ', hr: 'točan: ' }, lang) + (st.answered.accurate ? '✓' : '✗'));
@@ -469,7 +469,7 @@
           K.text(g, K.tr({ en: 'Hidden instrument', hr: 'Skriveni instrument' }, lang), px + 12, y, { font: 'bold 14px ' + theme.fontDisplay, color: theme.fg, baseline: 'middle' }); y += 24;
           lines.forEach(ln => wrap(g, ln, pw - 24, '12px ' + theme.font).forEach(l2 => { K.text(g, l2, px + 12, y, { font: '12px ' + theme.font, color: theme.fg, baseline: 'middle' }); y += 17; }));
           y += 4;
-          wrap(g, K.tr({ en: 'Precise = the readings agree with each other (Δx ≤ 0.15 cm). Accurate = the mean is close to the true value (≤ 0.25 cm).', hr: 'Precizan = mjerenja se međusobno slažu (Δx ≤ 0,15 cm). Točan = srednja vrijednost blizu je prave (≤ 0,25 cm).' }, lang), pw - 24, '11px ' + theme.font)
+          wrap(g, K.tr({ en: 'Precise = the readings agree with each other (Δx ≤ 0.15 cm). Accurate = the mean is close to the true value (≤ 0.25 cm).', hr: 'Precizan = mjerenja se međusobno slažu (Δx ≤ 0,15 cm). Točan = srednja je vrijednost blizu prave (≤ 0,25 cm).' }, lang), pw - 24, '11px ' + theme.font)
             .forEach(l2 => { K.text(g, l2, px + 12, y, { font: '11px ' + theme.font, color: theme.muted, baseline: 'middle' }); y += 14; });
           K.text(g, K.tr({ en: 'Score', hr: 'Bodovi' }, lang) + ': ' + st.scoreC.ok + ' / ' + st.scoreC.n, px + pw - 12, h - 20, { font: 'bold 12px ' + theme.font, color: theme.fg, align: 'right', baseline: 'middle' });
         } else {

@@ -25,7 +25,7 @@
         hr: (p, f) => `${p.c.item.hr} ima duljinu ${f(p.v)} ${p.c.from}. Izrazi tu duljinu u metrima. (${p.c.rel})`
       },
       answer: p => p.c.mul ? p.v * p.c.mul : p.v / p.c.div, unit: 'm',
-      hint: { en: 'Kilo means 1000 times a metre, centi one hundredth and milli one thousandth of a metre.', hr: 'Kilo znači 1000 puta veći od metra, centi stoti dio, a mili tisućiti dio metra.' },
+      hint: { en: 'Kilo means 1000 times a metre, centi one hundredth and milli one thousandth of a metre.', hr: 'Kilometar je 1000 puta dulji od metra, centimetar je stoti dio metra, a milimetar tisućiti dio metra.' },
       steps: {
         en: (p, f) => [p.c.rel, p.c.mul ? `${f(p.v)} ${p.c.from} · ${f(p.c.mul)} = ${f(p.v * p.c.mul)} m` : `${f(p.v)} ${p.c.from} / ${f(p.c.div)} = ${f(p.v / p.c.div)} m`],
         hr: (p, f) => [p.c.rel, p.c.mul ? `${f(p.v)} ${p.c.from} · ${f(p.c.mul)} = ${f(p.v * p.c.mul)} m` : `${f(p.v)} ${p.c.from} / ${f(p.c.div)} = ${f(p.v / p.c.div)} m`]
@@ -81,7 +81,7 @@
         hr: (p, f) => `U menzuri je ${f(p.v1)} mL vode. Kad u nju uronimo kamen, razina vode podigne se na ${f(p.v2)} mL. Koliki je obujam kamena u cm³? (1 mL = 1 cm³)`
       },
       answer: p => p.v2 - p.v1, unit: 'cm³',
-      hint: { en: 'The stone pushes aside exactly its own volume of water: subtract the two readings.', hr: 'Kamen istisne točno onoliko vode koliki mu je obujam: oduzmi dva očitanja.' },
+      hint: { en: 'The stone pushes aside exactly its own volume of water: subtract the two readings.', hr: 'Kamen istisne točno onoliko vode koliki je njegov obujam: oduzmi dva očitanja.' },
       steps: {
         en: (p, f) => ['V = V₂ − V₁', `V = ${f(p.v2)} mL − ${f(p.v1)} mL = ${f(p.v2 - p.v1)} mL`, `1 mL = 1 cm³, so V = ${f(p.v2 - p.v1)} cm³`],
         hr: (p, f) => ['V = V₂ − V₁', `V = ${f(p.v2)} mL − ${f(p.v1)} mL = ${f(p.v2 - p.v1)} mL`, `1 mL = 1 cm³, pa je V = ${f(p.v2 - p.v1)} cm³`]
@@ -109,7 +109,7 @@
         hr: (p, f) => `Plastična kutija za pohranu duga je ${f(p.a)} cm, široka ${f(p.b)} cm i visoka ${f(p.c)} cm. Koliki je njezin obujam u litrama? (1 L = 1000 cm³)`
       },
       answer: p => p.a * p.b * p.c / 1000, unit: 'L',
-      hint: { en: 'First multiply the three edges to get cm³, then divide by 1000 to get litres.', hr: 'Najprije pomnoži tri brida da dobiješ cm³, zatim podijeli s 1000 da dobiješ litre.' },
+      hint: { en: 'First multiply the three edges to get cm³, then divide by 1000 to get litres.', hr: 'Najprije pomnoži duljine triju bridova da dobiješ obujam u cm³, zatim ga podijeli s 1000 da dobiješ litre.' },
       steps: {
         en: (p, f) => [`V = a · b · c = ${f(p.a)} cm · ${f(p.b)} cm · ${f(p.c)} cm = ${f(p.a * p.b * p.c)} cm³`, '1 L = 1000 cm³', `V = ${f(p.a * p.b * p.c)} cm³ / 1000 = ${f(p.a * p.b * p.c / 1000)} L`],
         hr: (p, f) => [`V = a · b · c = ${f(p.a)} cm · ${f(p.b)} cm · ${f(p.c)} cm = ${f(p.a * p.b * p.c)} cm³`, '1 L = 1000 cm³', `V = ${f(p.a * p.b * p.c)} cm³ / 1000 = ${f(p.a * p.b * p.c / 1000)} L`]
@@ -123,7 +123,7 @@
         hr: (p, f) => `Vaga na tržnici pokazuje da vrećica jabuka ima masu ${f(p.kg)} kg i ${f(p.g)} g. Kolika je ta masa u gramima? (1 kg = 1000 g)`
       },
       answer: p => p.kg * 1000 + p.g, unit: 'g',
-      hint: { en: 'Convert the kilograms to grams first, then add the grams.', hr: 'Najprije kilograme pretvori u grame, zatim dodaj grame.' },
+      hint: { en: 'Convert the kilograms to grams first, then add the grams.', hr: 'Najprije kilograme pretvori u grame, zatim pribroji preostale grame.' },
       steps: {
         en: (p, f) => [`${f(p.kg)} kg = ${f(p.kg)} · 1000 g = ${f(p.kg * 1000)} g`, `m = ${f(p.kg * 1000)} g + ${f(p.g)} g = ${f(p.kg * 1000 + p.g)} g`],
         hr: (p, f) => [`${f(p.kg)} kg = ${f(p.kg)} · 1000 g = ${f(p.kg * 1000)} g`, `m = ${f(p.kg * 1000)} g + ${f(p.g)} g = ${f(p.kg * 1000 + p.g)} g`]
@@ -137,7 +137,7 @@
         hr: (p, f) => `Ana je tri puta izmjerila duljinu svoje olovke: ${f(p.m1)} cm, ${f(p.m2)} cm i ${f(p.m3)} cm. Kolika je srednja vrijednost duljine?`
       },
       answer: p => (p.m1 + p.m2 + p.m3) / 3, unit: 'cm',
-      hint: { en: 'Add the three measurements and divide the sum by 3.', hr: 'Zbroji tri mjerenja i zbroj podijeli s 3.' },
+      hint: { en: 'Add the three measurements and divide the sum by 3.', hr: 'Zbroji tri izmjerene vrijednosti i zbroj podijeli s 3.' },
       steps: {
         en: (p, f) => [`Sum: ${f(p.m1)} cm + ${f(p.m2)} cm + ${f(p.m3)} cm = ${f(p.m1 + p.m2 + p.m3)} cm`, `Average: ${f(p.m1 + p.m2 + p.m3)} cm / 3 = ${f((p.m1 + p.m2 + p.m3) / 3)} cm`],
         hr: (p, f) => [`Zbroj: ${f(p.m1)} cm + ${f(p.m2)} cm + ${f(p.m3)} cm = ${f(p.m1 + p.m2 + p.m3)} cm`, `Srednja vrijednost: ${f(p.m1 + p.m2 + p.m3)} cm / 3 = ${f((p.m1 + p.m2 + p.m3) / 3)} cm`]

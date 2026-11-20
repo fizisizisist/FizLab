@@ -24,17 +24,17 @@
   };
   const NOTES = {
     explore: { en: 'Pressure comes from particles hitting the walls. More particles, a higher temperature or a smaller volume mean more or harder hits, so the pressure rises: p ∝ N·T/V.',
-      hr: 'Tlak nastaje udarcima čestica o stijenke. Više čestica, viša temperatura ili manji obujam znače više ili jačih udaraca pa tlak raste: p ∝ N·T/V.' },
+      hr: 'Tlak nastaje udarcima čestica o stijenke. Više čestica, viša temperatura ili manji obujam znače češće ili jače udarce pa tlak raste: p ∝ N·T/V.' },
     squeeze: { en: 'Temperature held. Half the volume → double the pressure, because the particles hit the walls twice as often. The product p·V stays the same.',
-      hr: 'Temperatura je stalna. Upola manji obujam → dvostruko veći tlak, jer čestice dvostruko češće udaraju o stijenke. Umnožak p·V ostaje isti.' },
+      hr: 'Temperatura je stalna. Upola manji obujam → dvostruko veći tlak jer čestice dvostruko češće udaraju o stijenke. Umnožak p·V ostaje isti.' },
     heat: { en: 'Volume held. Hotter particles are faster and hit the walls harder and more often, so the pressure rises. That is why a football in the sun gets hard and why spray cans must never be heated.',
-      hr: 'Obujam je stalan. Toplije čestice su brže pa jače i češće udaraju o stijenke i tlak raste. Zato lopta na suncu otvrdne, a limenke sa sprejem ne smiju se zagrijavati.' },
+      hr: 'Obujam je stalan. Čestice toplijeg plina gibaju se brže pa jače i češće udaraju o stijenke i tlak raste. Zbog toga lopta na suncu postane tvrđa, a limenke sa sprejem nikad se ne smiju zagrijavati.' },
     free: { en: 'Pressure held: the piston moves until the gas pressure balances the weight. Heated gas expands (V ∝ T in kelvin), so hot air is less dense than cold air. That is what lifts a hot-air balloon.',
-      hr: 'Tlak je stalan: klip se pomiče dok tlak plina ne uravnoteži uteg. Zagrijani plin se širi (V ∝ T u kelvinima) pa je topli zrak rjeđi od hladnoga. To podiže balon na vrući zrak.' },
+      hr: 'Tlak je stalan: klip se pomiče dok tlak plina ne uravnoteži uteg. Zagrijani se plin širi (V ∝ T u kelvinima) pa topli zrak ima manju gustoću od hladnoga. Upravo to podiže balon na vrući zrak.' },
     brown: { en: 'Brownian motion: fast particles too small to see bump the pollen grain from all sides, never quite evenly, so it jitters. Hotter → livelier. This jitter was the first visible evidence for atoms.',
       hr: 'Brownovo gibanje: brze čestice, premalene da ih vidimo, udaraju zrnce peludi sa svih strana, nikad posve jednako, pa ono podrhtava. Toplije → življe. To podrhtavanje bilo je prvi vidljivi dokaz da atomi postoje.' },
     popped: { en: 'Too much pressure: the lid popped and the gas is escaping. Press Reset to close the box again.',
-      hr: 'Prevelik tlak: poklopac je odletio i plin izlazi. Pritisni Vrati da ponovno zatvoriš posudu.' }
+      hr: 'Prevelik tlak: poklopac je odletio i plin izlazi. Pritisni „Ispočetka“ da ponovno zatvoriš posudu.' }
   };
   function rgbOf(col) {
     col = (col || '#888').trim();
@@ -52,13 +52,13 @@
     title: { en: 'Gas in a Box', hr: 'Plin u posudi' },
     summary: {
       en: 'A box of bouncing particles with a piston, a heater and a pump: see where pressure comes from and how it depends on volume, temperature and the number of particles.',
-      hr: 'Posuda s česticama koje se odbijaju, s klipom, grijačem i pumpom: pogledaj odakle dolazi tlak i kako ovisi o obujmu, temperaturi i broju čestica.'
+      hr: 'Posuda s česticama koje se odbijaju, s klipom, grijačem i pumpom: otkrij odakle potječe tlak i kako ovisi o obujmu, temperaturi i broju čestica.'
     },
     tasks: [
-      { en: 'Explore: pump the gas up from 100 to 200 particles. What happens to the pressure? Then double the temperature in kelvin instead.', hr: 'Istraži: napumpaj plin sa 100 na 200 čestica. Što se dogodi s tlakom? Zatim umjesto toga udvostruči temperaturu u kelvinima.' },
+      { en: 'Explore: pump the gas up from 100 to 200 particles. What happens to the pressure? Then double the temperature in kelvin instead.', hr: 'Istraži: pumpom povećaj broj čestica sa 100 na 200. Što se dogodi s tlakom? Zatim umjesto toga udvostruči temperaturu u kelvinima.' },
       { en: 'Squeeze: record the pressure at 2 L, 1 L and 0.5 L. What happens to the pressure each time the volume is halved?', hr: 'Stisni: zabilježi tlak pri 2 L, 1 L i 0,5 L. Što se dogodi s tlakom svaki put kad se obujam prepolovi?' },
-      { en: 'Heat it: record points from 150 K to 600 K. At what temperature would the line reach zero pressure?', hr: 'Zagrij: zabilježi točke od 150 K do 600 K. Pri kojoj bi temperaturi pravac došao do tlaka nula?' },
-      { en: 'Brownian motion: hide the small particles and watch the grain as Robert Brown did in 1827. Then heat the gas. What changes?', hr: 'Brownovo gibanje: sakrij male čestice i promatraj zrnce kao Robert Brown 1827. Zatim zagrij plin. Što se mijenja?' }
+      { en: 'Heat it: record points from 150 K to 600 K. At what temperature would the line reach zero pressure?', hr: 'Zagrij: zabilježi točke od 150 K do 600 K. Pri kojoj bi temperaturi produženi pravac dosegnuo tlak nula?' },
+      { en: 'Brownian motion: hide the small particles and watch the grain as Robert Brown did in 1827. Then heat the gas. What changes?', hr: 'Brownovo gibanje: sakrij male čestice i promatraj zrnce kao što je to činio Robert Brown 1827. Zatim zagrij plin. Što se mijenja?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -88,7 +88,7 @@
         refresh();
       } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outP = C.readout({ label: { en: 'Pressure p (measured)', hr: 'Tlak p (izmjeren)' }, unit: 'kPa', digits: 0 });
       const outPi = C.readout({ label: { en: 'Ideal gas: p ∝ N·T/V', hr: 'Idealni plin: p ∝ N·T/V' }, unit: 'kPa', digits: 0 });
       const outV = C.readout({ label: { en: 'Volume V', hr: 'Obujam V' }, unit: 'L', digits: 2 });
@@ -246,7 +246,7 @@
         if (st.mode === 'squeeze') return 'T = ' + T + held + ' · V = ' + V;
         if (st.mode === 'heat') return 'V = ' + V + held + ' · T = ' + T;
         if (st.mode === 'free') return 'p = ' + K.fmt(P_EXT, 0, lang) + ' kPa' + held + ' · V = ' + V;
-        if (st.mode === 'brown') return K.tr({ en: 'Pollen grain among ', hr: 'Zrnce peludi među ' }, lang) + st.nIn + K.tr({ en: ' particles', hr: ' čestica' }, lang);
+        if (st.mode === 'brown') return K.tr({ en: 'Pollen grain among ', hr: 'Zrnce peludi (broj čestica: ' }, lang) + st.nIn + K.tr({ en: ' particles', hr: ')' }, lang);
         return 'N = ' + st.nIn + ' · T = ' + T + ' · V = ' + V;
       }
       function drawHeater(c, g) {
@@ -343,7 +343,7 @@
           else { c.strokeStyle = theme.fg; c.lineWidth = 2; c.beginPath(); c.arc(sx, ly, 4.5, 0, Math.PI * 2); c.stroke(); }
           ly += 15;
         });
-        if (!pts.length) K.text(c, K.tr({ en: 'Wait for the gauge to settle, then press Record', hr: 'Pričekaj da se manometar smiri pa pritisni Zabilježi' }, lang), ch.px + ch.pw / 2, ch.py + ch.ph / 2,
+        if (!pts.length) K.text(c, K.tr({ en: 'Wait for the gauge to settle, then press Record', hr: 'Pričekaj da se manometar smiri pa pritisni „Zabilježi“' }, lang), ch.px + ch.pw / 2, ch.py + ch.ph / 2,
           { font: (ch.pw < 330 ? '10px ' : '12px ') + theme.font, color: theme.muted, align: 'center', baseline: 'middle' });
       }
       function draw() {
@@ -403,7 +403,7 @@
         }
         if (g.sh - 52 - (iy + ir + 46) > 28) drawThermo(c, ix, iy + ir + 46, g.sh - 52);
         if (st.popped) {
-          const msg = K.tr({ en: 'The lid popped! Press Reset.', hr: 'Poklopac je odletio! Pritisni Vrati.' }, lang), font = 'bold 13px ' + theme.font;
+          const msg = K.tr({ en: 'The lid popped! Press Reset.', hr: 'Poklopac je odletio! Pritisni „Ispočetka“.' }, lang), font = 'bold 13px ' + theme.font;
           c.font = font;
           const tw = c.measureText(msg).width + 20, bx = Math.max(4, x0 + bw / 2 - tw / 2);
           c.fillStyle = theme.surface; c.strokeStyle = theme.warn; c.lineWidth = 2; K.roundRect(c, bx, yc - 15, tw, 30, 8); c.fill(); c.stroke();

@@ -17,13 +17,13 @@
     title: { en: 'Build a Circuit', hr: 'Strujni krug' },
     summary: {
       en: 'Connect a battery, a switch and up to three bulbs in series or in parallel. Read the current and the voltage on the meters.',
-      hr: 'Spoji bateriju, prekidač i do tri žaruljice serijski ili paralelno. Očitaj struju i napon na mjernim instrumentima.'
+      hr: 'Spoji bateriju, prekidač i do tri žaruljice serijski ili paralelno. Očitaj jakost struje i napon na mjernim instrumentima.'
     },
     tasks: [
-      { en: 'Open the switch (click it on the drawing). What happens to the current and the bulbs?', hr: 'Otvori prekidač (klikni ga na crtežu). Što se dogodi sa strujom i žaruljicama?' },
-      { en: 'Connect 2 bulbs in series, then in parallel. When are they brighter? Compare the current on the ammeter.', hr: 'Spoji 2 žaruljice serijski, pa paralelno. Kad svijetle jače? Usporedi struju na ampermetru.' },
-      { en: 'With 1 bulb, double the voltage. How does the current change? Check I = U / R.', hr: 'S 1 žaruljicom udvostruči napon. Kako se promijeni struja? Provjeri I = U / R.' },
-      { en: 'Find a combination with more than 2 A. Why might a bulb burn out?', hr: 'Pronađi kombinaciju s više od 2 A. Zašto bi žaruljica mogla pregorjeti?' }
+      { en: 'Open the switch (click it on the drawing). What happens to the current and the bulbs?', hr: 'Otvori prekidač (klikni na njega na crtežu). Što se dogodi sa strujom i žaruljicama?' },
+      { en: 'Connect 2 bulbs in series, then in parallel. When are they brighter? Compare the current on the ammeter.', hr: 'Spoji dvije žaruljice serijski, a zatim paralelno. Kada jače svijetle? Usporedi jakost struje na ampermetru.' },
+      { en: 'With 1 bulb, double the voltage. How does the current change? Check I = U / R.', hr: 'S jednom žaruljicom udvostruči napon. Kako se promijeni jakost struje? Provjeri: I = U / R.' },
+      { en: 'Find a combination with more than 2 A. Why might a bulb burn out?', hr: 'Pronađi spoj u kojem je jakost struje veća od 2 A. Zašto bi žaruljica mogla pregorjeti?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -39,14 +39,14 @@
       const segN = C.segmented({ label: { en: 'Number of bulbs', hr: 'Broj žaruljica' }, options: [{ value: '1', label: '1' }, { value: '2', label: '2' }, { value: '3', label: '3' }],
         value: String(DEF.n), onChange: v => { st.n = parseInt(v, 10); refresh(); } });
       const segMode = C.segmented({ label: { en: 'Connection', hr: 'Spoj' }, options: [
-        { value: 'series', label: { en: 'series', hr: 'serijski' } }, { value: 'parallel', label: { en: 'parallel', hr: 'paralelno' } }],
+        { value: 'series', label: { en: 'series', hr: 'serijski' } }, { value: 'parallel', label: { en: 'parallel', hr: 'paralelni' } }],
         value: DEF.mode, onChange: v => { st.mode = v; refresh(); } });
       const tgSwitch = C.toggle({ label: { en: 'Switch closed', hr: 'Prekidač zatvoren' }, value: DEF.closed, onChange: v => { st.closed = v; refresh(); } });
       const selBulb = C.select({ label: { en: 'Bulb type', hr: 'Vrsta žaruljice' }, options: BULBS.map(b => ({ value: b.id, label: b.label })), value: DEF.bulb,
         onChange: v => { st.bulb = BULBS.find(b => b.id === v) || BULBS[0]; refresh(); } });
       const tgEl = C.toggle({ label: { en: 'Show electrons', hr: 'Prikaži elektrone' }, value: DEF.electrons, onChange: v => { st.electrons = v; draw(); } });
       const btnPlay = C.button({ label: { en: 'Pause', hr: 'Pauza' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outR = C.readout({ label: { en: 'Total resistance R', hr: 'Ukupni otpor R' }, unit: 'Ω', digits: 1 });
       const outI = C.readout({ label: { en: 'Current I', hr: 'Struja I' }, unit: 'A', digits: 2 });
       const outUb = C.readout({ label: { en: 'Voltage per bulb', hr: 'Napon na žaruljici' }, unit: 'V', digits: 2 });
@@ -72,9 +72,9 @@
         outI.setColor(st.warn ? theme.warn : '');
         let t;
         if (!st.closed) t = { en: 'The switch is open: the circuit is broken, no current flows (I = 0 A) and the bulbs stay dark.', hr: 'Prekidač je otvoren: strujni krug je prekinut, struja ne teče (I = 0 A) i žaruljice ne svijetle.' };
-        else if (st.n === 1) t = { en: 'Ohm\'s law: the current grows with the voltage and shrinks with the resistance, I = U / R.', hr: 'Ohmov zakon: struja raste s naponom, a pada s otporom, I = U / R.' };
+        else if (st.n === 1) t = { en: 'Ohm\'s law: the current grows with the voltage and shrinks with the resistance, I = U / R.', hr: 'Ohmov zakon: jakost struje raste s naponom, a smanjuje se s otporom: I = U / R.' };
         else if (st.mode === 'series') t = { en: 'Series: the same current flows through every bulb; the battery voltage is shared between them.', hr: 'Serijski spoj: kroz sve žaruljice teče ista struja, a napon baterije dijeli se među njima.' };
-        else t = { en: 'Parallel: every bulb gets the full battery voltage; the current splits between the branches.', hr: 'Paralelni spoj: svaka žaruljica dobiva puni napon baterije, a struja se dijeli po granama.' };
+        else t = { en: 'Parallel: every bulb gets the full battery voltage; the current splits between the branches.', hr: 'Paralelni spoj: napon na svakoj žaruljici jednak je naponu baterije, a struja se dijeli po granama.' };
         if (st.warn) t = { en: t.en + ' Warning: more than 2 A – a bulb may burn out!', hr: t.hr + ' Oprez: više od 2 A – žaruljica može pregorjeti!' };
         note.set(t);
       }

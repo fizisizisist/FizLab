@@ -464,7 +464,59 @@ td .chips { gap: 5px; }
 td .chip { padding: 3px 9px; font-size: .78rem; }
 
 /* ---------- print (worksheets and exams on paper) ---------- */
+/* ---------- reading options (js/reading.js) ---------- */
+.read-menu { position: relative; }
+.read-glyph { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1; letter-spacing: 0; }
+#readBtn.is-on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.read-panel {
+  position: fixed; left: 16px; top: 64px; width: min(340px, calc(100vw - 32px)); max-height: calc(100vh - 80px); overflow-y: auto; z-index: 70;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 10px 30px rgba(14, 19, 34, .2);
+  padding: 14px 10px 12px; display: grid; gap: 2px; letter-spacing: normal; word-spacing: normal; line-height: 1.45;
+}
+.read-panel h2 { font-size: 1.05rem; margin: 0 8px 6px; }
+.read-opt { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; padding: 10px 8px; border-radius: 10px; cursor: pointer; }
+.read-opt:hover { background: var(--surface2); }
+.read-opt b { display: block; font-size: .98rem; }
+.read-opt small { display: block; color: var(--muted); font-size: .85rem; margin-top: 2px; }
+.read-opt input { appearance: none; -webkit-appearance: none; width: 42px; height: 24px; margin: 1px 0 0; border-radius: 999px; background: var(--line); position: relative; cursor: pointer; transition: background .15s; }
+.read-opt input::before { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .3); transition: transform .15s; }
+.read-opt input:checked { background: var(--accent); }
+.read-opt input:checked::before { transform: translateX(18px); }
+.read-note { font-size: .82rem; color: var(--muted); margin: 6px 8px 0; }
+@media (prefers-reduced-motion: reduce) { .read-opt input, .read-opt input::before, .read-guide { transition: none; } }
+
+/* dyslexia-friendly text: BDA style guide + WCAG 1.4.12 spacing, cream background in the light theme */
+html.read-dys { --bg: #f6f0e1; --surface: #fffbf2; --surface2: #f0e8d5; --line: #e2d8c0; --fg: #262a3d; --muted: #5b5f70; --sky: #f3ecdb; }
+html.read-dys #main, html.read-dys .rail, html.read-dys .foot { letter-spacing: .12em; word-spacing: .24em; line-height: 1.75; }
+html.read-dys #main :is(h1, h2, h3, h4), html.read-dys .rail h2 { letter-spacing: .05em; word-spacing: .12em; line-height: 1.35; }
+html.read-dys .prose { font-size: 1.15rem; }
+html.read-dys .prose p, html.read-dys .prose li { margin-bottom: .8em; }
+html.read-dys .option { font-size: 1.08rem; }
+html.read-dys :is(em, i, cite, dfn) { font-style: normal; font-weight: 700; }
+html.read-dys :is(.panel h4, .quiz-type, th, .rail h2, .grade-pill) { text-transform: none; letter-spacing: .06em; }
+html.read-dys .sim-stage { letter-spacing: .06em; word-spacing: .12em; line-height: 1.6; }
+html.read-dys :is(.formula, .num, .sk-value, .sk-readout-value, .key, input, textarea, select) { letter-spacing: .02em; word-spacing: normal; }
+
+/* bold word beginnings (ADHD focus) */
+.rb-b { font-weight: 800; }
+html.read-bold :is(.quiz-q, .practice-text, .poe-q, .paper-text) { font-weight: 400; }   /* bold question text would hide the effect */
+
+/* reading guide: a band that follows the pointer and dims the rest (a "shade" reading ruler) */
+.read-guide {
+  --guide-dim: rgba(20, 24, 40, .22);
+  position: fixed; left: 0; right: 0; top: 0; height: 2.6rem; z-index: 45; pointer-events: none; display: none;
+  border-block: 2px solid var(--accent); border-block-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  background: color-mix(in srgb, var(--accent2) 8%, transparent);
+  box-shadow: 0 0 0 100vmax var(--guide-dim); transition: opacity .12s; will-change: transform;
+}
+html.read-guide-on .read-guide { display: block; }
+html.read-dys .read-guide { height: 3.2rem; }
+.read-guide.is-hidden { opacity: 0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .read-guide { --guide-dim: rgba(0, 0, 0, .55); background: transparent; } }
+:root[data-theme="dark"] .read-guide { --guide-dim: rgba(0, 0, 0, .55); background: transparent; }
+
 @media print {
+  .read-guide { display: none !important; }
   .topbar, .rail, footer.foot, .toast, .toolbar, .tabs, .hero-actions, .quiz-actions, .chips, .guide, .exam-setup, .practice, .panel:has(.chips), .section-head .chip, body::before { display: none !important; }
   body { background: #fff; color: #000; font-size: 12pt; }
   .app { display: block; padding: 0; max-width: none; }

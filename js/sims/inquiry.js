@@ -21,9 +21,9 @@
       ],
       model: v => 2 * Math.PI * Math.sqrt(v.L / G) * (1 + Math.pow(v.a * Math.PI / 180, 2) / 16),
       explain: {
-        L: { en: 'The period depends on the length: a longer pendulum travels a longer path, so one swing takes longer — T grows with √L (4× the length → 2× the period).', hr: 'Period ovisi o duljini: dulje njihalo prelazi dulji put pa jedan njihaj traje dulje — T raste s √L (4 puta dulje njihalo → 2 puta dulji period).' },
-        m: { en: 'The period does not depend on the mass: a heavier bob is pulled harder but is also harder to move.', hr: 'Period ne ovisi o masi: teža kuglica jače je privučena, ali ju je i teže pokrenuti.' },
-        a: { en: 'For small angles the period hardly depends on the swing size: a bigger swing has a longer path, but the bob also moves faster.', hr: 'Za male kutove period gotovo ne ovisi o veličini zamaha: veći zamah ima dulji put, ali se kuglica i brže giba.' }
+        L: { en: 'The period depends on the length: a longer pendulum travels a longer path, so one swing takes longer — T grows with √L (4× the length → 2× the period).', hr: 'Period ovisi o duljini: dulje njihalo prelazi dulji put pa jedan titraj traje dulje — T raste s √L (4 puta dulje njihalo → 2 puta dulji period).' },
+        m: { en: 'The period does not depend on the mass: a heavier bob is pulled harder but is also harder to move.', hr: 'Period ne ovisi o masi: na težu kuglicu djeluje veća sila teža, ali ju je i teže pokrenuti.' },
+        a: { en: 'For small angles the period hardly depends on the swing size: a bigger swing has a longer path, but the bob also moves faster.', hr: 'Za male kutove period gotovo ne ovisi o veličini otklona: pri većem otklonu kuglica prelazi dulji put, ali se i brže giba.' }
       } },
     { id: 'buoy', title: { en: 'What does buoyancy depend on?', hr: 'O čemu ovisi uzgon?' },
       measured: { sym: { en: 'F_b', hr: 'F_u' }, unit: 'N', digits: 2, name: { en: 'the buoyant force', hr: 'uzgon' } },
@@ -35,30 +35,30 @@
       model: v => v.liq * G * v.V * 1e-6,
       explain: {
         V: { en: 'The buoyant force depends on the volume: it equals the weight of the displaced liquid, and a bigger object pushes more liquid away.', hr: 'Uzgon ovisi o obujmu: jednak je težini istisnute tekućine, a veće tijelo istisne više tekućine.' },
-        m: { en: 'The buoyant force does not depend on the mass of the object — only on the volume under the surface and on the liquid. A heavier object sinks, but the liquid pushes it up just as hard.', hr: 'Uzgon ne ovisi o masi tijela — samo o obujmu pod površinom i o tekućini. Teže tijelo tone, ali ga tekućina gura prema gore jednako jako.' },
-        liq: { en: 'The buoyant force depends on the liquid: a denser liquid weighs more per litre, so the displaced liquid weighs more — F_b = ρ·g·V.', hr: 'Uzgon ovisi o tekućini: gušća tekućina teža je po litri pa je i istisnuta tekućina teža — F_u = ρ·g·V.' }
+        m: { en: 'The buoyant force does not depend on the mass of the object — only on the volume under the surface and on the liquid. A heavier object sinks, but the liquid pushes it up just as hard.', hr: 'Uzgon ne ovisi o masi tijela, nego samo o obujmu uronjenog dijela tijela i o tekućini. Teže tijelo tone, ali ga tekućina potiskuje prema gore jednako snažno.' },
+        liq: { en: 'The buoyant force depends on the liquid: a denser liquid weighs more per litre, so the displaced liquid weighs more — F_b = ρ·g·V.', hr: 'Uzgon ovisi o tekućini: litra gušće tekućine teža je od litre rjeđe pa je i istisnuta tekućina teža — F_u = ρ·g·V.' }
       } },
     { id: 'cart', title: { en: 'What does the acceleration of a cart depend on?', hr: 'O čemu ovisi ubrzanje kolica?' },
       measured: { sym: 'a', unit: 'm/s²', digits: 2, name: { en: 'the acceleration', hr: 'ubrzanje' } },
       vars: [
-        { id: 'F', sym: 'F', unit: 'N', digits: 0, short: { en: 'pulling force', hr: 'sila' }, acc: 'silu', loc: 'sili', def: 4, plan: [2, 4, 6, 8] },
+        { id: 'F', sym: 'F', unit: 'N', digits: 0, short: { en: 'pulling force', hr: 'vučna sila' }, acc: 'vučnu silu', loc: 'vučnoj sili', def: 4, plan: [2, 4, 6, 8] },
         { id: 'm', sym: 'm', unit: 'kg', digits: 1, short: { en: 'mass of the cart', hr: 'masa kolica' }, acc: 'masu kolica', loc: 'masi kolica', def: 2, plan: [1, 2, 3, 4] }
       ],
       model: v => v.F / v.m,
       explain: {
-        F: { en: 'The acceleration depends on the force: pull twice as hard and the cart speeds up twice as fast — a = F/m (Newton\'s second law).', hr: 'Ubrzanje ovisi o sili: povuci dvostruko jače i kolica dvostruko brže ubrzavaju — a = F/m (drugi Newtonov zakon).' },
-        m: { en: 'The acceleration depends on the mass: a heavier cart is harder to speed up — twice the mass, half the acceleration (a = F/m).', hr: 'Ubrzanje ovisi o masi: teža kolica teže je ubrzati — dvostruka masa, upola manje ubrzanje (a = F/m).' }
+        F: { en: 'The acceleration depends on the force: pull twice as hard and the cart speeds up twice as fast — a = F/m (Newton\'s second law).', hr: 'Ubrzanje ovisi o sili: povučeš li kolica dvostruko jače, ubrzanje će biti dvostruko veće — a = F/m (drugi Newtonov zakon).' },
+        m: { en: 'The acceleration depends on the mass: a heavier cart is harder to speed up — twice the mass, half the acceleration (a = F/m).', hr: 'Ubrzanje ovisi o masi: teža kolica teže je ubrzati — uz dvostruko veću masu ubrzanje je upola manje (a = F/m).' }
       } }
   ];
   const STEP_NAMES = [{ en: 'Hypothesis', hr: 'Hipoteza' }, { en: 'Plan', hr: 'Plan' }, { en: 'Predict', hr: 'Predvidi' }, { en: 'Measure', hr: 'Mjeri' }, { en: 'Conclude', hr: 'Zaključi' }];
   const PREDW = { inc: { en: 'increases', hr: 'raste' }, dec: { en: 'decreases', hr: 'pada' }, same: { en: 'stays the same', hr: 'se ne mijenja' } };
   const PREDN = { inc: { en: 'increase', hr: 'rast' }, dec: { en: 'decrease', hr: 'pad' }, same: { en: 'no change', hr: 'bez promjene' } }; // noun form for "your prediction (…)"
-  const WARN = { en: 'Change only one thing at a time, otherwise you cannot tell which one mattered.', hr: 'Mijenjaj samo jednu stvar odjednom, inače ne možeš znati što je utjecalo.' };
+  const WARN = { en: 'Change only one thing at a time, otherwise you cannot tell which one mattered.', hr: 'Mijenjaj samo jednu varijablu odjednom, inače ne možeš znati koja je utjecala na rezultat.' };
   const STEP_NOTES = [
-    { en: 'Step 1 — Hypothesis: which variable do you think the measured value depends on? You cannot be wrong here — a hypothesis is a guess that we then test.', hr: '1. korak — Hipoteza: o kojoj varijabli misliš da ovisi izmjerena vrijednost? Ovdje ne možeš pogriješiti — hipoteza je pretpostavka koju zatim provjeravamo.' },
-    { en: 'Step 2 — Plan: change ONE variable (the independent variable) and keep the others constant (controlled variables). The measured value is the dependent variable.', hr: '2. korak — Plan: mijenjaj JEDNU varijablu (nezavisnu varijablu), a ostale drži stalnima (kontrolirane varijable). Izmjerena vrijednost je zavisna varijabla.' },
-    { en: 'Step 3 — Prediction: if your hypothesis is right, what should happen to the measured value when the changed variable gets bigger?', hr: '3. korak — Predviđanje: ako je hipoteza točna, što bi se trebalo dogoditi s izmjerenom vrijednošću kad mijenjana varijabla raste?' },
-    { en: 'Step 4 — Measure: run the four trials and watch the table and the graph fill in. Every measurement has a little noise (about ±2 %).', hr: '4. korak — Mjerenje: izvedi četiri mjerenja i prati kako se pune tablica i graf. Svako mjerenje ima malo šuma (oko ±2 %).' }
+    { en: 'Step 1 — Hypothesis: which variable do you think the measured value depends on? You cannot be wrong here — a hypothesis is a guess that we then test.', hr: '1. korak — Hipoteza: što misliš, o kojoj varijabli ovisi izmjerena vrijednost? Ovdje ne možeš pogriješiti — hipoteza je pretpostavka koju zatim provjeravamo.' },
+    { en: 'Step 2 — Plan: change ONE variable (the independent variable) and keep the others constant (controlled variables). The measured value is the dependent variable.', hr: '2. korak — Plan: mijenjaj JEDNU varijablu (to je nezavisna varijabla), a ostale drži stalnima (to su kontrolirane varijable). Veličina koju mjeriš zavisna je varijabla.' },
+    { en: 'Step 3 — Prediction: if your hypothesis is right, what should happen to the measured value when the changed variable gets bigger?', hr: '3. korak — Predviđanje: ako je hipoteza točna, što bi se trebalo dogoditi s izmjerenom vrijednošću kad povećavaš varijablu koju mijenjaš?' },
+    { en: 'Step 4 — Measure: run the four trials and watch the table and the graph fill in. Every measurement has a little noise (about ±2 %).', hr: '4. korak — Mjerenje: izvedi četiri mjerenja i prati kako se popunjavaju tablica i graf. Svako mjerenje ima malu mjernu nesigurnost (oko ±2 %).' }
   ];
   const rnd = (a, b) => a + Math.random() * (b - a);
   const bi = f => ({ en: f('en'), hr: f('hr') });
@@ -74,16 +74,16 @@
 
   window.Sims.register({
     id: 'inquiry',
-    title: { en: 'Design a Fair Test', hr: 'Osmisli pošten pokus' },
+    title: { en: 'Design a Fair Test', hr: 'Osmisli kontrolirani pokus' },
     summary: {
       en: 'Work like a scientist: make a hypothesis, plan a fair test that changes only one variable, predict, measure and conclude — for a pendulum, buoyancy or a pulled cart.',
-      hr: 'Radi kao znanstvenik: postavi hipotezu, isplaniraj pošten pokus u kojem mijenjaš samo jednu varijablu, predvidi, izmjeri i zaključi — za njihalo, uzgon ili kolica.'
+      hr: 'Istražuj kao znanstvenik: postavi hipotezu, osmisli kontrolirani pokus u kojem mijenjaš samo jednu varijablu, predvidi, izmjeri i zaključi — za njihalo, uzgon ili kolica.'
     },
     tasks: [
-      { en: 'Pendulum: many people think a heavier bob swings slower. Make that your hypothesis, change only the mass and see what the data say.', hr: 'Njihalo: mnogi misle da se teža kuglica njiše sporije. Neka to bude tvoja hipoteza, mijenjaj samo masu i pogledaj što kažu podaci.' },
-      { en: 'In the Plan step try to switch on two variables at once. Why does the app refuse?', hr: 'U koraku Plan pokušaj uključiti dvije varijable odjednom. Zašto aplikacija to odbija?' },
-      { en: 'Buoyancy: does a heavier object get a bigger buoyant force? Test the mass, then test the volume. Compare the graphs.', hr: 'Uzgon: dobiva li teže tijelo veći uzgon? Provjeri masu, a zatim obujam. Usporedi grafove.' },
-      { en: 'Cart: predict what happens to the acceleration when the mass doubles, then measure. Was your prediction right?', hr: 'Kolica: predvidi što se događa s ubrzanjem kad se masa udvostruči, a zatim izmjeri. Je li predviđanje bilo točno?' }
+      { en: 'Pendulum: many people think a heavier bob swings slower. Make that your hypothesis, change only the mass and see what the data say.', hr: 'Njihalo: mnogi misle da se teža kuglica njiše sporije. Neka to bude tvoja hipoteza; mijenjaj samo masu i pogledaj što pokazuju podaci.' },
+      { en: 'In the Plan step try to switch on two variables at once. Why does the app refuse?', hr: 'U koraku Plan pokušaj uključiti dvije varijable odjednom. Zašto aplikacija to ne dopušta?' },
+      { en: 'Buoyancy: does a heavier object get a bigger buoyant force? Test the mass, then test the volume. Compare the graphs.', hr: 'Uzgon: djeluje li na teže tijelo veći uzgon? Ispitaj utjecaj mase, a zatim obujma. Usporedi grafove.' },
+      { en: 'Cart: predict what happens to the acceleration when the mass doubles, then measure. Was your prediction right?', hr: 'Kolica: predvidi što će se dogoditi s ubrzanjem kad se masa udvostruči, a zatim izmjeri. Je li predviđanje bilo točno?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -159,7 +159,7 @@
           if (!ok) {
             st.checked = { ok: false };
             return warnNote(bi(l => T(l, '✗ Look at the data again: the measured value changed by ' + K.fmt(r.rel, 1, l) + ' % across the trials. More than 10 % means it depends; less is just noise. Try again.',
-              '✗ Pogledaj podatke još jednom: izmjerena vrijednost promijenila se za ' + K.fmt(r.rel, 1, l) + ' % kroz mjerenja. Više od 10 % znači da ovisi; manje je samo šum. Pokušaj ponovno.')));
+              '✗ Pogledaj podatke još jednom: u četiri mjerenja izmjerena se vrijednost promijenila za ' + K.fmt(r.rel, 1, l) + ' %. Promjena veća od 10 % znači da ovisi; manja je samo posljedica mjerne nesigurnosti. Pokušaj ponovno.')));
           }
           st.checked = { ok: true, predOK: st.pred === r.dir, hypOK: st.hyp === st.indep }; st.step = 6;
         } else return;
@@ -201,19 +201,19 @@
         const s = st.step, inv = st.inv, iv = varById(st.indep), hv = varById(st.hyp);
         if (s === 2 && iv && hv && iv !== hv) {
           note.set(bi(l => T(l, 'Your hypothesis is about ' + hv.short.en + '. Testing ' + iv.short.en + ' is a fair test too, but it will not tell you about ' + hv.short.en + '.',
-            'Tvoja je hipoteza o ' + hv.loc + '. Provjera varijable „' + iv.short.hr + '” također je pošten pokus, ali ti neće reći ništa o ' + hv.loc + '.')));
+            'Tvoja se hipoteza odnosi na ' + hv.acc + '. Ako mijenjaš varijablu „' + iv.short.hr + '“, pokus je i dalje kontroliran, ali iz njega nećeš saznati ništa o ' + hv.loc + '.')));
         } else if (s <= 4) note.set(STEP_NOTES[s - 1]);
         else if (s === 5) {
           const r = st.result;
           note.set(bi(l => T(l, 'Step 5 — Conclude: the measured value changed by ' + K.fmt(r.rel, 1, l) + ' % across the trials. Rule of thumb: more than 10 % = it depends; less = it does not (just measurement noise).',
-            '5. korak — Zaključak: izmjerena vrijednost promijenila se za ' + K.fmt(r.rel, 1, l) + ' % kroz mjerenja. Pravilo: više od 10 % = ovisi; manje = ne ovisi (samo šum mjerenja).')));
+            '5. korak — Zaključak: u četiri mjerenja izmjerena se vrijednost promijenila za ' + K.fmt(r.rel, 1, l) + ' %. Okvirno pravilo: više od 10 % = ovisi; manje = ne ovisi (to je samo mjerna nesigurnost).')));
         } else {
           const r = st.result, c = st.checked, mn = inv.measured.name;
           note.set(bi(l => {
             let s2 = T(l, '✓ Correct conclusion: ', '✓ Točan zaključak: ') + K.tr(mn, l) + (r.dep ? T(l, ' depends on ', ' ovisi o ') : T(l, ' does not depend on ', ' ne ovisi o ')) + T(l, 'the ' + iv.short.en, iv.loc) +
               T(l, ' (change ', ' (promjena ') + K.fmt(r.rel, 1, l) + ' %). ';
             s2 += T(l, 'Your prediction (', 'Tvoje predviđanje (') + K.tr(PREDN[st.pred], l) + ') ' + (c.predOK ? T(l, 'was right. ', 'bilo je točno. ') : T(l, 'was wrong — the data decide, not the guess. ', 'nije bilo točno — odlučuju podaci, a ne pretpostavka. '));
-            if (!c.hypOK && hv) s2 += T(l, 'Note: your hypothesis was about the ' + hv.short.en + ' — to test it, change that variable. ', 'Napomena: hipoteza je bila o ' + hv.loc + ' — da je provjeriš, mijenjaj tu varijablu. ');
+            if (!c.hypOK && hv) s2 += T(l, 'Note: your hypothesis was about the ' + hv.short.en + ' — to test it, change that variable. ', 'Napomena: hipoteza se odnosila na ' + hv.acc + ' — želiš li je provjeriti, mijenjaj tu varijablu. ');
             return s2 + K.tr(inv.explain[iv.id], l);
           }));
         }
@@ -233,11 +233,11 @@
         if (iv) {
           const others = inv.vars.filter(v => v !== iv), span = ' (' + fmtVal(iv, iv.plan[0], l) + ' → ' + fmtVal(iv, iv.plan[3], l) + ')';
           rows.push({ tag: T(l, 'AND', 'I'), on: true, text: T(l, 'I change only the ' + iv.short.en + span + ' and keep the ' + others.map(v => v.short.en).join(' and the ') + ' constant…',
-            'mijenjam samo ' + iv.acc + span + ', a ' + others.map(v => v.acc).join(' i ') + ' držim stalnima…') });
-        } else rows.push({ tag: T(l, 'AND', 'I'), on: false, text: T(l, '… (plan a fair test: change one variable)', '… (isplaniraj pošten pokus: mijenjaj jednu varijablu)') });
+            'mijenjam samo ' + iv.acc + span + ', a ' + others.map(v => v.acc).join(' i ') + ' ne mijenjam…') });
+        } else rows.push({ tag: T(l, 'AND', 'I'), on: false, text: T(l, '… (plan a fair test: change one variable)', '… (osmisli kontrolirani pokus: mijenjaj jednu varijablu)') });
         rows.push({ tag: T(l, 'THEN', 'ONDA'), on: !!st.pred, text: st.pred ? sym + ' ' + K.tr(PREDW[st.pred], l) + '.' : T(l, '… (predict)', '… (predvidi)') });
         rows.push({ tag: r ? (st.pred === r.dir ? T(l, 'AND', 'I') : T(l, 'BUT', 'ALI')) : T(l, 'RESULT', 'REZULTAT'), on: !!r,
-          text: r ? sym + ' = ' + st.trials.map(t => K.fmt(t.y, m.digits, l)).join('; ') + ' ' + m.unit + T(l, ' (change ', ' (promjena ') + K.fmt(r.rel, 1, l) + ' %).' : T(l, '… (measure)', '… (mjeri)') });
+          text: r ? sym + ' = ' + st.trials.map(t => K.fmt(t.y, m.digits, l)).join('; ') + ' ' + m.unit + T(l, ' (change ', ' (promjena ') + K.fmt(r.rel, 1, l) + ' %).' : T(l, '… (measure)', '… (izmjeri)') });
         rows.push({ tag: T(l, 'THEREFORE', 'DAKLE'), on: !!st.concl, text: st.concl
           ? sym + (st.concl === 'dep' ? T(l, ' depends on ', ' ovisi o ') : T(l, ' does not depend on ', ' ne ovisi o ')) + (iv ? T(l, 'the ' + iv.short.en, iv.loc) : '…') + (st.checked ? (st.checked.ok ? ' ✓' : ' ✗') : '')
           : T(l, '… (conclude)', '… (zaključi)') });
@@ -271,7 +271,7 @@
         labels(g, a, ['L = ' + K.fmt(v.L, 2, lang) + ' m', 'm = ' + K.fmt(v.m, 0, lang) + ' g', 'θ = ' + K.fmt(v.a, 0, lang) + '°']);
         K.text(g, 't = ' + K.fmt(t, 2, lang) + ' s', a.x + a.w - 2, a.y + 2, { font: 'bold 12px ' + theme.font, color: theme.fg, align: 'right', baseline: 'top' });
         if (tt >= Tm && st.step >= 4) K.text(g, 'T = ' + K.fmt(Tm, 2, lang) + ' s', a.x + a.w - 2, a.y + 20, { font: 'bold 12px ' + theme.font, color: theme.fg, align: 'right', baseline: 'top' });
-        else if (st.running) K.text(g, K.tr({ en: 'one full swing…', hr: 'jedan puni njihaj…' }, lang), a.x + a.w - 2, a.y + 20, { font: '11px ' + theme.font, color: theme.muted, align: 'right', baseline: 'top' });
+        else if (st.running) K.text(g, K.tr({ en: 'one full swing…', hr: 'jedan puni titraj…' }, lang), a.x + a.w - 2, a.y + 20, { font: '11px ' + theme.font, color: theme.muted, align: 'right', baseline: 'top' });
       }
       function drawBuoy(g, a, v, Fb, tt) {
         const liq = LIQUIDS.find(l => l.rho === v.liq) || LIQUIDS[2];
@@ -316,7 +316,7 @@
       function drawTable(g, r) {
         panel(g, r);
         const inv = st.inv, iv = varById(st.indep), cols = [{ w: 0.08, head: '#', kind: 'idx' }];
-        inv.vars.forEach(v => cols.push({ w: 0.62 / inv.vars.length, head: v.cat ? K.tr(v.short, lang) : v.sym + ' (' + v.unit + ')', sub: iv === v ? { en: 'changes', hr: 'mijenja se' } : { en: 'constant', hr: 'stalno' }, kind: iv === v ? 'indep' : 'ctrl', v }));
+        inv.vars.forEach(v => cols.push({ w: 0.62 / inv.vars.length, head: v.cat ? K.tr(v.short, lang) : v.sym + ' (' + v.unit + ')', sub: iv === v ? { en: 'changes', hr: 'mijenja se' } : { en: 'constant', hr: 'stalna' }, kind: iv === v ? 'indep' : 'ctrl', v }));
         cols.push({ w: 0.30, head: K.tr(inv.measured.sym, lang) + ' (' + inv.measured.unit + ')', sub: { en: 'measured', hr: 'mjeri se' }, kind: 'meas' });
         const headH = 28, tw = r.w - 12, ty = r.y + 6, rowH = K.clamp((r.h - headH - 12) / 4, 12, 22), fs = rowH < 15 ? 10 : 11;
         let x = r.x + 6; cols.forEach(c => { c.x = x; c.px = c.w * tw; x += c.px; });
@@ -364,7 +364,7 @@
       }
       function drawChart(g, r) {
         const inv = st.inv, iv = varById(st.indep);
-        if (!iv) { panel(g, r); K.text(g, K.tr({ en: 'Graph: measured value vs. the changed variable', hr: 'Graf: izmjerena vrijednost u ovisnosti o mijenjanoj varijabli' }, lang), r.x + r.w / 2, r.y + r.h / 2, { font: '11px ' + theme.font, color: theme.muted, align: 'center', baseline: 'middle' }); return; }
+        if (!iv) { panel(g, r); K.text(g, K.tr({ en: 'Graph: measured value vs. the changed variable', hr: 'Graf: ovisnost izmjerene vrijednosti o varijabli koju mijenjaš' }, lang), r.x + r.w / 2, r.y + r.h / 2, { font: '11px ' + theme.font, color: theme.muted, align: 'center', baseline: 'middle' }); return; }
         const pts = st.trials.filter(t => t.done).map(t => [t.vals[iv.id], t.y]).sort((p, q) => p[0] - q[0]);
         const yMax = Math.max.apply(null, st.trials.map(t => inv.model(t.vals))) * 1.3;
         const m = K.lineChart(g, { x: r.x, y: r.y, w: r.w, h: r.h, xMin: iv.cat ? 700 : 0, xMax: iv.plan[3], yMin: 0, yMax, lang, theme,

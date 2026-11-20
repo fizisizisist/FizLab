@@ -20,7 +20,7 @@
     { value: 'heavy', m1: 5, m2: 1, v1: 2, v2: 0, e: 1, label: { en: 'Heavy hits light at rest', hr: 'Teška kolica udaraju u lagana' } },
     { value: 'light', m1: 1, m2: 5, v1: 3, v2: 0, e: 1, label: { en: 'Light hits heavy at rest', hr: 'Lagana kolica udaraju u teška' } },
     { value: 'stick', m1: 2, m2: 3, v1: 3, v2: -2, e: 0, label: { en: 'Head-on, they stick together', hr: 'Čeoni sudar, kolica se slijepe' } },
-    { value: 'rear', m1: 1, m2: 2, v1: 4, v2: 1, e: 0.5, label: { en: 'Rear-end collision', hr: 'Nalet straga' } }
+    { value: 'rear', m1: 1, m2: 2, v1: 4, v2: 1, e: 0.5, label: { en: 'Rear-end collision', hr: 'Sudar straga' } }
   ];
   // signed number with a real minus sign: +3.0 / −2.0 / 0.0
   function sg(v, d, l) { const z = Math.abs(v) < 0.5 * Math.pow(10, -d); return (z ? '' : v > 0 ? '+' : '−') + K.fmt(z ? 0 : Math.abs(v), d, l); }
@@ -30,13 +30,13 @@
     title: { en: 'Collisions', hr: 'Sudari' },
     summary: {
       en: 'Crash two carts with any masses, speeds and bounciness and compare momentum and kinetic energy before and after. Then pull back the balls of Newton\'s cradle.',
-      hr: 'Sudari dvoja kolica bilo kojih masa, brzina i elastičnosti te usporedi količinu gibanja i kinetičku energiju prije i poslije. Zatim podigni kuglice Newtonova njihala.'
+      hr: 'Sudari dvoja kolica bilo kojih masa, brzina i elastičnosti te usporedi količinu gibanja i kinetičku energiju prije i poslije sudara. Zatim podigni kuglice Newtonova njihala.'
     },
     tasks: [
-      { en: 'Choose "Equal masses, elastic" and press Play. What happens to the two velocities? Compare the momentum bars before and after.', hr: 'Odaberi „Jednake mase, elastičan sudar” i pokreni. Što se dogodi s brzinama? Usporedi stupce količine gibanja prije i poslije.' },
-      { en: 'Set the bounciness to 0 so the carts stick together. Does the total momentum change? Where did the kinetic energy go?', hr: 'Namjesti elastičnost na 0 da se kolica slijepe. Mijenja li se ukupna količina gibanja? Kamo je otišla kinetička energija?' },
-      { en: 'Make two carts with different masses that both stop dead when they collide. What must be true of their momenta?', hr: 'Namjesti dvoja kolica različitih masa tako da se u sudaru oboja zaustave. Što mora vrijediti za njihove količine gibanja?' },
-      { en: 'Newton\'s cradle: pull back two balls. How many swing out on the other side? Why not one ball going twice as fast?', hr: 'Newtonovo njihalo: podigni dvije kuglice. Koliko ih odskoči na drugoj strani? Zašto ne jedna dvostruko većom brzinom?' }
+      { en: 'Choose "Equal masses, elastic" and press Play. What happens to the two velocities? Compare the momentum bars before and after.', hr: 'Odaberi „Jednake mase, elastičan sudar“ i pritisni „Pokreni“. Što se dogodi s brzinama? Usporedi stupce količine gibanja prije i poslije sudara.' },
+      { en: 'Set the bounciness to 0 so the carts stick together. Does the total momentum change? Where did the kinetic energy go?', hr: 'Postavi elastičnost na 0 tako da se kolica slijepe. Mijenja li se ukupna količina gibanja? U što je prešla kinetička energija?' },
+      { en: 'Make two carts with different masses that both stop dead when they collide. What must be true of their momenta?', hr: 'Podesi dvoja kolica različitih masa tako da se nakon sudara oboja zaustave. Što mora vrijediti za njihove količine gibanja?' },
+      { en: 'Newton\'s cradle: pull back two balls. How many swing out on the other side? Why not one ball going twice as fast?', hr: 'Newtonovo njihalo: podigni dvije kuglice. Koliko ih odskoči na drugoj strani? Zašto ne odskoči samo jedna, dvostruko većom brzinom?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -60,7 +60,7 @@
       const slV2 = C.slider({ label: { en: 'Velocity of cart 2 (v₂)', hr: 'Brzina kolica 2 (v₂)' }, min: -5, max: 5, step: 0.5, value: 0, digits: 1, format: (v, l) => sg(v, 1, l) + ' m/s', onChange: v => { st.v2 = v; custom(); } });
       const slE = C.slider({ label: { en: 'Bounciness (0 = stick, 1 = elastic)', hr: 'Elastičnost (0 = slijepe se, 1 = elastičan)' }, min: 0, max: 1, step: 0.05, value: 1, digits: 2, onChange: v => { st.e = v; custom(); } });
       const tgWalls = C.toggle({ label: { en: 'Walls at the ends', hr: 'Zidovi na krajevima' }, value: false, onChange: v => { st.walls = v; L.stop(); resetCarts(); updatePlay(); refresh(); } });
-      const segN = C.segmented({ label: { en: 'Balls to pull back', hr: 'Koliko kuglica podići' }, options: [{ value: '1', label: '1' }, { value: '2', label: '2' }, { value: '3', label: '3' }], value: '1',
+      const segN = C.segmented({ label: { en: 'Balls to pull back', hr: 'Broj podignutih kuglica' }, options: [{ value: '1', label: '1' }, { value: '2', label: '2' }, { value: '3', label: '3' }], value: '1',
         onChange: v => { st.n = parseInt(v, 10); L.stop(); resetCradle(); updatePlay(); refresh(); } });
       const tgDamp = C.toggle({ label: { en: 'Small damping (air, strings)', hr: 'Malo prigušenje (zrak, niti)' }, value: false, onChange: v => { st.damp = v; refresh(); } });
       const tgSlow = C.toggle({ label: { en: 'Slow motion', hr: 'Usporeno' }, value: false, onChange: v => { st.slow = v; refresh(); } });
@@ -69,7 +69,7 @@
         else if (!st.released) st.released = true;
         L.toggle(); updatePlay(); refresh();
       } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const roK = [
         C.readout({ label: { en: 'Cart 1 after: v₁′', hr: 'Kolica 1 poslije: v₁′' }, unit: 'm/s' }),
         C.readout({ label: { en: 'Cart 2 after: v₂′', hr: 'Kolica 2 poslije: v₂′' }, unit: 'm/s' }),
@@ -79,8 +79,8 @@
         C.readout({ label: { en: 'Kinetic energy lost', hr: 'Izgubljena kinetička energija' }, unit: '%', digits: 0 })
       ];
       const roN = [
-        C.readout({ label: { en: 'Balls up on the left', hr: 'Kuglica podignuto lijevo' }, digits: 0 }),
-        C.readout({ label: { en: 'Balls up on the right', hr: 'Kuglica podignuto desno' }, digits: 0 }),
+        C.readout({ label: { en: 'Balls up on the left', hr: 'Podignute kuglice lijevo' }, digits: 0 }),
+        C.readout({ label: { en: 'Balls up on the right', hr: 'Podignute kuglice desno' }, digits: 0 }),
         C.readout({ label: { en: 'Fastest ball', hr: 'Najbrža kuglica' }, unit: 'm/s', digits: 2 }),
         C.readout({ label: { en: 'Total energy E_k + E_p', hr: 'Ukupna energija E_k + E_p' }, unit: 'J', digits: 3 })
       ];
@@ -190,17 +190,17 @@
           setNote('carts' + (st.walls ? 'w' : ''), () => ({
             en: 'Momentum (p = m·v, with a sign for the direction) is conserved in every collision: the "total" bar stays the same. Kinetic energy is conserved only in a perfectly elastic collision; otherwise part of it becomes heat, sound and dents.' +
               (st.walls ? ' A wall pushes on a cart, so a bounce off a wall does change the carts\' total momentum (the wall and the Earth take the difference).' : ' Drag a cart sideways to set its velocity.'),
-            hr: 'Količina gibanja (p = m·v, s predznakom za smjer) očuvana je u svakom sudaru: stupac „ukupno” ostaje isti. Kinetička energija očuvana je samo u savršeno elastičnom sudaru; inače dio prelazi u toplinu, zvuk i deformaciju.' +
+            hr: 'Količina gibanja (p = m·v; predznak pokazuje smjer) očuvana je u svakom sudaru: stupac „ukupno“ ostaje isti. Kinetička energija očuvana je samo u savršeno elastičnom sudaru; inače dio nje prelazi u toplinu, zvuk i deformaciju kolica.' +
               (st.walls ? ' Zid djeluje silom na kolica pa odbijanje od zida mijenja ukupnu količinu gibanja kolica (razliku preuzmu zid i Zemlja).' : ' Povuci kolica u stranu da im namjestiš brzinu.') }));
         } else {
           const q = cradleNums(), n = st.n;
           roN[0].set(q.left); roN[1].set(q.right); roN[2].set(q.vmax); roN[3].set(q.E);
           setNote('cradle' + n, () => n === 1 ? {
             en: 'One ball in, one ball out, at the same speed: only then are BOTH momentum (m·v) and kinetic energy (½·m·v²) the same before and after. Two balls leaving at half the speed would have the same momentum but only half the energy.',
-            hr: 'Jedna kuglica udari, jedna odskoči, jednakom brzinom: samo tada su I količina gibanja (m·v) I kinetička energija (½·m·v²) jednake prije i poslije. Dvije kuglice s upola manjom brzinom imale bi istu količinu gibanja, ali samo pola energije.'
+            hr: 'Jedna kuglica udari i jedna odskoči, i to jednakom brzinom: samo su tada I količina gibanja (m·v) I kinetička energija (½·m·v²) jednake prije i poslije sudara. Dvije kuglice s upola manjom brzinom imale bi jednaku količinu gibanja, ali samo pola energije.'
           } : {
             en: n + ' balls in, ' + n + ' balls out, at the same speed: only then are BOTH momentum (m·v) and kinetic energy (½·m·v²) the same before and after. One ball leaving ' + n + ' times as fast would have the same momentum but ' + n + ' times the energy.',
-            hr: 'Udare ' + n + ' kuglice, odskoče ' + n + ' kuglice, jednakom brzinom: samo tada su I količina gibanja (m·v) I kinetička energija (½·m·v²) jednake prije i poslije. Jedna kuglica ' + n + ' puta veće brzine imala bi istu količinu gibanja, ali ' + n + ' puta veću energiju.'
+            hr: 'Udare ' + n + ' kuglice i odskoče ' + n + ' kuglice, i to jednakom brzinom: samo su tada I količina gibanja (m·v) I kinetička energija (½·m·v²) jednake prije i poslije sudara. Jedna kuglica koja bi odskočila ' + n + ' puta većom brzinom imala bi jednaku količinu gibanja, ali ' + n + ' puta veću energiju.'
           });
         }
       }
@@ -369,7 +369,7 @@
         const l2 = st.rec ? (st.stuck ? { en: 'The carts stick together. Momentum is the same as before; ' + K.fmt(N.pct, 0, 'en') + ' % of the kinetic energy became heat, sound and dents.', hr: 'Kolica su se slijepila. Količina gibanja ista je kao prije; ' + K.fmt(N.pct, 0, 'hr') + ' % kinetičke energije prešlo je u toplinu, zvuk i deformaciju.' }
           : N.lost < 1e-9 ? { en: 'Elastic collision: momentum AND kinetic energy are the same as before.', hr: 'Elastičan sudar: i količina gibanja i kinetička energija iste su kao prije.' }
             : { en: 'Momentum is the same as before; ' + K.fmt(N.pct, 0, 'en') + ' % of the kinetic energy became heat, sound and dents.', hr: 'Količina gibanja ista je kao prije; ' + K.fmt(N.pct, 0, 'hr') + ' % kinetičke energije prešlo je u toplinu, zvuk i deformaciju.' })
-          : (A.v - B.v > 1e-9 || st.walls) ? (st.t > 0 ? { en: 'Wait for the collision…', hr: 'Pričekaj sudar…' } : { en: 'Drag a cart sideways (or use the sliders) to set its velocity, then press Play.', hr: 'Povuci kolica u stranu (ili pomakni klizače) da im namjestiš brzinu, zatim pokreni.' })
+          : (A.v - B.v > 1e-9 || st.walls) ? (st.t > 0 ? { en: 'Wait for the collision…', hr: 'Pričekaj sudar…' } : { en: 'Drag a cart sideways (or use the sliders) to set its velocity, then press Play.', hr: 'Povuci kolica u stranu (ili pomakni klizače) da im namjestiš brzinu, a zatim pritisni „Pokreni“.' })
             : { en: 'These carts will never meet: cart 1 is not catching up with cart 2.', hr: 'Ova se kolica neće sudariti: kolica 1 ne sustižu kolica 2.' };
         header(g, K.tr(MODES[0].label, lang) + '  ·  ' + K.tr({ en: 'bounciness ', hr: 'elastičnost ' }, lang) + K.fmt(st.e, 2, lang) + ' (' + K.tr(kind, lang) + ')  ·  t = ' + K.fmt(st.t, 1, lang) + ' s' + (st.slow ? '  ·  ' + K.tr({ en: 'slow motion', hr: 'usporeno' }, lang) : ''), K.tr(l2, lang), cv.w - 20);
       }
@@ -394,9 +394,9 @@
         }
         if (!st.released && st.th[0] < -0.03) label(g, K.fmt(-st.th[0] * 180 / Math.PI, 0, lang) + '°', V.px(0) - 16, V.py + 26, { align: 'right', font: fnt(12, true) });
         const l2 = st.released ? { en: 'up on the left: ' + q.left + '   ·   up on the right: ' + q.right, hr: 'podignuto lijevo: ' + q.left + '   ·   podignuto desno: ' + q.right }
-          : { en: 'Drag the left balls back, or choose how many to pull back, then let go.', hr: 'Povuci lijeve kuglice unatrag ili odaberi koliko ih podići pa pusti.' };
-        header(g, K.tr(MODES[1].label, lang) + '  ·  ' + K.tr({ en: 'balls pulled back: ', hr: 'podignuto kuglica: ' }, lang) + st.n + (st.damp ? '  ·  ' + K.tr({ en: 'with damping', hr: 's prigušenjem' }, lang) : '') + (st.slow ? '  ·  ' + K.tr({ en: 'slow motion', hr: 'usporeno' }, lang) : ''), K.tr(l2, lang), cv.w - 20);
-        const info = K.tr({ en: 'five equal steel balls, 0.1 kg each, strings 0.30 m', hr: 'pet jednakih čeličnih kuglica, svaka 0,1 kg, niti 0,30 m' }, lang);
+          : { en: 'Drag the left balls back, or choose how many to pull back, then let go.', hr: 'Povuci lijeve kuglice u stranu ili odaberi njihov broj, a zatim ih pusti.' };
+        header(g, K.tr(MODES[1].label, lang) + '  ·  ' + K.tr({ en: 'balls pulled back: ', hr: 'podignute kuglice: ' }, lang) + st.n + (st.damp ? '  ·  ' + K.tr({ en: 'with damping', hr: 's prigušenjem' }, lang) : '') + (st.slow ? '  ·  ' + K.tr({ en: 'slow motion', hr: 'usporeno' }, lang) : ''), K.tr(l2, lang), cv.w - 20);
+        const info = K.tr({ en: 'five equal steel balls, 0.1 kg each, strings 0.30 m', hr: 'pet jednakih čeličnih kuglica od 0,1 kg, niti duljine 0,30 m' }, lang);
         K.text(g, info, w - 10, h - 12, { font: fit(g, info, w - 20, 11, false), color: theme.muted, align: 'right', baseline: 'middle' });
       }
 

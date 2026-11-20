@@ -73,7 +73,7 @@
       answer: p => p.s / p.t, unit: 'm/s', tol: 0.02,
       hint: {
         en: 'The line passes through the origin: pick one point where it crosses a grid intersection and divide the distance by the time.',
-        hr: 'Pravac prolazi kroz ishodište: odaberi jednu točku u kojoj prolazi kroz sjecište linija mreže i podijeli put vremenom.'
+        hr: 'Pravac prolazi kroz ishodište: odaberi točku u kojoj pravac prolazi kroz sjecište crta mreže i podijeli put s vremenom.'
       },
       steps: {
         en: (p, f) => [`The line passes through the origin, so one point is enough. At t = ${f(p.t)} s the graph shows s = ${f(p.s)} m.`, 'v = s / t', `v = ${f(p.s)} m / ${f(p.t)} s = ${f(p.s / p.t)} m/s`],
@@ -129,7 +129,7 @@
       answer: p => (p.s2 - p.s1) / (p.t2 - p.t1), unit: 'm/s', tol: 0.02,
       hint: {
         en: 'The line does not start at zero, so s / t at one point does not work. Take two points: v = Δs / Δt.',
-        hr: 'Pravac ne počinje u nuli, pa s / t u jednoj točki ne vrijedi. Uzmi dvije točke: v = Δs / Δt.'
+        hr: 'Pravac ne počinje u nuli, pa omjer s / t u jednoj točki ne daje brzinu. Uzmi dvije točke: v = Δs / Δt.'
       },
       steps: {
         en: (p, f) => [`Read two points on the line: at t₁ = ${f(p.t1)} s, s₁ = ${f(p.s1)} m, and at t₂ = ${f(p.t2)} s, s₂ = ${f(p.s2)} m.`, `Δs = ${f(p.s2)} m − ${f(p.s1)} m = ${f(p.s2 - p.s1)} m and Δt = ${f(p.t2)} s − ${f(p.t1)} s = ${f(p.t2 - p.t1)} s`, `v = Δs / Δt = ${f(p.s2 - p.s1)} m / ${f(p.t2 - p.t1)} s = ${f((p.s2 - p.s1) / (p.t2 - p.t1))} m/s`],
@@ -200,7 +200,7 @@
       answer: p => (p.b1 - p.a1) + (p.b2 - p.a2), unit: 'min', tol: 0.02,
       hint: {
         en: 'At rest the distance stays the same, so look for the horizontal parts and read how long each of them lasts.',
-        hr: 'Pri mirovanju put ostaje isti, pa potraži vodoravne dijelove i očitaj koliko svaki od njih traje.'
+        hr: 'Dok tijelo miruje, put se ne mijenja, pa potraži vodoravne dijelove grafa i očitaj koliko svaki od njih traje.'
       },
       steps: {
         en: (p, f) => [`While the ${p.en} is at rest the distance does not change: the graph is horizontal.`, `First flat part: from t = ${f(p.a1)} min to t = ${f(p.b1)} min, that is ${f(p.b1 - p.a1)} min.`, `Second flat part: from t = ${f(p.a2)} min to t = ${f(p.b2)} min, that is ${f(p.b2 - p.a2)} min.`, `In total: ${f(p.b1 - p.a1)} min + ${f(p.b2 - p.a2)} min = ${f(p.b1 - p.a1 + p.b2 - p.a2)} min`],
@@ -232,7 +232,7 @@
       answer: p => (p.v2 - p.v1) / (p.t2 - p.t1), unit: 'm/s²', tol: 0.02,
       hint: {
         en: 'The acceleration is the slope of the v–t line: the change of speed divided by the change of time, a = Δv / Δt.',
-        hr: 'Ubrzanje je nagib pravca u v–t grafu: promjena brzine podijeljena promjenom vremena, a = Δv / Δt.'
+        hr: 'Ubrzanje je nagib pravca u v–t grafu: promjena brzine podijeljena s promjenom vremena, a = Δv / Δt.'
       },
       steps: {
         en: (p, f) => [`Read two points on the line: at t₁ = ${f(p.t1)} s, v₁ = ${f(p.v1)} m/s, and at t₂ = ${f(p.t2)} s, v₂ = ${f(p.v2)} m/s.`, `Δv = ${f(p.v2)} m/s − ${f(p.v1)} m/s = ${f(p.v2 - p.v1)} m/s and Δt = ${f(p.t2)} s − ${f(p.t1)} s = ${f(p.t2 - p.t1)} s`, `a = Δv / Δt = ${f(p.v2 - p.v1)} m/s / ${f(p.t2 - p.t1)} s = ${f((p.v2 - p.v1) / (p.t2 - p.t1))} m/s²`],
@@ -335,7 +335,7 @@
       },
       steps: {
         en: (p, f) => [`The trip ends at t = ${f(p.t)} h, where the graph shows s = ${f(p.s)} km.`, 'Average speed = total distance / total time', `v = ${f(p.s)} km / ${f(p.t)} h = ${f(p.s / p.t)} km/h`, `Check: the speeds on the two parts are ${f(p.v1)} km/h and ${f(p.v2)} km/h, but the parts last different times, so their plain average is not the answer.`],
-        hr: (p, f) => [`Putovanje završava u trenutku t = ${f(p.t)} h, gdje graf pokazuje s = ${f(p.s)} km.`, 'Srednja brzina = ukupni put / ukupno vrijeme', `v = ${f(p.s)} km / ${f(p.t)} h = ${f(p.s / p.t)} km/h`, `Provjera: brzine na dva dijela puta su ${f(p.v1)} km/h i ${f(p.v2)} km/h, ali ti dijelovi ne traju jednako dugo, pa njihov obični prosjek nije rješenje.`]
+        hr: (p, f) => [`Putovanje završava u trenutku t = ${f(p.t)} h, gdje graf pokazuje s = ${f(p.s)} km.`, 'Srednja brzina = ukupni put / ukupno vrijeme', `v = ${f(p.s)} km / ${f(p.t)} h = ${f(p.s / p.t)} km/h`, `Provjera: brzine na dvama dijelovima puta su ${f(p.v1)} km/h i ${f(p.v2)} km/h, ali ti dijelovi ne traju jednako dugo, pa njihov obični prosjek nije rješenje.`]
       },
       graph: p => ({
         xLabel: ax('t / h'), yLabel: ax('s / km'),
@@ -424,7 +424,7 @@
       answer: p => p.m / p.V, unit: 'g/cm³', tol: 0.02,
       hint: {
         en: 'The density is the slope of the line: read one point on it and divide the mass by the volume.',
-        hr: 'Gustoća je nagib pravca: očitaj jednu točku na njemu i podijeli masu obujmom.'
+        hr: 'Gustoća je nagib pravca: očitaj jednu točku na njemu i podijeli masu s obujmom.'
       },
       steps: {
         en: (p, f) => [`Read a point on the line: at V = ${f(p.V)} cm³ the graph shows m = ${f(p.m)} g.`, 'ρ = m / V', `ρ = ${f(p.m)} g / ${f(p.V)} cm³ = ${f(p.m / p.V)} g/cm³`],
@@ -452,7 +452,7 @@
       answer: p => p.m / p.V, unit: 'g/cm³', tol: 0.02,
       hint: {
         en: 'For the same volume the denser material has more mass, so its line is steeper. Then ρ = m / V for a point on that line.',
-        hr: 'Pri istom obujmu gušća tvar ima veću masu, pa je njezin pravac strmiji. Zatim ρ = m / V za točku na tom pravcu.'
+        hr: 'Pri istom obujmu gušća tvar ima veću masu, pa je njezin pravac strmiji. Zatim izračunaj ρ = m / V za jednu točku na tom pravcu.'
       },
       steps: {
         en: (p, f) => [`For the same volume the denser material has more mass, so its line is steeper: material ${p.denser}.`, `Read a point on that line: at V = ${f(p.V)} cm³ the graph shows m = ${f(p.m)} g.`, `ρ = m / V = ${f(p.m)} g / ${f(p.V)} cm³ = ${f(p.m / p.V)} g/cm³`, `For comparison, the other material: ${f(p.mOther)} g / ${f(p.V)} cm³ = ${f(p.mOther / p.V)} g/cm³`],
@@ -482,7 +482,7 @@
       },
       text: {
         en: (p, f) => `${p.name} connects a resistor to a power supply, changes the voltage U and measures the current I each time. The graph shows the current against the voltage. Read from the graph the values you need and calculate the resistance of the resistor.`,
-        hr: (p, f) => `${p.name} spaja otpornik na izvor, mijenja napon U i svaki put mjeri jakost struje I. Graf prikazuje jakost struje u ovisnosti o naponu. Očitaj iz grafa potrebne vrijednosti i izračunaj otpor otpornika.`
+        hr: (p, f) => `${p.name} spaja otpornik na izvor napona, mijenja napon U i svaki put mjeri jakost struje I. Graf prikazuje jakost struje u ovisnosti o naponu. Očitaj iz grafa potrebne vrijednosti i izračunaj otpor otpornika.`
       },
       answer: p => p.U / p.I, unit: 'Ω', tol: 0.02,
       hint: {
@@ -559,7 +559,7 @@
       },
       steps: {
         en: (p, f) => [`Melting is the flat part of the graph, at T = ${f(p.Tm)} °C (the melting temperature).`, `The flat part begins at t = ${f(p.ta)} min and ends at t = ${f(p.tb)} min.`, `The melting lasted ${f(p.tb)} min − ${f(p.ta)} min = ${f(p.tb - p.ta)} min.`],
-        hr: (p, f) => [`Taljenje je vodoravni dio grafa, pri T = ${f(p.Tm)} °C (to je talište).`, `Vodoravni dio počinje u trenutku t = ${f(p.ta)} min, a završava u trenutku t = ${f(p.tb)} min.`, `Taljenje je trajalo ${f(p.tb)} min − ${f(p.ta)} min = ${f(p.tb - p.ta)} min.`]
+        hr: (p, f) => [`Taljenju odgovara vodoravni dio grafa, pri T = ${f(p.Tm)} °C (to je talište).`, `Vodoravni dio počinje u trenutku t = ${f(p.ta)} min, a završava u trenutku t = ${f(p.tb)} min.`, `Taljenje je trajalo ${f(p.tb)} min − ${f(p.ta)} min = ${f(p.tb - p.ta)} min.`]
       },
       graph: p => ({
         xLabel: ax('t / min'), yLabel: ax('T / °C'),

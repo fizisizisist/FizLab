@@ -9,7 +9,7 @@ window.I18N = {
       lede: 'Interactive simulations, short lessons, quizzes and kitchen-table experiments for grades 7 and 8. Every page is also in Croatian: switch with the EN / HR button.',
       start: 'Start exploring', mix: 'Mixed quiz', challenge: 'Today\'s challenge'
     },
-    stats: { topics: 'topics', sims: 'simulations', questions: 'quiz questions', terms: 'glossary terms', problems: 'problem types' },
+    stats: { topics: ['topic', 'topics'], sims: ['simulation', 'simulations'], questions: ['quiz question', 'quiz questions'], terms: ['glossary term', 'glossary terms'], problems: ['problem type', 'problem types'] },
     filter: { all: 'All topics', g7: 'Grade 7', g8: 'Grade 8', bonus: 'Bonus' },
     grade: { 7: 'Grade 7', 8: 'Grade 8', 0: 'Bonus' },
     sections: { topics: 'Topics', tools: 'More ways to learn' },
@@ -43,7 +43,7 @@ window.I18N = {
     flash: { title: 'Flashcards', lede: 'Flip the card to see the answer. Shuffle for a new order.', flip: 'Tap the card to flip it', next: 'Next', prev: 'Previous', shuffle: 'Shuffle', mode1: 'Term → meaning', mode2: 'English → Croatian', mode3: 'Croatian → English', card: 'Card', ofAll: 'of', allTopics: 'All topics' },
     progress: {
       title: 'My progress', lede: 'Everything is saved in this browser only.', lessons: 'lessons read', quizzes: 'quizzes passed (70 % or more)', sims: 'simulations tried',
-      badges: 'Badges', problems: 'problems solved', problemsCol: 'Problems', reset: 'Reset all progress', resetConfirm: 'Click once more to erase everything', topic: 'Topic', lesson: 'Lesson', simulation: 'Simulations', quiz: 'Best quiz', notYet: 'not yet', streak: 'challenge streak', days: 'days'
+      badges: 'Badges', problems: ['problem solved', 'problems solved'], problemsCol: 'Problems', reset: 'Reset all progress', resetConfirm: 'Click once more to erase everything', topic: 'Topic', lesson: 'Lesson', simulation: 'Simulations', quiz: 'Best quiz', notYet: 'not yet', streak: 'challenge streak', days: ['day', 'days']
     },
     badges: {
       firstQuiz: { t: 'First quiz', d: 'Finish any quiz.' },
@@ -60,7 +60,7 @@ window.I18N = {
     },
     challenge: { title: 'Today\'s challenge', lede: 'A new question every day, picked from all topics. Come back tomorrow for the next one.', done: 'You solved today\'s challenge! See you tomorrow.', streak: 'Current streak', from: 'From the topic' },
     mix: { title: 'Mixed quiz', lede: '10 random questions from every topic. Different every time.' },
-    common: { back: 'Back', allTopics: 'All topics', theme: 'Switch between light and dark', questions: 'questions', sims: 'sims', saved: 'Saved', badgeEarned: 'Badge earned:', loading: 'Loading…', notFound: 'This page does not exist.' },
+    common: { back: 'Back', allTopics: 'All topics', theme: 'Switch between light and dark', questions: ['question', 'questions'], sims: ['sim', 'sims'], saved: 'Saved', badgeEarned: 'Badge earned:', loading: 'Loading…', notFound: 'This page does not exist.' },
     practice: {
       title: 'Practice problems', lede: 'Every problem comes with fresh numbers. Type the answer, check it, and read the solution step by step.',
       ledeMixed: 'Problems from the topics you choose, with new numbers every time. Below you can make a worksheet with an answer key.',
@@ -105,97 +105,97 @@ window.I18N = {
     nav: { home: 'Teme', practice: 'Zadaci', glossary: 'Pojmovnik', formulas: 'Formule', flashcards: 'Kartice', scientists: 'Znanstvenici', progress: 'Napredak' },
     hero: {
       title: 'Fizika s kojom se možeš <em>igrati</em>',
-      lede: 'Interaktivne simulacije, kratke lekcije, kvizovi i pokusi za kuhinjskim stolom za 7. i 8. razred. Svaka je stranica i na engleskom: prebaci gumbom EN / HR.',
+      lede: 'Interaktivne simulacije, kratke lekcije, kvizovi i pokusi za kuhinjskim stolom, namijenjeni 7. i 8. razredu. Svaka je stranica dostupna i na engleskom – jezik mijenjaš gumbom EN / HR.',
       start: 'Kreni istraživati', mix: 'Miješani kviz', challenge: 'Današnji izazov'
     },
-    stats: { topics: 'tema', sims: 'simulacija', questions: 'pitanja u kvizovima', terms: 'pojmova', problems: 'vrsta zadataka' },
+    stats: { topics: ['tema', 'teme', 'tema'], sims: ['simulacija', 'simulacije', 'simulacija'], questions: ['pitanje u kvizovima', 'pitanja u kvizovima', 'pitanja u kvizovima'], terms: ['pojam u pojmovniku', 'pojma u pojmovniku', 'pojmova u pojmovniku'], problems: ['vrsta zadataka', 'vrste zadataka', 'vrsta zadataka'] },
     filter: { all: 'Sve teme', g7: '7. razred', g8: '8. razred', bonus: 'Dodatno' },
     grade: { 7: '7. razred', 8: '8. razred', 0: 'Dodatno' },
     sections: { topics: 'Teme', tools: 'Još načina za učenje' },
     quick: {
-      mix: { t: 'Miješani kviz', d: '10 nasumičnih pitanja iz svih tema. Svaki put drugačije.' },
-      challenge: { t: 'Dnevni izazov', d: 'Svaki dan jedno novo pitanje. Održi svoj niz.' },
+      mix: { t: 'Miješani kviz', d: '10 nasumičnih pitanja iz svih tema. Svaki put drukčije.' },
+      challenge: { t: 'Dnevni izazov', d: 'Svaki dan jedno novo pitanje. Rješavaj ga iz dana u dan i produži niz.' },
       glossary: { t: 'Pojmovnik', d: 'Svi ključni pojmovi usporedno na hrvatskom i engleskom.' },
-      formulas: { t: 'Popis formula', d: 'Sve formule iz svih tema na jednoj stranici.' },
-      flashcards: { t: 'Kartice', d: 'Okreći kartice i vježbaj pojmove i njihova značenja.' },
-      progress: { t: 'Moj napredak', d: 'Pročitane lekcije, položeni kvizovi, osvojene značke.' },
-      practice: { t: 'Zadaci za vježbu', d: 'Računski zadaci sa svježim brojevima, savjetima i cijelim postupkom rješavanja. Možeš napraviti i radni listić.' },
-      scientists: { t: 'Znanstvenici', d: 'Tko je što otkrio, od Arhimeda do Tesle, s hrvatskim vezama.' },
+      formulas: { t: 'Formule', d: 'Sve formule iz svih tema na jednoj stranici.' },
+      flashcards: { t: 'Kartice', d: 'Okreći kartice i ponavljaj pojmove i njihova značenja.' },
+      progress: { t: 'Napredak', d: 'Pročitane lekcije, položeni kvizovi, osvojene značke.' },
+      practice: { t: 'Zadaci za vježbu', d: 'Računski zadaci s uvijek novim brojevima, savjetima i cijelim postupkom rješavanja. Možeš izraditi i radni listić.' },
+      scientists: { t: 'Znanstvenici', d: 'Tko je što otkrio, od Arhimeda do Tesle – i tko je od njih povezan s Hrvatskom.' },
       converter: { t: 'Pretvarač jedinica', d: 'km/h u m/s, litre u cm³, kPa u bar i još mnogo toga.' },
-      concepts: { t: 'Mozgalice', d: 'Zamke za razmišljanje, zadaci rangiranja i procjene koji hvataju najčešće zablude.' }
+      concepts: { t: 'Mozgalice', d: 'Pitanja sa zamkom, zadaci rangiranja i procjene koji otkrivaju najčešće zablude.' }
     },
     tabs: { lesson: 'Lekcija', sim: 'Simulacija', quiz: 'Kviz', practice: 'Zadaci', home: 'Pokus kod kuće' },
-    lesson: { keyTerms: 'Ključni pojmovi', formulas: 'Formule', funFact: 'Jesi li znao?', markRead: 'Pročitao/la sam lekciju', read: 'Lekcija pročitana', hrTerm: 'engleski' },
-    sim: { tryThis: 'Probaj ovo', choose: 'Simulacija', missing: 'Ova simulacija nije učitana.', count: 'simulacije', open: 'Otvori simulaciju' },
+    lesson: { keyTerms: 'Ključni pojmovi', formulas: 'Formule', funFact: 'Zanimljivost', markRead: 'Označi kao pročitano', read: 'Lekcija je pročitana', hrTerm: 'engleski' },
+    sim: { tryThis: 'Isprobaj', choose: 'Simulacija', missing: 'Ova simulacija nije učitana.', count: 'simulacija', open: 'Otvori simulaciju' },
     quiz: {
       intro: 'pitanja. Odgovori na svako, pročitaj objašnjenje i na kraju pogledaj rezultat.',
       start: 'Započni kviz', question: 'Pitanje', of: 'od', check: 'Provjeri', next: 'Sljedeće pitanje', finish: 'Pogledaj rezultat',
       correct: 'Točno!', wrong: 'Nije točno.', correctAnswer: 'Točan odgovor:', yourScore: 'Tvoj rezultat', retry: 'Pokušaj ponovno', back: 'Natrag na lekciju',
       best: 'Najbolji rezultat', typeMc: 'Odaberi odgovor', typeTf: 'Točno ili netočno?', typeNum: 'Izračunaj', 'true': 'Točno', 'false': 'Netočno',
-      placeholder: 'tvoj odgovor', hint: 'Savjet: tipkama 1–4 biraš odgovor, Enter nastavlja.',
-      perfect: 'Savršeno! Ovu temu stvarno znaš.', great: 'Odlično! Gotovo sve točno.', good: 'Dobar početak. Pročitaj lekciju još jednom i pokušaj opet.', again: 'Samo naprijed! Poigraj se simulacijom pa se vrati.',
+      placeholder: 'tvoj odgovor', hint: 'Savjet: odgovor biraš tipkama 1–4, a tipkom Enter ideš dalje.',
+      perfect: 'Savršeno! Ovu temu stvarno znaš.', great: 'Odlično! Gotovo sve točno.', good: 'Dobar početak. Pročitaj lekciju još jednom i pokušaj ponovno.', again: 'Ne odustaj! Poigraj se simulacijom pa se vrati.',
       pass: 'položeno', toSim: 'Otvori simulaciju'
     },
-    home: { materials: 'Trebat će ti', steps: 'Što napraviti', why: 'Zašto to radi', safety: 'Sigurnost na prvom mjestu' },
-    glossary: { title: 'Pojmovnik', lede: 'Svi ključni pojmovi iz svih tema, na oba jezika.', search: 'Traži pojam na hrvatskom ili engleskom…', term: 'Hrvatski', croatian: 'Engleski', definition: 'Objašnjenje', topic: 'Tema', none: 'Nijedan pojam ne odgovara pretrazi.' },
-    formulas: { title: 'Popis formula', lede: 'Sve formule na jednom mjestu. Klikni naziv teme za njezinu lekciju.' },
-    flash: { title: 'Kartice', lede: 'Okreni karticu da vidiš odgovor. Promiješaj za novi redoslijed.', flip: 'Klikni karticu da je okreneš', next: 'Sljedeća', prev: 'Prethodna', shuffle: 'Promiješaj', mode1: 'Pojam → značenje', mode2: 'Engleski → hrvatski', mode3: 'Hrvatski → engleski', card: 'Kartica', ofAll: 'od', allTopics: 'Sve teme' },
+    home: { materials: 'Trebat će ti', steps: 'Postupak', why: 'Zašto se to događa', safety: 'Sigurnost na prvom mjestu' },
+    glossary: { title: 'Pojmovnik', lede: 'Svi ključni pojmovi iz svih tema, na oba jezika.', search: 'Potraži pojam na hrvatskom ili engleskom…', term: 'Hrvatski', croatian: 'Engleski', definition: 'Objašnjenje', topic: 'Tema', none: 'Nijedan pojam ne odgovara pretrazi.' },
+    formulas: { title: 'Formule', lede: 'Sve formule na jednom mjestu. Klikni naziv teme i otvorit će se njezina lekcija.' },
+    flash: { title: 'Kartice', lede: 'Okreni karticu i pogledaj odgovor. Promiješaj kartice za novi redoslijed.', flip: 'Klikni karticu da je okreneš', next: 'Sljedeća', prev: 'Prethodna', shuffle: 'Promiješaj', mode1: 'Pojam → značenje', mode2: 'Engleski → hrvatski', mode3: 'Hrvatski → engleski', card: 'Kartica', ofAll: 'od', allTopics: 'Sve teme' },
     progress: {
       title: 'Moj napredak', lede: 'Sve se sprema samo u ovom pregledniku.', lessons: 'pročitanih lekcija', quizzes: 'položenih kvizova (70 % ili više)', sims: 'isprobanih simulacija',
-      badges: 'Značke', problems: 'riješenih zadataka', problemsCol: 'Zadaci', reset: 'Izbriši sav napredak', resetConfirm: 'Klikni još jednom da sve izbrišeš', topic: 'Tema', lesson: 'Lekcija', simulation: 'Simulacije', quiz: 'Najbolji kviz', notYet: 'još ne', streak: 'niz izazova', days: 'dana'
+      badges: 'Značke', problems: ['riješen zadatak', 'riješena zadatka', 'riješenih zadataka'], problemsCol: 'Zadaci', reset: 'Izbriši sav napredak', resetConfirm: 'Klikni još jednom i sve će se izbrisati', topic: 'Tema', lesson: 'Lekcija', simulation: 'Simulacije', quiz: 'Kviz – najbolji rezultat', notYet: 'još ne', streak: ['dan zaredom s riješenim izazovom', 'dana zaredom s riješenim izazovom', 'dana zaredom s riješenim izazovom'], days: ''
     },
     badges: {
       firstQuiz: { t: 'Prvi kviz', d: 'Završi bilo koji kviz.' },
-      perfect: { t: 'Sve točno', d: 'Osvoji 100 % na kvizu.' },
+      perfect: { t: 'Sve točno', d: 'Postigni 100 % u kvizu.' },
       reader: { t: 'Knjiški moljac', d: 'Pročitaj 5 lekcija.' },
       explorer: { t: 'Istraživač', d: 'Isprobaj 10 različitih simulacija.' },
-      scientist: { t: 'Mali znanstvenik', d: 'Položi kvizove u 7 tema.' },
-      bilingual: { t: 'Dvojezično', d: 'Koristi aplikaciju na oba jezika.' },
+      scientist: { t: 'Mali znanstvenik', d: 'Položi kvizove iz 7 tema.' },
+      bilingual: { t: 'Na dva jezika', d: 'Upotrebljavaj aplikaciju na oba jezika.' },
       streak3: { t: 'U nizu', d: 'Riješi dnevni izazov 3 dana zaredom.' },
       master: { t: 'Majstor fizike', d: 'Položi sve kvizove.' },
       solver: { t: 'Rješavač', d: 'Riješi 25 zadataka za vježbu.' },
       hard: { t: 'Tvrd orah', d: 'Riješi težak zadatak (tri zvjezdice).' },
       thinker: { t: 'Mislilac', d: 'Točno riješi 20 mozgalica.' }
     },
-    challenge: { title: 'Današnji izazov', lede: 'Svaki dan novo pitanje iz svih tema. Vrati se sutra po sljedeće.', done: 'Riješio/la si današnji izazov! Vidimo se sutra.', streak: 'Trenutni niz', from: 'Iz teme' },
-    mix: { title: 'Miješani kviz', lede: '10 nasumičnih pitanja iz svih tema. Svaki put drugačije.' },
-    common: { back: 'Natrag', allTopics: 'Sve teme', theme: 'Promijeni svijetlu/tamnu temu', questions: 'pitanja', sims: 'simulacije', saved: 'Spremljeno', badgeEarned: 'Osvojena značka:', loading: 'Učitavanje…', notFound: 'Ova stranica ne postoji.' },
+    challenge: { title: 'Današnji izazov', lede: 'Svaki dan novo pitanje iz svih tema. Vrati se sutra po sljedeće.', done: 'Današnji izazov je riješen! Vidimo se sutra.', streak: 'Dana zaredom', from: 'Iz teme' },
+    mix: { title: 'Miješani kviz', lede: '10 nasumičnih pitanja iz svih tema. Svaki put drukčije.' },
+    common: { back: 'Natrag', allTopics: 'Sve teme', theme: 'Prebaci između svijetlog i tamnog izgleda', questions: ['pitanje', 'pitanja', 'pitanja'], sims: ['simulacija', 'simulacije', 'simulacija'], saved: 'Spremljeno', badgeEarned: 'Osvojena značka:', loading: 'Učitavanje…', notFound: 'Ova stranica ne postoji.' },
     practice: {
-      title: 'Zadaci za vježbu', lede: 'Svaki zadatak ima svježe brojeve. Upiši rješenje, provjeri ga i pročitaj postupak korak po korak.',
-      ledeMixed: 'Zadaci iz tema koje odabereš, svaki put s novim brojevima. Niže možeš napraviti radni listić s rješenjima.',
+      title: 'Zadaci za vježbu', lede: 'Svaki zadatak dobiva nove brojeve. Upiši rješenje, provjeri ga i pročitaj postupak korak po korak.',
+      ledeMixed: 'Zadaci iz tema koje odabereš, svaki put s novim brojevima. Ispod možeš izraditi radni listić s rješenjima.',
       mixed: 'Miješani zadaci', level: 'Razina', all: 'Sve', l1: 'Lako', l2: 'Srednje', l3: 'Teško',
-      newProblem: 'Novi zadatak', check: 'Provjeri', hint: 'Savjet', solution: 'Prikaži rješenje', steps: 'Rješenje', next: 'Sljedeći zadatak',
+      newProblem: 'Novi zadatak', check: 'Provjeri', hint: 'Savjet', solution: 'Prikaži rješenje', steps: 'Postupak', next: 'Sljedeći zadatak',
       answer: 'tvoje rješenje', correct: 'Točno!', wrong: 'Nije točno. Pokušaj ponovno.', wrongAgain: 'Još uvijek nije točno. Pogledaj savjet ili rješenje.',
       counted: 'Rješenje je prikazano. U napredak se računaju samo zadaci riješeni bez gledanja rješenja.', solved: 'Riješeno', topics: 'Teme',
-      none: 'Za ovaj odabir još nema zadataka.', enterNumber: 'Upiši broj; decimalni zarez i decimalna točka oboje rade. Odgovor unutar 2 % računa se kao točan.', invalid: 'Upiši broj.',
-      summaryTitle: 'Ukratko', misconceptions: 'Česte zablude', myth: 'Mnogi misle', truth: 'Zapravo', worked: 'Riješeni primjer', tryMore: 'Probaj slične zadatke'
+      none: 'Za ovaj odabir još nema zadataka.', enterNumber: 'Upiši broj – možeš upotrijebiti decimalni zarez ili decimalnu točku. Odgovor koji odstupa najviše 2 % smatra se točnim.', invalid: 'Upiši broj.',
+      summaryTitle: 'Ukratko', misconceptions: 'Česte zablude', myth: 'Mnogi misle', truth: 'Zapravo', worked: 'Riješeni primjer', tryMore: 'Riješi slične zadatke'
     },
     concepts: {
-      title: 'Mozgalice', lede: 'Bez kalkulatora, samo razmišljanje. Svako pitanje cilja na zabludu koju imaju mnogi. Odaberi odgovor pa pročitaj zašto.',
+      title: 'Mozgalice', lede: 'Bez kalkulatora – samo razmišljanje. Svako pitanje skriva zabludu koju imaju mnogi. Odaberi odgovor pa pročitaj objašnjenje.',
       forTopic: 'Mozgalice iz ove teme', kind: 'Vrsta', typeMc: 'Konceptualno pitanje', typeRank: 'Zadatak rangiranja', typeNum: 'Procjena',
-      rankHint: 'Klikni stavke redom, od prve do zadnje, pa provjeri.', undo: 'Vrati', correctOrder: 'Točan redoslijed', estimateHint: 'Dovoljna je procjena: svaki odgovor u razumnom rasponu je točan.', accepted: 'Prihvaćeni raspon:', misconception: 'Česta zabluda'
+      rankHint: 'Klikni stavke redom, od prve do posljednje, a zatim provjeri.', undo: 'Poništi', correctOrder: 'Točan redoslijed', estimateHint: 'Dovoljna je procjena: svaki odgovor u razumnom rasponu smatra se točnim.', accepted: 'Prihvaćeni raspon:', misconception: 'Česta zabluda'
     },
     guide: {
       title: 'Kako riješiti zadatak iz fizike (5 koraka)',
-      s1t: 'Zamisli.', s1: 'Nacrtaj skicu, zapiši zadano s jedinicama i podcrtaj što se traži.',
+      s1t: 'Skiciraj.', s1: 'Nacrtaj skicu, zapiši zadano s jedinicama i podcrtaj što se traži.',
       s2t: 'Pojednostavi.', s2: 'Odluči što možeš zanemariti (zrak, trenje, veličinu tijela) i koji model odgovara.',
-      s3t: 'Opiši fiziku.', s3: 'Koje sile djeluju? Koje se energije mijenjaju? Nacrtaj strelice ili graf ako pomaže.',
-      s4t: 'Zapiši matematiku.', s4: 'Odaberi formulu koja povezuje zadane veličine s traženom i preoblikuj je.',
+      s3t: 'Opiši pojavu.', s3: 'Koje sile djeluju? Koje se energije mijenjaju? Nacrtaj strelice ili graf ako pomaže.',
+      s4t: 'Postavi jednadžbu.', s4: 'Odaberi formulu koja povezuje zadane veličine s traženom i preoblikuj je.',
       s5t: 'Izračunaj i provjeri.', s5: 'Uvrsti brojeve s jedinicama, izračunaj i zapitaj se: jesu li iznos i jedinica rezultata razumni?'
     },
     worksheet: {
-      title: 'Radni listić', lede: 'Napravi radni listić sa svježim zadacima za razred ili za sebe. Pomoću koda kasnije možeš ponovno dobiti isti listić.',
-      count: 'Broj zadataka', code: 'Kod', generate: 'Napravi listić', showAnswers: 'Prikaži rješenja', hideAnswers: 'Sakrij rješenja', answer: 'Rješenje', pickTopics: 'Gore odaberi barem jednu temu.'
+      title: 'Radni listić', lede: 'Izradi radni listić s novim zadacima za razred ili za sebe. S istim kodom kasnije ponovno dobivaš isti listić.',
+      count: 'Broj zadataka', code: 'Kod', generate: 'Izradi listić', showAnswers: 'Prikaži rješenja', hideAnswers: 'Sakrij rješenja', answer: 'Rješenje', pickTopics: 'Najprije gore odaberi barem jednu temu.'
     },
     scientists: {
-      title: 'Znanstvenici', lede: 'Ljudi iza ideja, od Arhimeda do danas. Znanstvenici s hrvatskom vezom su označeni.',
-      all: 'Svi', croatia: 'Hrvatska veza', known: 'Poznat po', fact: 'Jesi li znao?', topics: 'Teme', alive: 'danas', more: 'Pročitaj više', less: 'Sakrij', bc: 'pr. Kr.'
+      title: 'Znanstvenici', lede: 'Ljudi koji stoje iza velikih ideja, od Arhimeda do danas. Označeni su znanstvenici povezani s Hrvatskom.',
+      all: 'Svi', croatia: 'Veza s Hrvatskom', known: 'Doprinos', fact: 'Zanimljivost', topics: 'Teme', alive: 'danas', more: 'Pročitaj više', less: 'Sakrij', bc: 'pr. Kr.'
     },
     converter: {
-      title: 'Pretvarač jedinica', lede: 'Pretvaraj jedinice koje koristimo na fizici. Upiši vrijednost i odaberi jedinice.',
+      title: 'Pretvarač jedinica', lede: 'Pretvaraj mjerne jedinice s kojima se susrećeš na nastavi fizike. Upiši vrijednost i odaberi jedinice.',
       category: 'Veličina', value: 'Vrijednost', from: 'Iz', to: 'U', result: 'Rezultat', table: 'Ista vrijednost u svim jedinicama',
       cats: { length: 'Duljina', area: 'Površina', volume: 'Obujam', mass: 'Masa', time: 'Vrijeme', speed: 'Brzina', density: 'Gustoća', pressure: 'Tlak', energy: 'Energija', power: 'Snaga', temperature: 'Temperatura' }
     },
-    footer: 'FizLab je besplatan alat za učenje za znatiželjnu djecu i njihove učitelje. Simulacije koriste pravu fiziku; veličine na zaslonu nisu uvijek u mjerilu.'
+    footer: 'FizLab je besplatan alat za učenje namijenjen znatiželjnoj djeci i njihovim učiteljima. Simulacije se temelje na pravim fizikalnim zakonima, ali veličine na zaslonu nisu uvijek u mjerilu.'
   }
 };

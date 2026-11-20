@@ -12,16 +12,16 @@
   const SUN = '#ffc93c', SUN_EDGE = '#e89b00', MOON = '#cfd3da', NEW_MOON = '#1c2030', COPPER = '#a8482a', NIGHT = '#0b1030', DAY = '#8fc7ff';
   const NOTES = {
     shadow: { en: 'Light travels in straight lines. Behind the ball there is a region that no light reaches (umbra, the full shadow) and a region reached by light from only a part of the lamp (penumbra, the half-shadow). A point lamp gives a sharp shadow without a penumbra.',
-      hr: 'Svjetlost putuje pravocrtno. Iza lopte postoji područje u koje ne dolazi nimalo svjetlosti (sjena) i područje u koje dolazi svjetlost samo s dijela lampe (polusjena). Točkasta lampa daje oštru sjenu bez polusjene.' },
+      hr: 'Svjetlost se širi pravocrtno. Iza lopte postoji područje u koje ne dolazi nimalo svjetlosti (sjena) i područje u koje dolazi svjetlost samo s dijela lampe (polusjena). Točkasti izvor svjetlosti daje oštru sjenu bez polusjene.' },
     solar: { en: 'Solar eclipse: at new moon the Moon passes between the Sun and the Earth. In the narrow tip of the umbra the Sun is completely covered (total eclipse); in the wide penumbra only a part of it is covered (partial eclipse).',
       hr: 'Pomrčina Sunca: za mlađaka Mjesec prolazi između Sunca i Zemlje. U uskom vrhu sjene Sunce je potpuno prekriveno (potpuna pomrčina), a u širokoj polusjeni samo djelomično (djelomična pomrčina).' },
     lunar: { en: 'Lunar eclipse: at full moon the Moon passes through the Earth\'s shadow. Inside the umbra it does not vanish but glows dim copper-red, because the Earth\'s air bends a little reddish sunlight into the shadow.',
-      hr: 'Pomrčina Mjeseca: za uštapa Mjesec prolazi kroz Zemljinu sjenu. U sjeni ne nestaje, nego slabo svijetli bakrenocrveno, jer Zemljin zrak lomi malo crvenkaste Sunčeve svjetlosti u sjenu.' },
+      hr: 'Pomrčina Mjeseca: za uštapa Mjesec prolazi kroz Zemljinu sjenu. U sjeni ne nestaje, nego dobiva tamnu bakrenocrvenu boju jer Zemljina atmosfera lomi dio crvenkaste Sunčeve svjetlosti i skreće ga u sjenu.' },
     tilt: { en: 'The Moon\'s orbit is tilted about 5° to the Earth\'s orbit, so at most new and full moons the Moon passes above or below the Sun–Earth line and the shadows miss. An eclipse is possible only when new or full moon happens near a node, where the orbits cross: about twice a year.',
-      hr: 'Mjesečeva staza nagnuta je oko 5° prema Zemljinoj stazi, pa za većine mlađaka i uštapa Mjesec prolazi iznad ili ispod pravca Sunce–Zemlja i sjene promaše. Pomrčina je moguća samo kad mlađak ili uštap nastupi blizu čvora, mjesta gdje se staze sijeku: otprilike dvaput godišnje.' }
+      hr: 'Mjesečeva staza nagnuta je za oko 5° prema ravnini Zemljine staze, pa pri većini mlađaka i uštapa Mjesec prođe iznad ili ispod pravca Sunce–Zemlja i sjene promaše Zemlju odnosno Mjesec. Pomrčina je moguća samo kad mlađak ili uštap nastupi blizu čvora, mjesta gdje se staze sijeku: otprilike dvaput godišnje.' }
   };
   const SAFETY = { en: 'Sizes and distances are not to scale. Never look at the Sun directly, not even during an eclipse: use eclipse glasses.',
-    hr: 'Veličine i udaljenosti nisu u mjerilu. Nikad ne gledaj izravno u Sunce, ni za vrijeme pomrčine: koristi naočale za pomrčinu.' };
+    hr: 'Veličine i udaljenosti nisu prikazane u mjerilu. Nikad ne gledaj izravno u Sunce, čak ni za vrijeme pomrčine: upotrijebi posebne naočale za promatranje pomrčine.' };
   const TYPES = {
     none: { short: { en: 'none', hr: 'nema' }, solar: { en: 'No eclipse', hr: 'Nema pomrčine' }, lunar: { en: 'No eclipse', hr: 'Nema pomrčine' } },
     penumbral: { short: { en: 'penumbra only', hr: 'samo polusjena' }, lunar: { en: 'Moon in the penumbra', hr: 'Mjesec u polusjeni' } },
@@ -35,13 +35,13 @@
     title: { en: 'Eclipses and Shadows', hr: 'Pomrčine i sjene' },
     summary: {
       en: 'Make a full shadow and a half-shadow with a lamp and a ball, then move the Moon to cause eclipses of the Sun and of the Moon.',
-      hr: 'Napravi sjenu i polusjenu lampom i loptom, a zatim pomiči Mjesec i izazovi pomrčinu Sunca i pomrčinu Mjeseca.'
+      hr: 'Stvori sjenu i polusjenu pomoću lampe i lopte, a zatim pomiči Mjesec i izazovi pomrčinu Sunca i pomrčinu Mjeseca.'
     },
     tasks: [
       { en: 'Shadow and half-shadow: make the lamp bigger. What happens to the umbra, and what to the penumbra? Then set the lamp size to 0.', hr: 'Sjena i polusjena: povećaj lampu. Što se događa sa sjenom, a što s polusjenom? Zatim postavi veličinu lampe na 0.' },
       { en: 'Solar eclipse: drag the Moon across the Sun–Earth line. When is the eclipse total and when partial? Compare the dark spot with the size of the Earth.', hr: 'Pomrčina Sunca: povuci Mjesec preko pravca Sunce–Zemlja. Kada je pomrčina potpuna, a kada djelomična? Usporedi tamnu mrlju s veličinom Zemlje.' },
-      { en: 'Lunar eclipse: move the Moon into the Earth\'s shadow. What colour does it turn? Who on Earth can see this eclipse?', hr: 'Pomrčina Mjeseca: uvedi Mjesec u Zemljinu sjenu. Koje boje postaje? Tko je na Zemlji može vidjeti?' },
-      { en: 'Why not every month: move the slider. At which angles from the node is an eclipse possible?', hr: 'Zašto ne svaki mjesec: pomiči klizač. Pri kojim je kutovima od čvora pomrčina moguća?' }
+      { en: 'Lunar eclipse: move the Moon into the Earth\'s shadow. What colour does it turn? Who on Earth can see this eclipse?', hr: 'Pomrčina Mjeseca: uvedi Mjesec u Zemljinu sjenu. Koje boje postaje? Tko na Zemlji može vidjeti tu pomrčinu?' },
+      { en: 'Why not every month: move the slider. At which angles from the node is an eclipse possible?', hr: 'Zašto ne svakog mjeseca: pomiči klizač. Pri kojim je kutovima od čvora pomrčina moguća?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -53,20 +53,20 @@
       // ---------- controls ----------
       C.segmented({ label: { en: 'Mode', hr: 'Način rada' }, options: [
         { value: 'shadow', label: { en: 'Shadow and half-shadow', hr: 'Sjena i polusjena' } }, { value: 'solar', label: { en: 'Solar eclipse', hr: 'Pomrčina Sunca' } },
-        { value: 'lunar', label: { en: 'Lunar eclipse', hr: 'Pomrčina Mjeseca' } }, { value: 'tilt', label: { en: 'Why not every month?', hr: 'Zašto ne svaki mjesec?' } }], value: 'shadow', onChange: setMode });
+        { value: 'lunar', label: { en: 'Lunar eclipse', hr: 'Pomrčina Mjeseca' } }, { value: 'tilt', label: { en: 'Why not every month?', hr: 'Zašto ne svakog mjeseca?' } }], value: 'shadow', onChange: setMode });
       const slLamp = C.slider({ label: { en: 'Lamp size', hr: 'Veličina lampe' }, min: 0, max: 40, step: 1, value: 14, unit: 'cm', digits: 0, onChange: v => { st.lamp = v; update(); } });
-      const tgCmp = C.toggle({ label: { en: 'Compare with a point lamp', hr: 'Usporedi s točkastom lampom' }, value: false, onChange: v => { st.cmp = v; update(); } });
+      const tgCmp = C.toggle({ label: { en: 'Compare with a point lamp', hr: 'Usporedi s točkastim izvorom' }, value: false, onChange: v => { st.cmp = v; update(); } });
       const outUm = C.readout({ label: { en: 'Umbra (full shadow) on the screen', hr: 'Sjena na zastoru' }, unit: 'cm', digits: 1 });
       const outPen = C.readout({ label: { en: 'Whole shadow with the penumbra', hr: 'Cijela sjena s polusjenom' }, unit: 'cm', digits: 1 });
       const slPhi = C.slider({ label: { en: 'Moon position on its orbit', hr: 'Položaj Mjeseca na stazi' }, min: -180, max: 180, step: 1, value: -65, unit: '°', digits: 0,
         onChange: v => { st[st.mode === 'lunar' ? 'phiL' : 'phiS'] = v; update(); } });
       const slNode = C.slider({ label: { en: 'New moon: angle from the node', hr: 'Mlađak: kut od čvora' }, min: -180, max: 180, step: 1, value: 60, unit: '°', digits: 0, onChange: v => { st.node = v; update(); } });
       const outType = C.readout({ label: { en: 'Eclipse', hr: 'Pomrčina' } });
-      const outCov = C.readout({ label: { en: 'Sun covered', hr: 'Prekriveno Sunca' }, unit: '%', digits: 0 });
+      const outCov = C.readout({ label: { en: 'Sun covered', hr: 'Prekriveni dio Sunca' }, unit: '%', digits: 0 });
       const outIn = C.readout({ label: { en: 'Moon inside the umbra', hr: 'Mjesec u Zemljinoj sjeni' }, unit: '%', digits: 0 });
       const outZ = C.readout({ label: { en: 'New moon above (+) / below (−) Earth\'s orbital plane', hr: 'Mlađak iznad (+) / ispod (−) ravnine Zemljine staze' }, unit: 'km', digits: 0 });
       const btnPlay = C.button({ label: PLAY, variant: 'primary', onClick: () => { if (st.mode !== 'shadow') L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => { reset(); } });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => { reset(); } });
       const note = C.note({ text: NOTES.shadow });
       C.note({ text: SAFETY });
       const GROUPS = { shadow: [slLamp, tgCmp, outUm, outPen], solar: [slPhi, outType, outCov, btnPlay], lunar: [slPhi, outType, outIn, btnPlay], tilt: [slNode, outType, outZ, btnPlay] };
@@ -160,7 +160,7 @@
         if (st.mode === 'shadow') { const c = shadowCalc(); outUm.set(c.umbra); outPen.set(c.whole); }
         else if (st.mode === 'solar') { const r = solarCalc(spaceGeom()); outType.set(TYPES[r.type].short); outType.setColor(''); outCov.set(r.cov * 100); }
         else if (st.mode === 'lunar') { const r = lunarCalc(spaceGeom()); outType.set(TYPES[r.type].short); outType.setColor(''); outIn.set(r.fu * 100); }
-        else { const G = tiltGeom(); outType.set(G.possible ? { en: 'possible', hr: 'moguća' } : { en: 'not this month', hr: 'ne ovaj mjesec' }); outType.setColor(G.possible ? theme.good : ''); outZ.set(G.zKm); }
+        else { const G = tiltGeom(); outType.set(G.possible ? { en: 'possible', hr: 'moguća' } : { en: 'not this month', hr: 'ne ovog mjeseca' }); outType.setColor(G.possible ? theme.good : ''); outZ.set(G.zKm); }
         note.set(NOTES[st.mode]); draw();
       }
 
@@ -256,9 +256,9 @@
         else { K.roundRect(g, xl - 6, Y(half), 12, st.lamp * G.s, 6); g.fill(); g.stroke(); }
         g.fillStyle = theme.c7; g.beginPath(); g.arc(X(st.bx), Y(st.by), BALL_R * G.s, 0, Math.PI * 2); g.fill(); g.stroke();
         g.fillStyle = 'rgba(255,255,255,0.3)'; g.beginPath(); g.arc(X(st.bx) - BALL_R * G.s * 0.35, Y(st.by) - BALL_R * G.s * 0.35, BALL_R * G.s * 0.3, 0, Math.PI * 2); g.fill(); g.restore();
-        K.text(g, T(st.lamp < 1 ? { en: 'point lamp', hr: 'točkasta lampa' } : { en: 'lamp', hr: 'lampa' }) , Math.max(xl, 34), Y(-half) + 10, { font: '11px ' + theme.font, color: theme.muted, align: 'center', baseline: 'top' });
+        K.text(g, T(st.lamp < 1 ? { en: 'point lamp', hr: 'točkasti izvor' } : { en: 'lamp', hr: 'lampa' }) , Math.max(xl, 34), Y(-half) + 10, { font: '11px ' + theme.font, color: theme.muted, align: 'center', baseline: 'top' });
         K.text(g, T({ en: 'ball', hr: 'lopta' }), X(st.bx), Y(st.by) - BALL_R * G.s - 5, { font: '11px ' + theme.font, color: theme.muted, align: 'center', baseline: 'bottom' });
-        header(g, T({ en: 'Drag the ball', hr: 'Povuci loptu' }), st.cmp ? T({ en: 'Point lamp (dashed): sharp shadow of ', hr: 'Točkasta lampa (crtkano): oštra sjena od ' }) + F(c.point, 1) + ' cm' : '', true);
+        header(g, T({ en: 'Drag the ball', hr: 'Povuci loptu' }), st.cmp ? T({ en: 'Point lamp (dashed): sharp shadow of ', hr: 'Točkasti izvor (crtkano): oštra sjena od ' }) + F(c.point, 1) + ' cm' : '', true);
         legend(g, h);
       }
 
@@ -302,7 +302,7 @@
           }
         }
         g.restore();
-        header(g, T(TYPES[(sc || lc).type][solar ? 'solar' : 'lunar']), T({ en: 'Drag the Moon along its orbit, or press Play.', hr: 'Povuci Mjesec po stazi ili pritisni Pokreni.' }));
+        header(g, T(TYPES[(sc || lc).type][solar ? 'solar' : 'lunar']), T({ en: 'Drag the Moon along its orbit, or press Play.', hr: 'Povuci Mjesec po stazi ili pritisni „Pokreni“.' }));
         legend(g, h); scaleNote(g, w, h);
       }
 
@@ -341,9 +341,9 @@
         });
         K.text(g, T({ en: 'Earth', hr: 'Zemlja' }), E.x, cy + Re + 5, { font: f11, color: theme.fg, align: 'center', baseline: 'top' });
         const where = zn > 0 ? { en: 'above', hr: 'iznad' } : { en: 'below', hr: 'ispod' };
-        header(g, T(hit ? { en: 'Eclipse possible', hr: 'Pomrčina moguća' } : { en: 'No eclipse this month', hr: 'Ovaj mjesec nema pomrčine' }),
-          hit ? T({ en: 'New and full moon are near a node: the shadows hit.', hr: 'Mlađak i uštap su blizu čvora: sjene pogađaju.' })
-            : T({ en: 'The Moon\'s shadow passes ', hr: 'Mjesečeva sjena prolazi ' }) + T(where) + T({ en: ' the Earth; the full moon misses the Earth\'s shadow.', hr: ' Zemlje; uštap promašuje Zemljinu sjenu.' }), w >= 440);
+        header(g, T(hit ? { en: 'Eclipse possible', hr: 'Pomrčina moguća' } : { en: 'No eclipse this month', hr: 'Ovog mjeseca nema pomrčine' }),
+          hit ? T({ en: 'New and full moon are near a node: the shadows hit.', hr: 'Mlađak i uštap blizu su čvora: sjene ne promašuju.' })
+            : T({ en: 'The Moon\'s shadow passes ', hr: 'Mjesečeva sjena prolazi ' }) + T(where) + T({ en: ' the Earth; the full moon misses the Earth\'s shadow.', hr: ' Zemlje; za uštapa Mjesec mimoiđe Zemljinu sjenu.' }), w >= 440);
         g.fillStyle = hit ? theme.good : theme.muted; g.beginPath(); g.arc(w - 18, 16, 7, 0, Math.PI * 2); g.fill();
         K.text(g, T({ en: 'Moon\'s orbit: tilt ≈ 5° (drawn steeper)', hr: 'Mjesečeva staza: nagib ≈ 5° (nacrtan strmije)' }), 10, h - 13, { font: f11, color: theme.muted, baseline: 'middle' });
         scaleNote(g, w, h);

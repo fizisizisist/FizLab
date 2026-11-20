@@ -9,7 +9,7 @@
     title: { en: 'Forces', hr: 'Sile' },
     intro: {
       en: 'Every push and every pull is a force. Learn how forces start, stop and bend the motion of everything around you.',
-      hr: 'Svako guranje i svako vučenje je sila. Nauči kako sile pokreću, zaustavljaju i skreću sve oko tebe.'
+      hr: 'Svako guranje i svako vučenje jest sila. Nauči kako sile pokreću i zaustavljaju tijela oko tebe i kako im mijenjaju smjer gibanja.'
     },
     sims: ['forces', 'freefall', 'spring', 'forcepairs', 'friction'],
 
@@ -23,23 +23,23 @@
             'In diagrams we draw a force as an arrow. The length of the arrow shows how strong the force is, and the direction shows where it pushes or pulls.'
           ],
           hr: [
-            'Sila je guranje ili vučenje. Kad udariš loptu, gurneš vrata ili vučeš sanjke, djeluješ silom. Sila može tijelo pokrenuti, ubrzati, usporiti, zaustaviti, promijeniti mu smjer gibanja ili promijeniti njegov oblik.',
-            'Silu mjerimo u njutnima (N), prema Isaacu Newtonu. Jedan njutn je otprilike sila kojom u ruci držiš malu jabuku (oko 100 g). Sprava za mjerenje sile zove se dinamometar.',
+            'Sila je guranje ili vučenje. Kad udariš loptu, gurneš vrata ili vučeš sanjke, djeluješ silom. Sila može tijelo pokrenuti, ubrzati, usporiti, zaustaviti, promijeniti mu smjer gibanja ili oblik.',
+            'Silu izražavamo u njutnima (N); jedinica je dobila ime po Isaacu Newtonu. Jedan njutn je otprilike sila kojom u ruci držiš malu jabuku (oko 100 g). Sprava za mjerenje sile zove se dinamometar.',
             'Na crtežima silu prikazujemo strelicom. Duljina strelice pokazuje koliko je sila jaka, a smjer strelice pokazuje kamo sila gura ili vuče.'
           ]
         },
         svg: '<svg viewBox="0 0 420 110" role="img"><defs><marker id="fz-ar1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--c1)"/></marker></defs><rect x="150" y="40" width="80" height="50" rx="6" fill="var(--surface2)" stroke="var(--fg)" stroke-width="2"/><line x1="40" y1="65" x2="140" y2="65" stroke="var(--c1)" stroke-width="5" marker-end="url(#fz-ar1)"/><text x="90" y="52" text-anchor="middle" fill="var(--fg)" font-family="inherit" font-size="14" font-weight="700">F = 20 N</text><line x1="240" y1="65" x2="290" y2="65" stroke="var(--c1)" stroke-width="5" marker-end="url(#fz-ar1)"/><text x="265" y="52" text-anchor="middle" fill="var(--fg)" font-family="inherit" font-size="14" font-weight="700">F = 10 N</text><line x1="20" y1="90" x2="400" y2="90" stroke="var(--muted)" stroke-width="2"/></svg>'
       },
       {
-        h: { en: 'Contact forces and forces at a distance', hr: 'Sile dodirom i sile na daljinu' },
+        h: { en: 'Contact forces and forces at a distance', hr: 'Dodirne sile i sile na daljinu' },
         p: {
           en: [
             'Some forces act only when objects touch: friction when you slide a book on a table, the push of your hand, the elastic force of a stretched rubber band. Others act at a distance, without touching: gravity pulls an apple to the ground before it lands, and a magnet pulls a paperclip from a few centimetres away.',
             'Every force comes from an interaction between two objects. When you push a wall, the wall pushes back on you just as hard. That is why you roll backwards on skates when you push off a wall.'
           ],
           hr: [
-            'Neke sile djeluju samo kad se tijela dodiruju: trenje kad guraš knjigu po stolu, pritisak tvoje ruke, elastična sila napete gumice. Druge djeluju na daljinu, bez dodira: sila teža privlači jabuku k tlu prije nego što padne, a magnet privlači spajalicu s nekoliko centimetara udaljenosti.',
-            'Svaka sila nastaje međudjelovanjem dvaju tijela. Kad gurneš zid, zid jednako jako gura tebe. Zato se na koturaljkama otkotrljaš unatrag kad se odgurneš od zida.'
+            'Neke sile djeluju samo kad se tijela dodiruju: trenje kad guraš knjigu po stolu, sila kojom rukom nešto guraš, elastična sila napete gumice. Druge djeluju na daljinu, bez dodira: sila teža privlači jabuku prema tlu i prije nego što ona padne na tlo, a magnet privlači spajalicu udaljenu nekoliko centimetara.',
+            'Svaka sila nastaje međudjelovanjem dvaju tijela. Kad guraš zid, i zid jednako jako gura tebe. Zato se na koturaljkama otkotrljaš unatrag kad se odgurneš od zida.'
           ]
         }
       },
@@ -51,8 +51,8 @@
             'Mass and weight are not the same! Mass (in kg) tells how much matter an object contains and is the same everywhere. Weight (in N) is a force and depends on where you are. On the Moon gravity is about 6 times weaker, so the same bag of flour would weigh only about 3 N, but its mass would still be 2 kg.'
           ],
           hr: [
-            'Zemlja privlači svako tijelo prema svom središtu. To privlačenje zovemo sila teža. Sila kojom Zemlja privlači tijelo zove se težina tijela. Težina ovisi o masi: svaki kilogram Zemlja privlači silom od oko 9,81 N (često zaokružujemo na 10 N). Vrećica brašna mase 2 kg ima težinu oko 20 N.',
-            'Masa i težina nisu isto! Masa (u kg) govori koliko tvari ima u tijelu i jednaka je svugdje. Težina (u N) je sila i ovisi o tome gdje se nalazimo. Na Mjesecu je sila teža oko 6 puta slabija, pa bi ista vrećica brašna imala težinu oko 3 N, ali masa bi joj i dalje bila 2 kg.'
+            'Zemlja privlači svako tijelo prema svojem središtu. Tu privlačnu silu nazivamo silom težom (Fg). Ona ovisi o masi: svaki kilogram Zemlja privlači silom od oko 9,81 N (često je zaokružujemo na 10 N), pa je Fg = m · g. Zbog sile teže tijelo pritišće podlogu na kojoj stoji ili napinje nit o kojoj visi. Tu silu nazivamo težinom tijela (G). Kad tijelo miruje, težina je jednaka sili težoj, pa vrećica brašna mase 2 kg ima težinu od oko 20 N.',
+            'Masa i težina nisu isto! Masa (u kg) govori koliko tvari ima u tijelu i ista je na svakom mjestu. Težina (u N) jest sila i ovisi o tome gdje se tijelo nalazi. Na Mjesecu je sila teža oko 6 puta slabija, pa bi ista vrećica brašna imala težinu od samo oko 3 N, a masa bi joj i dalje bila 2 kg.'
           ]
         }
       },
@@ -64,8 +64,8 @@
             'If the forces cancel completely, we say they are balanced. An object with balanced forces does not change its motion: a book lying on a table stays still, and a parachutist with balanced forces falls at a steady speed.'
           ],
           hr: [
-            'Kad na tijelo djeluje više sila, one se slažu u jednu rezultantnu silu (rezultantu). Dvije sile istog smjera zbrajamo: dva prijatelja koji guraju kutiju silom od po 30 N guraju kao jedna osoba silom od 60 N. Dvije sile suprotnog smjera djelomično se poništavaju: 50 N udesno i 30 N ulijevo daju 20 N udesno.',
-            'Ako se sile potpuno poništavaju, kažemo da su uravnotežene. Tijelo na koje djeluju uravnotežene sile ne mijenja gibanje: knjiga na stolu miruje, a padobranac s uravnoteženim silama pada stalnom brzinom.'
+            'Kad na tijelo djeluje više sila, one se slažu u jednu rezultantnu silu (rezultantu). Dvije sile istog smjera zbrajamo: dva prijatelja koji guraju kutiju silom od po 30 N djeluju kao jedna osoba koja gura silom od 60 N. Dvije sile suprotnih smjerova djelomično se poništavaju: 50 N udesno i 30 N ulijevo daju rezultantu od 20 N udesno.',
+            'Ako se sile potpuno poništavaju, kažemo da su uravnotežene. Tijelo na koje djeluju uravnotežene sile ne mijenja gibanje: knjiga na stolu miruje, a padobranac na kojeg djeluju uravnotežene sile pada stalnom brzinom.'
           ]
         },
         svg: '<svg viewBox="0 0 420 120" role="img"><defs><marker id="fz-ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker></defs><rect x="170" y="35" width="80" height="50" rx="6" fill="var(--surface2)" stroke="var(--fg)" stroke-width="2"/><line x1="260" y1="50" x2="360" y2="50" stroke="var(--c1)" stroke-width="5" marker-end="url(#fz-ar2)"/><text x="310" y="40" text-anchor="middle" fill="var(--fg)" font-family="inherit" font-size="13" font-weight="700">50 N</text><line x1="160" y1="50" x2="100" y2="50" stroke="var(--c2)" stroke-width="5" marker-end="url(#fz-ar2)"/><text x="130" y="40" text-anchor="middle" fill="var(--fg)" font-family="inherit" font-size="13" font-weight="700">30 N</text><line x1="210" y1="105" x2="250" y2="105" stroke="var(--c7)" stroke-width="6" marker-end="url(#fz-ar2)"/><text x="300" y="110" text-anchor="start" fill="var(--fg)" font-family="inherit" font-size="13" font-weight="700">F = 20 N</text></svg>'
@@ -78,8 +78,8 @@
             'Rough surfaces give more friction; smooth or wet surfaces give less. Rolling friction (wheels, ball bearings) is much smaller than sliding friction. That is why the wheel was such a great invention.'
           ],
           hr: [
-            'Trenje je sila koja nastaje kad se površine taru jedna o drugu. Uvijek djeluje suprotno gibanju. Trenje usporava sanjke, ali nam i omogućuje da hodamo bez klizanja i da automobil zakoči.',
-            'Hrapave površine daju veće trenje, a glatke ili mokre manje. Trenje kotrljanja (kotači, kuglični ležajevi) puno je manje od trenja klizanja. Zato je kotač bio tako velik izum.'
+            'Trenje je sila koja nastaje kad se površine taru jedna o drugu. Uvijek djeluje suprotno gibanju. Trenje usporava sanjke, ali nam omogućuje i da hodamo bez klizanja, a automobilu da zakoči.',
+            'Između hrapavih površina trenje je veće, a između glatkih ili mokrih manje. Trenje kotrljanja (kotači, kuglični ležajevi) puno je manje od trenja klizanja. Zato je kotač bio tako važan izum.'
           ]
         }
       },
@@ -91,8 +91,8 @@
             'Newton made this his first law: if the resultant force on a body is zero, it stays at rest or keeps moving in a straight line at a constant speed. This property is called inertia; more mass means more inertia. When a car brakes hard, your body keeps moving forward until the seat belt stops it. Flick a card from under a coin and the coin stays put; a magician whips a tablecloth away and the dishes stay. A force is needed to change motion, not to keep it going.'
           ],
           hr: [
-            'Gurni knjigu po stolu i ona se ubrzo zaustavi, pa se čini da gibanje treba stalno guranje. Galileo je vidio dalje. Zamislio je kuglicu koja se spušta niz jednu kosinu i penje uz drugu: na glatkoj stazi popne se gotovo do visine s koje je krenula. Učini drugu kosinu manje strmom i kuglica prijeđe dulji put da dosegne tu visinu. A kad bi druga kosina bila posve vodoravna i bez trenja? Kuglica tu visinu nikad ne bi dosegnula, pa bi se kotrljala zauvijek.',
-            'Newton je to zapisao kao svoj prvi zakon: ako je rezultantna sila na tijelo jednaka nuli, ono miruje ili se nastavlja gibati po pravcu stalnom brzinom. To svojstvo zovemo tromost (inercija); veća masa znači veću tromost. Kad automobil naglo zakoči, tvoje se tijelo nastavlja gibati prema naprijed dok ga ne zaustavi sigurnosni pojas. Naglo izbij karticu ispod kovanice i kovanica ostane na mjestu; mađioničar naglo povuče stolnjak, a posuđe ostane na stolu. Sila je potrebna da se gibanje promijeni, a ne da se održi.'
+            'Gurneš li knjigu po stolu, ona se ubrzo zaustavi, pa se čini da je za gibanje potrebno stalno guranje. Galileo je vidio dalje. Zamislio je kuglicu koja se spušta niz jednu kosinu i penje uz drugu: na glatkoj stazi popne se gotovo do visine s koje je krenula. Ako je druga kosina manje strma, kuglica mora prijeći dulji put da bi dosegnula tu visinu. A što bi se dogodilo kad bi druga staza bila posve vodoravna i bez trenja? Kuglica tu visinu nikad ne bi dosegnula, pa bi se kotrljala zauvijek.',
+            'Newton je to zapisao kao svoj prvi zakon: ako je rezultantna sila koja djeluje na tijelo jednaka nuli, tijelo miruje ili se nastavlja gibati po pravcu stalnom brzinom. To svojstvo nazivamo tromošću (inercijom); što je masa tijela veća, veća je i njegova tromost. Kad automobil naglo zakoči, tvoje se tijelo nastavlja gibati prema naprijed dok ga ne zaustavi sigurnosni pojas. Izbiješ li naglo karticu ispod kovanice, kovanica ostaje na mjestu; kad mađioničar naglo povuče stolnjak, posuđe ostaje na stolu. Sila je potrebna da se gibanje promijeni, a ne da se održi.'
           ]
         }
       },
@@ -104,8 +104,8 @@
             'Scientists write this as F = m · a, where a is the acceleration: how quickly the speed changes, measured in metres per second squared (m/s²). A resultant force of 10 N on a 5 kg box gives an acceleration of 2 m/s², so the box gains 2 m/s of speed every second.'
           ],
           hr: [
-            'Što je rezultantna sila veća, tijelo brže mijenja brzinu. Što je masa tijela veća, teže mu je promijeniti gibanje. Prazna kolica u trgovini gurnuta silom od 20 N brzo ubrzaju; ista sila na puna kolica postiže mnogo manje.',
-            'Fizičari to zapisuju kao F = m · a, gdje je a ubrzanje: koliko se brzo mijenja brzina, mjereno u metrima u sekundi na kvadrat (m/s²). Rezultantna sila od 10 N na kutiju mase 5 kg daje ubrzanje 2 m/s², pa kutija svake sekunde dobije 2 m/s brzine.'
+            'Što je rezultantna sila veća, tijelo brže mijenja brzinu. Što je masa tijela veća, teže mu je promijeniti gibanje. Gurneš li prazna kolica u trgovini silom od 20 N, brzo će ubrzati; jednako guranje punih kolica ima mnogo manji učinak.',
+            'Fizičari to zapisuju formulom F = m · a, gdje je a ubrzanje, tj. koliko se brzo mijenja brzina; izražavamo ga u metrima u sekundi na kvadrat (m/s²). Rezultantna sila od 10 N kutiji mase 5 kg daje ubrzanje 2 m/s², pa joj se brzina svake sekunde poveća za 2 m/s.'
           ]
         }
       }
@@ -113,36 +113,36 @@
 
     keyTerms: [
       { term: { en: 'force', hr: 'sila' }, def: { en: 'A push or a pull that can change how an object moves or what shape it has. Unit: newton (N).', hr: 'Guranje ili vučenje koje može promijeniti gibanje ili oblik tijela. Jedinica: njutn (N).' } },
-      { term: { en: 'newton (N)', hr: 'njutn (N)' }, def: { en: 'The unit of force. About the weight of a small apple.', hr: 'Mjerna jedinica za silu. Otprilike težina male jabuke.' } },
+      { term: { en: 'newton (N)', hr: 'njutn (N)' }, def: { en: 'The unit of force. About the weight of a small apple.', hr: 'Mjerna jedinica sile. Otprilike težina male jabuke.' } },
       { term: { en: 'dynamometer', hr: 'dinamometar' }, def: { en: 'A spring device for measuring force.', hr: 'Sprava s oprugom za mjerenje sile.' } },
-      { term: { en: 'gravity', hr: 'sila teža' }, def: { en: 'The force with which Earth pulls everything towards its centre.', hr: 'Sila kojom Zemlja privlači sva tijela prema svom središtu.' } },
-      { term: { en: 'weight', hr: 'težina' }, def: { en: 'The force of gravity on an object, measured in newtons. W = m · g.', hr: 'Sila kojom Zemlja privlači tijelo, mjeri se u njutnima. G = m · g.' } },
-      { term: { en: 'mass', hr: 'masa' }, def: { en: 'How much matter an object contains, in kilograms. The same everywhere in the universe.', hr: 'Koliko tvari sadrži tijelo, u kilogramima. Jednaka je svugdje u svemiru.' } },
-      { term: { en: 'resultant force', hr: 'rezultantna sila (rezultanta)' }, def: { en: 'The single force that has the same effect as all the forces acting together.', hr: 'Jedna sila koja ima isti učinak kao sve sile zajedno.' } },
+      { term: { en: 'gravity', hr: 'sila teža' }, def: { en: 'The force with which Earth pulls everything towards its centre.', hr: 'Sila kojom Zemlja privlači sva tijela prema svojem središtu: Fg = m · g.' } },
+      { term: { en: 'weight', hr: 'težina' }, def: { en: 'The force of gravity on an object, measured in newtons. W = m · g.', hr: 'Sila kojom tijelo zbog sile teže pritišće podlogu ili napinje ovjes; mjeri se u njutnima. Za tijelo koje miruje G = m · g.' } },
+      { term: { en: 'mass', hr: 'masa' }, def: { en: 'How much matter an object contains, in kilograms. The same everywhere in the universe.', hr: 'Koliko tvari tijelo sadrži; izražava se u kilogramima. Ista je bilo gdje u svemiru.' } },
+      { term: { en: 'resultant force', hr: 'rezultantna sila (rezultanta)' }, def: { en: 'The single force that has the same effect as all the forces acting together.', hr: 'Jedna sila koja ima isti učinak kao sve sile koje zajedno djeluju na tijelo.' } },
       { term: { en: 'balanced forces', hr: 'uravnotežene sile' }, def: { en: 'Forces that cancel each other out, so the motion does not change.', hr: 'Sile koje se međusobno poništavaju, pa se gibanje ne mijenja.' } },
-      { term: { en: 'inertia', hr: 'tromost (inercija)' }, def: { en: 'The property of a body to stay at rest or keep moving in a straight line at a constant speed until a resultant force changes its motion. More mass, more inertia.', hr: 'Svojstvo tijela da miruje ili se nastavlja gibati po pravcu stalnom brzinom sve dok mu rezultantna sila ne promijeni gibanje. Veća masa, veća tromost.' } },
-      { term: { en: 'friction', hr: 'trenje' }, def: { en: 'A force between touching surfaces that acts against motion.', hr: 'Sila između površina koje se dodiruju, djeluje suprotno gibanju.' } },
+      { term: { en: 'inertia', hr: 'tromost (inercija)' }, def: { en: 'The property of a body to stay at rest or keep moving in a straight line at a constant speed until a resultant force changes its motion. More mass, more inertia.', hr: 'Svojstvo tijela da miruje ili se nastavlja gibati po pravcu stalnom brzinom sve dok mu rezultantna sila ne promijeni gibanje. Što je masa veća, veća je i tromost.' } },
+      { term: { en: 'friction', hr: 'trenje' }, def: { en: 'A force between touching surfaces that acts against motion.', hr: 'Sila između površina koje se dodiruju; djeluje suprotno gibanju.' } },
       { term: { en: 'elastic force', hr: 'elastična sila' }, def: { en: 'The force a stretched or squeezed spring or rubber band uses to return to its shape.', hr: 'Sila kojom se napeta ili stisnuta opruga ili gumica vraća u svoj oblik.' } },
-      { term: { en: 'acceleration', hr: 'ubrzanje' }, def: { en: 'How quickly speed changes, in m/s².', hr: 'Koliko se brzo mijenja brzina, u m/s².' } }
+      { term: { en: 'acceleration', hr: 'ubrzanje' }, def: { en: 'How quickly speed changes, in m/s².', hr: 'Koliko se brzo mijenja brzina; izražava se u m/s².' } }
     ],
 
     formulas: [
-      { expr: 'G = m · g', name: { en: 'weight', hr: 'težina' }, note: { en: 'g ≈ 9.81 N/kg on Earth (≈ 10 N/kg for quick sums)', hr: 'g ≈ 9,81 N/kg na Zemlji (≈ 10 N/kg za brzo računanje)' } },
+      { expr: 'G = m · g', name: { en: 'weight', hr: 'težina' }, note: { en: 'g ≈ 9.81 N/kg on Earth (≈ 10 N/kg for quick sums)', hr: 'za tijelo koje miruje; g ≈ 9,81 N/kg na Zemlji (≈ 10 N/kg za brzo računanje)' } },
       { expr: 'F = F₁ + F₂', name: { en: 'forces in the same direction', hr: 'sile istog smjera' }, note: { en: 'they add up', hr: 'zbrajaju se' } },
-      { expr: 'F = F₁ − F₂', name: { en: 'forces in opposite directions', hr: 'sile suprotnog smjera' }, note: { en: 'the bigger one wins', hr: 'veća pobjeđuje' } },
+      { expr: 'F = F₁ − F₂', name: { en: 'forces in opposite directions', hr: 'sile suprotnog smjera' }, note: { en: 'the bigger one wins', hr: 'rezultanta ima smjer veće sile' } },
       { expr: 'F = m · a', name: { en: 'force, mass and acceleration', hr: 'sila, masa i ubrzanje' }, note: { en: 'a in m/s²', hr: 'a u m/s²' } }
     ],
 
     funFact: {
       en: 'In 1971 astronaut David Scott dropped a hammer and a falcon feather on the Moon at the same time. With no air to slow the feather, both hit the ground together, just as Galileo had predicted 350 years earlier.',
-      hr: 'Godine 1971. astronaut David Scott na Mjesecu je istodobno pustio čekić i sokolovo pero. Bez zraka koji bi usporio pero, oboje je palo na tlo u istom trenutku, baš kako je Galileo predvidio 350 godina ranije.'
+      hr: 'Godine 1971. astronaut David Scott na Mjesecu je istodobno pustio čekić i sokolovo pero. Budući da ondje nema zraka koji bi usporio pero, oba su predmeta pala na tlo u istom trenutku, baš kako je Galileo predvidio 350 godina ranije.'
     },
 
     experiment: {
       title: { en: 'Build a rubber-band force meter', hr: 'Napravi dinamometar od gumice' },
       materials: {
         en: ['a rubber band', 'a paper clip', 'a ruler or a strip of cardboard', 'sticky tape', 'a small plastic bag', 'coins or marbles', 'a book, a towel and a smooth tray'],
-        hr: ['gumica', 'spajalica', 'ravnalo ili traka kartona', 'selotejp', 'mala plastična vrećica', 'kovanice ili kuglice', 'knjiga, ručnik i glatki pladanj']
+        hr: ['gumica', 'spajalica', 'ravnalo ili traka od kartona', 'selotejp', 'mala plastična vrećica', 'kovanice ili klikeri', 'knjiga, ručnik i glatki pladanj']
       },
       steps: {
         en: [
@@ -156,15 +156,15 @@
         hr: [
           'Selotejpom pričvrsti jedan kraj gumice na vrh ravnala.',
           'Spajalicu savij u kukicu i zakvači je na slobodni kraj gumice.',
-          'Označi gdje kukica pokazuje kad ništa ne visi. To je nula.',
-          'Zakvači vrećicu na kukicu i dodaj kovanice jednu po jednu. Nakon svake kovanice označi položaj kukice.',
-          'Pogledaj oznake: jednake kovanice produljuju gumicu za jednake korake. Napravio si mjerač sile!',
-          'Sad gumicu zaveži za knjigu i vuci je po stolu, po ručniku i po glatkom pladnju. Gdje se gumica najviše produlji? Ta površina ima najveće trenje.'
+          'Označi položaj kukice dok na njoj ništa ne visi. Ta je oznaka nula.',
+          'Zakvači vrećicu na kukicu i stavljaj u nju kovanice jednu po jednu. Nakon svake kovanice označi položaj kukice.',
+          'Pogledaj oznake: svaka nova kovanica produlji gumicu za jednako mnogo. Gotov je tvoj mjerač sile!',
+          'Sad gumicu zaveži za knjigu i vuci je po stolu, po ručniku i po glatkom pladnju. Gdje se gumica najviše produljila? Na toj je podlozi trenje najveće.'
         ]
       },
       explain: {
         en: 'A stretched rubber band pulls back with an elastic force. The more it stretches, the bigger the force, so the stretch tells you how big the force is. Real dynamometers work the same way, with a metal spring instead of a band.',
-        hr: 'Napeta gumica vraća se elastičnom silom. Što je više napeta, sila je veća, pa produljenje pokazuje kolika je sila. Pravi dinamometri rade na isti način, s metalnom oprugom umjesto gumice.'
+        hr: 'Rastegnuta gumica vuče natrag elastičnom silom. Što je više rastegnuta, to je sila veća, pa produljenje pokazuje kolika je sila. Pravi dinamometri rade na isti način, samo umjesto gumice imaju metalnu oprugu.'
       },
       safety: { en: 'Do not overstretch the band: it can snap and hit your eye.', hr: 'Ne napinji gumicu previše: može puknuti i udariti te u oko.' }
     },
@@ -172,38 +172,38 @@
     quiz: [
       { type: 'mc', q: { en: 'What is the unit of force?', hr: 'Koja je mjerna jedinica za silu?' },
         options: [{ en: 'kilogram', hr: 'kilogram' }, { en: 'metre', hr: 'metar' }, { en: 'joule', hr: 'džul' }, { en: 'newton', hr: 'njutn' }], answer: 3,
-        explain: { en: 'Force is measured in newtons (N), named after Isaac Newton. The kilogram measures mass, the metre length and the joule energy.', hr: 'Silu mjerimo u njutnima (N), prema Isaacu Newtonu. Kilogramom mjerimo masu, metrom duljinu, a džulom energiju.' } },
+        explain: { en: 'Force is measured in newtons (N), named after Isaac Newton. The kilogram measures mass, the metre length and the joule energy.', hr: 'Silu izražavamo u njutnima (N); jedinica je dobila ime po Isaacu Newtonu. Kilogram je jedinica mase, metar duljine, a džul energije.' } },
       { type: 'mc', q: { en: 'Which of these forces acts at a distance, without touching?', hr: 'Koja od ovih sila djeluje na daljinu, bez dodira?' },
-        options: [{ en: 'friction', hr: 'trenje' }, { en: 'the push of a hand', hr: 'pritisak ruke' }, { en: 'gravity', hr: 'sila teža' }, { en: 'the elastic force of a rubber band', hr: 'elastična sila gumice' }], answer: 2,
-        explain: { en: 'Gravity (and magnetic force) act without contact. Friction, a push and an elastic force need the objects to touch.', hr: 'Sila teža (i magnetska sila) djeluju bez dodira. Trenje, guranje i elastična sila trebaju dodir tijela.' } },
+        options: [{ en: 'friction', hr: 'trenje' }, { en: 'the push of a hand', hr: 'guranje rukom' }, { en: 'gravity', hr: 'sila teža' }, { en: 'the elastic force of a rubber band', hr: 'elastična sila gumice' }], answer: 2,
+        explain: { en: 'Gravity (and magnetic force) act without contact. Friction, a push and an elastic force need the objects to touch.', hr: 'Sila teža (i magnetska sila) djeluju bez dodira. Za trenje, guranje i elastičnu silu tijela se moraju dodirivati.' } },
       { type: 'num', q: { en: 'A bag has a mass of 3 kg. What is its weight on Earth? Use g = 10 N/kg.', hr: 'Torba ima masu 3 kg. Kolika je njezina težina na Zemlji? Uzmi g = 10 N/kg.' },
         answer: 30, tolerance: 0.5, unit: 'N',
         explain: { en: 'Weight = mass × g = 3 kg × 10 N/kg = 30 N.', hr: 'Težina = masa × g = 3 kg × 10 N/kg = 30 N.' } },
       { type: 'mc', q: { en: 'Two children push a box in the same direction with 40 N and 25 N. What is the resultant force?', hr: 'Dvoje djece gura kutiju u istom smjeru silama 40 N i 25 N. Kolika je rezultanta?' },
         options: [{ en: '15 N', hr: '15 N' }, { en: '40 N', hr: '40 N' }, { en: '65 N', hr: '65 N' }, { en: '1000 N', hr: '1000 N' }], answer: 2,
         explain: { en: 'Forces in the same direction add up: 40 N + 25 N = 65 N.', hr: 'Sile istog smjera zbrajamo: 40 N + 25 N = 65 N.' } },
-      { type: 'mc', q: { en: 'A rope is pulled with 80 N to the left and 50 N to the right. The resultant force is…', hr: 'Uže se vuče silom 80 N ulijevo i 50 N udesno. Rezultanta je…' },
+      { type: 'mc', q: { en: 'A rope is pulled with 80 N to the left and 50 N to the right. The resultant force is…', hr: 'Uže vučemo silom od 80 N ulijevo i silom od 50 N udesno. Rezultanta je…' },
         options: [{ en: '130 N to the left', hr: '130 N ulijevo' }, { en: '30 N to the left', hr: '30 N ulijevo' }, { en: '30 N to the right', hr: '30 N udesno' }, { en: 'zero', hr: 'nula' }], answer: 1,
         explain: { en: 'Opposite forces partly cancel: 80 N − 50 N = 30 N, in the direction of the bigger force (left).', hr: 'Suprotne sile djelomično se poništavaju: 80 N − 50 N = 30 N, u smjeru veće sile (ulijevo).' } },
-      { type: 'tf', q: { en: 'Your mass would be smaller on the Moon than on Earth.', hr: 'Tvoja masa bila bi manja na Mjesecu nego na Zemlji.' }, answer: false,
-        explain: { en: 'Mass is the same everywhere. Your weight (the force of gravity) would be about 6 times smaller on the Moon.', hr: 'Masa je svugdje jednaka. Tvoja težina (sila teža) bila bi na Mjesecu oko 6 puta manja.' } },
+      { type: 'tf', q: { en: 'Your mass would be smaller on the Moon than on Earth.', hr: 'Na Mjesecu bi tvoja masa bila manja nego na Zemlji.' }, answer: false,
+        explain: { en: 'Mass is the same everywhere. Your weight (the force of gravity) would be about 6 times smaller on the Moon.', hr: 'Masa je svugdje jednaka. I sila teža i tvoja težina bile bi na Mjesecu oko 6 puta manje.' } },
       { type: 'mc', q: { en: 'Which device measures force?', hr: 'Kojom spravom mjerimo silu?' },
         options: [{ en: 'dynamometer', hr: 'dinamometar' }, { en: 'thermometer', hr: 'termometar' }, { en: 'stopwatch', hr: 'štoperica' }, { en: 'ruler', hr: 'ravnalo' }], answer: 0,
         explain: { en: 'A dynamometer (spring scale) measures force by how far its spring stretches.', hr: 'Dinamometar mjeri silu po tome koliko se njegova opruga produlji.' } },
       { type: 'tf', q: { en: 'Friction always acts against the direction of motion.', hr: 'Trenje uvijek djeluje suprotno smjeru gibanja.' }, answer: true,
-        explain: { en: 'Friction opposes sliding. That is why things slow down and stop when we stop pushing.', hr: 'Trenje se suprotstavlja klizanju. Zato se tijela usporavaju i stanu kad ih prestanemo gurati.' } },
+        explain: { en: 'Friction opposes sliding. That is why things slow down and stop when we stop pushing.', hr: 'Trenje se suprotstavlja klizanju. Zato tijela usporavaju i zaustave se kad ih prestanemo gurati.' } },
       { type: 'mc', q: { en: 'A book lies still on a table. Which statement is true?', hr: 'Knjiga miruje na stolu. Što je točno?' },
-        options: [{ en: 'No forces act on it.', hr: 'Na nju ne djeluje nikakva sila.' }, { en: 'The forces on it are balanced.', hr: 'Sile na nju su uravnotežene.' }, { en: 'Gravity is bigger than the push of the table.', hr: 'Sila teža veća je od sile stola.' }, { en: 'The table pushes harder than gravity pulls.', hr: 'Stol gura jače nego što sila teža vuče.' }], answer: 1,
-        explain: { en: 'Gravity pulls the book down and the table pushes it up with an equal force. Balanced forces: no change in motion.', hr: 'Sila teža vuče knjigu prema dolje, a stol je gura prema gore jednakom silom. Uravnotežene sile: gibanje se ne mijenja.' } },
+        options: [{ en: 'No forces act on it.', hr: 'Na nju ne djeluje nikakva sila.' }, { en: 'The forces on it are balanced.', hr: 'Sile koje na nju djeluju uravnotežene su.' }, { en: 'Gravity is bigger than the push of the table.', hr: 'Sila teža veća je od sile kojom stol gura knjigu.' }, { en: 'The table pushes harder than gravity pulls.', hr: 'Stol gura jače nego što sila teža vuče.' }], answer: 1,
+        explain: { en: 'Gravity pulls the book down and the table pushes it up with an equal force. Balanced forces: no change in motion.', hr: 'Sila teža vuče knjigu prema dolje, a stol je gura prema gore jednakom silom. Sile su uravnotežene, pa se gibanje ne mijenja.' } },
       { type: 'mc', q: { en: 'Where is the friction the smallest?', hr: 'Gdje je trenje najmanje?' },
-        options: [{ en: 'dragging a box over a carpet', hr: 'vučenje kutije po tepihu' }, { en: 'sliding a box over wet tiles', hr: 'klizanje kutije po mokrim pločicama' }, { en: 'rolling a box on a cart with wheels', hr: 'vožnja kutije na kolicima s kotačima' }, { en: 'pushing a box over sand', hr: 'guranje kutije po pijesku' }], answer: 2,
-        explain: { en: 'Rolling friction is much smaller than sliding friction, so wheels make moving heavy things easy.', hr: 'Trenje kotrljanja puno je manje od trenja klizanja, zato kotači olakšavaju premještanje teških stvari.' } },
+        options: [{ en: 'dragging a box over a carpet', hr: 'vučenje kutije po tepihu' }, { en: 'sliding a box over wet tiles', hr: 'klizanje kutije po mokrim pločicama' }, { en: 'rolling a box on a cart with wheels', hr: 'prijevoz kutije na kolicima s kotačima' }, { en: 'pushing a box over sand', hr: 'guranje kutije po pijesku' }], answer: 2,
+        explain: { en: 'Rolling friction is much smaller than sliding friction, so wheels make moving heavy things easy.', hr: 'Trenje kotrljanja puno je manje od trenja klizanja, pa kotači olakšavaju premještanje teških predmeta.' } },
       { type: 'mc', q: { en: 'A hockey puck slides across perfectly smooth ice, with no friction and no air resistance. Nobody is pushing it any more. What does it do?', hr: 'Hokejski pak klizi po savršeno glatkom ledu, bez trenja i bez otpora zraka. Nitko ga više ne gura. Što se s njim događa?' },
         options: [{ en: 'it keeps moving in a straight line at the same speed', hr: 'nastavlja se gibati po pravcu istom brzinom' }, { en: 'it slows down gradually because the force of the push gets used up', hr: 'postupno usporava jer se sila guranja potroši' }, { en: 'it stops as soon as the push ends', hr: 'zaustavi se čim guranje prestane' }, { en: 'it speeds up more and more', hr: 'sve više ubrzava' }], answer: 0,
-        explain: { en: 'With no resultant force the motion does not change: that is inertia, Newton’s first law. A force is not something the puck carries along and uses up. On real ice it is friction, a force, that slowly stops it.', hr: 'Bez rezultantne sile gibanje se ne mijenja: to je tromost, prvi Newtonov zakon. Sila nije nešto što pak nosi sa sobom i troši. Na pravom ledu polako ga zaustavlja trenje, a trenje je sila.' } },
+        explain: { en: 'With no resultant force the motion does not change: that is inertia, Newton’s first law. A force is not something the puck carries along and uses up. On real ice it is friction, a force, that slowly stops it.', hr: 'Bez rezultantne sile gibanje se ne mijenja: to je tromost, prvi Newtonov zakon. Sila nije nešto što pak nosi sa sobom i troši. Na stvarnom ledu polako ga zaustavlja trenje, a trenje je sila.' } },
       { type: 'num', q: { en: 'A 5 kg box is pushed with a resultant force of 10 N. What is its acceleration (a = F / m)?', hr: 'Kutiju mase 5 kg guramo rezultantnom silom od 10 N. Koliko je njezino ubrzanje (a = F / m)?' },
         answer: 2, tolerance: 0.1, unit: 'm/s²',
-        explain: { en: 'a = F / m = 10 N / 5 kg = 2 m/s². The box gains 2 m/s of speed every second.', hr: 'a = F / m = 10 N / 5 kg = 2 m/s². Kutija svake sekunde dobije 2 m/s brzine.' } },
+        explain: { en: 'a = F / m = 10 N / 5 kg = 2 m/s². The box gains 2 m/s of speed every second.', hr: 'a = F / m = 10 N / 5 kg = 2 m/s². Brzina kutije svake se sekunde poveća za 2 m/s.' } },
       { type: 'mc', q: { en: 'What does the length of a force arrow in a diagram show?', hr: 'Što pokazuje duljina strelice sile na crtežu?' },
         options: [{ en: 'the mass of the object', hr: 'masu tijela' }, { en: 'only the direction of the force', hr: 'samo smjer sile' }, { en: 'the speed of the object', hr: 'brzinu tijela' }, { en: 'how strong the force is', hr: 'koliko je sila jaka' }], answer: 3,
         explain: { en: 'A longer arrow means a bigger force. The direction of the arrow shows the direction of the force.', hr: 'Dulja strelica znači veću silu. Smjer strelice pokazuje smjer sile.' } }

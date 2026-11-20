@@ -14,13 +14,13 @@
     title: { en: 'Static Electricity', hr: 'Statički elektricitet' },
     summary: {
       en: 'Rub a balloon on a wool sweater, watch electrons jump over, and stick the balloon to the wall. Then charge two hanging balloons and see them push apart or pull together.',
-      hr: 'Protrljaj balon o vunenu vestu, gledaj kako elektroni prelaze i prilijepi balon na zid. Zatim nabij dva viseća balona i gledaj kako se odbijaju ili privlače.'
+      hr: 'Protrljaj balon o vunenu vestu, promatraj kako elektroni prelaze na balon i prilijepi ga na zid. Zatim nabij dva obješena balona i promatraj kako se odbijaju ili privlače.'
     },
     tasks: [
-      { en: 'Drag the balloon back and forth over the sweater. Count the − signs on the balloon and the + signs on the sweater. Are they equal?', hr: 'Povuci balon amo-tamo preko veste. Prebroji znakove − na balonu i + na vesti. Jesu li jednaki?' },
+      { en: 'Drag the balloon back and forth over the sweater. Count the − signs on the balloon and the + signs on the sweater. Are they equal?', hr: 'Povuci balon amo-tamo preko veste. Prebroji znakove − na balonu i + na vesti. Je li ih jednako mnogo?' },
       { en: 'Move the charged balloon close to the wall and let go. What happens to the charges inside the wall?', hr: 'Približi nabijeni balon zidu i pusti ga. Što se događa s nabojima u zidu?' },
-      { en: 'Two balloons: charge both the same way. Then switch B to the opposite charge. Which way do they swing?', hr: 'Dva balona: nabij oba jednako. Zatim prebaci B na suprotan naboj. Na koju stranu zanjišu?' },
-      { en: 'Press "Discharge". Why does the balloon fall off the wall?', hr: 'Pritisni "Isprazni". Zašto balon padne sa zida?' }
+      { en: 'Two balloons: charge both the same way. Then switch B to the opposite charge. Which way do they swing?', hr: 'Dva balona: nabij oba balona istoimenim nabojem. Zatim balonu B daj suprotan naboj. Na koju se stranu baloni otklone?' },
+      { en: 'Press "Discharge". Why does the balloon fall off the wall?', hr: 'Pritisni „Izbij naboj“. Zašto balon padne sa zida?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -41,10 +41,10 @@
       const btnB = C.button({ label: { en: 'Charge balloon B', hr: 'Nabij balon B' }, onClick: () => { st.qB = st.qB ? 0 : (st.opp ? Q_B : -Q_B); btnB.setActive(!!st.qB); kick(); } });
       const tgOpp = C.toggle({ label: { en: 'Opposite charge on B (+)', hr: 'Suprotan naboj na B (+)' }, value: false,
         onChange: v => { st.opp = v; if (st.qB) st.qB = v ? Q_B : -Q_B; kick(); } });
-      const btnDis = C.button({ label: { en: 'Discharge', hr: 'Isprazni' }, onClick: () => {
+      const btnDis = C.button({ label: { en: 'Discharge', hr: 'Izbij naboj' }, onClick: () => {
         st.q = 0; st.rub = 0; st.stuck = false; st.qA = 0; st.qB = 0; btnA.setActive(false); btnB.setActive(false); updateOut(); draw(); } });
       const btnPlay = C.button({ label: { en: 'Pause', hr: 'Pauza' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outQ = C.readout({ label: { en: 'Charge on balloon', hr: 'Naboj balona' } });
       const outQS = C.readout({ label: { en: 'Charge on sweater', hr: 'Naboj veste' } });
       const outState = C.readout({ label: { en: 'Balloon state', hr: 'Stanje balona' } });
@@ -75,9 +75,9 @@
         outQA.set(fmtQ(st.qA)); outQB.set(fmtQ(st.qB));
         note.set(st.mode === 'balloon'
           ? { en: 'Rubbing moves electrons (−) from the wool to the balloon: the balloon becomes negative, the sweater positive. Near the wall the balloon pushes the wall\'s electrons away, so the + side of the wall faces it and attracts it.',
-              hr: 'Trljanjem elektroni (−) prelaze s vune na balon: balon postaje negativan, a vesta pozitivna. Uz zid balon odgurne elektrone zida, pa je prema njemu okrenuta + strana zida koja ga privlači.' }
+              hr: 'Trljanjem elektroni (−) prelaze s vune na balon: balon postaje negativno nabijen, a vesta pozitivno nabijena. Blizu zida balon odbija elektrone u zidu pa je prema njemu okrenuta pozitivna (+) strana zida, koja ga privlači.' }
           : { en: 'Like charges repel, unlike charges attract. The force grows when the charges are bigger and the balloons are closer.',
-              hr: 'Istoimeni naboji se odbijaju, raznoimeni se privlače. Sila je veća kad su naboji veći i baloni bliže.' });
+              hr: 'Istoimeni naboji odbijaju se, a raznoimeni privlače. Sila je to veća što su naboji veći i baloni bliži.' });
       }
 
       // ---- layout ----

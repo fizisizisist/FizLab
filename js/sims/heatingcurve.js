@@ -11,12 +11,12 @@
   const CUP_C = 100, AIR_LOSS = 0.02;                        // "real cup": 100 J/°C of cup at 20 °C, and 2 % of the excess escapes into the air
   const ICE_COL = '#cfe6fb';
   const STAGES = [
-    { name: { en: 'ice warms up', hr: 'led se grije' }, state: { en: 'ice (solid)', hr: 'led (čvrsto)' }, parts: { en: 'ordered, vibrating in place', hr: 'uređene, titraju na mjestu' },
-      note: { en: 'The ice warms up: its particles vibrate faster and faster in their fixed places. Ice needs 2100 J to warm 1 kg by 1 °C.', hr: 'Led se grije: čestice sve brže titraju na svojim stalnim mjestima. Ledu treba 2100 J da se 1 kg zagrije za 1 °C.' } },
+    { name: { en: 'ice warms up', hr: 'led se grije' }, state: { en: 'ice (solid)', hr: 'led (krutina)' }, parts: { en: 'ordered, vibrating in place', hr: 'uređene, titraju na mjestu' },
+      note: { en: 'The ice warms up: its particles vibrate faster and faster in their fixed places. Ice needs 2100 J to warm 1 kg by 1 °C.', hr: 'Led se grije: čestice sve brže titraju na svojim stalnim mjestima. Da bi se 1 kg leda zagrijao za 1 °C, potrebno je 2100 J.' } },
     { name: { en: 'melting', hr: 'taljenje' }, state: { en: 'ice + water (melting)', hr: 'led + voda (taljenje)' }, parts: { en: 'the pattern is breaking up', hr: 'raspored se raspada' },
       note: { en: 'The temperature stays at 0 °C until all the ice has melted: the energy goes into breaking the bonds between the particles (334 kJ for each kilogram).', hr: 'Temperatura ostaje 0 °C dok se sav led ne rastali: energija odlazi na kidanje veza među česticama (334 kJ za svaki kilogram).' } },
-    { name: { en: 'water warms up', hr: 'voda se grije' }, state: { en: 'water (liquid)', hr: 'voda (tekuće)' }, parts: { en: 'close together, sliding', hr: 'blizu su, klize' },
-      note: { en: 'Liquid water warms up. It needs 4200 J to warm 1 kg by 1 °C, twice as much as ice, so this line is less steep.', hr: 'Tekuća voda se grije. Treba joj 4200 J da se 1 kg zagrije za 1 °C, dvostruko više nego ledu, pa je ovaj dio grafa položeniji.' } },
+    { name: { en: 'water warms up', hr: 'voda se grije' }, state: { en: 'water (liquid)', hr: 'voda (tekućina)' }, parts: { en: 'close together, sliding', hr: 'blizu su, klize' },
+      note: { en: 'Liquid water warms up. It needs 4200 J to warm 1 kg by 1 °C, twice as much as ice, so this line is less steep.', hr: 'Tekuća se voda grije. Da bi se 1 kg vode zagrijao za 1 °C, potrebno je 4200 J, dvostruko više nego za led, pa je ovaj dio grafa položeniji.' } },
     { name: { en: 'boiling', hr: 'vrenje' }, state: { en: 'water + steam (boiling)', hr: 'voda + para (vrenje)' }, parts: { en: 'some break free and fly off', hr: 'neke se otkidaju i odlijeću' },
       note: { en: 'The temperature stays at 100 °C while the water boils: the energy tears the particles apart into steam. That takes 2260 kJ per kilogram, almost seven times more than melting.', hr: 'Temperatura ostaje 100 °C dok voda vrije: energija odvaja čestice jednu od druge i nastaje para. Za to treba 2260 kJ po kilogramu, gotovo sedam puta više nego za taljenje.' } },
     { name: { en: 'steam warms up', hr: 'para se grije' }, state: { en: 'steam (gas)', hr: 'vodena para (plin)' }, parts: { en: 'far apart, flying freely', hr: 'daleko su, slobodno lete' },
@@ -35,10 +35,10 @@
     { value: 'mix', label: { en: 'Mixing water', hr: 'Miješanje vode' } },
     { value: 'race', label: { en: 'Which heats fastest?', hr: 'Što se najbrže zagrije?' } }
   ];
-  const NOTE_MIX = { en: 'The hot water gives away exactly the heat the cold water takes in, until both have the same temperature: T = (m₁·T₁ + m₂·T₂) / (m₁ + m₂).', hr: 'Topla voda preda točno onoliko topline koliko hladna primi, sve dok im se temperature ne izjednače: T = (m₁·T₁ + m₂·T₂) / (m₁ + m₂).' };
-  const NOTE_REAL = { en: 'A real cup and the air take some of the heat too, so the measured temperature of the mixture ends a little closer to room temperature (20 °C) than the formula says.', hr: 'Stvarna šalica i zrak također uzmu dio topline, pa izmjerena temperatura smjese završi malo bliže sobnoj temperaturi (20 °C) nego što kaže formula.' };
-  const NOTE_RACE = { en: 'Water has a very large specific heat capacity: it needs a lot of energy to warm up and gives a lot back as it cools. That is why the sea warms and cools much more slowly than the land.', hr: 'Voda ima vrlo velik specifični toplinski kapacitet: treba joj mnogo energije da se zagrije i mnogo je vrati dok se hladi. Zato se more grije i hladi mnogo sporije od kopna.' };
-  const NOTE_MAX = { en: 'The chart shows at most 4 substances. Switch one off first.', hr: 'Graf prikazuje najviše 4 tvari. Najprije jednu isključi.' };
+  const NOTE_MIX = { en: 'The hot water gives away exactly the heat the cold water takes in, until both have the same temperature: T = (m₁·T₁ + m₂·T₂) / (m₁ + m₂).', hr: 'Topla voda predaje točno onoliko topline koliko hladna prima, sve dok im se temperature ne izjednače: T = (m₁·T₁ + m₂·T₂) / (m₁ + m₂).' };
+  const NOTE_REAL = { en: 'A real cup and the air take some of the heat too, so the measured temperature of the mixture ends a little closer to room temperature (20 °C) than the formula says.', hr: 'Stvarna šalica i okolni zrak također preuzmu dio topline, pa je izmjerena temperatura smjese malo bliža sobnoj temperaturi (20 °C) od one koju daje formula.' };
+  const NOTE_RACE = { en: 'Water has a very large specific heat capacity: it needs a lot of energy to warm up and gives a lot back as it cools. That is why the sea warms and cools much more slowly than the land.', hr: 'Voda ima vrlo velik specifični toplinski kapacitet: za zagrijavanje joj treba mnogo energije, a pri hlađenju mnogo energije i otpušta. Zato se more zagrijava i hladi mnogo sporije od kopna.' };
+  const NOTE_MAX = { en: 'The chart shows at most 4 substances. Switch one off first.', hr: 'Graf prikazuje najviše 4 tvari. Najprije isključi jednu.' };
   function rgbOf(col) {
     col = (col || '#888').trim();
     if (col.startsWith('rgb')) { const p = col.replace(/rgba?\(([^)]+)\)/, '$1').split(',').map(s => parseFloat(s)); return [p[0] || 0, p[1] || 0, p[2] || 0]; }
@@ -64,13 +64,13 @@
     title: { en: 'Heating, Melting and Mixing', hr: 'Zagrijavanje, taljenje i miješanje' },
     summary: {
       en: 'Heat a block of ice until it is steam and watch the temperature graph, mix hot and cold water and predict the result, and race six substances on identical heaters.',
-      hr: 'Zagrijavaj komad leda dok ne postane para i prati graf temperature, pomiješaj toplu i hladnu vodu i predvidi ishod te usporedi šest tvari na jednakim grijačima.'
+      hr: 'Zagrijavaj komad leda dok ne postane para i prati graf temperature. Pomiješaj toplu i hladnu vodu i predvidi temperaturu smjese, a zatim usporedi zagrijavanje šest tvari na jednakim grijačima.'
     },
     tasks: [
-      { en: 'Heating curve: press Play. Where is the graph flat, and what is happening in the beaker during those times?', hr: 'Krivulja zagrijavanja: pritisni Pokreni. Gdje je graf vodoravan i što se tada događa u čaši?' },
-      { en: 'Which takes more energy: melting 1 kg of ice or boiling away 1 kg of water? Read the energies on the graph.', hr: 'Za što treba više energije: da se rastali 1 kg leda ili da ispari 1 kg vode? Pročitaj energije na grafu.' },
-      { en: 'Mixing: guess the temperature of 0.2 kg at 90 °C poured into 0.6 kg at 10 °C. Pour, record it and try three more mixtures.', hr: 'Miješanje: pogodi temperaturu kad se 0,2 kg vode od 90 °C ulije u 0,6 kg vode od 10 °C. Ulij, zabilježi i isprobaj još tri smjese.' },
-      { en: 'Which heats fastest? Put the six substances in order. How does the order compare with their values of c?', hr: 'Što se najbrže zagrije? Poredaj šest tvari. Kako se taj poredak slaže s njihovim vrijednostima c?' }
+      { en: 'Heating curve: press Play. Where is the graph flat, and what is happening in the beaker during those times?', hr: 'Krivulja zagrijavanja: pritisni „Pokreni“. Gdje je graf vodoravan i što se tada događa u čaši?' },
+      { en: 'Which takes more energy: melting 1 kg of ice or boiling away 1 kg of water? Read the energies on the graph.', hr: 'Za što treba više energije: da se rastali 1 kg leda ili da ispari 1 kg vode? Očitaj energije s grafa.' },
+      { en: 'Mixing: guess the temperature of 0.2 kg at 90 °C poured into 0.6 kg at 10 °C. Pour, record it and try three more mixtures.', hr: 'Miješanje: predvidi temperaturu smjese kad se 0,2 kg vode od 90 °C ulije u 0,6 kg vode od 10 °C. Ulij vodu, zabilježi rezultat i isprobaj još tri smjese.' },
+      { en: 'Which heats fastest? Put the six substances in order. How does the order compare with their values of c?', hr: 'Što se najbrže zagrije? Poredaj šest tvari prema brzini zagrijavanja. Slaže li se taj poredak s njihovim vrijednostima c?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -111,14 +111,14 @@
         if (rc.full) tgSub[i].set(false); else rc.sel[i] = v;
         refresh();
       } }));
-      const segSpeed = C.segmented({ label: { en: 'Time speed', hr: 'Brzina vremena' }, options: [{ value: '10', label: '10×' }, { value: '60', label: '60×' }, { value: '300', label: '300×' }], value: '60',
+      const segSpeed = C.segmented({ label: { en: 'Time speed', hr: 'Brzina simulacije' }, options: [{ value: '10', label: '10×' }, { value: '60', label: '60×' }, { value: '300', label: '300×' }], value: '60',
         onChange: v => { st.speed = parseFloat(v) || 60; } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => {
         if (!L.running && st.mode === 'curve' && st.cu.done) restartCurve();
         if (!L.running && st.mode === 'race' && st.rc.done) restartRace();
         L.toggle(); updatePlay();
       } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outT = C.readout({ label: { en: 'Temperature', hr: 'Temperatura' }, unit: '°C', digits: 1 });
       const outState = C.readout({ label: { en: 'State', hr: 'Agregacijsko stanje' } });
       const outTime = C.readout({ label: { en: 'Time', hr: 'Vrijeme' }, unit: 's', digits: 0 });
@@ -327,7 +327,7 @@
         const mx = st.mx, L0 = split(w, h, 0.58, 0.58), sw = L0.sw, sh = L0.sh, done = mx.p >= 1, Tf = mixT(mx.real);
         head(c, tr({ en: 'Mixing hot and cold water', hr: 'Miješanje tople i hladne vode' }), sw);
         if (done) fit(c, 'T = (m₁·T₁ + m₂·T₂) / (m₁ + m₂) = (' + fm(mx.m1, 1) + ' · ' + fm(mx.T1, 0) + ' + ' + fm(mx.m2, 1) + ' · ' + fm(mx.T2, 0) + ') / ' + fm(mx.m1 + mx.m2, 1) + ' = ' + fm(mixT(false), 1) + ' °C', 12, 36, sw - 24, { size: 12 });
-        else fit(c, tr({ en: 'What will the temperature of the mixture be? Guess, then pour.', hr: 'Kolika će biti temperatura smjese? Pogodi pa ulij.' }), 12, 36, sw - 24, { size: 12, color: theme.muted });
+        else fit(c, tr({ en: 'What will the temperature of the mixture be? Guess, then pour.', hr: 'Kolika će biti temperatura smjese? Predvidi pa ulij.' }), 12, 36, sw - 24, { size: 12, color: theme.muted });
         if (done && mx.real) fit(c, tr({ en: 'Measured in the real cup: ', hr: 'Izmjereno u stvarnoj šalici: ' }) + fm(Tf, 1) + ' °C', 12, 53, sw - 24, { size: 12, bold: true });
         const jw = Math.min(sw * 0.19, 84), jh = Math.min(jw * 1.3, sh * 0.34), base = sh - 26, cx = sw / 2, cw = jw * 1.3, chh = Math.min(jh * 1.15, sh * 0.38), ct = base - chh;
         c.strokeStyle = theme.muted; c.lineWidth = 3; c.beginPath(); c.moveTo(8, base + 2); c.lineTo(sw - 8, base + 2); c.stroke();
@@ -361,7 +361,7 @@
         c.stroke();
         mx.trials.forEach((t, k) => [fm(t.m1, 1), fm(t.T1, 0), fm(t.m2, 1), fm(t.T2, 0), fm(t.T, 1) + (t.real ? ' *' : '')].forEach((s, i) =>
           K.text(c, s, r.x + 8 + colW * (i + 1) - 6, y0 + rowH * (k + 1), { font: (i === 4 ? 'bold ' : '') + tf, color: theme.fg, align: 'right', baseline: 'middle' })));
-        if (!n) K.text(c, tr({ en: 'Pour, then press Record', hr: 'Ulij pa pritisni Zabilježi' }), r.x + r.w / 2, y0 + rowH, { font: tf, color: theme.muted, align: 'center', baseline: 'middle' });
+        if (!n) K.text(c, tr({ en: 'Pour, then press Record', hr: 'Ulij pa pritisni „Zabilježi“' }), r.x + r.w / 2, y0 + rowH, { font: tf, color: theme.muted, align: 'center', baseline: 'middle' });
         if (mx.trials.some(t => t.real)) K.text(c, tr({ en: '* real cup', hr: '* stvarna šalica' }), r.x + 10, r.y + r.h - 10, { font: '10px ' + theme.font, color: theme.muted, baseline: 'middle' });
       }
 
@@ -398,7 +398,7 @@
           K.text(c, txt, ch.px + ch.pw - 8, y, { font: '11px ' + theme.font, color: theme.fg, align: 'right', baseline: 'middle' });
           c.font = '11px ' + theme.font; c.fillStyle = cols[k]; c.fillRect(ch.px + ch.pw - 24 - c.measureText(txt).width, y - 5, 10, 10);
         });
-        if (!chosen.length) K.text(c, tr({ en: 'Switch on up to 4 substances for the chart', hr: 'Uključi do 4 tvari za graf' }), ch.px + ch.pw / 2, ch.py + ch.ph / 2, { font: '12px ' + theme.font, color: theme.muted, align: 'center', baseline: 'middle' });
+        if (!chosen.length) K.text(c, tr({ en: 'Switch on up to 4 substances for the chart', hr: 'Za graf uključi najviše 4 tvari' }), ch.px + ch.pw / 2, ch.py + ch.ph / 2, { font: '12px ' + theme.font, color: theme.muted, align: 'center', baseline: 'middle' });
       }
       function draw() {
         const c = cv.ctx, w = cv.w, h = cv.h;

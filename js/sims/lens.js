@@ -12,18 +12,18 @@
   const OBJ_H = 20;   // cm: object height in the pinhole camera
   const NOTES = {
     conv: { en: 'Lens equation: 1/f = 1/a + 1/b, magnification m = b/a. Object farther than the focus F: real, inverted image that can be caught on a screen. Object between F and the lens: virtual, upright, magnified image (a magnifying glass); b is then negative.',
-      hr: 'Jednadžba leće: 1/f = 1/a + 1/b, uvećanje m = b/a. Predmet dalje od žarišta F: stvarna, obrnuta slika koja se može uhvatiti na zastoru. Predmet između F i leće: prividna, uspravna, uvećana slika (povećalo); b je tada negativan.' },
+      hr: 'Jednadžba leće: 1/f = 1/a + 1/b, povećanje m = b/a. Predmet dalje od žarišta F: realna, obrnuta slika koja se može uhvatiti na zastoru. Predmet između F i leće: virtualna, uspravna, uvećana slika (povećalo); b je tada negativan.' },
     div: { en: 'A diverging lens spreads the rays, so they only seem to come from a point in front of the lens: the image is always virtual, upright and reduced (f and b are negative). It cannot be caught on a screen.',
-      hr: 'Rastresna leća širi zrake pa one samo prividno dolaze iz točke ispred leće: slika je uvijek prividna, uspravna i umanjena (f i b su negativni). Ne može se uhvatiti na zastoru.' },
+      hr: 'Rastresna leća lomi zrake tako da se razilaze pa se samo čini da dolaze iz točke ispred leće: slika je uvijek virtualna, uspravna i umanjena (f i b su negativni). Ne može se uhvatiti na zastoru.' },
     mirror: { en: 'Curved mirrors obey the same equation, 1/f = 1/a + 1/b; F lies halfway between the mirror and its centre C. A concave mirror acts like a converging lens (make-up mirror, telescope); a convex mirror always gives a virtual, upright, reduced image (car mirror).',
-      hr: 'Za zakrivljena zrcala vrijedi ista jednadžba, 1/f = 1/a + 1/b; žarište F je na pola puta između zrcala i središta C. Udubljeno zrcalo djeluje kao sabirna leća (kozmetičko zrcalo, teleskop); ispupčeno uvijek daje prividnu, uspravnu, umanjenu sliku (retrovizor).' },
+      hr: 'Za zakrivljena zrcala vrijedi ista jednadžba, 1/f = 1/a + 1/b; žarište F nalazi se na pola puta između zrcala i središta zakrivljenosti C. Udubljeno zrcalo djeluje kao sabirna leća (kozmetičko zrcalo, teleskop); ispupčeno uvijek daje virtualnu, uspravnu, umanjenu sliku (retrovizor).' },
     eye: { en: 'Short-sighted eye: the image of a far object forms in front of the retina; a diverging lens (minus dioptres) corrects it. Long-sighted eye: the image of a near object would form behind the retina; a converging lens (plus dioptres) corrects it. Strength in dioptres = 1 / f in metres.',
-      hr: 'Kratkovidno oko: slika dalekog predmeta nastaje ispred mrežnice; ispravlja se rastresnom lećom (minus dioptrije). Dalekovidno oko: slika bliskog predmeta nastala bi iza mrežnice; ispravlja se sabirnom lećom (plus dioptrije). Jakost leće u dioptrijama = 1 / f u metrima.' },
+      hr: 'Kratkovidno oko: slika dalekog predmeta nastaje ispred mrežnice; to se ispravlja rastresnom lećom (minus dioptrije). Dalekovidno oko: slika bliskog predmeta nastala bi iza mrežnice; to se ispravlja sabirnom lećom (plus dioptrije). Jakost leće u dioptrijama = 1 / f (f u metrima).' },
     pinhole: { en: 'Light travels in straight lines, so the picture is upside down. Similar triangles: image height = object height · b / a. A bigger hole lets in more light (brighter picture), but every point becomes a spot (blurrier picture).',
-      hr: 'Svjetlost putuje pravocrtno, zato je slika obrnuta. Slični trokuti: visina slike = visina predmeta · b / a. Veći otvor propušta više svjetlosti (svjetlija slika), ali svaka točka postaje mrlja (mutnija slika).' }
+      hr: 'Svjetlost se širi pravocrtno pa je slika obrnuta. Iz sličnih trokuta: visina slike = visina predmeta · b / a. Veći otvor propušta više svjetlosti (svjetlija slika), ali svaka točka predmeta na zastoru postaje mrlja (mutnija slika).' }
   };
   const HINTS = {
-    bench: { en: 'Drag the object; drag its tip to change the height.', hr: 'Povuci predmet; povuci vrh za promjenu visine.' },
+    bench: { en: 'Drag the object; drag its tip to change the height.', hr: 'Povuci predmet; povlačenjem vrha mijenjaš visinu.' },
     eye: { en: 'Drag the candle nearer or farther.', hr: 'Povuci svijeću bliže ili dalje.' },
     pinhole: { en: 'Drag the object or the screen.', hr: 'Povuci predmet ili zastor.' }
   };
@@ -33,12 +33,12 @@
     title: { en: 'Lenses and Mirrors', hr: 'Leće i zrcala' },
     summary: {
       en: 'Build images with lenses and curved mirrors, see how glasses correct short and long sight, and try a pinhole camera.',
-      hr: 'Gradi slike lećama i zakrivljenim zrcalima, pogledaj kako naočale ispravljaju kratkovidnost i dalekovidnost i isprobaj tamnu komoru.'
+      hr: 'Konstruiraj slike koje daju leće i zakrivljena zrcala, pogledaj kako naočale ispravljaju kratkovidnost i dalekovidnost te isprobaj tamnu komoru.'
     },
     tasks: [
-      { en: 'Converging lens: drag the object from far away towards the lens. At which distance does the image stop being real and inverted and become virtual and upright?', hr: 'Sabirna leća: povlači predmet izdaleka prema leći. Na kojoj udaljenosti slika prestaje biti stvarna i obrnuta i postaje prividna i uspravna?' },
+      { en: 'Converging lens: drag the object from far away towards the lens. At which distance does the image stop being real and inverted and become virtual and upright?', hr: 'Sabirna leća: povlači predmet izdaleka prema leći. Na kojoj udaljenosti slika prestaje biti realna i obrnuta i postaje virtualna i uspravna?' },
       { en: 'Set a = 2f (for example f = 15 cm, a = 30 cm). How big is the image? Switch on the screen and find the place where the picture is sharp.', hr: 'Postavi a = 2f (npr. f = 15 cm, a = 30 cm). Kolika je slika? Uključi zastor i nađi mjesto na kojem je slika oštra.' },
-      { en: 'The eye: choose the short-sighted eye and a far object. Which glasses, and how many dioptres, make the picture sharp?', hr: 'Oko: odaberi kratkovidno oko i daleki predmet. Koje naočale i koliko dioptrija daju oštru sliku?' },
+      { en: 'The eye: choose the short-sighted eye and a far object. Which glasses, and how many dioptres, make the picture sharp?', hr: 'Oko: odaberi kratkovidno oko i daleki predmet. Koje su naočale potrebne i koliko dioptrija moraju imati da slika bude oštra?' },
       { en: 'Pinhole camera: make the hole bigger. What happens to the brightness of the picture, and what to its sharpness?', hr: 'Tamna komora: povećaj otvor. Što se događa sa svjetlinom slike, a što s njezinom oštrinom?' }
     ],
     mount(container, ctx) {
@@ -62,7 +62,7 @@
       const tgScr = C.toggle({ label: { en: 'Screen', hr: 'Zastor' }, value: false, onChange: v => { st.screen = v; slScr.setDisabled(!v); update(); } });
       const slScr = C.slider({ label: { en: 'Screen distance from the lens', hr: 'Udaljenost zastora od leće' }, min: 2, max: 80, step: 0.5, value: 24, unit: 'cm', digits: 1, onChange: v => { st.sp = v; update(); } });
       const outB = C.readout({ label: { en: 'Image distance b', hr: 'Udaljenost slike b' }, unit: 'cm', digits: 1 });
-      const outM = C.readout({ label: { en: 'Magnification m', hr: 'Uvećanje m' }, unit: '×', digits: 2 });
+      const outM = C.readout({ label: { en: 'Magnification m', hr: 'Povećanje m' }, unit: '×', digits: 2 });
       const outImg = C.readout({ label: { en: 'Image', hr: 'Slika' } });
       const slD = C.slider({ label: { en: 'Object distance', hr: 'Udaljenost predmeta' }, min: 0, max: DIST.length - 1, step: 1, value: 9,
         format: (v, l) => distLabel(DIST[Math.round(v)], l), onChange: v => { st.eyeD = K.clamp(Math.round(v), 0, DIST.length - 1); update(); } });
@@ -76,13 +76,13 @@
         format: (v, l) => (st.glasses === 'div' ? '−' : st.glasses === 'conv' ? '+' : '') + K.fmt(v, 1, l) + (l === 'hr' ? ' dpt' : ' D'), onChange: v => { st.diop = v; update(); } });
       const outFocus = C.readout({ label: { en: 'Sharp image forms', hr: 'Oštra slika nastaje' } });
       const outSee = C.readout({ label: { en: 'The eye sees', hr: 'Oko vidi' } });
-      const slPO = C.slider({ label: { en: 'Object to hole a', hr: 'Predmet do otvora a' }, min: 20, max: 100, step: 1, value: 50, unit: 'cm', digits: 0, onChange: v => { st.po = v; update(); } });
-      const slPS = C.slider({ label: { en: 'Hole to screen b', hr: 'Otvor do zastora b' }, min: 5, max: 40, step: 1, value: 20, unit: 'cm', digits: 0, onChange: v => { st.ps = v; update(); } });
+      const slPO = C.slider({ label: { en: 'Object to hole a', hr: 'Predmet – otvor a' }, min: 20, max: 100, step: 1, value: 50, unit: 'cm', digits: 0, onChange: v => { st.po = v; update(); } });
+      const slPS = C.slider({ label: { en: 'Hole to screen b', hr: 'Otvor – zastor b' }, min: 5, max: 40, step: 1, value: 20, unit: 'cm', digits: 0, onChange: v => { st.ps = v; update(); } });
       const slHole = C.slider({ label: { en: 'Hole diameter', hr: 'Promjer otvora' }, min: 0.5, max: 10, step: 0.5, value: 2, unit: 'mm', digits: 1, onChange: v => { st.hole = v; update(); } });
       const outPH = C.readout({ label: { en: 'Image height', hr: 'Visina slike' }, unit: 'cm', digits: 1 });
       const outSpot = C.readout({ label: { en: 'Blur spot of one point', hr: 'Mrlja jedne točke' }, unit: 'mm', digits: 1 });
-      const outBr = C.readout({ label: { en: 'Brightness (start = 1)', hr: 'Svjetlina (početak = 1)' }, unit: '×', digits: 2 });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => { resetMode(); } });
+      const outBr = C.readout({ label: { en: 'Brightness (start = 1)', hr: 'Svjetlina (početna = 1)' }, unit: '×', digits: 2 });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => { resetMode(); } });
       const note = C.note({ text: NOTES.conv });
       const lensCtl = [slA, slF, tgScr, slScr, outB, outM, outImg];
       const GROUPS = { conv: lensCtl, div: lensCtl, mirror: [selMir, slA, slF, outB, outM, outImg],
@@ -119,7 +119,7 @@
         return { f, a, b, inf, diverging, real: !inf && b > 0, m: inf ? Infinity : Math.abs(b) / a, hi: inf ? Infinity : -st.ho * b / a };
       }
       function describe(o) {
-        if (o.inf) return { en: 'none: the rays leave parallel', hr: 'nema je: zrake izlaze usporedno' };
+        if (o.inf) return { en: 'none: the rays leave parallel', hr: 'ne nastaje – zrake izlaze usporedno' };
         const kind = o.real ? { en: 'real', hr: 'stvarna' } : { en: 'virtual', hr: 'prividna' };
         const ori = o.real ? { en: 'inverted', hr: 'obrnuta' } : { en: 'upright', hr: 'uspravna' };
         const size = Math.abs(o.m - 1) < 0.005 ? { en: 'same size', hr: 'jednako velika' } : o.m > 1 ? { en: 'magnified', hr: 'uvećana' } : { en: 'reduced', hr: 'umanjena' };
@@ -274,7 +274,7 @@
         K.text(g, T({ en: 'object', hr: 'predmet' }), O.x, O.y - 5, { font: f11, color: theme.muted, align: 'center', baseline: 'bottom' });
         if (I) {
           const hidden = scrOn && o.real && st.sp < o.b - 0.01;   // the screen catches the light before the image
-          const lbl = T(o.real ? { en: 'image', hr: 'slika' } : { en: 'virtual image', hr: 'prividna slika' });
+          const lbl = T(o.real ? { en: 'image', hr: 'slika' } : { en: 'virtual image', hr: 'virtualna slika' });
           g.save(); if (!o.real || hidden) { g.setLineDash([5, 4]); g.globalAlpha = hidden ? 0.35 : 0.85; }
           K.arrow(g, I.x, ay, I.x, I.y, { color: theme.c2, width: 4, head: 11 }); g.restore();
           if (I.x > 24 && I.x < w - 24) {
@@ -296,7 +296,7 @@
             smear(g, r, (ox, oy) => K.arrow(g, mx + ox, my - hh + oy, mx + ox, my + hh + oy, { color: theme.c2, width: 4, head: 9 }));
             g.restore();
           }
-          K.text(g, T(!si ? { en: 'no image', hr: 'nema slike' } : si.sharp ? { en: 'sharp image', hr: 'oštra slika' } : { en: 'blurred', hr: 'mutno' }), mx, by + bh - 10, { font: b12, color: theme.fg, align: 'center', baseline: 'middle' });
+          K.text(g, T(!si ? { en: 'no image', hr: 'nema slike' } : si.sharp ? { en: 'sharp image', hr: 'oštra slika' } : { en: 'blurred', hr: 'mutna slika' }), mx, by + bh - 10, { font: b12, color: theme.fg, align: 'center', baseline: 'middle' });
         }
         // header: equation, numbers, kind of image
         const eq = '1/f = 1/a + 1/b', vals = 'a = ' + F(o.a, 1) + ' cm   f = ' + F(o.f, 0) + ' cm   b = ' + (o.inf ? '∞' : F(o.b, 1) + ' cm') + '   m = ' + (o.inf ? '∞' : F(o.m, 2));
@@ -371,7 +371,7 @@
         g.fillStyle = e.sharp ? theme.good : theme.warn; g.beginPath(); g.arc(pw - 2, 20, 5, 0, Math.PI * 2); g.fill();
         // range of clear sight
         const range = e.near === null ? T({ en: 'This eye sees nothing sharply', hr: 'Ovo oko ništa ne vidi oštro' })
-          : T({ en: 'Sharp from ', hr: 'Oštro od ' }) + distLabel(e.near, lang) + T({ en: ' to ', hr: ' do ' }) + distLabel(e.far, lang);
+          : T({ en: 'Sharp from ', hr: 'Oštro vidi: ' }) + distLabel(e.near, lang) + T({ en: ' to ', hr: ' – ' }) + distLabel(e.far, lang);
         K.text(g, range, w - 10, 15, { font: b12, color: theme.fg, align: 'right', baseline: 'middle' });
         K.text(g, T({ en: 'not to scale; focus shift enlarged', hr: 'nije u mjerilu; pomak žarišta uvećan' }), 10, h - 10, { font: f11, color: theme.muted, baseline: 'middle' });
         hint(g, 'eye', w, h - 10);
@@ -394,7 +394,7 @@
         // wall with the hole, screen
         g.fillStyle = theme.fg; g.fillRect(wallX - 3, top, 6, ay - gp / 2 - top); g.fillRect(wallX - 3, ay + gp / 2, 6, bot - ay - gp / 2);
         g.fillStyle = theme.surface2; g.strokeStyle = theme.fg; g.lineWidth = 1.5; g.fillRect(xs - 3, top, 6, bot - top); g.strokeRect(xs - 3, top, 6, bot - top);
-        K.text(g, T({ en: 'hole (drawn larger)', hr: 'otvor (nacrtan veći)' }), wallX, top - 4, { font: f11, color: theme.muted, align: 'center', baseline: 'bottom' });
+        K.text(g, T({ en: 'hole (drawn larger)', hr: 'otvor (prikazan uvećano)' }), wallX, top - 4, { font: f11, color: theme.muted, align: 'center', baseline: 'bottom' });
         K.text(g, T({ en: 'screen', hr: 'zastor' }), xs + 8, top + 2, { font: f11, color: theme.muted, baseline: 'top' });
         // object and its upside-down image
         K.arrow(g, xo, ay + hy, xo, ay - hy, { color: theme.c1, width: 4, head: 11 });

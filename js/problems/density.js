@@ -39,7 +39,7 @@
         hr: (p, f) => `Komad ${p.s.hr} ima obujam ${f(p.V)} cm³ i masu ${f(p.m)} g. Kolika je gustoća ${p.s.hr} u g/cm³?`
       },
       answer: p => p.m / p.V, unit: 'g/cm³',
-      hint: { en: 'Density = mass divided by volume.', hr: 'Gustoća = masa podijeljena obujmom.' },
+      hint: { en: 'Density = mass divided by volume.', hr: 'Gustoća = masa podijeljena s obujmom.' },
       steps: {
         en: (p, f) => ['ρ = m / V', `ρ = ${f(p.m)} g / ${f(p.V)} cm³`, `ρ = ${f(p.m / p.V)} g/cm³`],
         hr: (p, f) => ['ρ = m / V', `ρ = ${f(p.m)} g / ${f(p.V)} cm³`, `ρ = ${f(p.m / p.V)} g/cm³`]
@@ -53,7 +53,7 @@
         hr: (p, f) => `${p.s.hr} obujma ${f(p.V)} m³ ima masu ${f(p.m)} kg. Kolika je gustoća te tvari u kg/m³?`
       },
       answer: p => p.m / p.V, unit: 'kg/m³',
-      hint: { en: 'Divide the mass in kg by the volume in m³.', hr: 'Podijeli masu u kg obujmom u m³.' },
+      hint: { en: 'Divide the mass in kg by the volume in m³.', hr: 'Podijeli masu u kg s obujmom u m³.' },
       steps: {
         en: (p, f) => ['ρ = m / V', `ρ = ${f(p.m)} kg / ${f(p.V)} m³`, `ρ = ${f(p.m / p.V)} kg/m³`],
         hr: (p, f) => ['ρ = m / V', `ρ = ${f(p.m)} kg / ${f(p.V)} m³`, `ρ = ${f(p.m / p.V)} kg/m³`]
@@ -106,7 +106,7 @@
       params: R => { const rho = R.pick([0.5, 0.6, 0.8, 0.9, 1.2, 1.5, 2, 2.5]); const V = R.pick([20, 40, 50, 100, 200]); return { rho, V, m: rho * V }; },
       text: {
         en: (p, f) => `A piece of unknown material has a mass of ${f(p.m)} g and a volume of ${f(p.V)} cm³. Calculate its density. (It floats in water if its density is less than the density of water, 1 g/cm³.)`,
-        hr: (p, f) => `Komad nepoznate tvari ima masu ${f(p.m)} g i obujam ${f(p.V)} cm³. Izračunaj njegovu gustoću. (Pluta na vodi ako mu je gustoća manja od gustoće vode, 1 g/cm³.)`
+        hr: (p, f) => `Komad nepoznate tvari ima masu ${f(p.m)} g i obujam ${f(p.V)} cm³. Izračunaj njegovu gustoću. (Tijelo pluta na vodi ako mu je gustoća manja od gustoće vode, koja iznosi 1 g/cm³.)`
       },
       answer: p => p.m / p.V, unit: 'g/cm³',
       hint: { en: 'Compute ρ = m / V and compare it with 1 g/cm³.', hr: 'Izračunaj ρ = m / V i usporedi s 1 g/cm³.' },
@@ -123,7 +123,7 @@
         hr: (p, f) => `Kamenčić ima masu ${f(p.m)} g. Kad ga spustimo u menzuru, razina vode podigne se s ${f(p.v1)} mL na ${f(p.v2)} mL. Kolika je gustoća kamenčića? (1 mL = 1 cm³)`
       },
       answer: p => p.m / (p.v2 - p.v1), unit: 'g/cm³',
-      hint: { en: 'The rise of the water level is the volume of the pebble; then ρ = m / V.', hr: 'Podizanje razine vode jednako je obujmu kamenčića; zatim ρ = m / V.' },
+      hint: { en: 'The rise of the water level is the volume of the pebble; then ρ = m / V.', hr: 'Za koliko se povećao obujam u menzuri, toliki je obujam kamenčića; zatim ρ = m / V.' },
       steps: {
         en: (p, f) => [`Volume: V = ${f(p.v2)} mL − ${f(p.v1)} mL = ${f(p.v2 - p.v1)} cm³`, `ρ = m / V = ${f(p.m)} g / ${f(p.v2 - p.v1)} cm³`, `ρ = ${f(p.m / (p.v2 - p.v1))} g/cm³`],
         hr: (p, f) => [`Obujam: V = ${f(p.v2)} mL − ${f(p.v1)} mL = ${f(p.v2 - p.v1)} cm³`, `ρ = m / V = ${f(p.m)} g / ${f(p.v2 - p.v1)} cm³`, `ρ = ${f(p.m / (p.v2 - p.v1))} g/cm³`]
@@ -137,7 +137,7 @@
         hr: (p, f) => `Akvarij je dug ${f(p.a)} cm i širok ${f(p.b)} cm. Napunjen je vodom do visine ${f(p.h)} cm. Kolika je masa vode? (1 L = 1000 cm³; 1 L vode ima masu 1 kg)`
       },
       answer: p => p.a * p.b * p.h / 1000, unit: 'kg',
-      hint: { en: 'Volume of the water in cm³, then in litres; every litre of water is 1 kg.', hr: 'Obujam vode u cm³, zatim u litrama; svaka litra vode ima 1 kg.' },
+      hint: { en: 'Volume of the water in cm³, then in litres; every litre of water is 1 kg.', hr: 'Izračunaj obujam vode u cm³ i pretvori ga u litre; svaka litra vode ima masu 1 kg.' },
       steps: {
         en: (p, f) => [`V = ${f(p.a)} cm · ${f(p.b)} cm · ${f(p.h)} cm = ${f(p.a * p.b * p.h)} cm³`, `V = ${f(p.a * p.b * p.h)} cm³ / 1000 = ${f(p.a * p.b * p.h / 1000)} L`, `m = ${f(p.a * p.b * p.h / 1000)} L · 1 kg/L = ${f(p.a * p.b * p.h / 1000)} kg`],
         hr: (p, f) => [`V = ${f(p.a)} cm · ${f(p.b)} cm · ${f(p.h)} cm = ${f(p.a * p.b * p.h)} cm³`, `V = ${f(p.a * p.b * p.h)} cm³ / 1000 = ${f(p.a * p.b * p.h / 1000)} L`, `m = ${f(p.a * p.b * p.h / 1000)} L · 1 kg/L = ${f(p.a * p.b * p.h / 1000)} kg`]
@@ -151,7 +151,7 @@
         hr: (p, f) => `Kvadar od ${p.s.hr} dug je ${f(p.a)} cm, širok ${f(p.b)} cm i visok ${f(p.c)} cm. Gustoća ${p.s.hr} je ${f(p.s.rho)} g/cm³. Kolika je masa kvadra?`
       },
       answer: p => p.s.rho * p.a * p.b * p.c, unit: 'g',
-      hint: { en: 'First the volume V = a · b · c, then the mass m = ρ · V.', hr: 'Najprije obujam V = a · b · c, zatim masa m = ρ · V.' },
+      hint: { en: 'First the volume V = a · b · c, then the mass m = ρ · V.', hr: 'Najprije izračunaj obujam V = a · b · c, zatim masu m = ρ · V.' },
       steps: {
         en: (p, f) => [`V = ${f(p.a)} cm · ${f(p.b)} cm · ${f(p.c)} cm = ${f(p.a * p.b * p.c)} cm³`, `m = ρ · V = ${f(p.s.rho)} g/cm³ · ${f(p.a * p.b * p.c)} cm³`, `m = ${f(p.s.rho * p.a * p.b * p.c)} g`],
         hr: (p, f) => [`V = ${f(p.a)} cm · ${f(p.b)} cm · ${f(p.c)} cm = ${f(p.a * p.b * p.c)} cm³`, `m = ρ · V = ${f(p.s.rho)} g/cm³ · ${f(p.a * p.b * p.c)} cm³`, `m = ${f(p.s.rho * p.a * p.b * p.c)} g`]

@@ -14,13 +14,13 @@
     title: { en: 'Speed and Distance', hr: 'Brzina i put' },
     summary: {
       en: 'Race a cyclist against a car. Set their speeds or accelerations, move the finish line and read the distance–time graph.',
-      hr: 'Utrkuj biciklista i automobil. Postavi brzine ili ubrzanja, pomakni cilj i čitaj graf puta i vremena.'
+      hr: 'Pokreni utrku biciklista i automobila. Postavi brzine ili ubrzanja, pomakni cilj i čitaj graf ovisnosti puta o vremenu.'
     },
     tasks: [
-      { en: 'Set the car to 10 m/s and the cyclist to 5 m/s. How many times longer does the cyclist need to reach 100 m?', hr: 'Postavi automobil na 10 m/s, a biciklista na 5 m/s. Koliko puta dulje biciklist treba do 100 m?' },
-      { en: 'Give the cyclist a 40 m head start. What speed does the car need to still win?', hr: 'Daj biciklistu prednost od 40 m. Koju brzinu automobil treba da ipak pobijedi?' },
-      { en: 'Switch to "Speeding up". Watch the graph: why is the line curved now?', hr: 'Prebaci na "Ubrzavanje". Pogledaj graf: zašto je crta sada zakrivljena?' },
-      { en: 'In "Speeding up" with a = 2 m/s², how far does the car get in 5 s? Check with s = ½·a·t².', hr: 'Pri "Ubrzavanju" s a = 2 m/s², koliki put automobil prijeđe za 5 s? Provjeri formulom s = ½·a·t².' }
+      { en: 'Set the car to 10 m/s and the cyclist to 5 m/s. How many times longer does the cyclist need to reach 100 m?', hr: 'Postavi brzinu automobila na 10 m/s, a brzinu biciklista na 5 m/s. Koliko je puta biciklistu potrebno više vremena da prijeđe 100 m?' },
+      { en: 'Give the cyclist a 40 m head start. What speed does the car need to still win?', hr: 'Daj biciklistu prednost od 40 m. Kolika mora biti brzina automobila da ipak pobijedi?' },
+      { en: 'Switch to "Speeding up". Watch the graph: why is the line curved now?', hr: 'Prebaci na „Ubrzano gibanje“. Pogledaj graf: zašto je crta sada zakrivljena?' },
+      { en: 'In "Speeding up" with a = 2 m/s², how far does the car get in 5 s? Check with s = ½·a·t².', hr: 'U načinu „Ubrzano gibanje“ postavi ubrzanje automobila na 2 m/s². Koliki put automobil prijeđe za 5 s? Provjeri formulom s = ½·a·t².' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -34,8 +34,8 @@
 
       // ---------- controls ----------
       C.segmented({ label: { en: 'Motion', hr: 'Gibanje' }, options: [
-        { value: 'const', label: { en: 'Constant speed', hr: 'Stalna brzina' } },
-        { value: 'accel', label: { en: 'Speeding up', hr: 'Ubrzavanje' } }], value: 'const',
+        { value: 'const', label: { en: 'Constant speed', hr: 'Jednoliko gibanje' } },
+        { value: 'accel', label: { en: 'Speeding up', hr: 'Ubrzano gibanje' } }], value: 'const',
         onChange: v => { st.mode = v; applyMode(); restart(); } });
       const slV1 = C.slider({ label: { en: 'Cyclist speed', hr: 'Brzina biciklista' }, min: 0, max: 20, step: 0.5, value: 5, unit: 'm/s', digits: 1, onChange: v => { st.v[0] = v; restart(); } });
       const slV2 = C.slider({ label: { en: 'Car speed', hr: 'Brzina automobila' }, min: 0, max: 20, step: 0.5, value: 10, unit: 'm/s', digits: 1, onChange: v => { st.v[1] = v; restart(); } });
@@ -47,7 +47,7 @@
         if (allDone()) clearRun();
         L.toggle(); updatePlay();
       } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outT = C.readout({ label: { en: 'Time', hr: 'Vrijeme' }, unit: 's', digits: 2 });
       const outS = [
         C.readout({ label: { en: 'Cyclist distance', hr: 'Put biciklista' }, unit: 'm', digits: 1 }),
@@ -113,8 +113,8 @@
         outT.set(st.t);
         for (let i = 0; i < 2; i++) { outS[i].set(st.x[i]); outV[i].set(st.vel[i]); }
         note.set(st.mode === 'const'
-          ? { en: 'Constant speed: equal distances in equal times — the line on the graph is straight. Slope = speed.', hr: 'Stalna brzina: u jednakim vremenima jednaki putovi — crta na grafu je ravna. Nagib = brzina.' }
-          : { en: 'Speeding up: the speed grows evenly with time and the distance grows with t² — the graph bends upward.', hr: 'Ubrzavanje: brzina raste jednoliko s vremenom, a put raste s t² — crta na grafu se savija prema gore.' });
+          ? { en: 'Constant speed: equal distances in equal times — the line on the graph is straight. Slope = speed.', hr: 'Jednoliko gibanje: u jednakim vremenskim razmacima tijelo prijeđe jednake putove — graf je pravac. Nagib pravca = brzina.' }
+          : { en: 'Speeding up: the speed grows evenly with time and the distance grows with t² — the graph bends upward.', hr: 'Jednoliko ubrzano gibanje: brzina jednoliko raste s vremenom, a put raste s t² — graf se savija prema gore.' });
       }
 
       // ---------- drawing ----------

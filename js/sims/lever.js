@@ -20,9 +20,9 @@
       hr: 'Povuci utege na gredu od 4 m i uravnoteži momente sila, zatim pomakni oslonac i podigni težak kamen malom silom.'
     },
     tasks: [
-      { en: 'Put 2 kg at 1 m on the left. Where must 1 kg go on the right to balance it?', hr: 'Stavi 2 kg na 1 m lijevo. Gdje mora stajati 1 kg desno da bude ravnoteža?' },
+      { en: 'Put 2 kg at 1 m on the left. Where must 1 kg go on the right to balance it?', hr: 'Stavi uteg od 2 kg lijevo, 1 m od oslonca. Gdje desno moraš staviti uteg od 1 kg da greda bude u ravnoteži?' },
       { en: 'Balance the adult (70 kg) with the child (30 kg). Unlock the beam to check.', hr: 'Uravnoteži odraslu osobu (70 kg) djetetom (30 kg). Otključaj gredu i provjeri.' },
-      { en: 'Lift the rock: set the rock to 1000 N. Move the fulcrum until a push of 200 N is enough.', hr: 'Podigni kamen: postavi kamen na 1000 N. Pomiči oslonac dok 200 N pritiska ne bude dovoljno.' },
+      { en: 'Lift the rock: set the rock to 1000 N. Move the fulcrum until a push of 200 N is enough.', hr: 'Podigni kamen: postavi težinu kamena na 1000 N. Pomiči oslonac dok ne bude dovoljna sila od 200 N.' },
       { en: 'Compare: d₂ / d₁ = 3 means the needed force is 3 times smaller than the rock\'s weight. Is that right?', hr: 'Usporedi: d₂ / d₁ = 3 znači da je potrebna sila 3 puta manja od težine kamena. Vrijedi li to?' }
     ],
     mount(container, ctx) {
@@ -36,17 +36,17 @@
       const seg = C.segmented({ label: { en: 'Mode', hr: 'Način' }, options: [
         { value: 'balance', label: { en: 'Balance', hr: 'Ravnoteža' } }, { value: 'rock', label: { en: 'Lift the rock', hr: 'Podigni kamen' } }], value: 'balance', onChange: setMode });
       const tgLock = C.toggle({ label: { en: 'Lock beam (level)', hr: 'Zaključaj gredu (vodoravno)' }, value: true, onChange: v => { st.locked = v; st.omega = 0; refresh(); } });
-      const btnClear = C.button({ label: { en: 'Clear weights', hr: 'Makni utege' }, onClick: () => { st.weights.length = 0; st.omega = 0; refresh(); } });
+      const btnClear = C.button({ label: { en: 'Clear weights', hr: 'Ukloni utege' }, onClick: () => { st.weights.length = 0; st.omega = 0; refresh(); } });
       const btnPlay = C.button({ label: { en: 'Pause', hr: 'Pauza' }, onClick: () => { L.toggle(); updatePlay(); } });
-      const slS = C.slider({ label: { en: 'Fulcrum position (from the rock)', hr: 'Položaj oslonca (od kamena)' }, min: 0.2, max: 3.8, step: 0.1, value: 1, unit: 'm', digits: 1, onChange: v => { st.s = v; refresh(); } });
+      const slS = C.slider({ label: { en: 'Fulcrum position (from the rock)', hr: 'Udaljenost oslonca od kamena' }, min: 0.2, max: 3.8, step: 0.1, value: 1, unit: 'm', digits: 1, onChange: v => { st.s = v; refresh(); } });
       const slRock = C.slider({ label: { en: 'Rock weight F₁', hr: 'Težina kamena F₁' }, min: 100, max: 2000, step: 10, value: 500, unit: 'N', digits: 0, onChange: v => { st.Frock = v; refresh(); } });
-      const slPush = C.slider({ label: { en: 'Your push F₂', hr: 'Tvoj pritisak F₂' }, min: 0, max: 1000, step: 10, value: 0, unit: 'N', digits: 0, onChange: v => { st.push = v; refresh(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: reset });
+      const slPush = C.slider({ label: { en: 'Your push F₂', hr: 'Tvoja sila F₂' }, min: 0, max: 1000, step: 10, value: 0, unit: 'N', digits: 0, onChange: v => { st.push = v; refresh(); } });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: reset });
       const outL = C.readout({ label: { en: 'Left torque', hr: 'Lijevi moment' }, unit: 'N·m', digits: 1 });
       const outR = C.readout({ label: { en: 'Right torque', hr: 'Desni moment' }, unit: 'N·m', digits: 1 });
       const outDiff = C.readout({ label: { en: 'Difference (right − left)', hr: 'Razlika (desno − lijevo)' }, unit: 'N·m', digits: 1 });
       const outNeed = C.readout({ label: { en: 'Force needed', hr: 'Potrebna sila' }, unit: 'N', digits: 0 });
-      const outAdv = C.readout({ label: { en: 'Lever advantage d₂ / d₁', hr: 'Prijenos poluge d₂ / d₁' }, unit: '×', digits: 2 });
+      const outAdv = C.readout({ label: { en: 'Lever advantage d₂ / d₁', hr: 'Omjer krakova d₂ / d₁' }, unit: '×', digits: 2 });
       const outStatus = C.readout({ label: { en: 'Status', hr: 'Stanje' } });
       const note = C.note({ text: { en: '', hr: '' } });
       function fieldOf(ctrl) { const el = ctrl.el; return el.classList.contains('sk-field') ? el : el.parentElement; }
@@ -94,8 +94,8 @@
           else if (Math.abs(t.diff) < 0.01) { outStatus.set({ en: 'balanced', hr: 'u ravnoteži' }); outStatus.setColor(theme.good); }
           else { outStatus.set(t.diff > 0 ? { en: 'tilts right', hr: 'naginje se udesno' } : { en: 'tilts left', hr: 'naginje se ulijevo' }); outStatus.setColor(theme.warn); }
           note.set(st.locked
-            ? { en: 'Torque = force × distance from the pivot (M = F · d). The beam balances when the left and right torques are equal. Unlock it to test!', hr: 'Moment sile = sila × udaljenost od oslonca (M = F · d). Greda je u ravnoteži kad su lijevi i desni moment jednaki. Otključaj je i provjeri!' }
-            : { en: 'A small weight far from the pivot can balance a big weight close to it: 1 kg at 2 m balances 2 kg at 1 m.', hr: 'Mali uteg daleko od oslonca može uravnotežiti veliki uteg blizu njega: 1 kg na 2 m uravnoteži 2 kg na 1 m.' });
+            ? { en: 'Torque = force × distance from the pivot (M = F · d). The beam balances when the left and right torques are equal. Unlock it to test!', hr: 'Moment sile = sila × krak sile, tj. udaljenost od oslonca (M = F · d). Greda je u ravnoteži kad su momenti sila lijevo i desno jednaki. Otključaj gredu i provjeri!' }
+            : { en: 'A small weight far from the pivot can balance a big weight close to it: 1 kg at 2 m balances 2 kg at 1 m.', hr: 'Lakši uteg daleko od oslonca može uravnotežiti teži uteg blizu oslonca: uteg od 1 kg na 2 m uravnotežuje uteg od 2 kg na 1 m.' });
         } else {
           const need = needed();
           outNeed.set(need); outAdv.set((4 - st.s) / st.s);
@@ -103,7 +103,7 @@
           st.lifted = lifted; // keep the canvas status in sync even while paused
           outStatus.set(lifted ? { en: 'the rock lifts!', hr: 'kamen se diže!' } : { en: 'not enough force', hr: 'premala sila' }); outStatus.setColor(lifted ? theme.good : theme.warn);
           note.set({ en: 'F₁ · d₁ = F₂ · d₂. The longer your side of the lever (d₂), the smaller the force you need — but you push through a longer path.',
-            hr: 'F₁ · d₁ = F₂ · d₂. Što je tvoja strana poluge (d₂) dulja, to manja sila treba — ali guraš dulji put.' });
+            hr: 'F₁ · d₁ = F₂ · d₂. Što je krak na tvojoj strani poluge (d₂) dulji, to je potrebna sila manja — ali kraj poluge moraš potisnuti duljim putem.' });
         }
       }
 

@@ -13,6 +13,9 @@ US grades 5–8), built around interactive, inquiry-based teaching:
   reaction test, a tone generator, a data table with graph and line fit, and phone-sensor tools (sound stopwatch,
   pitch, tilt, acceleration)
 - **Reference**: glossary, formula sheet, flashcards, scientists, unit converter
+- **Reading options** (the "Aa" button): dyslexia-friendly text (BDA / WCAG spacing, cream background, no italics),
+  bold word beginnings for readers with ADHD (Croatian lj / nj / dž kept whole, formulas and units untouched), and a
+  reading ruler that dims everything except the current lines
 - **For teachers**: curriculum map (NN 10/2019 outcomes), inquiry lesson outlines per topic, research-based methods
 
 Live site: https://fizisizisist.github.io/FizLab/
@@ -44,6 +47,7 @@ Then open <http://localhost:8778/>. (Opening `index.html` directly from disk als
 | `js/practice.js` | Practice engine, worksheets, brain teasers, worked examples, scientists page, unit converter. |
 | `js/more.js` | Hubs, home-experiment library, predict-first cards, practice exam, concept check, drills, teacher corner. |
 | `js/graph.js` | SVG graph renderer for graph-reading problems. |
+| `js/reading.js` | Reading options: dyslexia-friendly text, bold word beginnings, reading ruler (saved per browser). |
 | `js/i18n2.js` | UI strings of the extension (merged into `I18N`). |
 | `js/content/experiments*.js`, `predictions*.js`, `teaching.js` | Home experiments, predict-first prompts, teacher data. Specs: `_experiments_schema.md`, `_predictions_schema.md`, `_teaching_schema.md`. |
 | `js/sims/_core.js` | SimKit: responsive canvas, animation loop, bilingual control builder, drawing helpers. |

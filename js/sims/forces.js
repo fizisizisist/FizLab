@@ -17,12 +17,12 @@
     title: { en: 'Push the Crate', hr: 'Guranje sanduka' },
     summary: {
       en: 'Push a crate across ice, wood, carpet or rubber. See the push, the friction and the net force as arrows, and read the acceleration.',
-      hr: 'Guraj sanduk po ledu, drvu, tepihu ili gumi. Gledaj silu guranja, trenje i rezultantu kao strelice i čitaj ubrzanje.'
+      hr: 'Guraj sanduk po ledu, drvu, tepihu ili gumi. Strelice prikazuju silu guranja, silu trenja i rezultantnu silu, a ubrzanje očitaj.'
     },
     tasks: [
       { en: 'Push with 40 N on wood. Why doesn\'t the crate move? Find the smallest force that gets it moving.', hr: 'Guraj silom 40 N po drvu. Zašto se sanduk ne miče? Pronađi najmanju silu koja ga pokrene.' },
-      { en: 'Get the crate sliding, then set the force to 0 N. Does it stop at once? Try the same on ice.', hr: 'Pokreni sanduk, zatim postavi silu na 0 N. Staje li odmah? Pokušaj isto na ledu.' },
-      { en: 'Choose "No friction" and push with 20 N. What happens to the speed when you stop pushing?', hr: 'Odaberi "Bez trenja" i guraj silom 20 N. Što se dogodi s brzinom kad prestaneš gurati?' },
+      { en: 'Get the crate sliding, then set the force to 0 N. Does it stop at once? Try the same on ice.', hr: 'Pokreni sanduk da klizi, a zatim postavi silu na 0 N. Zaustavlja li se odmah? Ponovi to na ledu.' },
+      { en: 'Choose "No friction" and push with 20 N. What happens to the speed when you stop pushing?', hr: 'Odaberi „Bez trenja“ i guraj silom 20 N. Što se dogodi s brzinom kad prestaneš gurati?' },
       { en: 'Double the mass with the same force. How does the acceleration change?', hr: 'Udvostruči masu uz istu silu. Kako se promijeni ubrzanje?' }
     ],
     mount(container, ctx) {
@@ -42,8 +42,8 @@
         onChange: v => { st.surf = SURFACES.find(s => s.id === v) || SURFACES[1]; refresh(); } });
       C.toggle({ label: { en: 'Show weight and floor force', hr: 'Prikaži težinu i silu podloge' }, value: false, onChange: v => { st.showWN = v; draw(); } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); refresh(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
-      const outNet = C.readout({ label: { en: 'Net force', hr: 'Rezultanta sila' }, unit: 'N', digits: 1 });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
+      const outNet = C.readout({ label: { en: 'Net force', hr: 'Rezultantna sila' }, unit: 'N', digits: 1 });
       const outA = C.readout({ label: { en: 'Acceleration', hr: 'Ubrzanje' }, unit: 'm/s²', digits: 2 });
       const outV = C.readout({ label: { en: 'Speed', hr: 'Brzina' }, unit: 'm/s', digits: 2 });
       const outFr = C.readout({ label: { en: 'Friction force', hr: 'Sila trenja' }, unit: 'N', digits: 1 });
@@ -95,14 +95,14 @@
         outNet.set(f.net); outA.set(f.acc); outV.set(Math.abs(st.v)); outFr.set(Math.abs(f.fr)); outX.set(st.x);
         const fe = K.fmt(f.fmax, 1, 'en'), fh = K.fmt(f.fmax, 1, 'hr');
         const texts = {
-          idle: { en: 'No push yet. Set a force with the slider and press Play.', hr: 'Još nema guranja. Postavi silu klizačem i pokreni.' },
-          static: { en: 'Friction balances your push — the crate doesn\'t move. Push harder than μ·m·g = ' + fe + ' N!', hr: 'Trenje poništava tvoje guranje — sanduk se ne miče. Guraj jače od μ·m·g = ' + fh + ' N!' },
+          idle: { en: 'No push yet. Set a force with the slider and press Play.', hr: 'Još nema guranja. Postavi silu klizačem i pritisni „Pokreni“.' },
+          static: { en: 'Friction balances your push — the crate doesn\'t move. Push harder than μ·m·g = ' + fe + ' N!', hr: 'Trenje uravnotežuje silu guranja — sanduk miruje. Guraj silom većom od μ·m·g = ' + fh + ' N!' },
           start: L.running
-            ? { en: 'Your push is bigger than friction — the crate starts to move.', hr: 'Guranje je veće od trenja — sanduk kreće.' }
-            : { en: 'Your push is bigger than friction (' + fe + ' N) — press Play to see the crate move.', hr: 'Guranje je veće od trenja (' + fh + ' N) — pokreni i gledaj kako sanduk kreće.' },
-          faster: { en: 'The net force points along the motion — the crate speeds up: a = F_net / m.', hr: 'Rezultanta je u smjeru gibanja — sanduk ubrzava: a = F_rez / m.' },
-          slower: { en: 'The net force points against the motion — the crate slows down.', hr: 'Rezultanta je suprotna gibanju — sanduk usporava.' },
-          steady: { en: 'The net force is zero — the crate keeps sliding at constant speed (Newton\'s 1st law).', hr: 'Rezultanta je nula — sanduk klizi stalnom brzinom (1. Newtonov zakon).' }
+            ? { en: 'Your push is bigger than friction — the crate starts to move.', hr: 'Sila guranja veća je od trenja — sanduk se pokreće.' }
+            : { en: 'Your push is bigger than friction (' + fe + ' N) — press Play to see the crate move.', hr: 'Sila guranja veća je od trenja (' + fh + ' N) — pritisni „Pokreni“ i gledaj kako se sanduk pokreće.' },
+          faster: { en: 'The net force points along the motion — the crate speeds up: a = F_net / m.', hr: 'Rezultantna sila ima smjer gibanja — sanduk ubrzava: a = F_rez / m.' },
+          slower: { en: 'The net force points against the motion — the crate slows down.', hr: 'Rezultantna sila suprotna je smjeru gibanja — sanduk usporava.' },
+          steady: { en: 'The net force is zero — the crate keeps sliding at constant speed (Newton\'s 1st law).', hr: 'Rezultantna sila jednaka je nuli — sanduk klizi stalnom brzinom (1. Newtonov zakon).' }
         };
         note.set(texts[f.regime]);
       }
@@ -211,7 +211,7 @@
         // header: formula with current numbers + time
         const l1 = 'a = ' + K.tr({ en: 'F_net', hr: 'F_rez' }, lang) + ' / m = ' + K.fmt(f.net, 1, lang) + ' N / ' + K.fmt(st.m, 0, lang) + ' kg = ' + K.fmt(f.acc, 2, lang) + ' m/s²';
         const l2 = (f.regime === 'static' || f.regime === 'idle')
-          ? K.tr({ en: 'Friction (static): F_fr = F = ', hr: 'Trenje (mirovanje): F_tr = F = ' }, lang) + K.fmt(Math.abs(st.F), 0, lang) + ' N' + K.tr({ en: '   (max μ·m·g = ', hr: '   (najviše μ·m·g = ' }, lang) + K.fmt(f.fmax, 1, lang) + ' N)'
+          ? K.tr({ en: 'Friction (static): F_fr = F = ', hr: 'Trenje mirovanja: F_tr = F = ' }, lang) + K.fmt(Math.abs(st.F), 0, lang) + ' N' + K.tr({ en: '   (max μ·m·g = ', hr: '   (najviše μ·m·g = ' }, lang) + K.fmt(f.fmax, 1, lang) + ' N)'
           : K.tr({ en: 'Friction: F_fr = μ · m · g = ', hr: 'Trenje: F_tr = μ · m · g = ' }, lang) + K.fmt(st.surf.mu, 2, lang) + ' · ' + K.fmt(st.m, 0, lang) + ' · ' + K.fmt(G, 2, lang) + ' = ' + K.fmt(f.fmax, 1, lang) + ' N';
         const tStr = 't = ' + K.fmt(st.t, 1, lang) + ' s';
         ctx.font = 'bold 14px ' + theme.fontDisplay; const tw = ctx.measureText(tStr).width;

@@ -23,7 +23,7 @@
   const ITEMS = [                 // R = resistance of the item between the clips (Ω)
     { id: 'copper', R: 0.01, shape: 'wave', color: '#c17a3a', lw: 3, name: { en: 'copper wire', hr: 'bakrena žica' } },
     { id: 'nail', R: 0.02, shape: 'bar', color: '#8e959e', w: 38, h: 5, name: { en: 'iron nail', hr: 'željezni čavao' } },
-    { id: 'foil', R: 0.02, shape: 'bar', color: '#cdd5dd', w: 34, h: 14, name: { en: 'aluminium foil', hr: 'alu-folija' } },
+    { id: 'foil', R: 0.02, shape: 'bar', color: '#cdd5dd', w: 34, h: 14, name: { en: 'aluminium foil', hr: 'aluminijska folija' } },
     { id: 'coin', R: 0.01, shape: 'coin', color: '#d4a93a', name: { en: 'coin', hr: 'kovanica' } },
     { id: 'lead', R: 5, shape: 'bar', color: '#5b616b', w: 38, h: 4, name: { en: 'pencil lead', hr: 'mina olovke' }, full: { en: 'pencil lead (graphite)', hr: 'mina olovke (grafit)' } },
     { id: 'string', R: 2e4, shape: 'wave', color: '#cbb994', lw: 2, name: { en: 'wet string', hr: 'mokri konac' } },
@@ -44,11 +44,11 @@
     over: { en: 'More than 20 A: the wire would overheat! Its resistance is too small for this voltage. Make it longer or thinner, pick another material or lower the voltage.',
       hr: 'Više od 20 A: žica bi se pregrijala! Otpor joj je premalen za ovaj napon. Produlji je ili stanji, odaberi drugi materijal ili smanji napon.' },
     ohm: { en: 'Record several points. A straight line through the origin means that I is proportional to U (Ohm\'s law), so R = U / I stays the same. A steeper line means a smaller resistance.',
-      hr: 'Zabilježi nekoliko točaka. Pravac kroz ishodište znači da je I razmjerna s U (Ohmov zakon) pa je R = U / I stalan. Strmiji pravac znači manji otpor.' },
+      hr: 'Zabilježi nekoliko točaka. Pravac kroz ishodište znači da je jakost struje I razmjerna naponu U (Ohmov zakon) pa je otpor R = U / I stalan. Strmiji pravac znači manji otpor.' },
     bulb: { en: 'The bulb does not give a straight line: its filament heats up, its resistance grows, and U / I is no longer constant.',
-      hr: 'Žaruljica ne daje pravac: žarna nit se grije, otpor joj raste i U / I više nije stalan.' },
+      hr: 'Graf za žaruljicu nije pravac: žarna nit se grije, otpor joj raste i U / I više nije stalan.' },
     tester: { en: 'Metals and graphite conduct well; plastic, wood, glass and rubber are insulators. Pure (distilled) water hardly conducts. Dissolved salt gives the water charged particles (ions): more salt → smaller resistance → more current.',
-      hr: 'Metali i grafit dobro vode struju; plastika, drvo, staklo i guma su izolatori. Čista (destilirana) voda jedva vodi. Otopljena sol daje vodi nabijene čestice (ione): više soli → manji otpor → jača struja.' }
+      hr: 'Metali i grafit dobro vode struju; plastika, drvo, staklo i guma su izolatori. Čista (destilirana) voda jedva vodi struju. Otopljena sol daje vodi nabijene čestice (ione): više soli → manji otpor → veća jakost struje.' }
   };
   const DEF = { l: 2, A: 0.5, mat: 'konst', U: 6, U2: 4, comp: 'r10', salt: 5 };
   function hash(i, j) { const s = Math.sin(i * 12.9898 + j * 78.233) * 43758.5453; return s - Math.floor(s); }
@@ -67,13 +67,13 @@
     title: { en: 'Resistance and Ohm\'s Law', hr: 'Električni otpor i Ohmov zakon' },
     summary: {
       en: 'Stretch, thicken and swap a wire to see what sets its resistance, measure the I–U graph of resistors and a bulb, and test which things conduct electricity.',
-      hr: 'Produlji, podebljaj i zamijeni žicu da vidiš o čemu ovisi otpor, izmjeri I–U graf otpornika i žaruljice te ispitaj koji predmeti vode struju.'
+      hr: 'Produlji, podebljaj i zamijeni žicu da vidiš o čemu ovisi otpor, mjerenjem nacrtaj I–U graf otpornika i žaruljice te ispitaj koji predmeti vode struju.'
     },
     tasks: [
-      { en: 'In "A wire" double the length. What happens to R? Now double the cross-section instead.', hr: 'U "Žici" udvostruči duljinu. Što se dogodi s otporom R? Sada umjesto toga udvostruči presjek.' },
-      { en: 'Which material would you choose for a heater and which for the cables in the wall? Compare copper and nichrome.', hr: 'Koji bi materijal odabrao za grijač, a koji za vodove u zidu? Usporedi bakar i nikrom.' },
-      { en: 'In "Ohm\'s law lab" record at least 5 points for the 20 Ω resistor. Is the graph a straight line? Then try the bulb.', hr: 'U "Ohmovom zakonu" zabilježi barem 5 točaka za otpornik od 20 Ω. Je li graf pravac? Zatim ispitaj žaruljicu.' },
-      { en: 'Test every item. Then put the salt water in the gap and add salt: what happens to the current?', hr: 'Ispitaj svaki predmet. Zatim stavi slanu vodu u prazninu i dodaj soli: što se događa sa strujom?' }
+      { en: 'In "A wire" double the length. What happens to R? Now double the cross-section instead.', hr: 'U pokusu „Žica“ udvostruči duljinu. Što se događa s otporom R? Zatim umjesto duljine udvostruči presjek.' },
+      { en: 'Which material would you choose for a heater and which for the cables in the wall? Compare copper and nichrome.', hr: 'Koji je materijal prikladan za grijač, a koji za vodove u zidu? Usporedi bakar i nikrom.' },
+      { en: 'In "Ohm\'s law lab" record at least 5 points for the 20 Ω resistor. Is the graph a straight line? Then try the bulb.', hr: 'U pokusu „Ohmov zakon“ zabilježi barem 5 točaka za otpornik od 20 Ω. Je li graf pravac? Zatim ispitaj žaruljicu.' },
+      { en: 'Test every item. Then put the salt water in the gap and add salt: what happens to the current?', hr: 'U pokusu „Vodič ili izolator?“ ispitaj svaki predmet. Zatim stavi slanu vodu između stezaljki i dodaj soli: što se događa s jakošću struje?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -103,7 +103,7 @@
       const slSalt = C.slider({ label: { en: 'Salt in the salt water', hr: 'Sol u slanoj vodi' }, min: 0, max: 20, step: 1, value: DEF.salt, unit: 'g', digits: 0, onChange: v => { st.salt = v; refresh(); } });
       const btnOut = C.button({ label: { en: 'Take the item out', hr: 'Izvadi predmet' }, onClick: () => { st.item = null; refresh(); } });
       const btnPlay = C.button({ label: { en: 'Pause', hr: 'Pauza' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outR = C.readout({ label: { en: 'Resistance R', hr: 'Otpor R' }, unit: 'Ω' });
       const outI = C.readout({ label: { en: 'Current I', hr: 'Jakost struje I' }, unit: 'A', digits: 2 });
       const outP = C.readout({ label: { en: 'Power P', hr: 'Snaga P' }, unit: 'W', digits: 1 });
@@ -310,7 +310,7 @@
         // table of the recorded points of the chosen component
         const ty = h - TH;
         c.fillStyle = theme.surface; K.roundRect(c, 4, ty, w - 8, TH - 4, 8); c.fill();
-        K.text(c, K.tr({ en: 'Measurements: ', hr: 'Mjerenja: ' }, lang) + K.tr(st.comp.label, lang) + (pts.length ? '' : K.tr({ en: ' – press "Record point"', hr: ' – pritisni "Zabilježi"' }, lang)), 12, ty + 12, { font: f12, color: theme.fg, baseline: 'middle' });
+        K.text(c, K.tr({ en: 'Measurements: ', hr: 'Mjerenja: ' }, lang) + K.tr(st.comp.label, lang) + (pts.length ? '' : K.tr({ en: ' – press "Record point"', hr: ' – pritisni „Zabilježi“' }, lang)), 12, ty + 12, { font: f12, color: theme.fg, baseline: 'middle' });
         for (let b = 0; b < blocks; b++) {
           const y0 = ty + 22 + b * 32;
           K.text(c, 'U (V)', 12, y0 + 8, { font: f11, color: theme.muted, baseline: 'middle' });
@@ -389,8 +389,8 @@
         if (st.drag) drawItem(c, itemById(st.drag.id), st.drag.x, st.drag.y, 1.5);
         let l2 = '';
         if (q.it) l2 = 'I = ' + mA(q.I, lang) + ': ' + K.tr(q.glow > 0.5 ? { en: 'the bulb shines brightly', hr: 'žaruljica jako svijetli' } : (q.glow > 0.03 ? { en: 'the bulb glows weakly', hr: 'žaruljica slabo svijetli' }
-          : (q.I >= 1e-5 ? { en: 'too small to light the bulb', hr: 'premalo da žaruljica zasvijetli' } : { en: 'no current flows', hr: 'struja ne teče' })), lang);
-        head(c, [[q.it ? K.tr(q.it.full || q.it.name, lang) + ': ' + K.tr(CLASS[q.cls], lang) : K.tr({ en: 'Drag an item into the gap (or tap it).', hr: 'Povuci predmet u prazninu (ili ga dodirni).' }, lang)], [l2, theme.fg]]);
+          : (q.I >= 1e-5 ? { en: 'too small to light the bulb', hr: 'preslaba da bi žaruljica zasvijetlila' } : { en: 'no current flows', hr: 'struja ne teče' })), lang);
+        head(c, [[q.it ? K.tr(q.it.full || q.it.name, lang) + ': ' + K.tr(CLASS[q.cls], lang) : K.tr({ en: 'Drag an item into the gap (or tap it).', hr: 'Povuci predmet između stezaljki (ili ga dodirni).' }, lang)], [l2, theme.fg]]);
       }
       function draw() {
         const c = cv.ctx;

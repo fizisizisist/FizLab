@@ -16,7 +16,7 @@
       params: R => ({ G: R.step(200, 450, 50), d: R.step(0.5, 3, 0.5) }),
       text: {
         en: (p, f) => `A child weighing ${f(p.G)} N sits ${f(p.d)} m from the middle of a seesaw. How big is the moment of the child's weight about the fulcrum (the middle of the seesaw)? (M = F · d)`,
-        hr: (p, f) => `Dijete težine ${f(p.G)} N sjedi ${f(p.d)} m od sredine klackalice. Koliki je moment sile težine djeteta oko oslonca (sredine klackalice)? (M = F · d)`
+        hr: (p, f) => `Dijete težine ${f(p.G)} N sjedi ${f(p.d)} m od sredine klackalice. Koliki je moment težine djeteta s obzirom na oslonac (sredinu klackalice)? (M = F · d)`
       },
       answer: p => p.G * p.d, unit: 'N·m',
       hint: { en: 'Moment = force × arm (the distance from the fulcrum).', hr: 'Moment sile = sila × krak (udaljenost od oslonca).' },
@@ -44,7 +44,7 @@
       params: R => ({ G: R.step(100, 900, 50) }),
       text: {
         en: (p, f) => `A bucket of sand weighing ${f(p.G)} N is lifted with a movable pulley. With what force do you have to pull the rope? Ignore friction and the weight of the pulley.`,
-        hr: (p, f) => `Kanta s pijeskom težine ${f(p.G)} N diže se pomoću pomične koloture. Kolikom silom moraš vući uže? Zanemari trenje i težinu koloture.`
+        hr: (p, f) => `Kanta s pijeskom težine ${f(p.G)} N diže se pomoću pomične koloture. Kolikom silom moraš vući uže? Zanemari trenje i masu koloture.`
       },
       answer: p => p.G / 2, unit: 'N',
       hint: { en: 'A movable pulley halves the force: F = G / 2.', hr: 'Pomična kolotura upola smanjuje silu: F = G / 2.' },
@@ -72,7 +72,7 @@
       params: R => { const a = R.pick([5, 10, 15, 20]); const r = R.pick([4, 5, 6, 8, 10]); const F0 = R.step(50, 250, 10); return { a, b: a * r, G: F0 * r }; },
       text: {
         en: (p, f) => `A rock weighing ${f(p.G)} N is lifted with a crowbar. The rock is ${f(p.a)} cm from the fulcrum and you push on the other end, ${f(p.b)} cm from the fulcrum. What force is needed?`,
-        hr: (p, f) => `Kamen težine ${f(p.G)} N podižemo polugom (pajserom). Kamen je ${f(p.a)} cm od oslonca, a ti pritiskaš drugi kraj poluge, ${f(p.b)} cm od oslonca. Kolika je sila potrebna?`
+        hr: (p, f) => `Kamen težine ${f(p.G)} N podižeš polugom (pajserom). Kamen je ${f(p.a)} cm od oslonca, a ti pritišćeš drugi kraj poluge, ${f(p.b)} cm od oslonca. Kolika je sila potrebna?`
       },
       answer: p => p.G * p.a / p.b, unit: 'N',
       hint: { en: 'Equal moments: F · d₂ = G · d₁, so F = G · d₁ / d₂.', hr: 'Jednaki momenti: F · d₂ = G · d₁, pa je F = G · d₁ / d₂.' },
@@ -86,7 +86,7 @@
       params: R => { const h = R.pick([1, 1.5, 2]); const n = R.pick([2, 3, 4, 5]); const F0 = R.step(50, 300, 10); return { h, l: h * n, G: F0 * n }; },
       text: {
         en: (p, f) => `A box weighing ${f(p.G)} N is pushed up a ramp ${f(p.l)} m long and ${f(p.h)} m high. What force is needed along the ramp if there is no friction? (F = G · h / l)`,
-        hr: (p, f) => `Kutiju težine ${f(p.G)} N guramo uz kosinu dugu ${f(p.l)} m i visoku ${f(p.h)} m. Kolika je sila potrebna duž kosine ako nema trenja? (F = G · h / l)`
+        hr: (p, f) => `Kutiju težine ${f(p.G)} N guramo uz kosinu dugu ${f(p.l)} m i visoku ${f(p.h)} m. Kolikom silom treba gurati kutiju duž kosine ako nema trenja? (F = G · h / l)`
       },
       answer: p => p.G * p.h / p.l, unit: 'N',
       hint: { en: 'The ramp is l / h times longer than it is high, so the force is that many times smaller than the weight.', hr: 'Kosina je l / h puta dulja nego što je visoka, pa je sila toliko puta manja od težine.' },
@@ -114,7 +114,7 @@
       params: R => ({ m: R.step(40, 400, 20) }),
       text: {
         en: (p, f) => `A crate of mass ${f(p.m)} kg hangs on a block and tackle with two movable pulleys (each movable pulley halves the force). What force is needed to hold the crate? Use g = 10 N/kg and ignore friction and the weight of the pulleys.`,
-        hr: (p, f) => `Sanduk mase ${f(p.m)} kg visi na koloturniku s dvije pomične koloture (svaka pomična kolotura upola smanjuje silu). Kolika je sila potrebna da se sanduk drži? Uzmi g = 10 N/kg i zanemari trenje i težinu kolotura.`
+        hr: (p, f) => `Sanduk mase ${f(p.m)} kg visi na koloturniku s dvjema pomičnim koloturama (svaka pomična kolotura upola smanjuje silu). Kolikom silom treba držati uže da bi sanduk mirovao? Uzmi g = 10 N/kg i zanemari trenje i masu kolotura.`
       },
       answer: p => p.m * 10 / 4, unit: 'N',
       hint: { en: 'Find the weight first, then halve it twice: F = G / 4.', hr: 'Najprije izračunaj težinu, zatim je dvaput prepolovi: F = G / 4.' },

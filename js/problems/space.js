@@ -27,7 +27,7 @@
       hint: { en: 'Divide the difference in degrees by 15° per hour.', hr: 'Razliku u stupnjevima podijeli s 15° po satu.' },
       steps: {
         en: (p, f) => ['Hours = degrees / 15', `${f(p.deg)}° / 15° per hour = ${f(p.k)} h`],
-        hr: (p, f) => ['Sati = stupnjevi / 15', `${f(p.deg)}° / 15° po satu = ${f(p.k)} h`]
+        hr: (p, f) => ['Broj sati = broj stupnjeva / 15', `${f(p.deg)}° / 15° po satu = ${f(p.k)} h`]
       }
     },
     {
@@ -57,7 +57,7 @@
         hr: (p, f) => `Zemlja obiđe Sunce jednom za ${f(365.25)} dana, pa je zato svaka četvrta godina prijestupna. Koliko dana ima ${f(p.n)} godina?`
       },
       answer: p => 365.25 * p.n, unit: { en: 'days', hr: 'dana' },
-      hint: { en: 'Every 4 years make exactly 1461 days (3 × 365 + 366).', hr: 'Svake 4 godine imaju točno 1461 dan (3 × 365 + 366).' },
+      hint: { en: 'Every 4 years make exactly 1461 days (3 × 365 + 366).', hr: 'Četiri uzastopne godine imaju zajedno točno 1461 dan (3 × 365 + 366).' },
       steps: {
         en: (p, f) => [`4 years = 4 · ${f(365.25)} = 1461 days`, `${f(p.n)} years = ${f(p.n / 4)} · 1461 days = ${f(365.25 * p.n)} days`],
         hr: (p, f) => [`4 godine = 4 · ${f(365.25)} = 1461 dan`, `${f(p.n)} godina = ${f(p.n / 4)} · 1461 dana = ${f(365.25 * p.n)} dana`]
@@ -71,10 +71,10 @@
         hr: (p, f) => `Mjesečeve mijene ponavljaju se svakih ${f(29.5)} dana (od jednog punog Mjeseca do sljedećeg). Koliko se puta otprilike ciklus mijena ponovi u ${f(p.d)} dana?`
       },
       answer: p => p.d / 29.5, unit: { en: 'times', hr: 'puta' }, abs: 0.5,
-      hint: { en: 'Divide the number of days by the length of one cycle.', hr: 'Broj dana podijeli trajanjem jednog ciklusa.' },
+      hint: { en: 'Divide the number of days by the length of one cycle.', hr: 'Broj dana podijeli s trajanjem jednog ciklusa.' },
       steps: {
         en: (p, f) => ['Number of cycles = days / length of one cycle', `${f(p.d)} days / ${f(29.5)} days = ${f(p.d / 29.5)}`, `The cycle repeats about ${f(p.d / 29.5, 1)} times.`],
-        hr: (p, f) => ['Broj ciklusa = dani / trajanje jednog ciklusa', `${f(p.d)} dana / ${f(29.5)} dana = ${f(p.d / 29.5)}`, `Ciklus se ponovi oko ${f(p.d / 29.5, 1)} puta.`]
+        hr: (p, f) => ['Broj ciklusa = broj dana / trajanje jednog ciklusa', `${f(p.d)} dana / ${f(29.5)} dana = ${f(p.d / 29.5)}`, `Ciklus se ponovi oko ${f(p.d / 29.5, 1)} puta.`]
       }
     },
     {
@@ -103,10 +103,10 @@
       params: R => ({ n: R.pick([5, 6, 8, 10, 12, 15, 20, 30]) }),
       text: {
         en: (p, f) => `A day on Mars (a sol) lasts ${f(24.6)} hours, a day on Earth 24 hours. A rover works on Mars for ${f(p.n)} Martian days. How many minutes longer is that than ${f(p.n)} Earth days?`,
-        hr: (p, f) => `Dan na Marsu (sol) traje ${f(24.6)} sata, a dan na Zemlji 24 sata. Rover radi na Marsu ${f(p.n)} marsovskih dana. Koliko je to minuta dulje od ${f(p.n)} Zemljinih dana?`
+        hr: (p, f) => `Dan na Marsu (sol) traje ${f(24.6)} sata, a dan na Zemlji 24 sata. Rover radi na Marsu ${f(p.n)} marsovskih dana. Koliko je to minuta dulje od ${f(p.n)} zemaljskih dana?`
       },
       answer: p => 36 * p.n, unit: 'min',
-      hint: { en: 'Find how much longer one sol is (in hours), turn it into minutes, then multiply by the number of days.', hr: 'Izračunaj koliko je jedan sol dulji (u satima), pretvori u minute, pa pomnoži brojem dana.' },
+      hint: { en: 'Find how much longer one sol is (in hours), turn it into minutes, then multiply by the number of days.', hr: 'Izračunaj koliko je jedan sol dulji (u satima), pretvori to u minute, a zatim pomnoži s brojem dana.' },
       steps: {
         en: (p, f) => [`One sol is longer by ${f(24.6)} h − 24 h = ${f(0.6)} h`, `${f(0.6)} h = ${f(0.6)} · 60 min = 36 min`, `${f(p.n)} sols: ${f(p.n)} · 36 min = ${f(36 * p.n)} min`],
         hr: (p, f) => [`Jedan sol dulji je za ${f(24.6)} h − 24 h = ${f(0.6)} h`, `${f(0.6)} h = ${f(0.6)} · 60 min = 36 min`, `${f(p.n)} marsovskih dana: ${f(p.n)} · 36 min = ${f(36 * p.n)} min`]
@@ -122,7 +122,7 @@
       ]) }),
       text: {
         en: (p, f) => `${p.sat.en} circles the Earth on a nearly circular path of radius ${f(p.sat.r)} km (measured from the centre of the Earth) and completes one orbit in ${f(p.sat.T)} h${p.sat.days ? ' (' + f(p.sat.days) + ' days)' : ''}. What is its speed in km/h? The length of the path is 2 · π · r; use π ≈ ${f(3.14)}.`,
-        hr: (p, f) => `${p.sat.hr} kruži oko Zemlje po gotovo kružnoj putanji polumjera ${f(p.sat.r)} km (mjereno od središta Zemlje) i jedan obilazak traje ${f(p.sat.T)} h${p.sat.days ? ' (' + f(p.sat.days) + ' dana)' : ''}. Kolika je brzina u km/h? Duljina putanje je 2 · π · r; uzmi π ≈ ${f(3.14)}.`
+        hr: (p, f) => `${p.sat.hr} kruži oko Zemlje po gotovo kružnoj putanji polumjera ${f(p.sat.r)} km (mjereno od središta Zemlje), a jedan obilazak traje ${f(p.sat.T)} h${p.sat.days ? ' (' + f(p.sat.days) + ' dana)' : ''}. Kolikom brzinom kruži? Odgovor izrazi u km/h. Duljina putanje je 2 · π · r; uzmi π ≈ ${f(3.14)}.`
       },
       answer: p => 2 * 3.14 * p.sat.r / p.sat.T, unit: 'km/h', tol: 0.05,
       hint: { en: 'First find the length of one orbit (2 · π · r), then speed = path / time.', hr: 'Najprije izračunaj duljinu jednog obilaska (2 · π · r), zatim brzina = put / vrijeme.' },
@@ -136,7 +136,7 @@
       params: R => ({ D: R.pick([50, 100, 109, 150, 200, 218]) }),
       text: {
         en: (p, f) => `In a scale model of the Solar System the Sun is a ball ${f(p.D)} cm across. The diameter of the Sun is 109 times the diameter of the Earth. How big (in mm) should the diameter of the model Earth be?`,
-        hr: (p, f) => `U modelu Sunčeva sustava Sunce je kugla promjera ${f(p.D)} cm. Promjer Sunca je 109 puta veći od promjera Zemlje. Koliki (u mm) treba biti promjer modela Zemlje?`
+        hr: (p, f) => `U modelu Sunčeva sustava Sunce je kugla promjera ${f(p.D)} cm. Promjer Sunca je 109 puta veći od promjera Zemlje. Koliki treba biti promjer modela Zemlje? Odgovor izrazi u milimetrima.`
       },
       answer: p => p.D * 10 / 109, unit: 'mm', abs: 0.2,
       hint: { en: 'Turn the Sun\'s diameter into millimetres, then divide by 109.', hr: 'Promjer Sunca pretvori u milimetre, zatim podijeli sa 109.' },

@@ -18,11 +18,11 @@
     title: { en: 'Galileo\'s Ramp', hr: 'Galilejeva kosina' },
     summary: {
       en: 'Release a ball on one ramp and watch it climb the other. Lower the second ramp step by step — what happens when it becomes flat?',
-      hr: 'Pusti kuglicu niz jednu kosinu i gledaj kako se penje uz drugu. Spuštaj drugu kosinu korak po korak — što se događa kad postane ravna?'
+      hr: 'Pusti kuglicu niz jednu kosinu i promatraj kako se penje uz drugu. Korak po korak smanjuj nagib druge kosine — što se događa kad postane vodoravna?'
     },
     tasks: [
-      { en: 'Release the ball from 0.8 m with the right ramp at 30°. How high does it climb? Compare with the dashed line.', hr: 'Pusti kuglicu s 0,8 m uz desnu kosinu od 30°. Koliko se visoko popne? Usporedi s crtkanom linijom.' },
-      { en: 'Set the right ramp to 10°. Does the ball climb to a different height? Does it travel a longer distance?', hr: 'Postavi desnu kosinu na 10°. Penje li se kuglica do druge visine? Prelazi li dulji put?' },
+      { en: 'Release the ball from 0.8 m with the right ramp at 30°. How high does it climb? Compare with the dashed line.', hr: 'Pusti kuglicu s visine 0,8 m dok je desna kosina nagnuta pod kutom od 30°. Do koje se visine popne? Usporedi s crtkanom crtom.' },
+      { en: 'Set the right ramp to 10°. Does the ball climb to a different height? Does it travel a longer distance?', hr: 'Postavi nagib desne kosine na 10°. Popne li se kuglica do neke druge visine? Prijeđe li dulji put?' },
       { en: 'Set the angle to 0°. Why does the ball never stop? Is any force pushing it?', hr: 'Postavi kut na 0°. Zašto se kuglica nikad ne zaustavi? Gura li je neka sila?' },
       { en: 'Switch friction on. Watch the energy bars: where does the energy go?', hr: 'Uključi trenje. Prati stupce energije: kamo odlazi energija?' }
     ],
@@ -45,7 +45,7 @@
         if (st.stopped) reset();
         L.toggle(); updatePlay();
       } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outV = C.readout({ label: { en: 'Speed', hr: 'Brzina' }, unit: 'm/s', digits: 2 });
       const outH = C.readout({ label: { en: 'Height', hr: 'Visina' }, unit: 'm', digits: 2 });
       const outD = C.readout({ label: { en: 'Distance on right ramp', hr: 'Put po desnoj kosini' }, unit: 'm', digits: 2 });
@@ -126,11 +126,11 @@
         outV.set(Math.abs(st.v)); outH.set(P.y); outD.set(Math.max(0, st.s - L0 - B)); outT.set(st.t);
         let txt;
         if (st.friction) txt = { en: 'Friction turns a little of the energy into heat, so the ball stops a bit lower each time. In Galileo\'s ideal experiment there is no friction.',
-          hr: 'Trenje pretvara malo energije u toplinu, pa se kuglica svaki put zaustavi malo niže. U Galilejevu idealnom pokusu trenja nema.' };
+          hr: 'Trenje pretvara dio energije u toplinu, pa se kuglica svaki put zaustavi malo niže. U Galilejevu idealnom pokusu trenja nema.' };
         else if (st.thetaDeg < 0.5) txt = { en: 'The track is flat: the ball rolls on forever at constant speed. No force is needed to keep it moving: that is inertia (Newton\'s first law).',
-          hr: 'Staza je ravna: kuglica se giba stalnom brzinom bez kraja. Za održavanje gibanja nije potrebna sila: to je tromost (prvi Newtonov zakon).' };
+          hr: 'Staza je vodoravna: kuglica se beskonačno dugo giba stalnom brzinom. Za održavanje gibanja nije potrebna sila: to je tromost (prvi Newtonov zakon).' };
         else txt = { en: 'Without friction the ball climbs until it is as high as where it started: the energy is conserved (Ep + Ek stays the same). A shallower ramp only means a longer run.',
-          hr: 'Bez trenja kuglica se penje dok ne dosegne visinu s koje je puštena: energija se čuva (Ep + Ek ostaje isto). Blaža kosina znači samo dulji put.' };
+          hr: 'Bez trenja kuglica se penje dok ne dosegne visinu s koje je puštena: energija je očuvana (zbroj Ep + Ek ostaje isti). Blaža kosina znači samo dulji put.' };
         note.set(txt);
       }
 
@@ -203,7 +203,7 @@
         if (!flat && st.thetaDeg >= 3) {
           g.strokeStyle = theme.fg; g.lineWidth = 1; g.beginPath(); g.arc(fx, fy, 30, -th, 0); g.stroke();
         }
-        K.text(g, 'α = ' + K.fmt(st.thetaDeg, 0, lang) + '°' + (flat ? K.tr({ en: ' (flat)', hr: ' (ravno)' }, lang) : ''), fx + 38, fy - (flat ? 14 : 30 * Math.sin(th / 2) + 2), { font: 'bold 12px ' + theme.font, color: theme.fg, baseline: 'bottom' });
+        K.text(g, 'α = ' + K.fmt(st.thetaDeg, 0, lang) + '°' + (flat ? K.tr({ en: ' (flat)', hr: ' (vodoravno)' }, lang) : ''), fx + 38, fy - (flat ? 14 : 30 * Math.sin(th / 2) + 2), { font: 'bold 12px ' + theme.font, color: theme.fg, baseline: 'bottom' });
         // height ruler (left edge)
         g.strokeStyle = theme.fg; g.lineWidth = 1;
         const rx = 14;

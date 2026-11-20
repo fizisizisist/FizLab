@@ -7,17 +7,17 @@
   const WIN = 10;       // seconds visible on the shared time axis
   const SAMPLE = 0.05;  // s between recorded points
   const PRESETS = [
-    { id: 'still', T: 10, label: { en: 'Standing still at +3 m', hr: 'Stoji na +3 m' }, x: () => 3, v: () => 0 },
-    { id: 'right2', T: 10, label: { en: 'Moving right at 2 m/s', hr: 'Giba se desno 2 m/s' }, x: t => -10 + 2 * t, v: () => 2 },
-    { id: 'left1', T: 10, label: { en: 'Moving left at 1 m/s from +6 m', hr: 'Giba se lijevo 1 m/s od +6 m' }, x: t => 6 - t, v: () => -1 },
+    { id: 'still', T: 10, label: { en: 'Standing still at +3 m', hr: 'Miruje na +3 m' }, x: () => 3, v: () => 0 },
+    { id: 'right2', T: 10, label: { en: 'Moving right at 2 m/s', hr: 'Giba se udesno, 2 m/s' }, x: t => -10 + 2 * t, v: () => 2 },
+    { id: 'left1', T: 10, label: { en: 'Moving left at 1 m/s from +6 m', hr: 'Giba se ulijevo, 1 m/s, od +6 m' }, x: t => 6 - t, v: () => -1 },
     { id: 'accel', T: 6, label: { en: 'Speeding up from rest, 1 m/s²', hr: 'Ubrzava iz mirovanja, 1 m/s²' }, x: t => -9 + 0.5 * t * t, v: t => t },
-    { id: 'stop', T: 10, label: { en: 'Moving right, then stopping', hr: 'Giba se desno, pa stane' }, x: t => (t < 4 ? -6 + 2 * t : 2), v: t => (t < 4 ? 2 : 0) }
+    { id: 'stop', T: 10, label: { en: 'Moving right, then stopping', hr: 'Giba se udesno, a zatim stane' }, x: t => (t < 4 ? -6 + 2 * t : 2), v: t => (t < 4 ? 2 : 0) }
   ];
   const MODES = [
-    { value: 'drag', label: { en: 'Drag', hr: 'Vuci' } },
+    { value: 'drag', label: { en: 'Drag', hr: 'Povlači' } },
     { value: 'vel', label: { en: 'Set velocity', hr: 'Zadaj brzinu' } },
     { value: 'accel', label: { en: 'Set acceleration', hr: 'Zadaj akceleraciju' } },
-    { value: 'match', label: { en: 'Match the graph', hr: 'Pogodi gibanje' } }
+    { value: 'match', label: { en: 'Match the graph', hr: 'Ponovi graf' } }
   ];
 
   window.Sims.register({
@@ -25,14 +25,14 @@
     title: { en: 'Motion Graphs', hr: 'Grafovi gibanja' },
     summary: {
       en: 'Move the man along the track and watch the position, velocity and acceleration graphs draw themselves — then try to reproduce a given graph.',
-      hr: 'Pomiči čovjeka po stazi i gledaj kako se crtaju grafovi položaja, brzine i akceleracije — zatim pokušaj ponoviti zadani graf.'
+      hr: 'Pomiči čovjeka po stazi i promatraj kako se crtaju grafovi položaja, brzine i akceleracije — zatim pokušaj ponoviti zadani graf.'
     },
     tasks: [
-      { en: 'Drag the man slowly to the right, then quickly to the left. How do the x–t and v–t lines differ?', hr: 'Povuci čovjeka polako desno, pa brzo lijevo. Kako se razlikuju crte x–t i v–t?' },
-      { en: '"Set velocity": pick v = −2 m/s. Which way does he move? Which way does the x–t line tilt?', hr: '„Zadaj brzinu”: odaberi v = −2 m/s. Kamo se giba? Na koju stranu je nagnuta crta x–t?' },
-      { en: '"Set acceleration": start with v = 3 m/s and a = −1 m/s². Is he speeding up or slowing down? Watch the note.', hr: '„Zadaj akceleraciju”: kreni s v = 3 m/s i a = −1 m/s². Ubrzava li ili usporava? Prati bilješku.' },
-      { en: 'Switch on "area under v–t" with v = 2 m/s. After 5 s, compare the area with how far he moved.', hr: 'Uključi „površina ispod v–t” uz v = 2 m/s. Nakon 5 s usporedi površinu s pomakom.' },
-      { en: '"Match the graph": can you reproduce "moving right, then stopping" with an error under 0.4 m?', hr: '„Pogodi gibanje”: možeš li ponoviti „giba se desno, pa stane” s greškom manjom od 0,4 m?' }
+      { en: 'Drag the man slowly to the right, then quickly to the left. How do the x–t and v–t lines differ?', hr: 'Povuci čovjeka polako udesno, a zatim brzo ulijevo. Kako izgledaju crte x–t i v–t u ta dva slučaja?' },
+      { en: '"Set velocity": pick v = −2 m/s. Which way does he move? Which way does the x–t line tilt?', hr: '„Zadaj brzinu“: odaberi v = −2 m/s. Kamo se čovjek giba? Na koju je stranu nagnuta crta x–t?' },
+      { en: '"Set acceleration": start with v = 3 m/s and a = −1 m/s². Is he speeding up or slowing down? Watch the note.', hr: '„Zadaj akceleraciju“: postavi v = 3 m/s i a = −1 m/s². Ubrzava li čovjek ili usporava? Prati napomenu ispod.' },
+      { en: 'Switch on "area under v–t" with v = 2 m/s. After 5 s, compare the area with how far he moved.', hr: 'Uključi „Površina ispod v–t“ i postavi v = 2 m/s. Nakon 5 s usporedi površinu s pomakom.' },
+      { en: '"Match the graph": can you reproduce "moving right, then stopping" with an error under 0.4 m?', hr: '„Ponovi graf“: možeš li ponoviti gibanje „Giba se udesno, a zatim stane“ sa srednjom pogreškom manjom od 0,4 m?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -61,12 +61,12 @@
         if (st.mode === 'match' && st.match.done) clearRun();
         L.toggle(); updatePlay(); updateOut(); draw();
       } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outT = C.readout({ label: { en: 'Time', hr: 'Vrijeme' }, unit: 's', digits: 1 });
       const outX = C.readout({ label: { en: 'Position x', hr: 'Položaj x' }, unit: 'm', digits: 2 });
       const outV = C.readout({ label: { en: 'Velocity v', hr: 'Brzina v' }, unit: 'm/s', digits: 2 });
       const outA = C.readout({ label: { en: 'Acceleration a', hr: 'Akceleracija a' }, unit: 'm/s²', digits: 1 });
-      const outErr = C.readout({ label: { en: 'Mean error', hr: 'Srednja greška' }, unit: 'm', digits: 2 });
+      const outErr = C.readout({ label: { en: 'Mean error', hr: 'Srednja pogreška' }, unit: 'm', digits: 2 });
       const noteMotion = C.note({ text: { en: '', hr: '' } });
       const noteHelp = C.note({ text: { en: '', hr: '' } });
 
@@ -151,31 +151,31 @@
       function motionNote() {
         const v = st.v, a = st.a;
         const dir = Math.abs(v) < 0.1 ? { en: 'v ≈ 0: he is at rest', hr: 'v ≈ 0: miruje' }
-          : v > 0 ? { en: 'v > 0: moving towards +x (right)', hr: 'v > 0: giba se prema +x (desno)' }
-            : { en: 'v < 0: moving towards −x (left)', hr: 'v < 0: giba se prema −x (lijevo)' };
+          : v > 0 ? { en: 'v > 0: moving towards +x (right)', hr: 'v > 0: giba se prema +x (udesno)' }
+            : { en: 'v < 0: moving towards −x (left)', hr: 'v < 0: giba se prema −x (ulijevo)' };
         let acc;
         if (Math.abs(a) < 0.15) acc = { en: 'a ≈ 0 → the velocity stays the same', hr: 'a ≈ 0 → brzina se ne mijenja' };
-        else if (Math.abs(v) < 0.1) acc = { en: 'a ≠ 0 while v ≈ 0 → he starts moving in the direction of a', hr: 'a ≠ 0 dok je v ≈ 0 → kreće se u smjeru a' };
-        else if ((v > 0) === (a > 0)) acc = { en: 'v and a have the same sign → speeding up', hr: 'v i a istog predznaka → ubrzava' };
-        else acc = { en: 'v and a have opposite signs → slowing down', hr: 'v i a suprotnog predznaka → usporava' };
+        else if (Math.abs(v) < 0.1) acc = { en: 'a ≠ 0 while v ≈ 0 → he starts moving in the direction of a', hr: 'a ≠ 0 dok je v ≈ 0 → počinje se gibati u smjeru a' };
+        else if ((v > 0) === (a > 0)) acc = { en: 'v and a have the same sign → speeding up', hr: 'v i a imaju isti predznak → ubrzava' };
+        else acc = { en: 'v and a have opposite signs → slowing down', hr: 'v i a imaju suprotne predznake → usporava' };
         return { en: dir.en + '.  ' + acc.en + '.', hr: dir.hr + '.  ' + acc.hr + '.' };
       }
       function helpNote() {
         const m = st.mode;
         if (m === 'drag') return { en: 'Drag the man left or right. The graph shows how x changes in time; the man only moves left–right — the graph is not a picture of his path.',
-          hr: 'Vuci čovjeka lijevo ili desno. Graf pokazuje kako se x mijenja u vremenu; čovjek se giba samo lijevo-desno — graf nije slika njegova puta.' };
+          hr: 'Povlači čovjeka ulijevo ili udesno. Graf pokazuje kako se x mijenja s vremenom; čovjek se giba samo lijevo-desno — graf nije slika njegove putanje.' };
         if (m === 'vel') return { en: 'Constant velocity: the x–t line is straight and its slope Δx/Δt equals v. Negative v means moving towards −x. At the track end he bounces back.',
-          hr: 'Stalna brzina: crta x–t je ravna, a njezin nagib Δx/Δt jednak je v. Negativna brzina znači gibanje prema −x. Na kraju staze odbija se natrag.' };
+          hr: 'Stalna brzina: graf x–t je pravac, a njegov nagib Δx/Δt jednak je v. Negativna brzina znači gibanje prema −x. Na kraju staze čovjek se okreće i vraća.' };
         if (m === 'accel') return { en: 'Acceleration tilts the v–t line. He speeds up only when v and a point the same way; a > 0 with v < 0 means slowing down!',
-          hr: 'Akceleracija naginje crtu v–t. Ubrzava samo kad v i a pokazuju u istu stranu; a > 0 uz v < 0 znači da usporava!' };
+          hr: 'Zbog akceleracije crta v–t je nagnuta. Čovjek ubrzava samo kad v i a imaju isti smjer; a > 0 uz v < 0 znači da usporava!' };
         const e = meanErr();
         if (st.match.done) {
           return e < 0.4
-            ? { en: 'Good match! Mean error ' + K.fmt(e, 2, 'en') + ' m.', hr: 'Dobro pogođeno! Srednja greška ' + K.fmt(e, 2, 'hr') + ' m.' }
-            : { en: 'Not yet: mean error ' + K.fmt(e, 2, 'en') + ' m (needs less than 0.4 m). Press "Play again" and try once more.', hr: 'Još ne: srednja greška ' + K.fmt(e, 2, 'hr') + ' m (treba manje od 0,4 m). Pritisni „Ponovi” i probaj opet.' };
+            ? { en: 'Good match! Mean error ' + K.fmt(e, 2, 'en') + ' m.', hr: 'Dobro pogođeno! Srednja pogreška iznosi ' + K.fmt(e, 2, 'hr') + ' m.' }
+            : { en: 'Not yet: mean error ' + K.fmt(e, 2, 'en') + ' m (needs less than 0.4 m). Press "Play again" and try once more.', hr: 'Još ne: srednja pogreška iznosi ' + K.fmt(e, 2, 'hr') + ' m (mora biti manja od 0,4 m). Pritisni „Ponovi“ i pokušaj ponovno.' };
         }
         return { en: 'Reproduce the dashed target graph by dragging the man. Time starts when you press Play or grab him.',
-          hr: 'Ponovi crtkani zadani graf vukući čovjeka. Vrijeme kreće kad pritisneš Pokreni ili uhvatiš čovjeka.' };
+          hr: 'Ponovi crtkani zadani graf povlačeći čovjeka. Vrijeme počinje teći kad pritisneš Pokreni ili uhvatiš čovjeka.' };
       }
       function updateOut() {
         outT.set(st.t); outX.set(st.x); outV.set(st.v); outA.set(st.a);

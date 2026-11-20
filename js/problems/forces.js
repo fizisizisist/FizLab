@@ -63,13 +63,13 @@
       params: R => { const a = R.step(20, 80, 10), b = R.step(20, 80, 10); return { a, b, c: R.step(10, Math.min(60, a + b - 10), 10) }; },
       text: {
         en: (p, f) => `Three children push a cart. Two push to the right with ${f(p.a)} N and ${f(p.b)} N, one pushes to the left with ${f(p.c)} N. How big is the resultant force?`,
-        hr: (p, f) => `Troje djece gura kolica. Dvoje gura udesno silama ${f(p.a)} N i ${f(p.b)} N, a jedno gura ulijevo silom ${f(p.c)} N. Kolika je rezultantna sila?`
+        hr: (p, f) => `Troje djece gura kolica. Dvoje gura udesno silama ${f(p.a)} N i ${f(p.b)} N, a jedno dijete gura ulijevo silom ${f(p.c)} N. Kolika je rezultantna sila?`
       },
       answer: p => p.a + p.b - p.c, unit: 'N',
-      hint: { en: 'Add the forces pointing right, then subtract the one pointing left.', hr: 'Zbroji sile udesno, pa oduzmi silu ulijevo.' },
+      hint: { en: 'Add the forces pointing right, then subtract the one pointing left.', hr: 'Zbroji sile usmjerene udesno, a zatim oduzmi silu usmjerenu ulijevo.' },
       steps: {
         en: (p, f) => [`Right: ${f(p.a)} N + ${f(p.b)} N = ${f(p.a + p.b)} N`, `Resultant: ${f(p.a + p.b)} N − ${f(p.c)} N = ${f(p.a + p.b - p.c)} N`, 'The cart is pushed to the right.'],
-        hr: (p, f) => [`Udesno: ${f(p.a)} N + ${f(p.b)} N = ${f(p.a + p.b)} N`, `Rezultanta: ${f(p.a + p.b)} N − ${f(p.c)} N = ${f(p.a + p.b - p.c)} N`, 'Kolica se guraju udesno.']
+        hr: (p, f) => [`Udesno: ${f(p.a)} N + ${f(p.b)} N = ${f(p.a + p.b)} N`, `Rezultantna sila: ${f(p.a + p.b)} N − ${f(p.c)} N = ${f(p.a + p.b - p.c)} N`, 'Rezultantna sila usmjerena je udesno.']
       }
     },
     {
@@ -77,10 +77,10 @@
       params: R => { const m = R.pick([2, 4, 5, 8, 10, 20, 25, 40, 50]); const a = R.step(0.5, 4, 0.5); return { m, F: m * a }; },
       text: {
         en: (p, f) => `A resultant force of ${f(p.F)} N acts on a ${f(p.m)} kg sled. What is its acceleration? (a = F / m)`,
-        hr: (p, f) => `Na sanjke mase ${f(p.m)} kg djeluje rezultantna sila ${f(p.F)} N. Koliko je ubrzanje sanjki? (a = F / m)`
+        hr: (p, f) => `Na sanjke mase ${f(p.m)} kg djeluje rezultantna sila od ${f(p.F)} N. Koliko je ubrzanje sanjki? (a = F / m)`
       },
       answer: p => p.F / p.m, unit: 'm/s²',
-      hint: { en: 'Divide the force by the mass.', hr: 'Podijeli silu masom.' },
+      hint: { en: 'Divide the force by the mass.', hr: 'Podijeli silu s masom.' },
       steps: {
         en: (p, f) => ['a = F / m', `a = ${f(p.F)} N / ${f(p.m)} kg`, `a = ${f(p.F / p.m)} m/s²`],
         hr: (p, f) => ['a = F / m', `a = ${f(p.F)} N / ${f(p.m)} kg`, `a = ${f(p.F / p.m)} m/s²`]
@@ -91,10 +91,10 @@
       params: R => ({ m: R.int(400, 1500), a: R.step(1, 3, 0.5) }),
       text: {
         en: (p, f) => `A car of mass ${f(p.m)} kg speeds up with an acceleration of ${f(p.a)} m/s². How big is the resultant force on the car? (F = m · a)`,
-        hr: (p, f) => `Automobil mase ${f(p.m)} kg ubrzava ubrzanjem ${f(p.a)} m/s². Kolika je rezultantna sila na automobil? (F = m · a)`
+        hr: (p, f) => `Automobil mase ${f(p.m)} kg ubrzava, a njegovo ubrzanje iznosi ${f(p.a)} m/s². Kolika je rezultantna sila na automobil? (F = m · a)`
       },
       answer: p => p.m * p.a, unit: 'N',
-      hint: { en: 'Multiply mass by acceleration.', hr: 'Pomnoži masu i ubrzanje.' },
+      hint: { en: 'Multiply mass by acceleration.', hr: 'Pomnoži masu s ubrzanjem.' },
       steps: {
         en: (p, f) => ['F = m · a', `F = ${f(p.m)} kg · ${f(p.a)} m/s²`, `F = ${f(p.m * p.a)} N`],
         hr: (p, f) => ['F = m · a', `F = ${f(p.m)} kg · ${f(p.a)} m/s²`, `F = ${f(p.m * p.a)} N`]
@@ -108,7 +108,7 @@
         hr: (p, f) => `Astronaut na Zemlji ima težinu ${f(p.G)} N (g = 10 N/kg). Na Mjesecu je g = 1,6 N/kg. Kolika je težina astronauta na Mjesecu?`
       },
       answer: p => p.G / 10 * 1.6, unit: 'N',
-      hint: { en: 'First find the mass (it is the same everywhere), then multiply by the Moon\'s g.', hr: 'Najprije izračunaj masu (ona je svugdje ista), zatim je pomnoži Mjesečevim g.' },
+      hint: { en: 'First find the mass (it is the same everywhere), then multiply by the Moon\'s g.', hr: 'Najprije izračunaj masu (ona je svugdje ista), zatim je pomnoži s Mjesečevim g.' },
       steps: {
         en: (p, f) => [`Mass: m = G / g = ${f(p.G)} N / 10 N/kg = ${f(p.G / 10)} kg`, `Weight on the Moon: G = m · g = ${f(p.G / 10)} kg · 1.6 N/kg`, `G = ${f(p.G / 10 * 1.6)} N`],
         hr: (p, f) => [`Masa: m = G / g = ${f(p.G)} N / 10 N/kg = ${f(p.G / 10)} kg`, `Težina na Mjesecu: G = m · g = ${f(p.G / 10)} kg · 1,6 N/kg`, `G = ${f(p.G / 10 * 1.6)} N`]
@@ -119,13 +119,13 @@
       params: R => { const m = R.pick([10, 20, 25, 40, 50]); const mu = R.pick([0.1, 0.2, 0.3]); const fr = mu * m * 10; const F = fr + m * R.step(0.5, 2, 0.5); return { m, mu, F }; },
       text: {
         en: (p, f) => `A ${f(p.m)} kg crate is pushed with ${f(p.F)} N across a floor. The friction force is ${f(p.mu)} of the crate's weight (g = 10 N/kg). What is the crate's acceleration?`,
-        hr: (p, f) => `Sanduk mase ${f(p.m)} kg guramo silom ${f(p.F)} N po podu. Sila trenja iznosi ${f(p.mu)} težine sanduka (g = 10 N/kg). Koliko je ubrzanje sanduka?`
+        hr: (p, f) => `Sanduk mase ${f(p.m)} kg guramo po podu silom od ${f(p.F)} N. Sila trenja iznosi ${f(p.mu)} · G, gdje je G težina sanduka (g = 10 N/kg). Koliko je ubrzanje sanduka?`
       },
       answer: p => (p.F - p.mu * p.m * 10) / p.m, unit: 'm/s²',
-      hint: { en: 'Find the weight, then the friction, then the net force F − friction, then a = F_net / m.', hr: 'Izračunaj težinu, zatim trenje, pa rezultantu F − trenje, pa a = F_rez / m.' },
+      hint: { en: 'Find the weight, then the friction, then the net force F − friction, then a = F_net / m.', hr: 'Izračunaj težinu, zatim silu trenja, pa rezultantnu silu F − F_tr i na kraju a = F_rez / m.' },
       steps: {
         en: (p, f) => [`Weight: G = ${f(p.m)} kg · 10 N/kg = ${f(p.m * 10)} N`, `Friction: F_fr = ${f(p.mu)} · ${f(p.m * 10)} N = ${f(p.mu * p.m * 10)} N`, `Net force: ${f(p.F)} N − ${f(p.mu * p.m * 10)} N = ${f(p.F - p.mu * p.m * 10)} N`, `a = F_net / m = ${f(p.F - p.mu * p.m * 10)} N / ${f(p.m)} kg = ${f((p.F - p.mu * p.m * 10) / p.m)} m/s²`],
-        hr: (p, f) => [`Težina: G = ${f(p.m)} kg · 10 N/kg = ${f(p.m * 10)} N`, `Trenje: F_tr = ${f(p.mu)} · ${f(p.m * 10)} N = ${f(p.mu * p.m * 10)} N`, `Rezultanta: ${f(p.F)} N − ${f(p.mu * p.m * 10)} N = ${f(p.F - p.mu * p.m * 10)} N`, `a = F_rez / m = ${f(p.F - p.mu * p.m * 10)} N / ${f(p.m)} kg = ${f((p.F - p.mu * p.m * 10) / p.m)} m/s²`]
+        hr: (p, f) => [`Težina: G = ${f(p.m)} kg · 10 N/kg = ${f(p.m * 10)} N`, `Sila trenja: F_tr = ${f(p.mu)} · ${f(p.m * 10)} N = ${f(p.mu * p.m * 10)} N`, `Rezultantna sila: ${f(p.F)} N − ${f(p.mu * p.m * 10)} N = ${f(p.F - p.mu * p.m * 10)} N`, `a = F_rez / m = ${f(p.F - p.mu * p.m * 10)} N / ${f(p.m)} kg = ${f((p.F - p.mu * p.m * 10) / p.m)} m/s²`]
       }
     }
   ]);

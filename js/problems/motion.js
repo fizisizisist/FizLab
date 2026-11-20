@@ -10,7 +10,7 @@
         hr: (p, f) => `Biciklist prijeđe ${f(p.s)} m za ${f(p.t)} s. Kolika je brzina biciklista u m/s?`
       },
       answer: p => p.s / p.t, unit: 'm/s',
-      hint: { en: 'Speed = distance divided by time.', hr: 'Brzina = put podijeljen vremenom.' },
+      hint: { en: 'Speed = distance divided by time.', hr: 'Brzina = put podijeljen s vremenom.' },
       steps: {
         en: (p, f) => ['v = s / t', `v = ${f(p.s)} m / ${f(p.t)} s`, `v = ${f(p.s / p.t)} m/s`],
         hr: (p, f) => ['v = s / t', `v = ${f(p.s)} m / ${f(p.t)} s`, `v = ${f(p.s / p.t)} m/s`]
@@ -35,10 +35,10 @@
       params: R => ({ a: R.step(0.5, 4, 0.5), t: R.int(2, 12) }),
       text: {
         en: (p, f) => `A motorbike starts from rest and accelerates at ${f(p.a)} m/s² for ${f(p.t)} s. What speed does it reach? (v = a · t)`,
-        hr: (p, f) => `Motocikl kreće iz mirovanja i ubrzava ubrzanjem ${f(p.a)} m/s² tijekom ${f(p.t)} s. Koliku brzinu postigne? (v = a · t)`
+        hr: (p, f) => `Motocikl kreće iz mirovanja i jednoliko ubrzava; ubrzanje mu je ${f(p.a)} m/s². Koliku brzinu postigne nakon ${f(p.t)} s? (v = a · t)`
       },
       answer: p => p.a * p.t, unit: 'm/s',
-      hint: { en: 'Every second the speed grows by a; multiply the acceleration by the time.', hr: 'Svake sekunde brzina se poveća za a; pomnoži ubrzanje vremenom.' },
+      hint: { en: 'Every second the speed grows by a; multiply the acceleration by the time.', hr: 'Svake se sekunde brzina poveća za a; pomnoži ubrzanje s vremenom.' },
       steps: {
         en: (p, f) => ['v = a · t', `v = ${f(p.a)} m/s² · ${f(p.t)} s`, `v = ${f(p.a * p.t)} m/s`],
         hr: (p, f) => ['v = a · t', `v = ${f(p.a)} m/s² · ${f(p.t)} s`, `v = ${f(p.a * p.t)} m/s`]
@@ -63,7 +63,7 @@
       params: R => ({ v: R.pick([18, 36, 54, 72, 90, 108, 126, 144]) }),
       text: {
         en: (p, f) => `A car is moving at ${f(p.v)} km/h. Express this speed in m/s. (1 km = 1000 m and 1 h = 3600 s, so divide km/h by ${f(3.6)})`,
-        hr: (p, f) => `Automobil se giba brzinom ${f(p.v)} km/h. Izrazi tu brzinu u m/s. (1 km = 1000 m, a 1 h = 3600 s, pa km/h podijeli s ${f(3.6)})`
+        hr: (p, f) => `Automobil se giba brzinom ${f(p.v)} km/h. Izrazi tu brzinu u m/s. (1 km = 1000 m, a 1 h = 3600 s, pa iznos u km/h podijeli s ${f(3.6)})`
       },
       answer: p => p.v / 3.6, unit: 'm/s',
       hint: { en: 'From km/h to m/s: divide by 3.6.', hr: 'Iz km/h u m/s: podijeli s 3,6.' },
@@ -80,7 +80,7 @@
         hr: (p, f) => `Vlak vozi brzinom ${f(p.v)} km/h tijekom ${f(p.t)} minuta. Koliko kilometara prijeđe? (1 h = 60 min)`
       },
       answer: p => p.v * p.t / 60, unit: 'km',
-      hint: { en: 'Write the time in hours (minutes / 60), then s = v · t.', hr: 'Zapiši vrijeme u satima (minute / 60), zatim s = v · t.' },
+      hint: { en: 'Write the time in hours (minutes / 60), then s = v · t.', hr: 'Izrazi vrijeme u satima (broj minuta podijeli sa 60), zatim s = v · t.' },
       steps: {
         en: (p, f) => [`t = ${f(p.t)} min = ${f(p.t)}/60 h`, `s = v · t = ${f(p.v)} km/h · ${f(p.t)}/60 h`, `s = ${f(p.v * p.t)} / 60 km = ${f(p.v * p.t / 60)} km`],
         hr: (p, f) => [`t = ${f(p.t)} min = ${f(p.t)}/60 h`, `s = v · t = ${f(p.v)} km/h · ${f(p.t)}/60 h`, `s = ${f(p.v * p.t)} / 60 km = ${f(p.v * p.t / 60)} km`]
@@ -94,7 +94,7 @@
         hr: (p, f) => `Automobil ubrza s ${f(p.v1)} m/s na ${f(p.v2)} m/s za ${f(p.t)} s. Koliko je njegovo ubrzanje? (a = Δv / t)`
       },
       answer: p => (p.v2 - p.v1) / p.t, unit: 'm/s²',
-      hint: { en: 'First the change of speed Δv = v₂ − v₁, then divide by the time.', hr: 'Najprije promjena brzine Δv = v₂ − v₁, zatim podijeli vremenom.' },
+      hint: { en: 'First the change of speed Δv = v₂ − v₁, then divide by the time.', hr: 'Najprije izračunaj promjenu brzine Δv = v₂ − v₁, a zatim je podijeli s vremenom.' },
       steps: {
         en: (p, f) => [`Δv = ${f(p.v2)} m/s − ${f(p.v1)} m/s = ${f(p.v2 - p.v1)} m/s`, `a = Δv / t = ${f(p.v2 - p.v1)} m/s / ${f(p.t)} s`, `a = ${f((p.v2 - p.v1) / p.t)} m/s²`],
         hr: (p, f) => [`Δv = ${f(p.v2)} m/s − ${f(p.v1)} m/s = ${f(p.v2 - p.v1)} m/s`, `a = Δv / t = ${f(p.v2 - p.v1)} m/s / ${f(p.t)} s`, `a = ${f((p.v2 - p.v1) / p.t)} m/s²`]

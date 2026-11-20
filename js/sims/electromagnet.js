@@ -14,13 +14,13 @@
     title: { en: 'Electromagnet', hr: 'Elektromagnet' },
     summary: {
       en: 'Wind a coil around a nail, switch the current on and lift paperclips. Then see how a current in a straight wire turns a compass needle.',
-      hr: 'Namotaj zavojnicu oko čavla, uključi struju i podiži spajalice. Zatim pogledaj kako struja u ravnom vodiču zakreće iglu kompasa.'
+      hr: 'Namotaj žicu oko čavla u zavojnicu, uključi struju i podigni spajalice. Zatim pogledaj kako struja u ravnom vodiču zakreće iglu kompasa.'
     },
     tasks: [
       { en: 'Open the switch. What happens to the paperclips and the compass?', hr: 'Otvori prekidač. Što se dogodi sa spajalicama i kompasom?' },
-      { en: 'Set 3 A and 60 turns. How many paperclips can you lift? Now turn off the iron core.', hr: 'Postavi 3 A i 60 namotaja. Koliko spajalica možeš podići? Sada isključi željeznu jezgru.' },
-      { en: 'Press "Reverse battery". What happens to the N and S poles and the compass needle?', hr: 'Pritisni "Obrni bateriju". Što se dogodi s polovima N i S i iglom kompasa?' },
-      { en: 'In "Wire and compass", change the current direction. Which way does the needle turn?', hr: 'U "Vodič i kompas" promijeni smjer struje. Na koju stranu se zakrene igla?' }
+      { en: 'Set 3 A and 60 turns. How many paperclips can you lift? Now turn off the iron core.', hr: 'Postavi 3 A i 60 zavoja. Koliko spajalica možeš podići? Sada ukloni željeznu jezgru.' },
+      { en: 'Press "Reverse battery". What happens to the N and S poles and the compass needle?', hr: 'Pritisni „Okreni bateriju“. Što se dogodi s polovima N i S i s iglom kompasa?' },
+      { en: 'In "Wire and compass", change the current direction. Which way does the needle turn?', hr: 'U načinu „Vodič i kompas“ promijeni smjer struje. Na koju se stranu zakrene igla?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -36,16 +36,16 @@
         { value: 'coil', label: { en: 'Coil and nail', hr: 'Zavojnica i čavao' } }, { value: 'wire', label: { en: 'Wire and compass', hr: 'Vodič i kompas' } }],
         value: 'coil', onChange: v => { st.mode = v; applyMode(); refresh(); } });
       const slI = C.slider({ label: { en: 'Current I', hr: 'Struja I' }, min: 0, max: 3, step: 0.1, value: DEF.I, unit: 'A', digits: 1, onChange: v => { st.I = v; refresh(); } });
-      const slN = C.slider({ label: { en: 'Number of turns', hr: 'Broj namotaja' }, min: 5, max: 60, step: 1, value: DEF.turns, digits: 0, onChange: v => { st.turns = Math.round(v); refresh(); } });
+      const slN = C.slider({ label: { en: 'Number of turns', hr: 'Broj zavoja' }, min: 5, max: 60, step: 1, value: DEF.turns, digits: 0, onChange: v => { st.turns = Math.round(v); refresh(); } });
       const tgSwitch = C.toggle({ label: { en: 'Switch closed', hr: 'Prekidač zatvoren' }, value: DEF.closed, onChange: v => { st.closed = v; refresh(); } });
       const tgCore = C.toggle({ label: { en: 'Iron core (nail)', hr: 'Željezna jezgra (čavao)' }, value: DEF.core, onChange: v => { st.core = v; refresh(); } });
-      const btnRev = C.button({ label: { en: 'Reverse battery', hr: 'Obrni bateriju' }, onClick: () => { st.rev = !st.rev; btnRev.setActive(st.rev); refresh(); } });
+      const btnRev = C.button({ label: { en: 'Reverse battery', hr: 'Okreni bateriju' }, onClick: () => { st.rev = !st.rev; btnRev.setActive(st.rev); refresh(); } });
       const segDir = C.segmented({ label: { en: 'Current direction', hr: 'Smjer struje' }, options: [
         { value: 'up', label: { en: 'up (to the north)', hr: 'gore (prema sjeveru)' } }, { value: 'down', label: { en: 'down (to the south)', hr: 'dolje (prema jugu)' } }],
         value: DEF.dir, onChange: v => { st.dir = v; refresh(); } });
       const btnPlay = C.button({ label: { en: 'Pause', hr: 'Pauza' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
-      const outTurns = C.readout({ label: { en: 'Turns', hr: 'Namotaji' }, digits: 0 });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
+      const outTurns = C.readout({ label: { en: 'Turns', hr: 'Zavoji' }, digits: 0 });
       const outI = C.readout({ label: { en: 'Current', hr: 'Struja' }, unit: 'A', digits: 1 });
       const outS = C.readout({ label: { en: 'Field strength (relative)', hr: 'Jakost polja (relativno)' }, digits: 1 });
       const outClips = C.readout({ label: { en: 'Paperclips lifted', hr: 'Podignute spajalice' }, digits: 0 });
@@ -81,9 +81,9 @@
         else outPoles.set(nIsRight() ? { en: 'N right (tip), S left (head)', hr: 'N desno (vrh), S lijevo (glava)' } : { en: 'N left (head), S right (tip)', hr: 'N lijevo (glava), S desno (vrh)' });
         note.set(st.mode === 'coil'
           ? { en: 'A current in the coil makes the nail a magnet. More turns, more current and an iron core all make it stronger. Reversing the battery swaps the N and S poles. Blue dots = electrons (−), moving from − to +.',
-              hr: 'Struja u zavojnici pretvara čavao u magnet. Više namotaja, jača struja i željezna jezgra čine ga jačim. Obrtanjem baterije zamijene se polovi N i S. Plave točke = elektroni (−), gibaju se od − prema +.' }
+              hr: 'Struja u zavojnici pretvara čavao u magnet. Što je više zavoja i što je jača struja, to je magnet jači, a željezna jezgra još ga pojačava. Kad okreneš bateriju, polovi N i S zamijene mjesta. Plave točke = elektroni (−), gibaju se od − prema +.' }
           : { en: 'An electric current creates a magnetic field (Ørsted, 1820). The wire lies above the compass: current to the north turns the red end of the needle west; reversing the current turns it east.',
-              hr: 'Električna struja stvara magnetsko polje (Ørsted, 1820.). Vodič je iznad kompasa: struja prema sjeveru zakreće crveni kraj igle na zapad, a obrnuta struja na istok.' });
+              hr: 'Električna struja stvara magnetsko polje (Ørsted, 1820.). Vodič je iznad kompasa: struja prema sjeveru zakreće crveni kraj igle prema zapadu, a struja suprotnog smjera prema istoku.' });
       }
       function refresh() { compute(); updateOut(); draw(); }
       function reset() {
@@ -267,10 +267,10 @@
         drawCompass(c, g.comp.x, g.comp.y, g.comp.r, st.na + Math.PI / 2, null);   // screen angle → compass angle (0 = north/up)
         K.text(c, K.tr({ en: 'compass', hr: 'kompas' }, lang), g.comp.x, g.comp.y + g.comp.r + 12, { font: '11px ' + theme.font, color: theme.muted, align: 'center', baseline: 'middle' });
         // header
-        K.text(c, K.tr({ en: 'Electromagnet: ', hr: 'Elektromagnet: ' }, lang) + K.fmt(st.turns, 0, lang) + ' ' + K.tr({ en: 'turns', hr: 'namotaja' }, lang) + ' × ' + K.fmt(st.closed ? st.I : 0, 1, lang) + ' A' +
+        K.text(c, K.tr({ en: 'Electromagnet: ', hr: 'Elektromagnet: ' }, lang) + K.fmt(st.turns, 0, lang) + ' ' + K.tr({ en: 'turns', hr: 'zav.' }, lang) + ' × ' + K.fmt(st.closed ? st.I : 0, 1, lang) + ' A' +
           (st.core ? '' : ' × ' + K.fmt(CORE_OFF, 2, lang)) + '  →  ' + K.tr({ en: 'strength ', hr: 'jakost ' }, lang) + K.fmt(st.S, 1, lang),
           12, 14, { font: 'bold 13px ' + theme.fontDisplay, color: theme.fg, baseline: 'middle' });
-        K.text(c, K.tr({ en: 'Paperclips lifted: ', hr: 'Podignute spajalice: ' }, lang) + st.lifted + ' / ' + N_CLIPS + '   (' + K.tr({ en: 'one per 10 units of strength', hr: 'jedna na 10 jedinica jakosti' }, lang) + ')',
+        K.text(c, K.tr({ en: 'Paperclips lifted: ', hr: 'Podignute spajalice: ' }, lang) + st.lifted + ' / ' + N_CLIPS + '   (' + K.tr({ en: 'one per 10 units of strength', hr: 'jedna na svakih 10 jedinica jakosti' }, lang) + ')',
           12, 32, { font: '12px ' + theme.font, color: theme.muted, baseline: 'middle' });
       }
       function drawB() {
@@ -294,7 +294,7 @@
           K.arrow(c, g.x - g.R - 30, g.cy, g.x - g.R - 30 + bx * 36, g.cy, { color: theme.c3, width: 3, head: 10 });
           K.text(c, 'B', g.x - g.R - 30 + bx * 18, g.cy - 14, { font: 'bold italic 13px ' + theme.font, color: theme.fg, align: 'center', baseline: 'middle' });
         }
-        K.text(c, K.tr({ en: 'Wire above the compass. ', hr: 'Vodič iznad kompasa. ' }, lang) + K.tr(st.closed && st.I > 0 ? (up ? { en: 'Current flows up (north).', hr: 'Struja teče gore (sjever).' } : { en: 'Current flows down (south).', hr: 'Struja teče dolje (jug).' }) : { en: 'No current.', hr: 'Nema struje.' }, lang),
+        K.text(c, K.tr({ en: 'Wire above the compass. ', hr: 'Vodič iznad kompasa. ' }, lang) + K.tr(st.closed && st.I > 0 ? (up ? { en: 'Current flows up (north).', hr: 'Struja teče gore (prema sjeveru).' } : { en: 'Current flows down (south).', hr: 'Struja teče dolje (prema jugu).' }) : { en: 'No current.', hr: 'Nema struje.' }, lang),
           12, 14, { font: 'bold 13px ' + theme.fontDisplay, color: theme.fg, baseline: 'middle' });
         K.text(c, K.tr({ en: 'Needle deflection: ', hr: 'Otklon igle: ' }, lang) + K.fmt(Math.abs(st.defl), 0, lang) + '°' + (st.defl ? (st.defl < 0 ? K.tr({ en: ' to the west', hr: ' prema zapadu' }, lang) : K.tr({ en: ' to the east', hr: ' prema istoku' }, lang)) : ''),
           12, 32, { font: '12px ' + theme.font, color: theme.muted, baseline: 'middle' });

@@ -28,15 +28,15 @@
   ];
   const V = {
     empty: { en: 'Type your measurements into the table (a decimal comma or point both work), or load an example.', hr: 'Upiši svoja mjerenja u tablicu (može decimalni zarez ili točka) ili učitaj primjer.' },
-    none: { en: 'Choose a line under "Line through the points" to get the slope k and to see how well the points follow it.', hr: 'Odaberi pravac pod „Pravac kroz točke” da dobiješ nagib pravca k i vidiš koliko ga točke prate.' },
-    few: { en: 'Enter at least 3 points to judge a line.', hr: 'Upiši barem 3 točke da se može procijeniti pravac.' },
+    none: { en: 'Choose a line under "Line through the points" to get the slope k and to see how well the points follow it.', hr: 'Odaberi vrstu pravca pod „Pravac kroz točke“ da dobiješ nagib k i vidiš koliko dobro točke prate pravac.' },
+    few: { en: 'Enter at least 3 points to judge a line.', hr: 'Za procjenu pravca upiši barem 3 točke.' },
     samex: { en: 'All x values are the same: a line needs different x values.', hr: 'Sve su vrijednosti x jednake: za pravac trebaju različite vrijednosti x.' },
-    prop: { en: 'The points lie very close to a line through the origin: y is proportional to x (double x gives double y).', hr: 'Točke leže vrlo blizu pravca kroz ishodište: y je razmjeran s x (dvostruki x daje dvostruki y).' },
+    prop: { en: 'The points lie very close to a line through the origin: y is proportional to x (double x gives double y).', hr: 'Točke leže vrlo blizu pravca kroz ishodište: y je razmjeran x-u (dvostruko veći x daje dvostruko veći y).' },
     good: { en: 'The points lie very close to the line: a straight-line (linear) relationship describes your measurements very well.', hr: 'Točke leže vrlo blizu pravca: linearna ovisnost vrlo dobro opisuje tvoja mjerenja.' },
-    ok: { en: 'The points follow the line roughly. A small scatter is normal measurement error.', hr: 'Točke otprilike prate pravac. Malo rasipanje je uobičajena pogreška mjerenja.' },
-    bad: { en: 'The points are scattered far from the line. Check the measurements, or the relationship is not a straight line.', hr: 'Točke su jako raspršene oko pravca. Provjeri mjerenja ili ovisnost nije linearna.' },
-    curve: { en: 'The points bend away from the line in a regular way: this is NOT a straight-line (linear) relationship. A curve describes it better.', hr: 'Točke se pravilno savijaju od pravca: ovo NIJE linearna ovisnost. Bolje je opisuje krivulja.' },
-    offset: { en: 'The points lie on a line, but that line does not pass through the origin. Choose "straight line, y = k·x + l".', hr: 'Točke leže na pravcu, ali taj pravac ne prolazi kroz ishodište. Odaberi „pravac, y = k·x + l”.' }
+    ok: { en: 'The points follow the line roughly. A small scatter is normal measurement error.', hr: 'Točke otprilike prate pravac. Malo raspršenje točaka uobičajena je posljedica pogrešaka mjerenja.' },
+    bad: { en: 'The points are scattered far from the line. Check the measurements, or the relationship is not a straight line.', hr: 'Točke su jako raspršene oko pravca. Provjeri mjerenja; možda ovisnost nije linearna.' },
+    curve: { en: 'The points bend away from the line in a regular way: this is NOT a straight-line (linear) relationship. A curve describes it better.', hr: 'Točke se pravilno odmiču od pravca: ovo NIJE linearna ovisnost. Bolje je opisuje krivulja.' },
+    offset: { en: 'The points lie on a line, but that line does not pass through the origin. Choose "straight line, y = k·x + l".', hr: 'Točke leže na pravcu, ali taj pravac ne prolazi kroz ishodište. Odaberi „pravac, y = k·x + l“.' }
   };
 
   function el(tag, cls, parent) { const e = document.createElement(tag); if (cls) e.className = cls; if (parent) parent.appendChild(e); return e; }
@@ -102,12 +102,12 @@
     title: { en: 'Data Table and Graph', hr: 'Tablica i graf' },
     summary: {
       en: 'Type in your own measurements: draw a graph with a best straight line and its slope, or work out the mean and the error of a repeated measurement.',
-      hr: 'Upiši vlastita mjerenja: nacrtaj graf s pravcem i njegovim nagibom ili izračunaj srednju vrijednost i pogrešku ponovljenog mjerenja.'
+      hr: 'Upiši vlastita mjerenja: nacrtaj graf, provuci pravac kroz točke i odredi njegov nagib ili izračunaj srednju vrijednost i pogrešku ponovljenog mjerenja.'
     },
     tasks: [
-      { en: 'Load the example "Walking". What does the slope of the line tell you? What is its unit?', hr: 'Učitaj primjer „Hodanje”. Što ti govori nagib pravca? Koja mu je mjerna jedinica?' },
-      { en: 'Load "Cooling tea" and choose a straight line. Why does the tool say the relationship is not linear?', hr: 'Učitaj „Hlađenje čaja” i odaberi pravac. Zašto alat kaže da ovisnost nije linearna?' },
-      { en: 'Hang coins on a rubber band, measure the stretch and replace the example with your own numbers. Is the stretch proportional to the number of coins?', hr: 'Objesi kovanice na gumicu, izmjeri produljenje i zamijeni primjer svojim brojevima. Je li produljenje razmjerno broju kovanica?' },
+      { en: 'Load the example "Walking". What does the slope of the line tell you? What is its unit?', hr: 'Učitaj primjer „Hodanje“. Što pokazuje nagib pravca? Koja mu je mjerna jedinica?' },
+      { en: 'Load "Cooling tea" and choose a straight line. Why does the tool say the relationship is not linear?', hr: 'Učitaj „Hlađenje čaja“ i odaberi pravac. Zašto program javlja da ovisnost nije linearna?' },
+      { en: 'Hang coins on a rubber band, measure the stretch and replace the example with your own numbers. Is the stretch proportional to the number of coins?', hr: 'Objesi kovanice na gumicu, izmjeri produljenje i zamijeni podatke iz primjera svojim mjerenjima. Je li produljenje razmjerno broju kovanica?' },
       { en: 'Repeated measurement: measure the length of your desk 5 times and write the result as (x̄ ± Δx) cm. Is the relative error below 10 %?', hr: 'Ponovljena mjerenja: 5 puta izmjeri duljinu svog stola i zapiši rezultat kao (x̄ ± Δx) cm. Je li relativna pogreška manja od 10 %?' }
     ],
     mount(container, ctx) {
@@ -132,8 +132,8 @@
       const tblG = el('table', 'sk-table', el('div', 'sk-table-wrap', secG)), headG = el('tr', '', el('thead', '', tblG)), bodyG = el('tbody', '', tblG);
       const thG = [el('th', '', headG), el('th', '', headG), el('th', '', headG)]; thG[0].textContent = '#';
       const rowG = el('div', 'sk-row', secG);
-      const bAddG = btn(rowG, { en: 'Add row', hr: 'Dodaj red' }, () => { if (data.g.rows.length < MAX_XY) { data.g.rows.push({ x: '', y: '' }); buildG(); changed(); focusLast(bodyG); } });
-      const bDelG = btn(rowG, { en: 'Remove last row', hr: 'Ukloni zadnji red' }, () => { if (data.g.rows.length > 1) { data.g.rows.pop(); buildG(); changed(); } });
+      const bAddG = btn(rowG, { en: 'Add row', hr: 'Dodaj redak' }, () => { if (data.g.rows.length < MAX_XY) { data.g.rows.push({ x: '', y: '' }); buildG(); changed(); focusLast(bodyG); } });
+      const bDelG = btn(rowG, { en: 'Remove last row', hr: 'Ukloni zadnji redak' }, () => { if (data.g.rows.length > 1) { data.g.rows.pop(); buildG(); changed(); } });
       btn(rowG, { en: 'Clear', hr: 'Obriši sve' }, () => clearTable('graph'));
 
       const secR = el('div', 'sk-panel', container);
@@ -264,14 +264,14 @@
         outRn.set(s.n); outMean.set(s.n ? fx(s.mean) + u : null); outDev.set(s.n > 1 ? fx(s.maxDev) + u : null);
         outRel.set(s.n > 1 ? s.rel : null); outRel.setColor(s.n > 1 && s.rel !== null ? (s.rel <= 10 ? 'var(--good)' : 'var(--warn)') : '');
         noteR.set(s.n < 2 ? { en: 'Measure the same thing several times (at least 3, better 5 or more) and type in every reading.', hr: 'Izmjeri istu veličinu više puta (barem 3, još bolje 5 ili više) i upiši svako mjerenje.' }
-          : s.rel === null ? { en: 'The mean is 0, so a relative error cannot be given.', hr: 'Srednja vrijednost je 0 pa se relativna pogreška ne može iskazati.' }
-            : s.maxDev === 0 ? { en: 'All readings agree. Then take half of the smallest division of your instrument as the error.', hr: 'Sva se mjerenja slažu. Tada za pogrešku uzmi pola najmanjeg podjeljka svog instrumenta.' }
+          : s.rel === null ? { en: 'The mean is 0, so a relative error cannot be given.', hr: 'Srednja vrijednost iznosi 0 pa se relativna pogreška ne može izračunati.' }
+            : s.maxDev === 0 ? { en: 'All readings agree. Then take half of the smallest division of your instrument as the error.', hr: 'Sva se mjerenja slažu. Tada za pogrešku uzmi pola najmanjeg podjeljka mjernog instrumenta.' }
               : bi(l => (l === 'en' ? 'Relative error ' : 'Relativna pogreška ') + K.fmt(s.rel, 1, l) + ' %: ' + (s.rel <= 10
                 ? (l === 'en' ? 'fine for a school experiment (≤ 10 %).' : 'u redu za školski pokus (≤ 10 %).')
-                : (l === 'en' ? 'too scattered: measure again, more carefully or more times.' : 'previše raspršeno: mjeri ponovno, pažljivije ili više puta.'))));
+                : (l === 'en' ? 'too scattered: measure again, more carefully or more times.' : 'mjerenja su previše raspršena: ponovi ih pažljivije ili više puta.'))));
         msgGross.hidden = s.gross < 0;
         if (s.gross >= 0) msgGross.textContent = K.tr({ en: 'Reading no. ', hr: 'Mjerenje br. ' }, lang) + (s.gross + 1) + ' (' + numStr(num(R.vals[s.gross].v), lang) + u + ') ' +
-          K.tr({ en: 'lies far from the others. It may be a gross error: a slip in reading or in writing. Check it; if it is a mistake, tick "leave it out".', hr: 'jako odskače od ostalih. Možda je gruba pogreška: omaška pri očitavanju ili zapisivanju. Provjeri ga; ako je pogreška, označi „izostavi”.' }, lang);
+          K.tr({ en: 'lies far from the others. It may be a gross error: a slip in reading or in writing. Check it; if it is a mistake, tick "leave it out".', hr: 'jako odskače od ostalih. Možda je riječ o gruboj pogrešci: omašci pri očitavanju ili zapisivanju. Provjeri ga; ako je riječ o pogrešci, označi „izostavi“.' }, lang);
         draw();
       }
 

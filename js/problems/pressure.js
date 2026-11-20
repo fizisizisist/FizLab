@@ -13,10 +13,10 @@
       params: R => { const p = R.step(200, 3000, 100); const A = R.pick([0.2, 0.25, 0.5, 1, 2]); return { F: p * A, A }; },
       text: {
         en: (p, f) => `A crate stands on the floor. Its weight is ${f(p.F)} N and its base has an area of ${f(p.A)} m². What pressure does the crate exert on the floor? (p = F / A)`,
-        hr: (p, f) => `Sanduk stoji na podu. Njegova težina je ${f(p.F)} N, a površina dna ${f(p.A)} m². Koliki tlak sanduk vrši na pod? (p = F / A)`
+        hr: (p, f) => `Sanduk stoji na podu. Njegova težina je ${f(p.F)} N, a površina dna ${f(p.A)} m². Kolikim tlakom sanduk djeluje na pod? (p = F / A)`
       },
       answer: p => p.F / p.A, unit: 'Pa',
-      hint: { en: 'Pressure = force divided by area; 1 N/m² = 1 Pa.', hr: 'Tlak = sila podijeljena površinom; 1 N/m² = 1 Pa.' },
+      hint: { en: 'Pressure = force divided by area; 1 N/m² = 1 Pa.', hr: 'Tlak = sila podijeljena s površinom; 1 N/m² = 1 Pa.' },
       steps: {
         en: (p, f) => ['p = F / A', `p = ${f(p.F)} N / ${f(p.A)} m²`, `p = ${f(p.F / p.A)} Pa`],
         hr: (p, f) => ['p = F / A', `p = ${f(p.F)} N / ${f(p.A)} m²`, `p = ${f(p.F / p.A)} Pa`]
@@ -41,7 +41,7 @@
       params: R => { const A1 = R.pick([2, 4, 5, 10]); const k = R.pick([5, 10, 20, 25, 50]); return { A1, A2: A1 * k, F1: R.step(50, 500, 50) }; },
       text: {
         en: (p, f) => `In a hydraulic lift the small piston has an area of ${f(p.A1)} cm² and the large piston ${f(p.A2)} cm². We push the small piston with a force of ${f(p.F1)} N. How big is the force on the large piston? (F₂ = F₁ · A₂ / A₁)`,
-        hr: (p, f) => `U hidrauličkoj dizalici mali klip ima površinu ${f(p.A1)} cm², a veliki klip ${f(p.A2)} cm². Mali klip pritisnemo silom ${f(p.F1)} N. Kolika je sila na velikom klipu? (F₂ = F₁ · A₂ / A₁)`
+        hr: (p, f) => `U hidrauličkoj dizalici mali klip ima površinu ${f(p.A1)} cm², a veliki klip ${f(p.A2)} cm². Mali klip pritisnemo silom od ${f(p.F1)} N. Kolika je sila na velikom klipu? (F₂ = F₁ · A₂ / A₁)`
       },
       answer: p => p.F1 * p.A2 / p.A1, unit: 'N',
       hint: { en: 'The force grows as many times as the area is bigger.', hr: 'Sila se poveća toliko puta koliko je puta površina veća.' },
@@ -55,7 +55,7 @@
       params: R => { const p = R.pick([500, 1000, 2000, 2500, 4000, 5000]); const A = R.step(0.2, 2, 0.2); return { p, F: p * A }; },
       text: {
         en: (p, f) => `A wardrobe presses on the floor with a force of ${f(p.F)} N and exerts a pressure of ${f(p.p)} Pa. What is the area of its base? (A = F / p)`,
-        hr: (p, f) => `Ormar pritišće pod silom ${f(p.F)} N i vrši tlak ${f(p.p)} Pa. Kolika je površina njegova dna? (A = F / p)`
+        hr: (p, f) => `Ormar pritišće pod silom od ${f(p.F)} N, a tlak na pod iznosi ${f(p.p)} Pa. Kolika je površina njegova dna? (A = F / p)`
       },
       answer: p => p.F / p.p, unit: 'm²',
       hint: { en: 'Rearrange p = F / A into A = F / p.', hr: 'Iz p = F / A slijedi A = F / p.' },
@@ -83,10 +83,10 @@
       params: R => ({ h: R.int(1, 40) }),
       text: {
         en: (p, f) => `At what depth in a lake does the water alone exert a pressure of ${f(10 * p.h)} kPa? Use ρ = 1000 kg/m³ and g = 10 N/kg. (1 kPa = 1000 Pa)`,
-        hr: (p, f) => `Na kojoj dubini u jezeru sama voda vrši tlak ${f(10 * p.h)} kPa? Uzmi ρ = 1000 kg/m³ i g = 10 N/kg. (1 kPa = 1000 Pa)`
+        hr: (p, f) => `Na kojoj dubini u jezeru hidrostatski tlak vode iznosi ${f(10 * p.h)} kPa? Uzmi ρ = 1000 kg/m³ i g = 10 N/kg. (1 kPa = 1000 Pa)`
       },
       answer: p => p.h, unit: 'm',
-      hint: { en: 'Write the pressure in Pa, then h = p / (ρ · g).', hr: 'Zapiši tlak u Pa, zatim h = p / (ρ · g).' },
+      hint: { en: 'Write the pressure in Pa, then h = p / (ρ · g).', hr: 'Izrazi tlak u paskalima, zatim h = p / (ρ · g).' },
       steps: {
         en: (p, f) => [`p = ${f(10 * p.h)} kPa = ${f(10000 * p.h)} Pa`, `h = p / (ρ · g) = ${f(10000 * p.h)} Pa / (1000 kg/m³ · 10 N/kg)`, `h = ${f(10000 * p.h)} / 10000 m = ${f(p.h)} m`],
         hr: (p, f) => [`p = ${f(10 * p.h)} kPa = ${f(10000 * p.h)} Pa`, `h = p / (ρ · g) = ${f(10000 * p.h)} Pa / (1000 kg/m³ · 10 N/kg)`, `h = ${f(10000 * p.h)} / 10000 m = ${f(p.h)} m`]
@@ -97,13 +97,13 @@
       params: R => ({ h: R.int(5, 40) }),
       text: {
         en: (p, f) => `A diver is ${f(p.h)} m below the surface of the sea. The density of sea water is 1030 kg/m³, g = 10 N/kg and the atmospheric pressure at the surface is 100 kPa. What is the total pressure on the diver, in kPa?`,
-        hr: (p, f) => `Ronilac je ${f(p.h)} m ispod površine mora. Gustoća morske vode je 1030 kg/m³, g = 10 N/kg, a atmosferski tlak na površini iznosi 100 kPa. Koliki je ukupni tlak na ronioca, u kPa?`
+        hr: (p, f) => `Ronilac je ${f(p.h)} m ispod površine mora. Gustoća morske vode je 1030 kg/m³, g = 10 N/kg, a atmosferski tlak na površini iznosi 100 kPa. Koliki ukupni tlak djeluje na ronioca? Odgovor izrazi u kPa.`
       },
       answer: p => 100 + 1030 * 10 * p.h / 1000, unit: 'kPa',
-      hint: { en: 'Pressure of the water ρ · g · h in kPa, plus the 100 kPa of the atmosphere.', hr: 'Tlak vode ρ · g · h u kPa, plus 100 kPa atmosfere.' },
+      hint: { en: 'Pressure of the water ρ · g · h in kPa, plus the 100 kPa of the atmosphere.', hr: 'Izračunaj tlak vode ρ · g · h u kPa i dodaj mu atmosferski tlak od 100 kPa.' },
       steps: {
         en: (p, f) => [`Water: p = ρ · g · h = 1030 kg/m³ · 10 N/kg · ${f(p.h)} m = ${f(10300 * p.h)} Pa = ${f(10.3 * p.h)} kPa`, `Total: ${f(10.3 * p.h)} kPa + 100 kPa`, `p = ${f(100 + 10.3 * p.h)} kPa`],
-        hr: (p, f) => [`Voda: p = ρ · g · h = 1030 kg/m³ · 10 N/kg · ${f(p.h)} m = ${f(10300 * p.h)} Pa = ${f(10.3 * p.h)} kPa`, `Ukupno: ${f(10.3 * p.h)} kPa + 100 kPa`, `p = ${f(100 + 10.3 * p.h)} kPa`]
+        hr: (p, f) => [`Tlak vode: p = ρ · g · h = 1030 kg/m³ · 10 N/kg · ${f(p.h)} m = ${f(10300 * p.h)} Pa = ${f(10.3 * p.h)} kPa`, `Ukupno: ${f(10.3 * p.h)} kPa + 100 kPa`, `p = ${f(100 + 10.3 * p.h)} kPa`]
       }
     },
     {
@@ -111,10 +111,10 @@
       params: R => ({ a: R.step(0.5, 2, 0.1), b: R.step(0.5, 1.5, 0.1) }),
       text: {
         en: (p, f) => `A window is ${f(p.a)} m wide and ${f(p.b)} m high. With what force does the atmosphere press on it? Take the atmospheric pressure p = 100 kPa = ${f(100000)} Pa. (F = p · A)`,
-        hr: (p, f) => `Prozor je širok ${f(p.a)} m i visok ${f(p.b)} m. Kolikom silom atmosfera pritišće na prozor? Uzmi atmosferski tlak p = 100 kPa = ${f(100000)} Pa. (F = p · A)`
+        hr: (p, f) => `Prozor je širok ${f(p.a)} m i visok ${f(p.b)} m. Kolikom silom zrak pritišće prozor? Uzmi atmosferski tlak p = 100 kPa = ${f(100000)} Pa. (F = p · A)`
       },
       answer: p => 100000 * p.a * p.b, unit: 'N',
-      hint: { en: 'First the area of the window, then F = p · A.', hr: 'Najprije površina prozora, zatim F = p · A.' },
+      hint: { en: 'First the area of the window, then F = p · A.', hr: 'Najprije izračunaj površinu prozora, zatim F = p · A.' },
       steps: {
         en: (p, f) => [`A = ${f(p.a)} m · ${f(p.b)} m = ${f(p.a * p.b)} m²`, `F = p · A = ${f(100000)} Pa · ${f(p.a * p.b)} m²`, `F = ${f(100000 * p.a * p.b)} N`],
         hr: (p, f) => [`A = ${f(p.a)} m · ${f(p.b)} m = ${f(p.a * p.b)} m²`, `F = p · A = ${f(100000)} Pa · ${f(p.a * p.b)} m²`, `F = ${f(100000 * p.a * p.b)} N`]
@@ -125,10 +125,10 @@
       params: R => ({ m: R.int(40, 90), A: R.pick([400, 500]) }),
       text: {
         en: (p, f) => `A pupil of mass ${f(p.m)} kg stands on both feet. The total area of the shoe soles is ${f(p.A)} cm². What pressure does the pupil exert on the floor? Use g = 10 N/kg and 1 cm² = ${f(0.0001, 4)} m².`,
-        hr: (p, f) => `Učenik mase ${f(p.m)} kg stoji na obje noge. Ukupna površina potplata je ${f(p.A)} cm². Koliki tlak učenik vrši na pod? Uzmi g = 10 N/kg i 1 cm² = ${f(0.0001, 4)} m².`
+        hr: (p, f) => `Učenik mase ${f(p.m)} kg stoji na objema nogama. Ukupna površina potplata je ${f(p.A)} cm². Kolikim tlakom učenik djeluje na pod? Uzmi g = 10 N/kg i 1 cm² = ${f(0.0001, 4)} m².`
       },
       answer: p => p.m * 10 / (p.A / 10000), unit: 'Pa',
-      hint: { en: 'Weight G = m · g, area in m², then p = G / A.', hr: 'Težina G = m · g, površina u m², zatim p = G / A.' },
+      hint: { en: 'Weight G = m · g, area in m², then p = G / A.', hr: 'Izračunaj težinu G = m · g, izrazi površinu u m², zatim p = G / A.' },
       steps: {
         en: (p, f) => [`G = ${f(p.m)} kg · 10 N/kg = ${f(p.m * 10)} N`, `A = ${f(p.A)} cm² = ${f(p.A / 10000)} m²`, `p = G / A = ${f(p.m * 10)} N / ${f(p.A / 10000)} m² = ${f(p.m * 10 / (p.A / 10000))} Pa`],
         hr: (p, f) => [`G = ${f(p.m)} kg · 10 N/kg = ${f(p.m * 10)} N`, `A = ${f(p.A)} cm² = ${f(p.A / 10000)} m²`, `p = G / A = ${f(p.m * 10)} N / ${f(p.A / 10000)} m² = ${f(p.m * 10 / (p.A / 10000))} Pa`]

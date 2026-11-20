@@ -27,6 +27,15 @@
     const f = walk(I18N.en);
     return f === undefined ? path : f;
   }
+  // Counted nouns: an i18n value may list its forms. Croatian has three (1 pitanje, 2 pitanja, 5 pitanja;
+  // 21 pitanje, 22 pitanja, 25 pitanja): [one, few, many]. English has two: [one, other].
+  function plural(n, v) {
+    if (!Array.isArray(v)) return v;
+    if (v.length < 3) return n === 1 ? v[0] : v[v.length - 1];
+    const a = Math.abs(n) % 10, b = Math.abs(n) % 100;
+    return a === 1 && b !== 11 ? v[0] : (a >= 2 && a <= 4 && (b < 12 || b > 14)) ? v[1] : v[2];
+  }
+  const tn = (path, n) => plural(n, t(path));
   const tr = obj => K.tr(obj, lang);
   const fmt = (v, d) => K.fmt(v, d, lang);
 
@@ -188,6 +197,9 @@
     }
     $('#foot').textContent = t('footer');
     document.querySelectorAll('[data-i18n]').forEach(n => { n.textContent = t(n.getAttribute('data-i18n')); });
+    $('#themeBtn').title = t('common.theme');
+    const readBtn = $('#readBtn');
+    if (readBtn) { readBtn.title = t('read.title'); readBtn.setAttribute('aria-label', t('read.title')); }
     document.documentElement.lang = lang;
     if (!keepSim) window.scrollTo({ top: 0 });
   }
@@ -284,12 +296,12 @@
           el('a', { class: 'btn warm', href: '#challenge', text: t('hero.challenge') })
         ]),
         el('div', { class: 'stats' }, [
-          el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(Content.topics.length) }), el('span', { text: t('stats.topics') })]),
-          el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(nSims) }), el('span', { text: t('stats.sims') })]),
-          el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(nQ) }), el('span', { text: t('stats.questions') })]),
-          el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(FizExt.problemCount() + FizExt.conceptCount()) }), el('span', { text: t('stats.problems') })]),
-          el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(FizMore.counts().experiments + Content.topics.filter(tp => tp.experiment).length) }), el('span', { text: t('stats.experiments') })]),
-          el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(nTerms) }), el('span', { text: t('stats.terms') })])
+          el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(Content.topics.length) }), el('span', { text: tn('stats.topics', Content.topics.length) })]),
+          el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(nSims) }), el('span', { text: tn('stats.sims', nSims) })]),
+          el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(nQ) }), el('span', { text: tn('stats.questions', nQ) })]),
+          el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(FizExt.problemCount() + FizExt.conceptCount()) }), el('span', { text: tn('stats.problems', FizExt.problemCount() + FizExt.conceptCount()) })]),
+          el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(FizMore.counts().experiments + Content.topics.filter(tp => tp.experiment).length) }), el('span', { text: tn('stats.experiments', FizMore.counts().experiments + Content.topics.filter(tp => tp.experiment).length) })]),
+          el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(nTerms) }), el('span', { text: tn('stats.terms', nTerms) })])
         ])
       ]),
       el('div', { class: 'hero-art' }, [el('canvas', { 'aria-hidden': 'true' })])
@@ -313,7 +325,7 @@
         el('div', null, [el('h3', { text: tr(tp.title) }), el('p', { class: 'tag', text: tr(tp.intro) })]),
         el('div', { class: 'meta' }, [
           el('span', { class: 'grade-pill', text: t('grade.' + tp.gradeLevel) }),
-          el('span', { class: 'num', text: tp.sims.length + ' ' + t('common.sims') + ' · ' + tp.quiz.length + ' ' + t('common.questions') }),
+          el('span', { class: 'num', text: tp.sims.length + ' ' + tn('common.sims', tp.sims.length) + ' · ' + tp.quiz.length + ' ' + tn('common.questions', tp.quiz.length) }),
           el('span', { class: 'progress-bar' }, [el('i', { style: 'width:' + pct + '%' })])
         ])
       ]));
@@ -664,8 +676,8 @@
       const x = deck[flashState.order[flashState.idx]];
       let front, back, frontLabel, backLabel;
       if (flashState.mode === 'mode1') { front = tr(x.k.term); back = tr(x.k.def); frontLabel = tr(x.topic.title); backLabel = t('glossary.definition'); }
-      else if (flashState.mode === 'mode2') { front = x.k.term.en; back = x.k.term.hr; frontLabel = 'English'; backLabel = 'Hrvatski'; }
-      else { front = x.k.term.hr; back = x.k.term.en; frontLabel = 'Hrvatski'; backLabel = 'English'; }
+      else if (flashState.mode === 'mode2') { front = x.k.term.en; back = x.k.term.hr; frontLabel = t('common.langEn'); backLabel = t('common.langHr'); }
+      else { front = x.k.term.hr; back = x.k.term.en; frontLabel = t('common.langHr'); backLabel = t('common.langEn'); }
       const cardEl = el('button', { type: 'button', class: 'flashcard', 'aria-label': t('flash.flip') }, [el('div', { class: 'flashcard-inner' }, [
         el('div', { class: 'flash-face' }, [el('div', null, [el('small', { text: frontLabel }), front])]),
         el('div', { class: 'flash-face back' }, [el('div', null, [el('small', { text: backLabel }), back])])
@@ -699,10 +711,10 @@
       el('div', { class: 'stat' }, [el('b', { class: 'num', text: `${nL} / ${Content.topics.length}` }), el('span', { text: t('progress.lessons') })]),
       el('div', { class: 'stat' }, [el('b', { class: 'num', text: `${nQ} / ${Content.topics.length}` }), el('span', { text: t('progress.quizzes') })]),
       el('div', { class: 'stat' }, [el('b', { class: 'num', text: `${nS} / ${Sims.list.length}` }), el('span', { text: t('progress.sims') })]),
-      el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(FizExt.solvedTotal()) }), el('span', { text: t('progress.problems') })]),
+      el('div', { class: 'stat' }, [el('b', { class: 'num', text: String(FizExt.solvedTotal()) }), el('span', { text: tn('progress.problems', FizExt.solvedTotal()) })]),
       el('div', { class: 'stat' }, [el('b', { class: 'num', text: `${FizMore.expDoneCount()} / ${FizMore.counts().experiments}` }), el('span', { text: t('progress.experiments') })]),
       el('div', { class: 'stat' }, [el('b', { class: 'num', text: (progress.exams && progress.exams.taken) ? `${progress.exams.best} %` : '–' }), el('span', { text: t('progress.exams') })]),
-      el('div', { class: 'stat' }, [el('b', { class: 'num', text: `${progress.challenge.streak || 0}` }), el('span', { text: t('progress.streak') })])
+      el('div', { class: 'stat' }, [el('b', { class: 'num', text: `${progress.challenge.streak || 0}` }), el('span', { text: tn('progress.streak', progress.challenge.streak || 0) })])
     ]));
     main.appendChild(el('div', { class: 'section-head' }, [el('h2', { text: t('progress.badges') })]));
     const bg = el('div', { class: 'badges' });
@@ -747,7 +759,7 @@
     if (!all.length) return;
     const key = todayKey();
     const item = all[hashStr('fizlab-' + key) % all.length];
-    const streakLine = el('p', { class: 'num', text: `${t('challenge.streak')}: ${progress.challenge.streak || 0} ${t('progress.days')}` });
+    const streakLine = el('p', { class: 'num', text: `${t('challenge.streak')}: ${progress.challenge.streak || 0} ${tn('progress.days', progress.challenge.streak || 0)}`.trim() });
     main.appendChild(streakLine);
     if (progress.challenge.solved[key]) {
       main.appendChild(el('div', { class: 'quiz-card quiz' }, [el('h3', { text: t('challenge.done') }), el('p', { class: 'quiz-type', text: t('challenge.from') + ': ' + tr(item.topic.title) }), el('p', { text: tr(item.q.q) }), el('div', { class: 'feedback ok' }, [el('span', { text: tr(item.q.explain) })]),
@@ -762,7 +774,7 @@
           progress.challenge.streak = (progress.challenge.last === yKey) ? (progress.challenge.streak || 0) + 1 : 1;
           progress.challenge.last = key; progress.challenge.solved[key] = true;
           saveProgress(); checkBadges();
-          streakLine.textContent = `${t('challenge.streak')}: ${progress.challenge.streak} ${t('progress.days')}`;
+          streakLine.textContent = `${t('challenge.streak')}: ${progress.challenge.streak} ${tn('progress.days', progress.challenge.streak)}`.trim();
         }
       } });
   }
@@ -786,7 +798,7 @@
   if (!window.FizExt) {
     window.FizExt = { init() {}, renderPracticeTab() {}, renderPracticePage() {}, renderSummary() { return null; }, renderMisconceptions() { return null; }, renderWorkedExample() { return null; }, renderScientists() {}, renderConverter() {}, problemCount: () => 0, solvedTotal: () => 0, solvedIn: () => 0, hardSolved: () => false, templatesFor: () => [] };
   }
-  const extApi = { el, t, tr, lang: () => lang, progress: () => progress, saveProgress, checkBadges, toast, go, shuffle, iconBox, onLeave: fn => current.cleanup.push(fn) };
+  const extApi = { el, t, tn, tr, lang: () => lang, progress: () => progress, saveProgress, checkBadges, toast, go, shuffle, iconBox, onLeave: fn => current.cleanup.push(fn) };
   FizExt.init(extApi);
   if (!window.FizMore) {
     window.FizMore = { init() {}, renderHub() {}, renderHomeHubs() {}, renderExperiments() {}, renderTopicExperiments() {}, renderPredict() { return null; }, renderExam() {}, renderCheck() {}, renderDrills() {}, renderTeachers() {}, expDoneCount: () => 0, predictCount: () => 0, drillsDone: () => 0, counts: () => ({ experiments: 0, predictions: 0 }) };

@@ -17,11 +17,11 @@
     title: { en: 'Pendulum', hr: 'Njihalo' },
     summary: {
       en: 'Drag the bob and let it swing. Change the length, the mass and the planet, and compare the measured period with the formula.',
-      hr: 'Povuci kuglicu i pusti je da se njiše. Mijenjaj duljinu, masu i planet te usporedi mjereni period s formulom.'
+      hr: 'Povuci kuglicu i pusti je da se njiše. Mijenjaj duljinu, masu i planet te usporedi izmjereni period s periodom izračunanim po formuli.'
     },
     tasks: [
-      { en: 'Pull the bob to 20° and let go. Then try 60°. Does the period change a lot?', hr: 'Povuci kuglicu na 20° i pusti. Zatim probaj 60°. Mijenja li se period puno?' },
-      { en: 'Change the mass from 0.1 kg to 2 kg. What happens to the period?', hr: 'Promijeni masu od 0,1 kg do 2 kg. Što se dogodi s periodom?' },
+      { en: 'Pull the bob to 20° and let go. Then try 60°. Does the period change a lot?', hr: 'Otkloni kuglicu za 20° i pusti je. Zatim pokušaj sa 60°. Mijenja li se period mnogo?' },
+      { en: 'Change the mass from 0.1 kg to 2 kg. What happens to the period?', hr: 'Promijeni masu s 0,1 kg na 2 kg. Što se događa s periodom?' },
       { en: 'Make the pendulum 4 times longer (0.5 m → 2 m). How many times longer is the period?', hr: 'Produlji njihalo 4 puta (0,5 m → 2 m). Koliko je puta dulji period?' },
       { en: 'Take the pendulum to the Moon. Is it faster or slower? Check with T = 2π·√(L/g).', hr: 'Odnesi njihalo na Mjesec. Njiše li se brže ili sporije? Provjeri formulom T = 2π·√(L/g).' }
     ],
@@ -42,19 +42,19 @@
       C.select({ label: { en: 'Where are we?', hr: 'Gdje smo?' }, options: WORLDS.map(p => ({ value: p.id, label: p.label })), value: 'earth',
         onChange: v => { st.g = (WORLDS.find(p => p.id === v) || WORLDS[0]).g; clearMeasure(P); clearMeasure(Q); refresh(); } });
       C.toggle({ label: { en: 'Air friction', hr: 'Otpor zraka' }, value: false, onChange: v => { st.damping = v; refresh(); } });
-      C.toggle({ label: { en: 'Second pendulum (ghost)', hr: 'Drugo njihalo (sjena)' }, value: false, onChange: v => {
+      C.toggle({ label: { en: 'Second pendulum (ghost)', hr: 'Drugo njihalo' }, value: false, onChange: v => {
         st.second = v; slL2.setDisabled(!v); Q.th = P.th; Q.om = 0; Q.peak = Math.abs(P.th); Q.arc = 0; clearMeasure(Q); refresh(); } });
-      const slL2 = C.slider({ label: { en: 'Ghost length', hr: 'Duljina sjene' }, min: 0.2, max: 3, step: 0.1, value: 0.5, unit: 'm', digits: 1, onChange: v => { Q.L = v; clearMeasure(Q); refresh(); } });
+      const slL2 = C.slider({ label: { en: 'Ghost length', hr: 'Duljina 2. njihala' }, min: 0.2, max: 3, step: 0.1, value: 0.5, unit: 'm', digits: 1, onChange: v => { Q.L = v; clearMeasure(Q); refresh(); } });
       slL2.setDisabled(true);
       const btnPlay = C.button({ label: { en: 'Pause', hr: 'Pauza' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
-      const outTm = C.readout({ label: { en: 'Period (measured)', hr: 'Period (mjereno)' }, unit: 's', digits: 2 });
-      const outTf = C.readout({ label: { en: 'Period (formula)', hr: 'Period (formula)' }, unit: 's', digits: 2 });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
+      const outTm = C.readout({ label: { en: 'Period (measured)', hr: 'Izmjereni period' }, unit: 's', digits: 2 });
+      const outTf = C.readout({ label: { en: 'Period (formula)', hr: 'Period po formuli' }, unit: 's', digits: 2 });
       const outAng = C.readout({ label: { en: 'Angle', hr: 'Kut' }, unit: '°', digits: 1 });
       const outV = C.readout({ label: { en: 'Bob speed', hr: 'Brzina kuglice' }, unit: 'm/s', digits: 2 });
-      const outN = C.readout({ label: { en: 'Full swings counted', hr: 'Izbrojeni puni njihaji' }, digits: 0 });
-      const outTm2 = C.readout({ label: { en: 'Ghost period (measured)', hr: 'Period sjene (mjereno)' }, unit: 's', digits: 2 });
-      const outTf2 = C.readout({ label: { en: 'Ghost period (formula)', hr: 'Period sjene (formula)' }, unit: 's', digits: 2 });
+      const outN = C.readout({ label: { en: 'Full swings counted', hr: 'Broj punih titraja' }, digits: 0 });
+      const outTm2 = C.readout({ label: { en: 'Ghost period (measured)', hr: 'Izmjereni period 2. njihala' }, unit: 's', digits: 2 });
+      const outTf2 = C.readout({ label: { en: 'Ghost period (formula)', hr: 'Period 2. njihala po formuli' }, unit: 's', digits: 2 });
       const note = C.note({ text: { en: '', hr: '' } });
 
       // ---------- physics ----------
@@ -103,9 +103,9 @@
         outTm2.set(st.second ? Q.period : null); outTf2.set(st.second ? formulaT(Q) : null);
         const amp = Math.max(P.arc, P.peak) * DEG;
         note.set(st.damping
-          ? { en: 'Air friction makes the swing smaller and smaller, but the period stays almost the same.', hr: 'Otpor zraka smanjuje zamah, ali period ostaje gotovo isti.' }
+          ? { en: 'Air friction makes the swing smaller and smaller, but the period stays almost the same.', hr: 'Zbog otpora zraka zamah je sve manji, ali period ostaje gotovo isti.' }
           : amp > 35
-            ? { en: 'Big swings take a little longer than the formula says — T = 2π·√(L/g) is exact only for small angles.', hr: 'Veliki zamasi traju malo dulje nego što formula kaže — T = 2π·√(L/g) vrijedi točno samo za male kutove.' }
+            ? { en: 'Big swings take a little longer than the formula says — T = 2π·√(L/g) is exact only for small angles.', hr: 'Pri velikom otklonu titraj traje malo dulje nego što predviđa formula — T = 2π·√(L/g) točno vrijedi samo za male kutove.' }
             : { en: 'The period depends only on the length and on gravity. Change the mass — T does not change!', hr: 'Period ovisi samo o duljini i o gravitaciji. Promijeni masu — T se ne mijenja!' });
       }
 
@@ -217,13 +217,13 @@
         const f13 = '13px ' + theme.font, fb = 'bold 13px ' + theme.fontDisplay;
         K.text(ctx, 'L = ' + K.fmt(P.L, 1, lang) + ' m    m = ' + K.fmt(st.m, 1, lang) + ' kg    g = ' + K.fmt(st.g, 2, lang) + ' m/s²', 10, 14, { font: fb, color: theme.fg, baseline: 'middle' });
         K.text(ctx, 'T = 2π·√(L/g) = ' + K.fmt(formulaT(P), 2, lang) + ' s', 10, 32, { font: f13, color: theme.fg, baseline: 'middle' });
-        K.text(ctx, K.tr({ en: 'T measured = ', hr: 'T mjereno = ' }, lang) + K.fmt(P.period, 2, lang) + ' s', 10, 49, { font: f13, color: theme.fg, baseline: 'middle' });
+        K.text(ctx, K.tr({ en: 'T measured = ', hr: 'izmjereni T = ' }, lang) + K.fmt(P.period, 2, lang) + ' s', 10, 49, { font: f13, color: theme.fg, baseline: 'middle' });
         K.text(ctx, 'θ = ' + K.fmt(P.th * DEG, 1, lang) + '°', W - 10, 14, { font: fb, color: theme.fg, align: 'right', baseline: 'middle' });
         K.text(ctx, 'v = ' + K.fmt(P.L * Math.abs(P.om), 2, lang) + ' m/s', W - 10, 32, { font: f13, color: theme.fg, align: 'right', baseline: 'middle' });
-        if (!st.second) K.text(ctx, K.tr({ en: 'swings: ', hr: 'njihaji: ' }, lang) + K.fmt(P.count, 0, lang), W - 10, 49, { font: f13, color: theme.fg, align: 'right', baseline: 'middle' });
+        if (!st.second) K.text(ctx, K.tr({ en: 'swings: ', hr: 'broj titraja: ' }, lang) + K.fmt(P.count, 0, lang), W - 10, 49, { font: f13, color: theme.fg, align: 'right', baseline: 'middle' });
         if (st.second) {
-          const s = K.tr({ en: 'ghost: L = ', hr: 'sjena: L = ' }, lang) + K.fmt(Q.L, 1, lang) + ' m,  T = ' + K.fmt(formulaT(Q), 2, lang) + ' s' +
-            (Q.period !== null ? K.tr({ en: ' (measured ', hr: ' (mjereno ' }, lang) + K.fmt(Q.period, 2, lang) + ' s)' : '');
+          const s = K.tr({ en: 'ghost: L = ', hr: '2. njihalo: L = ' }, lang) + K.fmt(Q.L, 1, lang) + ' m,  T = ' + K.fmt(formulaT(Q), 2, lang) + ' s' +
+            (Q.period !== null ? K.tr({ en: ' (measured ', hr: ' (izmjereno ' }, lang) + K.fmt(Q.period, 2, lang) + ' s)' : '');
           ctx.fillStyle = theme.c2; ctx.fillRect(W - 10 - 10, 44, 10, 10);
           K.text(ctx, s, W - 26, 49, { font: '12px ' + theme.font, color: theme.fg, align: 'right', baseline: 'middle' });
         }
@@ -234,7 +234,7 @@
           [P, Q].forEach(p => p.pts.forEach(pt => { aMax = Math.max(aMax, Math.abs(pt[1])); }));
           aMax = Math.ceil(aMax / 10) * 10;
           const series = [{ points: P.pts, color: theme.c1, label: { en: 'pendulum', hr: 'njihalo' } }];
-          if (st.second) series.push({ points: Q.pts, color: theme.c2, label: { en: 'ghost', hr: 'sjena' } });
+          if (st.second) series.push({ points: Q.pts, color: theme.c2, label: { en: 'ghost', hr: '2. njihalo' } });
           K.lineChart(ctx, { x: W + 8, y: 8, w: w - W - 16, h: h - 16, xMin: t0, xMax: t0 + WINDOW, yMin: -aMax, yMax: aMax, xTicks: 4, yTicks: 4, lang, theme,
             xLabel: { en: 'time (s)', hr: 'vrijeme (s)' }, yLabel: { en: 'angle (°)', hr: 'kut (°)' }, series });
         }

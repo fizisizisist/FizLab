@@ -23,9 +23,9 @@
       hr: 'Povuci utege na kuku. Opruga se produlji razmjerno sili – tako dinamometar mjeri silu.'
     },
     tasks: [
-      { en: 'Hang 100 g, then 200 g, then 500 g. Read the extension each time. What happens when the force doubles?', hr: 'Objesi 100 g, zatim 200 g, zatim 500 g. Svaki put pročitaj produljenje. Što se dogodi kad se sila udvostruči?' },
-      { en: 'Look at the graph: all the points lie on one straight line through the origin. Its slope is the spring constant k.', hr: 'Pogledaj graf: sve točke leže na jednom pravcu kroz ishodište. Njegov nagib je konstanta opruge k.' },
-      { en: 'Switch to the stiff spring with the same masses. Is the extension bigger or smaller? And k?', hr: 'Prebaci na tvrdu oprugu s istim utezima. Je li produljenje veće ili manje? A k?' },
+      { en: 'Hang 100 g, then 200 g, then 500 g. Read the extension each time. What happens when the force doubles?', hr: 'Objesi uteg od 100 g, zatim od 200 g, pa od 500 g. Svaki put očitaj produljenje. Što se događa s produljenjem kad se sila udvostruči?' },
+      { en: 'Look at the graph: all the points lie on one straight line through the origin. Its slope is the spring constant k.', hr: 'Pogledaj graf: sve točke leže na jednom pravcu kroz ishodište. Nagib tog pravca jednak je konstanti opruge k.' },
+      { en: 'Switch to the stiff spring with the same masses. Is the extension bigger or smaller? And k?', hr: 'Odaberi tvrdu oprugu i objesi iste utege. Je li produljenje veće ili manje? A konstanta k?' },
       { en: 'Watch the bobbing. Compare the measured period with T = 2π·√(m/k). Does a heavier mass bob faster or slower?', hr: 'Promatraj titranje. Usporedi izmjereni period s T = 2π·√(m/k). Titra li teži uteg brže ili sporije?' }
     ],
     mount(container, ctx) {
@@ -42,15 +42,15 @@
       const tgSlow = C.toggle({ label: { en: 'Slow motion', hr: 'Usporeno' }, value: false, onChange: v => { st.slow = v; } });
       C.button({ label: { en: 'Remove last mass', hr: 'Skini zadnji uteg' }, onClick: () => { if (st.hung.length) { st.hung.pop(); onMassChange(); updateOut(); draw(); } } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => { reset(); } });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => { reset(); } });
       const outM = C.readout({ label: { en: 'Mass on the hook', hr: 'Masa na kuki' }, unit: 'g', digits: 0 });
       const outF = C.readout({ label: { en: 'Force F = m·g', hr: 'Sila F = m·g' }, unit: 'N', digits: 2 });
       const outX = C.readout({ label: { en: 'Extension x', hr: 'Produljenje x' }, unit: 'cm', digits: 1 });
       const outK = C.readout({ label: { en: 'k from the graph points', hr: 'k iz točaka grafa' }, unit: 'N/m', digits: 1 });
-      const outTm = C.readout({ label: { en: 'Period (measured)', hr: 'Period (izmjeren)' }, unit: 's', digits: 2 });
+      const outTm = C.readout({ label: { en: 'Period (measured)', hr: 'Izmjereni period' }, unit: 's', digits: 2 });
       const outTf = C.readout({ label: { en: 'Period T = 2π·√(m/k)', hr: 'Period T = 2π·√(m/k)' }, unit: 's', digits: 2 });
       C.note({ text: { en: 'A dynamometer measures force by how far a spring stretches: F = k·x (Hooke\'s law). Twice the force → twice the extension.',
-        hr: 'Dinamometar mjeri silu po tome koliko se opruga produlji: F = k·x (Hookeov zakon). Dvostruka sila → dvostruko produljenje.' } });
+        hr: 'Dinamometar mjeri silu po tome koliko se opruga produlji: F = k·x (Hookeov zakon). Dvostruko veća sila → dvostruko veće produljenje.' } });
 
       function updatePlay() { btnPlay.setLabel(L.running ? { en: 'Pause', hr: 'Pauza' } : { en: 'Play', hr: 'Pokreni' }); }
       function kFit() {

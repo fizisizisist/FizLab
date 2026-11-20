@@ -37,15 +37,15 @@
 
   window.Sims.register({
     id: 'heattransfer',
-    title: { en: 'How Heat Travels', hr: 'Kako putuje toplina' },
+    title: { en: 'How Heat Travels', hr: 'Kako se prenosi toplina' },
     summary: {
       en: 'Three ways heat moves: along a spoon in hot tea (conduction), around a pot of water (convection) and across empty space from a heater (radiation).',
-      hr: 'Tri načina na koja se toplina širi: uz žlicu u vrućem čaju (vođenje), kruženjem vode u loncu (strujanje) i kroz prazan prostor od grijalice (zračenje).'
+      hr: 'Tri načina prijenosa topline: duž žlice u vrućem čaju (vođenje), kruženjem vode u loncu (strujanje) i od grijalice kroz prazan prostor (zračenje).'
     },
     tasks: [
-      { en: 'Conduction: compare a steel and a wooden spoon. Which tip gets hot? Which would you rather hold?', hr: 'Vođenje: usporedi čeličnu i drvenu žlicu. Koji se vrh ugrije? Koju bi radije držao?' },
-      { en: 'Convection: turn the stove to full power and switch the arrows on. Where does the warm water go?', hr: 'Strujanje: pojačaj štednjak do kraja i uključi strelice. Kamo odlazi topla voda?' },
-      { en: 'Radiation: which can gets hotter, the black or the shiny one? Now move the cans twice as far away.', hr: 'Zračenje: koja se limenka više ugrije, crna ili sjajna? Sad odmakni limenke dvostruko dalje.' },
+      { en: 'Conduction: compare a steel and a wooden spoon. Which tip gets hot? Which would you rather hold?', hr: 'Vođenje: usporedi čeličnu i drvenu žlicu. Vrh koje žlice postane vruć? Koju bi bilo ugodnije držati?' },
+      { en: 'Convection: turn the stove to full power and switch the arrows on. Where does the warm water go?', hr: 'Strujanje: postavi štednjak na najveću snagu i uključi strelice. Kamo se giba topla voda?' },
+      { en: 'Radiation: which can gets hotter, the black or the shiny one? Now move the cans twice as far away.', hr: 'Zračenje: koja se limenka više ugrije, crna ili sjajna? Zatim odmakni limenke na dvostruko veću udaljenost.' },
       { en: 'Put the shield between the heater and the cans. What happens to their temperatures?', hr: 'Stavi zaslon između grijalice i limenki. Što se događa s njihovim temperaturama?' }
     ],
     mount(container, ctx) {
@@ -63,7 +63,7 @@
       };
 
       // ---------- controls ----------
-      const segMode = C.segmented({ label: { en: 'How does the heat travel?', hr: 'Kako putuje toplina?' }, options: MODES.map(m => ({ value: m.id, label: m.label })), value: 'conduction',
+      const segMode = C.segmented({ label: { en: 'How does the heat travel?', hr: 'Kako se prenosi toplina?' }, options: MODES.map(m => ({ value: m.id, label: m.label })), value: 'conduction',
         onChange: v => { st.mode = v; const m = MODES.find(x => x.id === v) || MODES[0]; st.speed = m.speed; slSpeed.set(m.speed); resetMode(); showControls(); } });
       const selMat = C.select({ label: { en: 'Spoon material', hr: 'Materijal žlice' }, options: ROD_MATS.map(m => ({ value: m.id, label: m.label })), value: 'steel',
         onChange: v => { st.rod.mat = v; resetMode(); } });
@@ -72,12 +72,12 @@
       const tgArrows = C.toggle({ label: { en: 'Show circulation arrows', hr: 'Prikaži strelice kruženja' }, value: true, onChange: v => { st.conv.arrows = v; } });
       const slDist = C.slider({ label: { en: 'Distance of the cans', hr: 'Udaljenost limenki' }, min: 0.3, max: 1.5, step: 0.05, value: 0.5, unit: 'm', digits: 2, onChange: v => { st.rad.d = v; } });
       const tgShield = C.toggle({ label: { en: 'Shield between heater and cans', hr: 'Zaslon između grijalice i limenki' }, value: false, onChange: v => { st.rad.shield = v; } });
-      const slSpeed = C.slider({ label: { en: 'Time speed', hr: 'Brzina vremena' }, min: 1, max: 60, step: 1, value: 30, format: (v, l) => K.fmt(v, 0, l) + '×', onChange: v => { st.speed = v; } });
+      const slSpeed = C.slider({ label: { en: 'Time speed', hr: 'Brzina simulacije' }, min: 1, max: 60, step: 1, value: 30, format: (v, l) => K.fmt(v, 0, l) + '×', onChange: v => { st.speed = v; } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => { reset(); } });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => { reset(); } });
       const outTip = C.readout({ label: { en: 'Spoon tip temperature', hr: 'Temperatura vrha žlice' }, unit: '°C', digits: 1 });
       const outMid = C.readout({ label: { en: 'Handle middle', hr: 'Sredina ručke' }, unit: '°C', digits: 1 });
-      const outWater = C.readout({ label: { en: 'Water temperature (average)', hr: 'Temperatura vode (prosjek)' }, unit: '°C', digits: 1 });
+      const outWater = C.readout({ label: { en: 'Water temperature (average)', hr: 'Temperatura vode (prosječna)' }, unit: '°C', digits: 1 });
       const outCirc = C.readout({ label: { en: 'Circulation', hr: 'Kruženje' } });
       const outPower = C.readout({ label: { en: 'Stove power', hr: 'Snaga štednjaka' }, unit: 'W', digits: 0 });
       const outBlack = C.readout({ label: { en: 'Black can', hr: 'Crna limenka' }, unit: '°C', digits: 1 });
@@ -205,7 +205,7 @@
         } else {
           outBlack.set(st.rad.Tb); outShiny.set(st.rad.Ts); outInt.set(st.rad.shield ? 0 : P_HEATER / (4 * Math.PI * st.rad.d * st.rad.d));
           note.set({ en: 'Radiation needs no material — it reaches us from the Sun through empty space. Dark surfaces absorb it, shiny ones reflect it. Twice as far → four times weaker.',
-            hr: 'Zračenje ne treba tvar – od Sunca do nas stiže kroz prazan svemir. Tamne površine ga upijaju, sjajne odbijaju. Dvostruko dalje → četiri puta slabije.' });
+            hr: 'Za zračenje nije potrebna tvar – od Sunca do nas stiže kroz prazan svemir. Tamne ga površine upijaju, a sjajne odbijaju. Dvostruko dalje → četiri puta slabije.' });
         }
       }
 
@@ -272,8 +272,8 @@
         const tipX = hx0 + ux * Lpx, tipY = hy0 + uy * Lpx;
         thermometer(ctx, tipX + 30, tipY + 14, tipY + 64, st.rod.T[N_CELLS - 1], T_COLD, T_HOT);
         const mat = ROD_MATS.find(m => m.id === st.rod.mat) || ROD_MATS[2];
-        K.text(ctx, K.tr({ en: 'Spoon: ', hr: 'Žlica: ' }, lang) + K.tr(mat.label, lang).toLowerCase() + ', ' + K.fmt(ROD_L * 100, 0, lang) + ' cm ' + K.tr({ en: 'handle', hr: 'ručke' }, lang) + '   t = ' + K.fmt(st.t, 0, lang) + ' s', 12, 14, { font: 'bold 13px ' + theme.fontDisplay, color: theme.fg, baseline: 'middle' });
-        K.text(ctx, K.tr({ en: 'Heat is conducted from particle to particle along the spoon', hr: 'Toplina se vodi s čestice na česticu duž žlice' }, lang), 12, 32, { font: '12px ' + theme.font, color: theme.muted, baseline: 'middle' });
+        K.text(ctx, K.tr({ en: 'Spoon: ', hr: 'Žlica: ' }, lang) + K.tr(mat.label, lang).toLowerCase() + ', ' + K.fmt(ROD_L * 100, 0, lang) + ' cm ' + K.tr({ en: 'handle', hr: 'duga ručka' }, lang) + '   t = ' + K.fmt(st.t, 0, lang) + ' s', 12, 14, { font: 'bold 13px ' + theme.fontDisplay, color: theme.fg, baseline: 'middle' });
+        K.text(ctx, K.tr({ en: 'Heat is conducted from particle to particle along the spoon', hr: 'Toplina se prenosi s čestice na česticu duž žlice' }, lang), 12, 32, { font: '12px ' + theme.font, color: theme.muted, baseline: 'middle' });
         colorScale(ctx, w - 110, h - 30, 96);
       }
       function drawConvection(ctx, w, h) {
@@ -318,7 +318,7 @@
           K.text(ctx, K.tr({ en: 'cool ↓', hr: 'hladno ↓' }, lang), px + pw - 6, cy, { font: 'bold 11px ' + theme.font, color: theme.fg, align: 'right', baseline: 'middle' });
         }
         K.text(ctx, K.tr({ en: 'Pot with 1 kg of water on a stove, ', hr: 'Lonac s 1 kg vode na štednjaku, ' }, lang) + K.fmt(st.conv.P, 0, lang) + ' W   t = ' + K.fmt(st.t, 0, lang) + ' s', 12, 14, { font: 'bold 13px ' + theme.fontDisplay, color: theme.fg, baseline: 'middle' });
-        K.text(ctx, K.tr({ en: 'water: ', hr: 'voda: ' }, lang) + K.fmt(st.conv.Tmean, 1, lang) + ' °C' + (st.conv.Tmean >= T_HOT - 0.5 ? K.tr({ en: ' — boiling!', hr: ' – kipi!' }, lang) : ''), 12, 32, { font: '12px ' + theme.font, color: theme.muted, baseline: 'middle' });
+        K.text(ctx, K.tr({ en: 'water: ', hr: 'voda: ' }, lang) + K.fmt(st.conv.Tmean, 1, lang) + ' °C' + (st.conv.Tmean >= T_HOT - 0.5 ? K.tr({ en: ' — boiling!', hr: ' – vrije!' }, lang) : ''), 12, 32, { font: '12px ' + theme.font, color: theme.muted, baseline: 'middle' });
         colorScale(ctx, w - 110, h - 30, 96);
       }
       function drawCan(ctx, x, y, cw, chh, dark, T, label) {

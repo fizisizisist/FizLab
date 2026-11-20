@@ -19,7 +19,7 @@
   const KEYDATES = [{ en: 'Dec 21', hr: '21. 12.' }, { en: 'Mar 20', hr: '20. 3.' }, { en: 'Jun 21', hr: '21. 6.' }, { en: 'Sep 22', hr: '22. 9.' }];
   const PHASES = [
     { en: 'new moon', hr: 'mlađak' }, { en: 'waxing crescent', hr: 'rastući srp' }, { en: 'first quarter', hr: 'prva četvrt' }, { en: 'waxing gibbous', hr: 'rastući ispupčeni' },
-    { en: 'full moon', hr: 'puni mjesec' }, { en: 'waning gibbous', hr: 'opadajući ispupčeni' }, { en: 'last quarter', hr: 'posljednja četvrt' }, { en: 'waning crescent', hr: 'opadajući srp' }
+    { en: 'full moon', hr: 'uštap' }, { en: 'waning gibbous', hr: 'opadajući ispupčeni' }, { en: 'last quarter', hr: 'posljednja četvrt' }, { en: 'waning crescent', hr: 'opadajući srp' }
   ];
   // decorative "continents": [angle from the Zagreb meridian (rad), distance from the pole (0–1), size (0–1)]
   const LAND = [[0.05, 0.55, 0.26], [0.6, 0.3, 0.2], [-0.9, 0.62, 0.22], [1.7, 0.72, 0.17], [2.5, 0.45, 0.26], [3.4, 0.68, 0.16], [-2.1, 0.36, 0.22], [-1.5, 0.82, 0.13]];
@@ -31,13 +31,13 @@
     title: { en: 'Earth, Moon and Sun', hr: 'Zemlja, Mjesec i Sunce' },
     summary: {
       en: 'Spin the Earth to see day and night in Zagreb, drag the Moon around its orbit to make its phases, and follow the tilted Earth around the Sun through the seasons.',
-      hr: 'Zavrti Zemlju i gledaj dan i noć u Zagrebu, povuci Mjesec po stazi i stvaraj mijene te prati nagnutu Zemlju oko Sunca kroz godišnja doba.'
+      hr: 'Zavrti Zemlju i promatraj izmjenu dana i noći u Zagrebu, povlači Mjesec po njegovoj stazi i promatraj mijene te prati nagnutu Zemlju oko Sunca kroz godišnja doba.'
     },
     tasks: [
-      { en: 'Day and night: drag the Earth so that Zagreb is at 12:00. Where is the Sun? Now turn it to midnight.', hr: 'Dan i noć: zavrti Zemlju tako da je u Zagrebu 12:00. Gdje je Sunce? Zatim je okreni na ponoć.' },
+      { en: 'Day and night: drag the Earth so that Zagreb is at 12:00. Where is the Sun? Now turn it to midnight.', hr: 'Dan i noć: zavrti Zemlju tako da u Zagrebu bude 12:00. Gdje je Sunce? Zatim je okreni tako da u Zagrebu bude ponoć.' },
       { en: 'Moon phases: drag the Moon between the Earth and the Sun. What do we see from Earth? Why?', hr: 'Mjesečeve mijene: povuci Mjesec između Zemlje i Sunca. Što vidimo sa Zemlje? Zašto?' },
-      { en: 'Find the full moon. Where is the Moon compared to the Sun then? How many days after new moon is that?', hr: 'Pronađi puni mjesec. Gdje je tada Mjesec u odnosu na Sunce? Koliko je to dana nakon mlađaka?' },
-      { en: 'Seasons: watch the tilted axis. When does the northern half lean toward the Sun — and which season is that?', hr: 'Godišnja doba: prati nagnutu os. Kad je sjeverna polovica nagnuta prema Suncu — i koje je tada godišnje doba?' }
+      { en: 'Find the full moon. Where is the Moon compared to the Sun then? How many days after new moon is that?', hr: 'Pronađi uštap (pun Mjesec). Gdje je tada Mjesec u odnosu na Sunce? Koliko je to dana nakon mlađaka?' },
+      { en: 'Seasons: watch the tilted axis. When does the northern half lean toward the Sun — and which season is that?', hr: 'Godišnja doba: prati nagnutu os. Kad je sjeverna polutka nagnuta prema Suncu — i koje je tada godišnje doba?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -54,9 +54,9 @@
         { value: 'moon', label: { en: 'Moon phases', hr: 'Mjesečeve mijene' } },
         { value: 'seasons', label: { en: 'Seasons', hr: 'Godišnja doba' } }], value: 'day',
         onChange: v => { st.mode = v; st.drag = null; applyMode(); refresh(); } });
-      C.slider({ label: { en: 'Speed of time', hr: 'Brzina vremena' }, min: 0.25, max: 8, step: 0.25, value: 1, unit: '×', digits: 2, onChange: v => { st.speed = v; draw(); } });
+      C.slider({ label: { en: 'Speed of time', hr: 'Brzina simulacije' }, min: 0.25, max: 8, step: 0.25, value: 1, unit: '×', digits: 2, onChange: v => { st.speed = v; draw(); } });
       const btnPlay = C.button({ label: { en: 'Pause', hr: 'Pauza' }, variant: 'primary', onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => reset() });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => reset() });
       const outClock = C.readout({ label: { en: 'Local time in Zagreb', hr: 'Vrijeme u Zagrebu' } });
       const outDN = C.readout({ label: { en: 'Day or night?', hr: 'Dan ili noć?' } });
       const outPhase = C.readout({ label: { en: 'Moon phase', hr: 'Mjesečeva mijena' } });
@@ -107,13 +107,13 @@
         const scale = { en: 'Sizes and distances are not to scale.', hr: 'Veličine i udaljenosti nisu u mjerilu.' };
         if (st.mode === 'day') {
           outClock.set(clockStr()); outDN.set(isDay() ? { en: 'day', hr: 'dan' } : { en: 'night', hr: 'noć' });
-          note.set({ en: scale.en + ' Earth turns around its axis once in 24 h; the side facing the Sun has day. Drag the Earth to spin it.', hr: scale.hr + ' Zemlja se oko svoje osi okrene jednom u 24 h; strana okrenuta Suncu ima dan. Povuci Zemlju da je zavrtiš.' });
+          note.set({ en: scale.en + ' Earth turns around its axis once in 24 h; the side facing the Sun has day. Drag the Earth to spin it.', hr: scale.hr + ' Zemlja se oko svoje osi okrene jednom u 24 h; na strani okrenutoj Suncu je dan. Povuci Zemlju da je zavrtiš.' });
         } else if (st.mode === 'moon') {
           outPhase.set(PHASES[phaseIdx()]); outDay.set(norm(st.phi) / TAU * SYNODIC); outLit.set(litFrac() * 100);
-          note.set({ en: scale.en + ' The Sun always lights half of the Moon — from Earth we see a different part of that lit half as the Moon goes round (29.5 days).', hr: scale.hr + ' Sunce uvijek osvjetljava polovicu Mjeseca — sa Zemlje vidimo različit dio te polovice dok Mjesec kruži (29,5 dana).' });
+          note.set({ en: scale.en + ' The Sun always lights half of the Moon — from Earth we see a different part of that lit half as the Moon goes round (29.5 days).', hr: scale.hr + ' Sunce uvijek osvjetljava polovicu Mjeseca — dok Mjesec kruži oko Zemlje (29,5 dana), sa Zemlje vidimo različite dijelove te osvijetljene polovice.' });
         } else {
           outSeason.set(SEASONS[seasonIdx()]); outDate.set({ en: dateStr('en'), hr: dateStr('hr') }); outSunH.set(noonAlt()); outDayLen.set(dayLength());
-          note.set({ en: scale.en + ' The axis always points the same way (tilt 23.5°). When our half leans toward the Sun, sunlight is steeper and days are longer: summer.', hr: scale.hr + ' Os uvijek pokazuje u istom smjeru (nagib 23,5°). Kad je naša polovica nagnuta prema Suncu, svjetlost pada strmije i dani su dulji: ljeto.' });
+          note.set({ en: scale.en + ' The axis always points the same way (tilt 23.5°). When our half leans toward the Sun, sunlight is steeper and days are longer: summer.', hr: scale.hr + ' Zemljina os uvijek je usmjerena u istom smjeru (nagib 23,5°). Kad je naša polutka nagnuta prema Suncu, Sunčeve zrake padaju strmije i dani su dulji: tada je ljeto.' });
         }
       }
 
@@ -224,7 +224,7 @@
         ctx.fillStyle = K.withAlpha(theme.surface, 0.9); K.roundRect(ctx, lx - 5, ly - 9, tw + 10, 18, 5); ctx.fill();
         K.text(ctx, lab, lx, ly, { font: 'bold 12px ' + theme.font, color: theme.fg, baseline: 'middle' });
         // header
-        K.text(ctx, K.tr({ en: 'Earth seen from above the North Pole', hr: 'Zemlja gledana iznad Sjevernog pola' }, lang), 10, 16, { font: fb(), color: theme.fg, baseline: 'middle' });
+        K.text(ctx, K.tr({ en: 'Earth seen from above the North Pole', hr: 'Zemlja gledana odozgo, iznad Sjevernog pola' }, lang), 10, 16, { font: fb(), color: theme.fg, baseline: 'middle' });
         K.text(ctx, K.tr({ en: '1 turn = 24 h  ·  speed: ', hr: '1 okret = 24 h  ·  brzina: ' }, lang) + K.fmt(st.speed, 2, lang) + K.tr({ en: ' h per second', hr: ' h po sekundi' }, lang), 10, 34, { font: f12(), color: theme.muted, baseline: 'middle' });
       }
 
@@ -253,7 +253,7 @@
         ctx.strokeStyle = K.withAlpha(theme.fg, 0.7); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(moon.x, moon.y, rm, 0, TAU); ctx.stroke();
         K.text(ctx, K.tr({ en: 'Moon', hr: 'Mjesec' }, lang), moon.x, moon.y - rm - 8, { font: f11(), color: theme.fg, align: 'center' });
         // header + hint
-        K.text(ctx, K.tr({ en: 'Seen from above the North Pole', hr: 'Pogled iznad Sjevernog pola' }, lang), 10, 16, { font: fb(), color: theme.fg, baseline: 'middle' });
+        K.text(ctx, K.tr({ en: 'Seen from above the North Pole', hr: 'Pogled odozgo, iznad Sjevernog pola' }, lang), 10, 16, { font: fb(), color: theme.fg, baseline: 'middle' });
         K.text(ctx, K.tr({ en: 'drag the Moon along its orbit', hr: 'povuci Mjesec po njegovoj stazi' }, lang), 10, 34, { font: f12(), color: theme.muted, baseline: 'middle' });
         // right card: the Moon as seen from Earth
         const cx0 = Wl + 8, cy0 = 8, cw = w - Wl - 16, chh = h - 16;

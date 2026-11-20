@@ -49,14 +49,14 @@
   ];
   const NOTES = {
     lights: { en: 'Lights ADD up: red + green = yellow, red + blue = magenta, green + blue = cyan, all three = white. Your screen makes every colour this way from tiny red, green and blue dots.',
-      hr: 'Svjetla se ZBRAJAJU: crvena + zelena = žuta, crvena + plava = magenta, zelena + plava = cijan, sve tri = bijela. Tvoj ekran tako stvara sve boje iz sitnih crvenih, zelenih i plavih točkica.' },
+      hr: 'Svjetla se ZBRAJAJU: crvena + zelena = žuta, crvena + plava = magenta, zelena + plava = cijan, sve tri = bijela. Zaslon na kojem ovo gledaš tako stvara sve boje od sitnih crvenih, zelenih i plavih točkica.' },
     paints: { en: 'Paints work the other way round: each paint REMOVES (absorbs) a colour of light. Cyan absorbs red, magenta absorbs green, yellow absorbs blue. All three together absorb everything, so the mixture is black.',
-      hr: 'Boje djeluju obrnuto: svaka boja ODUZIMA (upija) dio svjetlosti. Cijan upija crvenu, magenta zelenu, žuta plavu. Sve tri zajedno upiju sve, pa je smjesa crna.' },
+      hr: 'Boje za slikanje djeluju obrnuto: svaka boja ODUZIMA (upija) dio svjetlosti. Cijan upija crvenu, magenta zelenu, a žuta plavu svjetlost. Sve tri zajedno upiju svu svjetlost, pa je smjesa crna.' },
     objects: { en: 'An object only reflects the colours it does not absorb. A red apple reflects red light; under green light there is no red to reflect, so it looks black.',
       hr: 'Predmet odbija samo one boje koje ne upija. Crvena jabuka odbija crvenu svjetlost; pod zelenom svjetlošću nema crvene koju bi odbila, pa izgleda crna.' }
   };
   const HEADS = {
-    lights: { en: 'Adding lights (additive mixing) on a white wall in a dark room', hr: 'Zbrajanje svjetla (aditivno miješanje) na bijelom zidu u tamnoj sobi' },
+    lights: { en: 'Adding lights (additive mixing) on a white wall in a dark room', hr: 'Zbrajanje svjetlosti (aditivno miješanje) na bijelom zidu u zamračenoj sobi' },
     paints: { en: 'Mixing paints (subtractive mixing) on white paper', hr: 'Miješanje boja (suptraktivno miješanje) na bijelom papiru' },
     objects: { en: 'Objects under coloured light', hr: 'Predmeti pod obojenom svjetlošću' }
   };
@@ -67,12 +67,12 @@
     title: { en: 'Mixing Colours', hr: 'Miješanje boja' },
     summary: {
       en: 'Mix red, green and blue lights, mix cyan, magenta and yellow paints, and shine coloured light on everyday objects.',
-      hr: 'Miješaj crveno, zeleno i plavo svjetlo, miješaj cijan, magenta i žutu boju i obasjaj svakodnevne predmete obojenom svjetlošću.'
+      hr: 'Miješaj crveno, zeleno i plavo svjetlo, zatim boje cijan, magentu i žutu, pa obasjaj svakodnevne predmete obojenom svjetlošću.'
     },
     tasks: [
-      { en: 'Lights: turn the blue light off. What colour is the middle now? Then turn red off instead.', hr: 'Svjetla: ugasi plavo svjetlo. Koje je boje sredina sada? Zatim umjesto toga ugasi crveno.' },
-      { en: 'Lights vs paints: red + green LIGHT gives yellow. What do you get when you mix all three PAINTS?', hr: 'Svjetla i boje: crveno + zeleno SVJETLO daje žutu. Što dobiješ kad pomiješaš sve tri BOJE?' },
-      { en: 'Objects: shine green light on the red apple. Why does it look black?', hr: 'Predmeti: obasjaj crvenu jabuku zelenom svjetlošću. Zašto izgleda crno?' },
+      { en: 'Lights: turn the blue light off. What colour is the middle now? Then turn red off instead.', hr: 'Svjetla: ugasi plavo svjetlo. Koje je sada boje sredina? Zatim umjesto plavoga ugasi crveno.' },
+      { en: 'Lights vs paints: red + green LIGHT gives yellow. What do you get when you mix all three PAINTS?', hr: 'Svjetla i boje: crveno + zeleno SVJETLO daje žuto. Što dobiješ kad pomiješaš sve tri BOJE?' },
+      { en: 'Objects: shine green light on the red apple. Why does it look black?', hr: 'Predmeti: obasjaj crvenu jabuku zelenom svjetlošću. Zašto izgleda crna?' },
       { en: 'Objects: which object keeps its colour under every light? Why?', hr: 'Predmeti: koji predmet zadržava svoju boju pod svakom svjetlošću? Zašto?' }
     ],
     mount(container, ctx) {
@@ -100,7 +100,7 @@
       const outName2 = C.readout({ label: { en: 'Mixture colour', hr: 'Boja smjese' }, unit: '' });
       const selLight = C.select({ label: { en: 'Light colour', hr: 'Boja svjetlosti' }, options: LIGHTS.map(l => ({ value: l.id, label: l.label })), value: 'white',
         onChange: v => { st.ob.light = LIGHTS.find(l => l.id === v); update(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => { resetMode(); } });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => { resetMode(); } });
       const note = C.note({ text: NOTES.lights });
       const GROUPS = { lights: [slR, slG, slB, tgApart, slSp, outRGB, outName], paints: [slC, slM, slY, outRGB2, outName2], objects: [selLight] };
 
@@ -243,7 +243,7 @@
           const x = A.x + 10 + slot * (i + 0.5), seen = o.refl.map((r, k) => r * L[k]);
           drawObject(g, o.id, x, tableY - 2, size, css(seen));
           if (!small) otext(g, K.tr(o.name, lang), x, tableY + 13, '11px ' + theme.font);
-          otext(g, K.tr({ en: 'looks ', hr: 'izgleda ' }, lang) + K.tr(nameOf(seen), lang), x, tableY + (small ? 14 : 28), 'bold ' + (small ? 10 : 11) + 'px ' + theme.font);
+          otext(g, K.tr({ en: 'looks ', hr: 'boja: ' }, lang) + K.tr(nameOf(seen), lang), x, tableY + (small ? 14 : 28), 'bold ' + (small ? 10 : 11) + 'px ' + theme.font);
         });
       }
       function drawSpectrum(g) {

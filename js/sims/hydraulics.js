@@ -14,7 +14,7 @@
     { id: 'child', m: 30, label: { en: 'Child (30 kg)', hr: 'Dijete (30 kg)' } },
     { id: 'bike', m: 200, label: { en: 'Motorbike (200 kg)', hr: 'Motocikl (200 kg)' } },
     { id: 'car', m: 1200, label: { en: 'Car (1200 kg)', hr: 'Automobil (1200 kg)' } },
-    { id: 'custom', m: 0, label: { en: 'Own mass (slider)', hr: 'Vlastita masa (klizač)' } }
+    { id: 'custom', m: 0, label: { en: 'Own mass (slider)', hr: 'Masa po izboru (klizač)' } }
   ];
   // Vessels: A(y) = cross-section (cm²) at height y (cm); drawn as flat vessels 5 cm deep, so the drawn width is A / 5.
   const VES = [
@@ -44,13 +44,13 @@
     title: { en: 'Liquids Under Pressure', hr: 'Tekućine i tlak' },
     summary: {
       en: 'Lift a car with a small push in a hydraulic lift, pour water into connected vessels, and measure the pressure of the air with a barometer.',
-      hr: 'Podigni automobil malom silom u hidrauličnoj dizalici, ulijevaj vodu u spojene posude i izmjeri tlak zraka barometrom.'
+      hr: 'Podigni automobil malom silom pomoću hidrauličke dizalice, ulijevaj vodu u spojene posude i izmjeri tlak zraka barometrom.'
     },
     tasks: [
-      { en: 'Hydraulic lift: put the car (1200 kg) on the large piston. Find areas A₁ and A₂ so that a push of 100 N lifts it.', hr: 'Hidraulična dizalica: stavi automobil (1200 kg) na veliki klip. Pronađi površine A₁ i A₂ uz koje ga podigne sila od 100 N.' },
-      { en: 'Pump the small piston down by 30 cm. How far does the load rise? Compare F₁ · s₁ with F₂ · s₂.', hr: 'Spusti mali klip za 30 cm. Koliko se podigne teret? Usporedi F₁ · s₁ i F₂ · s₂.' },
+      { en: 'Hydraulic lift: put the car (1200 kg) on the large piston. Find areas A₁ and A₂ so that a push of 100 N lifts it.', hr: 'Hidraulička dizalica: stavi automobil (1200 kg) na veliki klip. Pronađi površine A₁ i A₂ pri kojima ga sila od 100 N može podići.' },
+      { en: 'Pump the small piston down by 30 cm. How far does the load rise? Compare F₁ · s₁ with F₂ · s₂.', hr: 'Spusti mali klip za 30 cm. Za koliko se podigne teret? Usporedi F₁ · s₁ i F₂ · s₂.' },
       { en: 'Connected vessels: close the valve, pour water into vessel 1, predict the levels, then open the valve.', hr: 'Spojene posude: zatvori ventil, ulij vodu u posudu 1, predvidi razine pa otvori ventil.' },
-      { en: 'Air pressure: climb from Zagreb to Mount Everest. How many millimetres does the mercury column lose?', hr: 'Atmosferski tlak: popni se od Zagreba do Mount Everesta. Koliko milimetara izgubi stupac žive?' }
+      { en: 'Air pressure: climb from Zagreb to Mount Everest. How many millimetres does the mercury column lose?', hr: 'Atmosferski tlak: popni se od Zagreba do Mount Everesta. Za koliko se milimetara skrati stupac žive?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -67,20 +67,20 @@
 
       // ---------- controls ----------
       const segMode = C.segmented({ label: { en: 'Experiment', hr: 'Pokus' }, options: [
-        { value: 'lift', label: { en: 'Hydraulic lift', hr: 'Hidraulična dizalica' } },
+        { value: 'lift', label: { en: 'Hydraulic lift', hr: 'Hidraulička dizalica' } },
         { value: 'vessels', label: { en: 'Connected vessels', hr: 'Spojene posude' } },
         { value: 'air', label: { en: 'Air pressure', hr: 'Atmosferski tlak' } }], value: 'lift', onChange: v => { st.mode = v; drag = null; showControls(); refresh(); } });
       const slA1 = C.slider({ label: { en: 'Small piston area A₁', hr: 'Površina malog klipa A₁' }, min: 1, max: 20, step: 1, value: 2, unit: 'cm²', digits: 0, onChange: v => { st.A1 = v; refresh(); } });
       const slA2 = C.slider({ label: { en: 'Large piston area A₂', hr: 'Površina velikog klipa A₂' }, min: 20, max: 400, step: 10, value: 100, unit: 'cm²', digits: 0, onChange: v => { st.A2 = v; refresh(); } });
       const slF1 = C.slider({ label: { en: 'Push force F₁', hr: 'Sila guranja F₁' }, min: 0, max: 500, step: 5, value: 100, unit: 'N', digits: 0, onChange: v => { st.F1 = v; refresh(); } });
       const selLoad = C.select({ label: { en: 'Load on the large piston', hr: 'Teret na velikom klipu' }, options: LOADS.map(l => ({ value: l.id, label: l.label })), value: 'child', onChange: v => { st.load = v; refresh(); } });
-      const slMass = C.slider({ label: { en: 'Own mass of the load', hr: 'Vlastita masa tereta' }, min: 10, max: 2000, step: 10, value: 500, unit: 'kg', digits: 0, onChange: v => { st.mass = v; st.load = 'custom'; selLoad.set('custom'); refresh(); } });
+      const slMass = C.slider({ label: { en: 'Own mass of the load', hr: 'Masa tereta po izboru' }, min: 10, max: 2000, step: 10, value: 500, unit: 'kg', digits: 0, onChange: v => { st.mass = v; st.load = 'custom'; selLoad.set('custom'); refresh(); } });
       const slPump = C.slider({ label: { en: 'Pump: small piston pushed down s₁', hr: 'Pumpaj: mali klip spušten za s₁' }, min: 0, max: S1MAX, step: 0.5, value: 0, unit: 'cm', digits: 1, onChange: v => { st.pump = v; refresh(); } });
       const segVes = C.segmented({ label: { en: 'Apparatus', hr: 'Pribor' }, options: [
         { value: 'four', label: { en: 'Four vessels', hr: 'Četiri posude' } }, { value: 'utube', label: { en: 'U-tube: oil and water', hr: 'U-cijev: ulje i voda' } }], value: 'four', onChange: v => { st.ves = v; showControls(); refresh(); } });
       const segTarget = C.segmented({ label: { en: 'Pour into vessel', hr: 'Ulij u posudu' }, options: [0, 1, 2, 3].map(i => ({ value: i, label: String(i + 1) })), value: 1, onChange: v => { st.target = v; refresh(); } });
       const btnPour = C.button({ label: { en: 'Pour in 250 mL', hr: 'Ulij 250 mL' }, variant: 'primary', onClick: () => pour(250) });
-      const btnDrain = C.button({ label: { en: 'Take out 250 mL', hr: 'Izvadi 250 mL' }, onClick: () => pour(-250) });
+      const btnDrain = C.button({ label: { en: 'Take out 250 mL', hr: 'Odlij 250 mL' }, onClick: () => pour(-250) });
       const tgValve = C.toggle({ label: { en: 'Valve to vessel 1 open', hr: 'Ventil prema posudi 1 otvoren' }, value: true, onChange: v => { st.valve = v; refresh(); } });
       const slTilt = C.slider({ label: { en: 'Tilt the table', hr: 'Nagni stol' }, min: -12, max: 12, step: 1, value: 0, format: (v, l) => K.fmt(v, 0, l) + '°', onChange: v => { st.tilt = v; refresh(); } });
       const slOil = C.slider({ label: { en: 'Oil column h₁', hr: 'Stupac ulja h₁' }, min: 0, max: 20, step: 0.5, value: 10, unit: 'cm', digits: 1, onChange: v => { st.oil = v; refresh(); } });
@@ -95,9 +95,9 @@
       const slRad = C.slider({ label: { en: 'Radius of the hemispheres r', hr: 'Polumjer polukugli r' }, min: 5, max: 50, step: 1, value: 25, unit: 'cm', digits: 0, onChange: v => { st.rad = v; refresh(); } });
       const tgVac = C.toggle({ label: { en: 'Air pumped out', hr: 'Zrak ispumpan' }, value: true, onChange: v => { st.vac = v; refresh(); } });
       const slStraw = C.slider({ label: { en: 'Length of the straw', hr: 'Duljina slamke' }, min: 0.2, max: 12, step: 0.1, value: 0.2, unit: 'm', digits: 1, onChange: v => { st.strawL = v; refresh(); } });
-      const slSuck = C.slider({ label: { en: 'Suck: pressure in the mouth lowered by', hr: 'Usiši: tlak u ustima smanjen za' }, min: 0, max: 100, step: 1, value: 0, unit: '%', digits: 0, onChange: v => { st.suck = v; refresh(); } });
+      const slSuck = C.slider({ label: { en: 'Suck: pressure in the mouth lowered by', hr: 'Sisanje: tlak u ustima niži za' }, min: 0, max: 100, step: 1, value: 0, unit: '%', digits: 0, onChange: v => { st.suck = v; refresh(); } });
       const btnPlay = C.button({ label: { en: 'Pause', hr: 'Pauza' }, onClick: () => { L.toggle(); st.paused = !L.running; updatePlay(); refresh(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: reset });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: reset });
       const outP = C.readout({ label: { en: 'Pressure in the oil', hr: 'Tlak u ulju' }, unit: 'kPa', digits: 1 });
       const outF2 = C.readout({ label: { en: 'Force on the large piston F₂', hr: 'Sila na veliki klip F₂' }, unit: 'N', digits: 0 });
       const outG = C.readout({ label: { en: 'Weight of the load G', hr: 'Težina tereta G' }, unit: 'N', digits: 0 });
@@ -105,7 +105,7 @@
       const outW1 = C.readout({ label: { en: 'Work in F₁ · s₁', hr: 'Uloženi rad F₁ · s₁' }, unit: 'J', digits: 1 });
       const outW2 = C.readout({ label: { en: 'Work out F₂ · s₂', hr: 'Dobiveni rad F₂ · s₂' }, unit: 'J', digits: 1 });
       const outLift = C.readout({ label: { en: 'Lift', hr: 'Dizalica' } });
-      const outVol = C.readout({ label: { en: 'Water in the vessels', hr: 'Vode u posudama' }, unit: 'mL', digits: 0 });
+      const outVol = C.readout({ label: { en: 'Water in the vessels', hr: 'Voda u posudama' }, unit: 'mL', digits: 0 });
       const outLvl = C.readout({ label: { en: 'Levels', hr: 'Razine' } });
       const outH2 = C.readout({ label: { en: 'Water column h₂', hr: 'Stupac vode h₂' }, unit: 'cm', digits: 1 });
       const outRatH = C.readout({ label: { en: 'Heights h₂ / h₁', hr: 'Visine h₂ / h₁' }, digits: 2 });
@@ -185,42 +185,42 @@
           outLift.set(q.ok ? { en: 'lifts the load', hr: 'diže teret' } : { en: 'force too small', hr: 'premala sila' }); outLift.setColor(q.ok ? theme.good : theme.warn);
           note.set(q.ok
             ? { en: 'Pascal\'s law: pressing the small piston raises the pressure everywhere in the oil by the same amount. The large piston is ' + K.fmt(ratio, 1, 'en') + ' times bigger, so the force is ' + K.fmt(ratio, 1, 'en') + ' times bigger, but the load moves ' + K.fmt(ratio, 1, 'en') + ' times less. The work stays the same.',
-              hr: 'Pascalov zakon: pritisak na mali klip poveća tlak svuda u ulju jednako. Veliki klip je ' + K.fmt(ratio, 1, 'hr') + ' puta veći pa je sila ' + K.fmt(ratio, 1, 'hr') + ' puta veća, ali se teret pomakne ' + K.fmt(ratio, 1, 'hr') + ' puta manje. Rad ostaje isti.' }
+              hr: 'Pascalov zakon: kad pritisnemo mali klip, tlak u ulju poveća se svugdje jednako. Površina velikog klipa ' + K.fmt(ratio, 1, 'hr') + ' puta je veća pa je i sila ' + K.fmt(ratio, 1, 'hr') + ' puta veća, ali se teret pomakne ' + K.fmt(ratio, 1, 'hr') + ' puta manje. Rad ostaje isti.' }
             : { en: 'F₂ = ' + K.fmt(q.F2, 0, 'en') + ' N is smaller than the weight G = ' + K.fmt(q.Gw, 0, 'en') + ' N, so the load stays down. Push harder, make the small piston smaller or the large piston bigger.',
-              hr: 'F₂ = ' + K.fmt(q.F2, 0, 'hr') + ' N manja je od težine G = ' + K.fmt(q.Gw, 0, 'hr') + ' N pa teret ostaje dolje. Guraj jače, smanji mali klip ili povećaj veliki.' });
+              hr: 'Sila F₂ = ' + K.fmt(q.F2, 0, 'hr') + ' N manja je od težine G = ' + K.fmt(q.Gw, 0, 'hr') + ' N pa teret ostaje na mjestu. Guraj jače, smanji površinu malog klipa ili povećaj površinu velikoga.' });
         } else if (st.mode === 'vessels' && st.ves === 'four') {
           const hd = heads(Math.tan(st.tilt * Math.PI / 180)), grp = (st.valve ? [0, 1, 2, 3] : [1, 2, 3]).filter(i => st.V[i] > 0.5);
           const same = grp.length < 2 || Math.max.apply(null, grp.map(i => hd[i])) - Math.min.apply(null, grp.map(i => hd[i])) < 0.08;
           outVol.set(st.V.reduce((a, b) => a + b, 0));
           outLvl.set(same && st.pend === 0 ? { en: 'same level', hr: 'ista razina' } : { en: 'water is flowing', hr: 'voda teče' }); outLvl.setColor(same && st.pend === 0 ? theme.good : theme.warn);
-          if (st.spill > 0) note.set({ en: 'A vessel is full to the brim: the extra water spills over.', hr: 'Posuda je puna do ruba: višak vode se prelijeva.' });
+          if (st.spill > 0) note.set({ en: 'A vessel is full to the brim: the extra water spills over.', hr: 'Posuda je puna do vrha: višak vode prelijeva se preko ruba.' });
           else if (!st.valve) note.set({ en: 'The valve is closed: vessel 1 is cut off, so its level can be different. Predict what happens, then open the valve.', hr: 'Ventil je zatvoren: posuda 1 je odvojena pa njezina razina može biti drukčija. Predvidi što će se dogoditi pa otvori ventil.' });
-          else if (st.tilt !== 0) note.set({ en: 'The table is tilted, but the water surface stays horizontal and at one height in all vessels. A spirit level and a builder\'s hose level work this way.', hr: 'Stol je nagnut, ali površina vode ostaje vodoravna i na istoj visini u svim posudama. Tako rade libela i vodena vaga od crijeva.' });
-          else note.set({ en: 'In connected vessels the liquid stands at the same level, whatever the shape or width of the vessel. That is how a water tower fills the taps of a whole town.', hr: 'U spojenim posudama tekućina stoji na istoj razini, bez obzira na oblik i širinu posude. Tako vodotoranj puni slavine cijeloga grada.' });
+          else if (st.tilt !== 0) note.set({ en: 'The table is tilted, but the water surface stays horizontal and at one height in all vessels. A spirit level and a builder\'s hose level work this way.', hr: 'Stol je nagnut, ali površina vode ostaje vodoravna i na istoj visini u svim posudama. Na tom načelu rade libela i vodena vaga (prozirno crijevo s vodom).' });
+          else note.set({ en: 'In connected vessels the liquid stands at the same level, whatever the shape or width of the vessel. That is how a water tower fills the taps of a whole town.', hr: 'U spojenim posudama tekućina stoji na istoj razini, bez obzira na oblik i širinu posude. Tako vodotoranj opskrbljuje vodom slavine cijelog grada.' });
         } else if (st.mode === 'vessels') {
           const h2 = st.rho * st.oilNow / RHO_W;
           outH2.set(h2); outRatH.set(st.oilNow > 0.05 ? h2 / st.oilNow : null); outRatR.set(st.rho / RHO_W);
           note.set({ en: 'At the dashed line both columns press equally: ρ₁ · h₁ = ρ₂ · h₂. The lighter liquid needs the taller column, so the heights are inversely proportional to the densities.',
-            hr: 'Na crtkanoj razini oba stupca tlače jednako: ρ₁ · h₁ = ρ₂ · h₂. Rjeđa tekućina treba viši stupac pa su visine obrnuto razmjerne gustoćama.' });
+            hr: 'Na crtkanoj razini oba stupca stvaraju jednak tlak: ρ₁ · h₁ = ρ₂ · h₂. Tekućini manje gustoće potreban je viši stupac pa su visine obrnuto razmjerne gustoćama.' });
         } else {
           const p = pAir(), hMax = p / (RHO_W * G);
           outPa.set(p / 1000);
           if (st.air === 'baro') {
             outCol.set(targets().col);
             note.set(st.liq === 'hg'
-              ? { en: 'The air presses on the mercury in the dish and holds up a column of about 760 mm at sea level. Higher up there is less air above you, so the column is shorter. The pressure at each altitude is an approximate value.', hr: 'Zrak tlači živu u posudi i drži stupac visok oko 760 mm na razini mora. Na većoj visini iznad tebe je manje zraka pa je stupac niži. Tlak na pojedinoj visini približna je vrijednost.' }
-              : { en: 'Water is 13.6 times less dense than mercury, so the same air pressure holds up a column 13.6 times taller: about 10.3 m at sea level. The scale of the tube is broken (zigzag) so that it fits.', hr: 'Voda je 13,6 puta rjeđa od žive pa isti tlak zraka drži 13,6 puta viši stupac: oko 10,3 m na razini mora. Mjerilo cijevi je prekinuto (cik-cak) da cijev stane na sliku.' });
+              ? { en: 'The air presses on the mercury in the dish and holds up a column of about 760 mm at sea level. Higher up there is less air above you, so the column is shorter. The pressure at each altitude is an approximate value.', hr: 'Zrak tlači živu u posudici i na razini mora drži stupac visok oko 760 mm. Na većoj je visini iznad tebe manje zraka pa je stupac niži. Prikazani tlakovi na pojedinim visinama približne su vrijednosti.' }
+              : { en: 'Water is 13.6 times less dense than mercury, so the same air pressure holds up a column 13.6 times taller: about 10.3 m at sea level. The scale of the tube is broken (zigzag) so that it fits.', hr: 'Gustoća vode 13,6 puta je manja od gustoće žive pa isti tlak zraka drži 13,6 puta viši stupac: na razini mora oko 10,3 m. Cijev je nacrtana s prekidom (cik-cak) da stane na sliku.' });
           } else if (st.air === 'magd') {
             const F = magdForce(), cars = F / (1200 * G), people = F / (70 * G);
             outFm.set(F);
-            outCmp.set(cars >= 1 ? { en: K.fmt(cars, 1, 'en') + ' cars', hr: K.fmt(cars, 1, 'hr') + ' automobila' } : { en: K.fmt(people, 1, 'en') + ' adults', hr: K.fmt(people, 1, 'hr') + ' odraslih' });
+            outCmp.set(cars >= 1 ? { en: K.fmt(cars, 1, 'en') + ' cars', hr: K.fmt(cars, 1, 'hr') + ' automobila' } : { en: K.fmt(people, 1, 'en') + ' adults', hr: K.fmt(people, 1, 'hr') + ' odrasle osobe' });
             note.set(st.vac
-              ? { en: 'With the air pumped out nothing pushes from the inside. The outside air presses the two halves together with F = p · π · r². Otto von Guericke showed in Magdeburg that teams of horses could hardly pull them apart.', hr: 'Kad je zrak ispumpan, iznutra ništa ne gura. Vanjski zrak pritišće polukugle jednu uz drugu silom F = p · π · r². Otto von Guericke pokazao je u Magdeburgu da ih ni zaprege konja jedva mogu razdvojiti.' }
-              : { en: 'With air inside, the pressure is the same inside and outside. The forces cancel and the halves come apart easily.', hr: 'Kad je unutra zrak, tlak je jednak iznutra i izvana. Sile se poništavaju i polukugle se lako razdvoje.' });
+              ? { en: 'With the air pumped out nothing pushes from the inside. The outside air presses the two halves together with F = p · π · r². Otto von Guericke showed in Magdeburg that teams of horses could hardly pull them apart.', hr: 'Kad je zrak ispumpan, iznutra ih ništa ne gura prema van. Vanjski zrak pritišće polukugle jednu uz drugu silom F = p · π · r². Otto von Guericke pokazao je u Magdeburgu da ih čak ni zaprege konja nisu mogle lako razdvojiti.' }
+              : { en: 'With air inside, the pressure is the same inside and outside. The forces cancel and the halves come apart easily.', hr: 'Kad je unutra zrak, tlak je jednak iznutra i izvana. Sile se poništavaju pa se polukugle lako razdvoje.' });
           } else {
             outRise.set(Math.min(st.strawL, strawRise())); outPm.set(p * (1 - st.suck / 100) / 1000);
             note.set({ en: 'You do not pull the drink up. You lower the pressure in your mouth and the outside air pushes the drink up the straw. Even a perfect vacuum cannot lift water higher than ' + K.fmt(hMax, 1, 'en') + ' m here.',
-              hr: 'Ne vučeš piće prema gore. Smanjiš tlak u ustima, a vanjski zrak gura piće uz slamku. Ni savršeni vakuum ovdje ne može podići vodu više od ' + K.fmt(hMax, 1, 'hr') + ' m.' });
+              hr: 'Piće ne povlačiš prema gore: smanjiš tlak u ustima, a vanjski zrak potisne piće kroz slamku. Čak ni savršeni vakuum ne bi mogao podići vodu više od ' + K.fmt(hMax, 1, 'hr') + ' m.' });
           }
         }
       }
@@ -541,7 +541,7 @@
           icons(c, cars >= 1 ? cars : people, cars >= 1, cx, by);
           label(c, 'F = ' + N(F, 0) + ' N ≈ ' + (cars >= 1
             ? T({ en: 'weight of ', hr: 'težina ' }) + N(cars, 1) + T({ en: ' cars (1200 kg each)', hr: ' automobila (svaki 1200 kg)' })
-            : T({ en: 'weight of ', hr: 'težina ' }) + N(people, 1) + T({ en: ' adults (70 kg each)', hr: ' odraslih (svaki 70 kg)' })), cx, by - 38, { align: 'center', bold: true, size: w < 480 ? 10 : 12 });
+            : T({ en: 'weight of ', hr: 'težina ' }) + N(people, 1) + T({ en: ' adults (70 kg each)', hr: ' odrasle osobe (svaka 70 kg)' })), cx, by - 38, { align: 'center', bold: true, size: w < 480 ? 10 : 12 });
         } else label(c, 'F = 0 N', cx, by - 38, { align: 'center', bold: true });
         head(c, [T({ en: 'Magdeburg hemispheres', hr: 'Magdeburške polukugle' }),
           'F = p · π · r² = ' + N(p / 1000, 1) + ' kPa · π · (' + N(st.rad / 100, 2) + ' m)²',

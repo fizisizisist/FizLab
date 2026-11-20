@@ -16,7 +16,7 @@
     { id: 'iron', k: 10, label: { en: 'Iron', hr: 'Željezo' } },
     { id: 'glass', k: 1.5, label: { en: 'Glass (slow)', hr: 'Staklo (sporo)' } },
     { id: 'wood', k: 0.3, label: { en: 'Wood (very slow)', hr: 'Drvo (vrlo sporo)' } },
-    { id: 'styrofoam', k: 0.05, label: { en: 'Styrofoam (almost none)', hr: 'Stiropor (gotovo ništa)' } }
+    { id: 'styrofoam', k: 0.05, label: { en: 'Styrofoam (almost none)', hr: 'Stiropor (gotovo nikako)' } }
   ];
   const T_MIN = -20, T_MAX = 200;
   const matById = id => MATERIALS.find(m => m.id === id) || MATERIALS[0];
@@ -38,13 +38,13 @@
     title: { en: 'Hot Meets Cold', hr: 'Toplo i hladno' },
     summary: {
       en: 'Set the temperature, mass and material of two blocks, press Touch! and watch heat flow from hot to cold until the temperatures are equal.',
-      hr: 'Postavi temperaturu, masu i materijal dvaju blokova, pritisni Spoji! i gledaj kako toplina prelazi s toplijeg na hladnije dok se temperature ne izjednače.'
+      hr: 'Postavi temperaturu, masu i materijal dvaju blokova, pritisni „Spoji!“ i promatraj kako toplina prelazi s toplijeg bloka na hladniji dok se temperature ne izjednače.'
     },
     tasks: [
-      { en: 'Touch 1 kg of hot water (90 °C) to 1 kg of cold water (20 °C). Guess the final temperature before you look at the readout.', hr: 'Spoji 1 kg vruće vode (90 °C) s 1 kg hladne vode (20 °C). Pogodi konačnu temperaturu prije nego pogledaš očitanje.' },
-      { en: 'Make the right block 5 kg. Why does the final temperature move toward the heavy block?', hr: 'Postavi desni blok na 5 kg. Zašto se konačna temperatura približi težem bloku?' },
-      { en: 'Swap water for copper on one side. Copper needs much less heat to warm up (small specific heat capacity).', hr: 'Zamijeni vodu bakrom na jednoj strani. Bakru treba mnogo manje topline da se zagrije (mali specifični toplinski kapacitet).' },
-      { en: 'Change the bridge to styrofoam. Does the heat still flow? This is why we insulate houses.', hr: 'Promijeni spojnicu u stiropor. Prelazi li toplina i dalje? Zato izoliramo kuće.' }
+      { en: 'Touch 1 kg of hot water (90 °C) to 1 kg of cold water (20 °C). Guess the final temperature before you look at the readout.', hr: 'Spoji 1 kg vruće vode (90 °C) s 1 kg hladne vode (20 °C). Predvidi konačnu temperaturu prije nego što pogledaš očitanje.' },
+      { en: 'Make the right block 5 kg. Why does the final temperature move toward the heavy block?', hr: 'Postavi masu desnog bloka na 5 kg. Zašto je konačna temperatura bliža temperaturi težeg bloka?' },
+      { en: 'Swap water for copper on one side. Copper needs much less heat to warm up (small specific heat capacity).', hr: 'Na jednoj strani zamijeni vodu bakrom. Bakru treba mnogo manje topline da se zagrije (ima mali specifični toplinski kapacitet).' },
+      { en: 'Change the bridge to styrofoam. Does the heat still flow? This is why we insulate houses.', hr: 'Zamijeni spojnicu stiropornom. Prelazi li toplina i dalje? Zato kuće toplinski izoliramo.' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -67,14 +67,14 @@
       const slM2 = C.slider({ label: { en: 'Right block: mass', hr: 'Desni blok: masa' }, min: 0.1, max: 5, step: 0.1, value: DEF.m2, unit: 'kg', digits: 1, onChange: () => applySettings() });
       const selMat2 = C.select({ label: { en: 'Right block: material', hr: 'Desni blok: materijal' }, options: MATERIALS.map(m => ({ value: m.id, label: m.label })), value: DEF.mat2, onChange: () => applySettings() });
       const selBridge = C.select({ label: { en: 'Bridge between the blocks', hr: 'Spojnica između blokova' }, options: BRIDGES.map(b => ({ value: b.id, label: b.label })), value: DEF.bridge, onChange: v => { st.bridge = v; } });
-      const segSpeed = C.segmented({ label: { en: 'Time speed', hr: 'Brzina vremena' }, options: [{ value: '1', label: '1×' }, { value: '5', label: '5×' }, { value: '20', label: '20×' }], value: String(DEF.speed), onChange: v => { st.speed = parseFloat(v) || 1; } });
+      const segSpeed = C.segmented({ label: { en: 'Time speed', hr: 'Brzina simulacije' }, options: [{ value: '1', label: '1×' }, { value: '5', label: '5×' }, { value: '20', label: '20×' }], value: String(DEF.speed), onChange: v => { st.speed = parseFloat(v) || 1; } });
       const btnTouch = C.button({ label: { en: 'Touch!', hr: 'Spoji!' }, variant: 'primary', onClick: () => {
         st.contact = !st.contact; updateTouch();
         if (st.contact && !L.running) { L.start(); updatePlay(); }
         draw();
       } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, onClick: () => { L.toggle(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => { reset(); } });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => { reset(); } });
       const outT1 = C.readout({ label: { en: 'T₁ (left)', hr: 'T₁ (lijevi)' }, unit: '°C', digits: 1 });
       const outT2 = C.readout({ label: { en: 'T₂ (right)', hr: 'T₂ (desni)' }, unit: '°C', digits: 1 });
       const outTf = C.readout({ label: { en: 'Predicted final', hr: 'Predviđena konačna' }, unit: '°C', digits: 1 });
@@ -129,7 +129,7 @@
         const equal = st.contact && Math.abs(st.T1 - st.T2) < 0.05;
         outT1.setColor(equal ? theme.good : ''); outT2.setColor(equal ? theme.good : '');
         if (!st.contact) note.set({ en: 'Heat capacity C = m·c tells how much heat (J) a block needs to warm by 1 °C. Left: ' + K.fmt(C1(), 0, 'en') + ' J/°C, right: ' + K.fmt(C2(), 0, 'en') + ' J/°C.',
-          hr: 'Toplinski kapacitet C = m·c kaže koliko topline (J) blok treba da se zagrije za 1 °C. Lijevi: ' + K.fmt(C1(), 0, 'hr') + ' J/°C, desni: ' + K.fmt(C2(), 0, 'hr') + ' J/°C.' });
+          hr: 'Toplinski kapacitet C = m·c pokazuje koliko je topline (J) potrebno da se blok zagrije za 1 °C. Lijevi: ' + K.fmt(C1(), 0, 'hr') + ' J/°C, desni: ' + K.fmt(C2(), 0, 'hr') + ' J/°C.' });
         else if (equal) note.set({ en: 'Thermal equilibrium: both blocks have the same temperature, so heat stops flowing.', hr: 'Toplinska ravnoteža: oba bloka imaju istu temperaturu pa toplina više ne prelazi.' });
         else note.set({ en: 'Heat flows from the hotter block to the colder one. The hotter block gives away exactly the heat the colder one receives.', hr: 'Toplina prelazi s toplijeg bloka na hladniji. Topliji blok preda točno onoliko topline koliko hladniji primi.' });
       }
@@ -210,7 +210,7 @@
             K.arrow(ctx, x1, y, x2, y, { color: theme.c2, width: 3, head: 8 });
           }
           K.text(ctx, 'Q̇ = ' + K.fmt(st.Qdot, st.Qdot < 10 ? 1 : 0, lang) + ' W', cx, bTop + bH + 4, { font: 'bold 12px ' + theme.font, color: theme.fg, align: 'center', baseline: 'top' });
-          K.text(ctx, K.tr({ en: 'heat flows hot → cold', hr: 'toplina teče toplo → hladno' }, lang), cx, bTop - 5, { font: '11px ' + theme.font, color: theme.muted, align: 'center', baseline: 'bottom' });
+          K.text(ctx, K.tr({ en: 'heat flows hot → cold', hr: 'toplina: toplije → hladnije' }, lang), cx, bTop - 5, { font: '11px ' + theme.font, color: theme.muted, align: 'center', baseline: 'bottom' });
         } else if (st.contact && st.gap === 0) {
           K.text(ctx, K.tr({ en: 'equal temperatures!', hr: 'jednake temperature!' }, lang), cx, bTop - 5, { font: 'bold 12px ' + theme.font, color: theme.good, align: 'center', baseline: 'bottom' });
         }

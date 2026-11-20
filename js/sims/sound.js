@@ -21,13 +21,13 @@
     title: { en: 'Sound', hr: 'Zvuk' },
     summary: {
       en: 'See how a loudspeaker squeezes and stretches the air, hear the tone you draw, and time an echo bouncing off a cliff.',
-      hr: 'Pogledaj kako zvučnik stišće i rasteže zrak, poslušaj ton koji crtaš i izmjeri vrijeme jeke koja se odbija od stijene.'
+      hr: 'Pogledaj kako zvučnik zgušnjava i razrjeđuje zrak, poslušaj ton prikazan na crtežu i izmjeri za koliko se vremena jeka vrati od stijene.'
     },
     tasks: [
-      { en: 'Raise the frequency (pitch). What happens to the wavelength on the pressure graph?', hr: 'Povisi frekvenciju (ton). Što se događa s valnom duljinom na grafu tlaka?' },
-      { en: 'Keep the pitch and switch the medium to water or steel. Is the wavelength longer or shorter? Why?', hr: 'Zadrži ton i promijeni sredstvo u vodu ili čelik. Je li valna duljina dulja ili kraća? Zašto?' },
+      { en: 'Raise the frequency (pitch). What happens to the wavelength on the pressure graph?', hr: 'Povećaj frekvenciju (povisi ton). Što se događa s valnom duljinom na grafu tlaka?' },
+      { en: 'Keep the pitch and switch the medium to water or steel. Is the wavelength longer or shorter? Why?', hr: 'Zadrži istu frekvenciju, a kao sredstvo odaberi vodu ili čelik. Je li valna duljina sada dulja ili kraća? Zašto?' },
       { en: 'Watch one particle. Does it travel to the right with the wave, or just wobble back and forth?', hr: 'Promatraj jednu česticu. Putuje li udesno s valom ili samo titra naprijed-natrag?' },
-      { en: 'In Echo mode set the cliff to 170 m and shout. How long until the echo? Now try 340 m and 17 m.', hr: 'U načinu Jeka postavi stijenu na 170 m i vikni. Koliko traje do jeke? Zatim probaj 340 m i 17 m.' }
+      { en: 'In Echo mode set the cliff to 170 m and shout. How long until the echo? Now try 340 m and 17 m.', hr: 'U načinu Jeka postavi stijenu na udaljenost 170 m i vikni. Koliko vremena prođe do jeke? Zatim pokušaj s 340 m i 17 m.' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -47,13 +47,13 @@
         onChange: v => { st.loud = v; retune(); if (!L.running) draw(); } });
       C.select({ label: { en: 'Medium', hr: 'Sredstvo' }, options: MEDIA.map(m => ({ value: m.id, label: m.label })), value: 'air',
         onChange: v => { st.med = MEDIA.find(m => m.id === v); st.echo = null; updateOut(); if (!L.running) draw(); } });
-      const btnTone = C.button({ label: { en: 'Play tone', hr: 'Sviraj ton' }, icon: '🔊', onClick: () => { if (audio) stopTone(); else startTone(); } });
+      const btnTone = C.button({ label: { en: 'Play tone', hr: 'Pusti ton' }, icon: '🔊', onClick: () => { if (audio) stopTone(); else startTone(); } });
       const slD = C.slider({ label: { en: 'Distance to the cliff d', hr: 'Udaljenost do stijene d' }, min: 17, max: 1000, step: 1, value: 170, unit: 'm', digits: 0,
         onChange: v => { st.d = v; st.echo = null; st.flash = 0; updateOut(); if (!L.running) draw(); } });
       const btnShout = C.button({ label: { en: 'Shout!', hr: 'Vikni!' }, icon: '📣', onClick: () => {
         st.echo = { r: 0, done: false }; st.flash = 0; if (!L.running) { L.start(); updatePlay(); } } });
       const btnPlay = C.button({ label: { en: 'Play', hr: 'Pokreni' }, variant: 'primary', onClick: () => { L.toggle(); if (!L.running) stopTone(); updatePlay(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => { reset(); } });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => { reset(); } });
       const outLam = C.readout({ label: { en: 'Wavelength λ = v / f', hr: 'Valna duljina λ = v / f' }, unit: 'm', digits: 3 });
       const outT = C.readout({ label: { en: 'Period T = 1 / f', hr: 'Period T = 1 / f' }, unit: 'ms', digits: 2 });
       const outV = C.readout({ label: { en: 'Speed of sound v', hr: 'Brzina zvuka v' }, unit: 'm/s', digits: 0 });
@@ -84,10 +84,10 @@
         outWatch.set(watchTime());
         if (st.mode === 'waves') note.set({
           en: 'The drawing is slowed down enormously: a real ' + K.fmt(st.f, 0, 'en') + ' Hz tone vibrates ' + K.fmt(st.f, 0, 'en') + ' times every second. Wavelengths are drawn relative to air so they stay visible; the numbers are real.',
-          hr: 'Crtež je jako usporen: pravi ton od ' + K.fmt(st.f, 0, 'hr') + ' Hz zatitra ' + K.fmt(st.f, 0, 'hr') + ' puta u sekundi. Valne duljine su nacrtane u odnosu na zrak da ostanu vidljive; brojevi su pravi.' });
+          hr: 'Crtež je jako usporen: pravi ton od ' + K.fmt(st.f, 0, 'hr') + ' Hz titra ' + K.fmt(st.f, 0, 'hr') + ' puta u sekundi. Valne duljine u vodi i čeliku nacrtane su skraćeno da ostanu vidljive; brojevi su stvarni.' });
         else note.set({
           en: 'Our ear hears a separate echo only if it arrives at least 0.1 s after the shout. In air sound covers 34 m (there and back) in 0.1 s, so the wall must be at least 17 m away.',
-          hr: 'Uho čuje odvojenu jeku samo ako stigne barem 0,1 s nakon povika. U zraku zvuk prijeđe 34 m (tamo i natrag) za 0,1 s, zato zid mora biti udaljen barem 17 m.' });
+          hr: 'Uho čuje odvojenu jeku samo ako stigne barem 0,1 s nakon povika. U zraku zvuk prijeđe 34 m (tamo i natrag) za 0,1 s pa prepreka mora biti udaljena barem 17 m.' });
       }
       function reset() { stopTone(); st.phase = 0; st.echo = null; st.flash = 0; updateOut(); updatePlay(); draw(); }
 
@@ -105,7 +105,7 @@
           if (ac.state === 'suspended' && ac.resume) ac.resume();
           audio = { ac, osc, gain };
         } catch (e) { audio = null; }
-        btnTone.setLabel(audio ? { en: 'Stop tone', hr: 'Zaustavi ton' } : { en: 'Play tone', hr: 'Sviraj ton' }); btnTone.setActive(!!audio);
+        btnTone.setLabel(audio ? { en: 'Stop tone', hr: 'Zaustavi ton' } : { en: 'Play tone', hr: 'Pusti ton' }); btnTone.setActive(!!audio);
       }
       function stopTone() {
         if (!audio) return;
@@ -116,7 +116,7 @@
           a.osc.onended = () => { try { a.ac.close(); } catch (e) { /* ignore */ } };
           a.osc.stop(t + 0.06);
         } catch (e) { try { a.ac.close(); } catch (e2) { /* ignore */ } }
-        btnTone.setLabel({ en: 'Play tone', hr: 'Sviraj ton' }); btnTone.setActive(false);
+        btnTone.setLabel({ en: 'Play tone', hr: 'Pusti ton' }); btnTone.setActive(false);
       }
       function retune() {
         if (!audio) return;
@@ -195,7 +195,7 @@
           g.fillStyle = K.withAlpha(theme.c1, 0.55 + 0.45 * pressure(x0));
           g.beginPath(); g.arc(x, y0, pr, 0, TWO_PI); g.fill();
         }
-        K.text(g, K.tr({ en: 'particles of ', hr: 'čestice: ' }, lang) + K.tr(st.med.name, lang), xe, tubeTop + tubeH + 6, { font: '11px ' + theme.font, color: theme.muted, align: 'right', baseline: 'top' });
+        K.text(g, K.tr({ en: 'particles of ', hr: 'čestice sredstva: ' }, lang) + K.tr(st.med.name, lang), xe, tubeTop + tubeH + 6, { font: '11px ' + theme.font, color: theme.muted, align: 'right', baseline: 'top' });
         // compression / rarefaction markers (move with the wave)
         let xC = xs + ((st.phase + Math.PI) % TWO_PI) / k; if (xC < xs + 14) xC += lamPx;
         let xR = xC - lamPx / 2; if (xR < xs + 14) xR = xC + lamPx / 2;

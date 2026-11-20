@@ -22,8 +22,8 @@
             'Every substance has its own properties: colour, hardness, smell, whether it conducts heat or electricity, at what temperature it melts. Iron is hard, grey and rusts; gold shines and never rusts; sugar dissolves in water, sand does not. By testing these properties we can tell substances apart, even when two bodies look exactly the same.'
           ],
           hr: [
-            'Pogledaj oko sebe: žlica, prozor, boca vode, bicikl. U fizici svaki takav predmet zovemo tijelo. Ono od čega je tijelo načinjeno zovemo tvar. Žlica može biti od čelika ili od plastike, a prozor je od stakla. Jedno tijelo može sadržavati i više tvari: olovka ima drvo i grafit.',
-            'Svaka tvar ima svoja svojstva: boju, tvrdoću, miris, provodi li toplinu ili električnu struju, na kojoj se temperaturi tali. Željezo je tvrdo, sivo i hrđa; zlato se sjaji i nikad ne hrđa; šećer se otapa u vodi, a pijesak ne. Ispitujući ta svojstva razlikujemo tvari, čak i kad dva tijela izgledaju posve jednako.'
+            'Pogledaj oko sebe: žlica, prozor, boca vode, bicikl. U fizici se svaki takav predmet zove tijelo. Ono od čega je tijelo načinjeno zove se tvar. Žlica može biti od čelika ili od plastike, a prozor je od stakla. Jedno tijelo može biti načinjeno i od više tvari: olovka je od drva i grafita.',
+            'Svaka tvar ima svoja svojstva: boju, tvrdoću i miris, a važno je i provodi li toplinu i električnu struju te na kojoj se temperaturi tali. Željezo je tvrdo, sivo i hrđa; zlato se sjaji i nikad ne hrđa; šećer se otapa u vodi, a pijesak ne. Ispitivanjem tih svojstava možemo razlikovati tvari čak i kad dva tijela izgledaju posve jednako.'
           ]
         }
       },
@@ -36,9 +36,9 @@
             'The particles also attract each other. That is why a drop of water keeps its shape on a leaf and why you need force to break a stick. In hotter substances the particles move faster. That is what temperature really measures: how fast the particles are moving.'
           ],
           hr: [
-            'Kad bi kap vode mogao povećati milijune puta, vidio bi da uopće nije glatka. Građena je od sitnih čestica, premalenih da bi ih vidio čak i školskim mikroskopom. Tako je građena sva tvar: zrak, kamen, tvoje vlastito tijelo. Između čestica je prazan prostor.',
-            'Čestice nikad ne miruju. Titraju, sudaraju se i kreću. To možeš i sam primijetiti: spusti vrećicu čaja u vruću vodu i boja se širi bez miješanja, jer je čestice vode koje se gibaju raznose. Kap parfema u jednom kutu uskoro se osjeti u cijeloj sobi.',
-            'Čestice se i međusobno privlače. Zato kap vode na listu zadržava svoj oblik i zato je potrebna sila da slomiš štap. U toplijim tvarima čestice se gibaju brže, a u hladnijima sporije. Upravo to zapravo mjeri temperatura: koliko se brzo gibaju čestice neke tvari.'
+            'Kad bismo kap vode mogli povećati milijune puta, vidjeli bismo da uopće nije glatka. Građena je od sitnih čestica, premalenih da bi se vidjele čak i školskim mikroskopom. Tako je građena sva tvar: zrak, kamen, pa i tvoje tijelo. Između čestica je prazan prostor.',
+            'Čestice nikad ne miruju. Titraju, sudaraju se i premještaju s mjesta na mjesto. To lako možeš primijetiti: spusti vrećicu čaja u vruću vodu i boja će se proširiti i bez miješanja jer je raznose čestice vode koje se gibaju. Kap parfema u jednom kutu sobe ubrzo se osjeti u cijeloj sobi.',
+            'Čestice se i međusobno privlače. Zato kap vode na listu zadržava svoj oblik i zato je potrebna sila da slomiš štap. U toplijim tvarima čestice se gibaju brže, a u hladnijima sporije. Upravo to pokazuje temperatura: koliko se brzo gibaju čestice neke tvari.'
           ]
         }
       },
@@ -51,9 +51,9 @@
             'Heating gives the particles more energy. Heat ice and the particles shake loose from their pattern: the ice melts. Heat water enough and particles escape into the air: the water boils and evaporates. Cooling does the opposite: steam condenses into drops on a cold window, and water freezes in the freezer.'
           ],
           hr: [
-            'Tvari dolaze u tri agregacijska stanja: čvrstom, tekućem i plinovitom. Led, voda i vodena para ista su tvar, voda, u tri stanja. Čvrsto tijelo zadržava i oblik i obujam. Tekućina zadržava obujam, ali poprima oblik posude. Plin nema ni stalan oblik ni stalan obujam: raširi se i ispuni sav prostor koji mu se da.',
-            'Razliku objašnjavaju čestice. U čvrstom tijelu gusto su i pravilno zbijene te samo titraju na mjestu, kao ljudi u punom kinu. U tekućini su još uvijek blizu, ali mogu kliziti jedna pokraj druge, kao ljudi u punom hodniku. U plinu su daleko jedna od druge i slobodno lete, kao djeca koja trče po praznom igralištu.',
-            'Zagrijavanjem čestice dobivaju više energije. Zagrij led i čestice se otresu iz svog poretka: led se tali. Zagrij vodu dovoljno i čestice bježe u zrak: voda vrije i isparava. Hlađenje čini suprotno: para se na hladnom prozoru kondenzira u kapljice, a voda se u zamrzivaču ledi.'
+            'Tvar može biti u trima agregacijskim stanjima: čvrstom, tekućem i plinovitom. Led, tekuća voda i vodena para ista su tvar – voda – u trima različitim stanjima. Čvrsto tijelo zadržava i oblik i obujam. Tekućina zadržava obujam, ali poprima oblik posude. Plin nema ni stalan oblik ni stalan obujam: širi se i ispunjava sav prostor koji mu je na raspolaganju.',
+            'Razliku objašnjavamo česticama. U čvrstom tijelu one su gusto i pravilno složene te samo titraju na mjestu, kao ljudi u punom kinu. U tekućini su i dalje blizu jedna drugoj, ali mogu kliziti jedna pokraj druge, kao ljudi u punom hodniku. U plinu su daleko jedna od druge i slobodno lete, kao djeca koja trče po praznom igralištu.',
+            'Zagrijavanjem čestice dobivaju više energije. Zagrijemo li led, čestice se oslobode iz pravilnog poretka: led se tali. Zagrijemo li vodu dovoljno, čestice izlijeću u zrak: voda isparava i vrije. Hlađenje ima suprotan učinak: para se na hladnom prozoru kondenzira u kapljice, a voda se u zamrzivaču smrzava.'
           ]
         },
         svg: '<svg viewBox="0 0 420 130" role="img"><rect x="15" y="15" width="110" height="100" rx="6" fill="var(--surface2)" stroke="var(--fg)" stroke-width="2"/><g fill="var(--c3)"><circle cx="35" cy="35" r="7"/><circle cx="55" cy="35" r="7"/><circle cx="75" cy="35" r="7"/><circle cx="95" cy="35" r="7"/><circle cx="115" cy="35" r="7"/><circle cx="35" cy="55" r="7"/><circle cx="55" cy="55" r="7"/><circle cx="75" cy="55" r="7"/><circle cx="95" cy="55" r="7"/><circle cx="115" cy="55" r="7"/><circle cx="35" cy="75" r="7"/><circle cx="55" cy="75" r="7"/><circle cx="75" cy="75" r="7"/><circle cx="95" cy="75" r="7"/><circle cx="115" cy="75" r="7"/><circle cx="35" cy="95" r="7"/><circle cx="55" cy="95" r="7"/><circle cx="75" cy="95" r="7"/><circle cx="95" cy="95" r="7"/><circle cx="115" cy="95" r="7"/></g><rect x="155" y="15" width="110" height="100" rx="6" fill="var(--surface2)" stroke="var(--fg)" stroke-width="2"/><g fill="var(--c3)"><circle cx="172" cy="60" r="7"/><circle cx="190" cy="48" r="7"/><circle cx="210" cy="58" r="7"/><circle cx="230" cy="46" r="7"/><circle cx="248" cy="60" r="7"/><circle cx="180" cy="78" r="7"/><circle cx="200" cy="74" r="7"/><circle cx="220" cy="80" r="7"/><circle cx="240" cy="76" r="7"/><circle cx="172" cy="98" r="7"/><circle cx="192" cy="94" r="7"/><circle cx="212" cy="100" r="7"/><circle cx="232" cy="96" r="7"/><circle cx="250" cy="98" r="7"/></g><rect x="295" y="15" width="110" height="100" rx="6" fill="var(--surface2)" stroke="var(--fg)" stroke-width="2"/><g fill="var(--c3)"><circle cx="315" cy="40" r="7"/><circle cx="380" cy="30" r="7"/><circle cx="350" cy="68" r="7"/><circle cx="312" cy="98" r="7"/><circle cx="388" cy="92" r="7"/></g><g stroke="var(--muted)" stroke-width="2" stroke-linecap="round"><line x1="324" y1="46" x2="336" y2="56"/><line x1="371" y1="34" x2="358" y2="40"/><line x1="357" y1="60" x2="368" y2="50"/><line x1="320" y1="92" x2="332" y2="84"/><line x1="380" y1="86" x2="370" y2="76"/></g></svg>'
@@ -67,9 +67,9 @@
             'There are two ways to raise the pressure. Squeeze the gas into a smaller space, as a bicycle pump does, and the particles hit the walls more often. Or heat it: hotter particles move faster and hit harder, so a football left in the sun becomes rock hard. This is also why you must never heat a spray can or throw it into a fire: the pressure can grow until the can bursts.'
           ],
           hr: [
-            'Godine 1827. škotski botaničar Robert Brown promatrao je mikroskopom sitna zrnca iz peludi koja su plutala u vodi i opazio nešto neobično: zrnca su se neprestano trzala amo-tamo i nikako se nisu smirivala. Nisu bila živa; isto je radila i kamena prašina. Danas znamo zašto: nevidljive čestice vode udaraju u svako zrnce sa svih strana, čas jače slijeva, čas zdesna. Brownovo gibanje vidljiv je dokaz da čestice nikad ne miruju.',
-            'Isto nemirno gibanje objašnjava tlak plina. Čestice zraka u lopti ili gumi jure brzinama od nekoliko stotina metara u sekundi i neprestano se zabijaju u stijenke. Jedan udarac preslab je da bismo ga osjetili, ali bezbrojni udarci svake sekunde zbrajaju se u stalnu silu na svaki kvadratni centimetar stijenke. Tako nastaje tlak plina.',
-            'Tlak možemo povećati na dva načina. Stisni plin u manji prostor, kao što to radi pumpa za bicikl, i čestice češće udaraju u stijenke. Ili ga zagrij: toplije čestice gibaju se brže i udaraju jače, pa nogometna lopta ostavljena na suncu postane tvrda kao kamen. Zato nikad ne smiješ zagrijavati bocu spreja ni bacati je u vatru: tlak može narasti toliko da boca eksplodira.'
+            'Godine 1827. škotski botaničar Robert Brown promatrao je mikroskopom sitna zrnca iz peludi koja su plutala u vodi i opazio nešto neobično: zrnca su se neprestano trzala amo-tamo i nikako se nisu smirivala. Nije bila riječ o živim bićima: jednako se ponašala i kamena prašina. Danas znamo zašto: nevidljive čestice vode udaraju u svako zrnce sa svih strana, čas jače slijeva, čas zdesna. Brownovo gibanje vidljiv je dokaz da čestice nikad ne miruju.',
+            'Isto nemirno gibanje objašnjava tlak plina. Čestice zraka u lopti ili automobilskoj gumi jure brzinama od nekoliko stotina metara u sekundi i neprestano udaraju u stijenke. Jedan udarac preslab je da bismo ga osjetili, ali bezbrojni udarci svake sekunde zbrajaju se u stalnu silu na svaki kvadratni centimetar stijenke. Tako nastaje tlak plina.',
+            'Tlak možemo povećati na dva načina. Možemo plin stisnuti u manji prostor, kao što to čini pumpa za bicikl, pa čestice češće udaraju u stijenke. Ili ga možemo zagrijati: toplije čestice gibaju se brže i udaraju jače, pa nogometna lopta ostavljena na suncu postane tvrda kao kamen. Zato nikad ne smiješ zagrijavati bocu spreja ni bacati je u vatru: tlak može narasti toliko da boca eksplodira.'
           ]
         }
       },
@@ -81,8 +81,8 @@
             'A ruler measures short lengths; a tape measure is for longer ones, such as a room or a running track. Always read a ruler from the zero mark, not from its edge, and look straight down at the scale. Every measurement has a small error, so scientists repeat it a few times and take the average.'
           ],
           hr: [
-            'Mjeriti znači uspoređivati nešto s mjernom jedinicom. Osnovna jedinica za duljinu je metar (m). Vrata su visoka oko 2 m, a veliki korak dug je oko 1 m. Za male stvari koristimo centimetre (cm) i milimetre (mm): 1 m = 100 cm = 1000 mm. Za velike udaljenosti koristimo kilometre (km): 1 km = 1000 m.',
-            'Ravnalom mjerimo kratke duljine, a mjernom vrpcom dulje, primjerice sobu ili stazu za trčanje. Ravnalo uvijek očitavaj od oznake nula, a ne od njegova ruba, i gledaj okomito na ljestvicu. Svako mjerenje ima malu pogrešku, pa znanstvenici mjerenje ponavljaju nekoliko puta i uzimaju srednju vrijednost.'
+            'Mjeriti znači uspoređivati nešto s mjernom jedinicom. Osnovna jedinica duljine jest metar (m). Vrata su visoka oko 2 m, a veliki korak dug je oko 1 m. Kratke duljine izražavamo u centimetrima (cm) i milimetrima (mm): 1 m = 100 cm = 1000 mm. Velike udaljenosti izražavamo u kilometrima (km): 1 km = 1000 m.',
+            'Ravnalom mjerimo kratke duljine, a mjernom vrpcom dulje, primjerice duljinu sobe ili trkaće staze. Uvijek mjeri od oznake 0 na ravnalu, a ne od njegova ruba, i gledaj okomito na ljestvicu. Svako mjerenje ima malu pogrešku, pa znanstvenici mjerenje ponavljaju nekoliko puta i računaju srednju vrijednost.'
           ]
         }
       },
@@ -95,9 +95,9 @@
             'What about a stone or a key, with no straight edges? Use water. Pour some water into a measuring cylinder and note the level, for example 60 mL. Lower the stone in and read again, say 85 mL. The water rose by 25 mL, so the stone pushed aside 25 mL of water. Its volume is therefore 25 cm³.'
           ],
           hr: [
-            'Obujam (volumen) govori koliko prostora tijelo zauzima. Jedinica je kubni metar (m³): kocka s bridom od 1 m. To je velika jedinica, pa obično koristimo manje. Kubni decimetar (dm³) kocka je s bridom od 10 cm i u nju stane točno jedna litra (L). Kubni centimetar (cm³) velik je kao kockica šećera i u njega stane jedan mililitar (mL). Dakle 1 L = 1000 mL, a 1 m³ = 1000 L.',
-            'Obujam kutije izračunamo: duljina × širina × visina. Kutija 10 cm × 5 cm × 4 cm ima obujam 200 cm³. Tekućine mjerimo menzurom ili kuhinjskom mjericom. Ljestvicu očitaj na dnu zakrivljene površine vode, s okom u istoj visini, inače ćeš očitati previše ili premalo.',
-            'A kamen ili ključ, bez ravnih bridova? Upotrijebi vodu. Ulij vodu u menzuru i zabilježi razinu, na primjer 60 mL. Spusti kamen u vodu i očitaj ponovno, recimo 85 mL. Voda se podigla za 25 mL, dakle kamen je istisnuo 25 mL vode. Njegov obujam je stoga 25 cm³.'
+            'Obujam (volumen) govori koliko prostora tijelo zauzima. Jedinica obujma je kubni metar (m³), obujam kocke s bridom od 1 m. To je velika jedinica, pa se obično služimo manjima. Kubni decimetar (dm³) kocka je s bridom od 10 cm i u nju stane točno jedna litra (L). Kubni centimetar (cm³) velik je kao kockica šećera i u njega stane jedan mililitar (mL). Dakle, 1 L = 1000 mL, a 1 m³ = 1000 L.',
+            'Obujam kutije (kvadra) izračunamo tako da pomnožimo duljinu, širinu i visinu. Kutija dimenzija 10 cm × 5 cm × 4 cm ima obujam 200 cm³. Obujam tekućine mjerimo menzurom ili kuhinjskom mjericom. Vrijednost očitaj na dnu zakrivljene površine vode, s okom u visini površine; inače ćeš očitati previše ili premalo.',
+            'A kako izmjeriti obujam kamena ili ključa, koji nemaju ravne bridove? Pomoću vode. Ulij malo vode u menzuru i zabilježi razinu, na primjer 60 mL. Spusti kamen u vodu i ponovno očitaj razinu, recimo 85 mL. Razina se podigla za 25 mL, dakle kamen je istisnuo 25 mL vode. Njegov je obujam stoga 25 cm³.'
           ]
         },
         svg: '<svg viewBox="0 0 420 140" role="img"><rect x="80" y="15" width="70" height="110" rx="4" fill="none" stroke="var(--fg)" stroke-width="2"/><rect x="81" y="70" width="68" height="54" fill="var(--c1)" opacity="0.45"/><line x1="80" y1="70" x2="150" y2="70" stroke="var(--c1)" stroke-width="3"/><g stroke="var(--muted)" stroke-width="2"><line x1="80" y1="40" x2="92" y2="40"/><line x1="80" y1="55" x2="92" y2="55"/><line x1="80" y1="85" x2="92" y2="85"/><line x1="80" y1="100" x2="92" y2="100"/></g><text x="160" y="74" fill="var(--fg)" font-family="inherit" font-size="13" font-weight="700">60 mL</text><rect x="270" y="15" width="70" height="110" rx="4" fill="none" stroke="var(--fg)" stroke-width="2"/><rect x="271" y="51" width="68" height="73" fill="var(--c1)" opacity="0.45"/><line x1="270" y1="51" x2="340" y2="51" stroke="var(--c1)" stroke-width="3"/><g stroke="var(--muted)" stroke-width="2"><line x1="270" y1="40" x2="282" y2="40"/><line x1="270" y1="55" x2="282" y2="55"/><line x1="270" y1="85" x2="282" y2="85"/><line x1="270" y1="100" x2="282" y2="100"/></g><ellipse cx="305" cy="108" rx="18" ry="12" fill="var(--c3)" stroke="var(--fg)" stroke-width="2"/><text x="350" y="55" fill="var(--fg)" font-family="inherit" font-size="13" font-weight="700">85 mL</text><text x="210" y="74" text-anchor="middle" fill="var(--muted)" font-family="inherit" font-size="20" font-weight="700">→</text></svg>'
@@ -111,9 +111,9 @@
             'The small letters in front of a unit are prefixes, and each one stands for a number: kilo (k) means 1000, centi (c) means one hundredth, milli (m) means one thousandth. The same prefixes work for every unit. To convert, multiply or divide: 3.5 km = 3500 m, 250 cm = 2.5 m, 0.75 kg = 750 g, 40 mm = 4 cm.'
           ],
           hr: [
-            'Masa govori koliko tvari tijelo sadrži. Jedinica je kilogram (kg). Litra vode ima masu gotovo točno 1 kg, vrećica šećera 1 kg, ti možda 40 kg. Za male stvari koristimo grame (g) i miligrame (mg): 1 kg = 1000 g, a 1 g = 1000 mg. Vrlo teške terete izražavamo u tonama: 1 t = 1000 kg.',
+            'Masa govori koliko tvari tijelo sadrži. Jedinica je kilogram (kg). Litra vode ima masu gotovo točno 1 kg, vrećica šećera 1 kg, ti možda 40 kg. Mase malih tijela izražavamo u gramima (g) i miligramima (mg): 1 kg = 1000 g, a 1 g = 1000 mg. Vrlo teške terete izražavamo u tonama: 1 t = 1000 kg.',
             'Masu mjerimo vagom. Starinska vaga s dvjema zdjelicama uspoređuje tijelo s poznatim utezima, a kuhinjska ili osobna vaga odmah pokazuje rezultat. Masa se ne mijenja kad tijelo premjestimo: vrećica od 1 kg ima masu 1 kg u Zagrebu, na planini i na Mjesecu.',
-            'Mala slova ispred jedinice zovu se predmetci (prefiksi) i svaki označava neki broj: kilo (k) znači 1000, centi (c) znači stotinku, mili (m) znači tisućinku. Isti predmetci vrijede za sve jedinice. Pri pretvaranju množimo ili dijelimo: 3,5 km = 3500 m, 250 cm = 2,5 m, 0,75 kg = 750 g, 40 mm = 4 cm.'
+            'Mala slova ispred jedinice zovu se predmetci (prefiksi) i svaki označava neki broj: kilo (k) znači tisuću (1000), centi (c) jednu stotinku, a mili (m) jednu tisućinku. Isti predmetci vrijede za sve jedinice. Pri pretvaranju množimo ili dijelimo: 3,5 km = 3500 m, 250 cm = 2,5 m, 0,75 kg = 750 g, 40 mm = 4 cm.'
           ]
         }
       }
@@ -123,15 +123,15 @@
       { term: { en: 'body', hr: 'tijelo' }, def: { en: 'Any object: a spoon, a stone, a drop of water, a planet.', hr: 'Bilo koji predmet: žlica, kamen, kap vode, planet.' } },
       { term: { en: 'substance', hr: 'tvar' }, def: { en: 'The material a body is made of, such as steel, glass, water or air.', hr: 'Ono od čega je tijelo načinjeno, na primjer čelik, staklo, voda ili zrak.' } },
       { term: { en: 'particle', hr: 'čestica' }, def: { en: 'One of the tiny building blocks that all matter is made of. Particles are always moving.', hr: 'Jedan od sitnih dijelova od kojih je građena sva tvar. Čestice se stalno gibaju.' } },
-      { term: { en: 'state of matter', hr: 'agregacijsko stanje' }, def: { en: 'The form a substance is in: solid, liquid or gas.', hr: 'Oblik u kojem se tvar nalazi: čvrsto, tekuće ili plinovito.' } },
+      { term: { en: 'state of matter', hr: 'agregacijsko stanje' }, def: { en: 'The form a substance is in: solid, liquid or gas.', hr: 'Stanje u kojem se tvar nalazi: čvrsto, tekuće ili plinovito.' } },
       { term: { en: 'melting', hr: 'taljenje' }, def: { en: 'The change from solid to liquid when a substance is heated.', hr: 'Prijelaz iz čvrstog u tekuće stanje zagrijavanjem.' } },
-      { term: { en: 'evaporation', hr: 'isparavanje' }, def: { en: 'The change from liquid to gas, when particles escape from the surface of a liquid.', hr: 'Prijelaz iz tekućeg u plinovito stanje, kad čestice bježe s površine tekućine.' } },
-      { term: { en: 'Brownian motion', hr: 'Brownovo gibanje' }, def: { en: 'The endless random jiggling of tiny grains in a liquid or gas, caused by hits from invisible particles. First described by Robert Brown in 1827.', hr: 'Neprestano nasumično gibanje sitnih zrnaca u tekućini ili plinu, uzrokovano udarcima nevidljivih čestica. Prvi ga je opisao Robert Brown 1827.' } },
+      { term: { en: 'evaporation', hr: 'isparavanje' }, def: { en: 'The change from liquid to gas, when particles escape from the surface of a liquid.', hr: 'Prijelaz iz tekućeg u plinovito stanje pri kojem čestice izlaze s površine tekućine.' } },
+      { term: { en: 'Brownian motion', hr: 'Brownovo gibanje' }, def: { en: 'The endless random jiggling of tiny grains in a liquid or gas, caused by hits from invisible particles. First described by Robert Brown in 1827.', hr: 'Neprestano nasumično gibanje sitnih zrnaca u tekućini ili plinu, uzrokovano udarcima nevidljivih čestica. Prvi ga je opisao Robert Brown 1827. godine.' } },
       { term: { en: 'gas pressure', hr: 'tlak plina' }, def: { en: 'The push of a gas on the walls of its container, made by countless hits of its particles. It grows when the gas is squeezed or heated.', hr: 'Djelovanje plina na stijenke posude, nastalo bezbrojnim udarcima njegovih čestica. Raste kad plin stisnemo ili zagrijemo.' } },
       { term: { en: 'length', hr: 'duljina' }, def: { en: 'How long something is. Unit: metre (m).', hr: 'Koliko je nešto dugo. Jedinica: metar (m).' } },
       { term: { en: 'volume', hr: 'obujam (volumen)' }, def: { en: 'How much space a body takes up. Units: m³, dm³ (litre), cm³ (millilitre).', hr: 'Koliko prostora tijelo zauzima. Jedinice: m³, dm³ (litra), cm³ (mililitar).' } },
       { term: { en: 'measuring cylinder', hr: 'menzura' }, def: { en: 'A tall glass with a scale for measuring the volume of liquids.', hr: 'Visoka staklena posuda s ljestvicom za mjerenje obujma tekućina.' } },
-      { term: { en: 'mass', hr: 'masa' }, def: { en: 'How much matter a body contains. Unit: kilogram (kg). The same everywhere.', hr: 'Koliko tvari tijelo sadrži. Jedinica: kilogram (kg). Jednaka je svugdje.' } },
+      { term: { en: 'mass', hr: 'masa' }, def: { en: 'How much matter a body contains. Unit: kilogram (kg). The same everywhere.', hr: 'Koliko tvari tijelo sadrži. Jedinica: kilogram (kg). Ista je na svakom mjestu.' } },
       { term: { en: 'balance', hr: 'vaga' }, def: { en: 'An instrument for measuring mass.', hr: 'Sprava za mjerenje mase.' } },
       { term: { en: 'prefix', hr: 'predmetak (prefiks)' }, def: { en: 'A letter in front of a unit that multiplies it: kilo = 1000, centi = 1/100, milli = 1/1000.', hr: 'Slovo ispred jedinice koje je množi: kilo = 1000, centi = 1/100, mili = 1/1000.' } }
     ],
@@ -145,7 +145,7 @@
 
     funFact: {
       en: 'Until 2019 the kilogram was defined by one metal cylinder kept in a vault near Paris, and every scale in the world was ultimately compared with it. Today it is defined by a constant of nature, so it can never be scratched, dusted or lost.',
-      hr: 'Do 2019. godine kilogram je bio određen jednim metalnim valjkom čuvanim u trezoru kraj Pariza, i svaka vaga na svijetu u konačnici se uspoređivala s njim. Danas je određen prirodnom konstantom, pa se više ne može ogrepsti, zaprašiti ni izgubiti.'
+      hr: 'Do 2019. godine kilogram je bio određen jednim metalnim valjkom koji se čuvao u trezoru kraj Pariza, a sve vage na svijetu u konačnici su se uspoređivale s njim. Danas je određen prirodnom konstantom, pa ga više nije moguće ogrepsti, zaprašiti ni izgubiti.'
     },
 
     experiment: {
@@ -164,17 +164,17 @@
           'Repeat with the key or the toy brick. For the brick, also measure its edges with a ruler and multiply them. Do the two volumes agree?'
         ],
         hr: [
-          'Ulij vodu u mjericu do okrugle oznake, na primjer 200 mL. Stavi mjericu na stol i očitaj razinu s okom u istoj visini kao površina vode.',
+          'Ulij vodu u mjericu do oznake s okruglim brojem, na primjer 200 mL. Stavi mjericu na stol i očitaj razinu s okom u visini površine vode.',
           'Zapiši razinu. To je obujam same vode.',
-          'Malo nagni mjericu i pusti da kamen lagano sklizne u vodu, da ne prska. Provjeri da je potpuno pod vodom.',
+          'Malo nagni mjericu i pusti da kamen lagano sklizne u vodu kako ne bi prskala. Provjeri je li kamen potpuno pod vodom.',
           'Na isti način očitaj novu razinu i zapiši je.',
-          'Oduzmi: nova razina minus stara razina. Razlika u mililitrima obujam je kamena u kubnim centimetrima.',
-          'Ponovi s ključem ili kockicom. Kockici izmjeri bridove ravnalom i pomnoži ih. Slažu li se ta dva obujma?'
+          'Od nove razine oduzmi staru. Razlika u mililitrima obujam je kamena u kubnim centimetrima.',
+          'Ponovi pokus s ključem ili kockicom. Kockici još ravnalom izmjeri bridove i pomnoži njihove duljine. Slažu li se ta dva obujma?'
         ]
       },
       explain: {
         en: 'A body under water pushes aside exactly as much water as its own volume, because two things cannot be in the same place at the same time. The water has nowhere to go but up, so the rise in the level shows the volume of the stone. 1 mL is exactly 1 cm³.',
-        hr: 'Tijelo pod vodom istisne točno onoliko vode koliki je njegov obujam, jer dvije stvari ne mogu istodobno biti na istom mjestu. Voda nema kamo nego gore, pa porast razine pokazuje obujam kamena. 1 mL točno je 1 cm³.'
+        hr: 'Tijelo pod vodom istisne točno onoliko vode koliki je njegov obujam, jer dvije stvari ne mogu istodobno biti na istom mjestu. Voda se nema kamo maknuti osim prema gore, pa porast razine pokazuje obujam kamena. 1 mL jednak je točno 1 cm³.'
       },
       safety: { en: 'Wipe up any spilled water so nobody slips.', hr: 'Obriši prolivenu vodu da se nitko ne posklizne.' }
     },
@@ -186,13 +186,13 @@
       { type: 'mc', q: { en: 'Which state of matter keeps its volume but takes the shape of its container?', hr: 'Koje agregacijsko stanje zadržava obujam, ali poprima oblik posude?' },
         options: [{ en: 'solid', hr: 'čvrsto' }, { en: 'gas', hr: 'plinovito' }, { en: 'liquid', hr: 'tekuće' }, { en: 'none of them', hr: 'nijedno' }], answer: 2,
         explain: { en: 'A liquid keeps its volume but flows to fill the shape of its container. A solid keeps both, a gas keeps neither.', hr: 'Tekućina zadržava obujam, ali poprima oblik posude. Čvrsto tijelo zadržava oboje, a plin ništa od toga.' } },
-      { type: 'mc', q: { en: 'One litre is the same volume as…', hr: 'Jedna litra isti je obujam kao…' },
+      { type: 'mc', q: { en: 'One litre is the same volume as…', hr: 'Jedna litra jednaka je…' },
         options: [{ en: '1 cm³', hr: '1 cm³' }, { en: '1 dm³', hr: '1 dm³' }, { en: '1 m³', hr: '1 m³' }, { en: '100 mL', hr: '100 mL' }], answer: 1,
-        explain: { en: 'A litre is a cube with 10 cm edges, which is one cubic decimetre: 1 L = 1 dm³ = 1000 mL.', hr: 'Litra je kocka s bridom od 10 cm, a to je jedan kubni decimetar: 1 L = 1 dm³ = 1000 mL.' } },
+        explain: { en: 'A litre is a cube with 10 cm edges, which is one cubic decimetre: 1 L = 1 dm³ = 1000 mL.', hr: 'Litra je obujam kocke s bridom od 10 cm, a to je jedan kubni decimetar: 1 L = 1 dm³ = 1000 mL.' } },
       { type: 'tf', q: { en: 'The particles of a solid do not move at all.', hr: 'Čestice čvrstog tijela uopće se ne gibaju.' }, answer: false,
         explain: { en: 'They cannot swap places, but they constantly vibrate around their positions. The hotter the solid, the stronger the vibration.', hr: 'Ne mogu mijenjati mjesta, ali stalno titraju oko svojih položaja. Što je tijelo toplije, titranje je jače.' } },
       { type: 'mc', q: { en: 'Why does a football left in the sun become harder?', hr: 'Zašto nogometna lopta ostavljena na suncu postane tvrđa?' },
-        options: [{ en: 'more air gets into the ball', hr: 'u loptu uđe još zraka' }, { en: 'the air particles move faster and hit the walls harder', hr: 'čestice zraka gibaju se brže i jače udaraju u stijenke' }, { en: 'the air particles grow bigger', hr: 'čestice zraka postanu veće' }, { en: 'the ball shrinks in the heat', hr: 'lopta se na toplini stisne' }], answer: 1,
+        options: [{ en: 'more air gets into the ball', hr: 'u loptu uđe još zraka' }, { en: 'the air particles move faster and hit the walls harder', hr: 'čestice zraka gibaju se brže i jače udaraju u stijenke' }, { en: 'the air particles grow bigger', hr: 'čestice zraka postanu veće' }, { en: 'the ball shrinks in the heat', hr: 'lopta se na toplini skupi' }], answer: 1,
         explain: { en: 'The number and size of the particles stay the same. Heating makes them move faster, so they hit the inside of the ball harder and more often, and the gas pressure rises.', hr: 'Broj i veličina čestica ostaju isti. Zagrijavanjem se čestice gibaju brže, pa jače i češće udaraju u unutrašnju stijenku lopte i tlak plina raste.' } },
       { type: 'num', q: { en: 'A hiking trail is 2.5 km long. How many metres is that?', hr: 'Planinarska staza duga je 2,5 km. Koliko je to metara?' },
         answer: 2500, tolerance: 1, unit: 'm',
@@ -200,9 +200,9 @@
       { type: 'mc', q: { en: 'Which instrument measures mass?', hr: 'Kojom spravom mjerimo masu?' },
         options: [{ en: 'a ruler', hr: 'ravnalo' }, { en: 'a measuring cylinder', hr: 'menzura' }, { en: 'a balance', hr: 'vaga' }, { en: 'a thermometer', hr: 'termometar' }], answer: 2,
         explain: { en: 'A balance (scale) measures mass. A ruler measures length, a measuring cylinder volume and a thermometer temperature.', hr: 'Vagom mjerimo masu. Ravnalom mjerimo duljinu, menzurom obujam, a termometrom temperaturu.' } },
-      { type: 'tf', q: { en: 'To read a measuring cylinder correctly, your eye should be level with the water surface.', hr: 'Da ispravno očitaš menzuru, oko ti mora biti u visini površine vode.' }, answer: true,
+      { type: 'tf', q: { en: 'To read a measuring cylinder correctly, your eye should be level with the water surface.', hr: 'Pri očitavanju menzure oko mora biti u visini površine vode.' }, answer: true,
         explain: { en: 'Looking from above or below makes the reading too large or too small. Read at the bottom of the curved surface, at eye level.', hr: 'Gledanje odozgo ili odozdo daje preveliko ili premalo očitanje. Očitavaj na dnu zakrivljene površine, s okom u istoj visini.' } },
-      { type: 'mc', q: { en: 'Which prefix means one thousandth?', hr: 'Koji predmetak znači tisućinku?' },
+      { type: 'mc', q: { en: 'Which prefix means one thousandth?', hr: 'Koji predmetak znači jednu tisućinku?' },
         options: [{ en: 'milli (m)', hr: 'mili (m)' }, { en: 'kilo (k)', hr: 'kilo (k)' }, { en: 'centi (c)', hr: 'centi (c)' }, { en: 'deci (d)', hr: 'deci (d)' }], answer: 0,
         explain: { en: 'milli = 1/1000 (1 mm = 0.001 m). kilo = 1000, centi = 1/100, deci = 1/10.', hr: 'mili = 1/1000 (1 mm = 0,001 m). kilo = 1000, centi = 1/100, deci = 1/10.' } },
       { type: 'mc', q: { en: 'The water in a measuring cylinder rises from 120 mL to 150 mL when a key is lowered in. What is the volume of the key?', hr: 'Voda se u menzuri podigne sa 120 mL na 150 mL kad u nju spustimo ključ. Koliki je obujam ključa?' },

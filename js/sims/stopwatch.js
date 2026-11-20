@@ -13,20 +13,20 @@
   ];
   const SPEEDS = [
     { value: '15', label: { en: 'bicycle, 15 km/h', hr: 'bicikl, 15 km/h' } },
-    { value: '50', label: { en: 'car in town, 50 km/h', hr: 'automobil u gradu, 50 km/h' } },
-    { value: '90', label: { en: 'open road, 90 km/h', hr: 'otvorena cesta, 90 km/h' } },
+    { value: '50', label: { en: 'car in town, 50 km/h', hr: 'automobil u naselju, 50 km/h' } },
+    { value: '90', label: { en: 'open road, 90 km/h', hr: 'cesta izvan naselja, 90 km/h' } },
     { value: '130', label: { en: 'motorway, 130 km/h', hr: 'autocesta, 130 km/h' } }
   ];
   const START = { en: 'Start', hr: 'Pokreni' }, STOP = { en: 'Stop', hr: 'Zaustavi' }, CONT = { en: 'Continue', hr: 'Nastavi' };
   const HINT_TAP = {
     en: 'Tap once for every FULL swing (there and back), always at the same point of the swing, and time at least 10 swings. A pause longer than 8 s starts a new count.',
-    hr: 'Dodirni jednom za svaki PUNI titraj (tamo i natrag), uvijek u istoj točki titraja, i izmjeri barem 10 titraja. Stanka dulja od 8 s započinje novo brojenje.'
+    hr: 'Dodirni jednom pri svakom PUNOM titraju (tamo i natrag), uvijek kad je njihalo u istom položaju, i izmjeri barem 10 titraja. Stanka dulja od 8 s započinje novo brojenje.'
   };
   // reaction panel: red while waiting, green for "go"; the text colour var(--bg) keeps contrast in both themes
   const PAD = {
     idle: { bg: 'var(--surface2)', fg: 'var(--fg)', big: { en: 'Tap to start', hr: 'Dodirni za početak' },
       sub: { en: 'The panel turns red. When it turns green, tap as fast as you can (or press Space).', hr: 'Ploča pocrveni. Kad pozeleni, dodirni što brže možeš (ili pritisni razmaknicu).' } },
-    wait: { bg: 'var(--bad)', fg: 'var(--bg)', big: { en: 'wait…', hr: 'čekaj…' }, sub: { en: 'Do not tap yet.', hr: 'Još ne diraj.' } },
+    wait: { bg: 'var(--bad)', fg: 'var(--bg)', big: { en: 'wait…', hr: 'čekaj…' }, sub: { en: 'Do not tap yet.', hr: 'Još ne dodiruj.' } },
     go: { bg: 'var(--good)', fg: 'var(--bg)', big: { en: 'NOW!', hr: 'SAD!' }, sub: { en: 'Tap!', hr: 'Dodirni!' } },
     early: { bg: 'var(--warn-soft)', fg: 'var(--fg)', big: { en: 'too soon', hr: 'prerano' },
       sub: { en: 'This try does not count. Tap to try again.', hr: 'Ovaj se pokušaj ne računa. Dodirni za novi pokušaj.' } }
@@ -46,16 +46,16 @@
 
   window.Sims.register({
     id: 'stopwatch',
-    title: { en: 'Stopwatch and Reaction Timer', hr: 'Štoperica i mjerač reakcije' },
+    title: { en: 'Stopwatch and Reaction Timer', hr: 'Štoperica i mjerač vremena reakcije' },
     summary: {
       en: 'Time anything with laps, find the period of a pendulum by tapping, test your reaction time and keep a steady beat with the metronome.',
-      hr: 'Mjeri vrijeme s krugovima, odredi period njihala dodirivanjem, ispitaj svoje vrijeme reakcije i drži ritam metronomom.'
+      hr: 'Mjeri vrijeme i bilježi krugove, odredi period njihala dodirivanjem zaslona, ispitaj svoje vrijeme reakcije i drži ujednačen ritam uz metronom.'
     },
     tasks: [
-      { en: 'Hang a weight on a string about 50 cm long. In the tap timer tap once for every full swing, at least 10 times. Type the length and read g.', hr: 'Objesi uteg na konac dug oko 50 cm. U mjeraču titraja dodirni jednom za svaki puni titraj, barem 10 puta. Upiši duljinu i očitaj g.' },
+      { en: 'Hang a weight on a string about 50 cm long. In the tap timer tap once for every full swing, at least 10 times. Type the length and read g.', hr: 'Objesi uteg na konac dug oko 50 cm. U mjeraču titraja dodirni jednom pri svakom punom titraju, barem 10 puta. Upiši duljinu i očitaj g.' },
       { en: 'Stopwatch: time 10 swings of the pendulum five times in a row with Lap. How big is the largest deviation from the mean?', hr: 'Štoperica: pet puta zaredom izmjeri 10 titraja njihala tipkom Krug. Koliko je najveće odstupanje od srednje vrijednosti?' },
-      { en: 'Measure your reaction time. How far does a car at 50 km/h travel before the driver even touches the brake?', hr: 'Izmjeri svoje vrijeme reakcije. Koliki put prijeđe automobil pri 50 km/h prije nego što vozač uopće dotakne kočnicu?' },
-      { en: 'Set the metronome to 60 beats per minute. What is the period? Can you make a pendulum that swings in time with it?', hr: 'Namjesti metronom na 60 udaraca u minuti. Koliki je period? Možeš li napraviti njihalo koje se njiše u istom ritmu?' }
+      { en: 'Measure your reaction time. How far does a car at 50 km/h travel before the driver even touches the brake?', hr: 'Izmjeri svoje vrijeme reakcije. Koliki put prijeđe automobil pri brzini od 50 km/h prije nego što vozač uopće dotakne kočnicu?' },
+      { en: 'Set the metronome to 60 beats per minute. What is the period? Can you make a pendulum that swings in time with it?', hr: 'Namjesti metronom na 60 udaraca u minuti. Koliki je period? Možeš li izraditi njihalo koje se njiše u istom ritmu?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme, mode = 'sw', dead = false;
@@ -117,7 +117,7 @@
       const outMeanA = CA.readout({ label: { en: 'Mean lap time x̄', hr: 'Srednja vrijednost x̄' }, unit: 's', digits: 2 });
       const outDevA = CA.readout({ label: { en: 'Largest deviation Δ', hr: 'Najveće odstupanje Δ' }, unit: 's', digits: 2 });
       CA.note({ text: { en: 'Time the same thing several times with Lap (for example 10 swings of a pendulum). The mean is your best value; the largest deviation shows how far a single timing can be off.',
-        hr: 'Istu pojavu izmjeri više puta tipkom Krug (na primjer 10 titraja njihala). Srednja vrijednost je tvoj najbolji rezultat, a najveće odstupanje pokazuje koliko pojedino mjerenje može pogriješiti.' } });
+        hr: 'Istu pojavu izmjeri više puta tipkom Krug (na primjer 10 titraja njihala). Srednja vrijednost najbolja je procjena, a najveće odstupanje pokazuje koliko pojedino mjerenje može odstupati od nje.' } });
 
       const outTaps = CB.readout({ label: { en: 'Taps', hr: 'Broj dodira' }, digits: 0 });
       const outT = CB.readout({ label: { en: 'Period T', hr: 'Period T' }, unit: 's', digits: 2 });
@@ -130,7 +130,7 @@
       const outTries = CC.readout({ label: { en: 'Valid tries', hr: 'Valjani pokušaji' } });
       const outLast = CC.readout({ label: { en: 'Last try', hr: 'Zadnji pokušaj' }, unit: 'ms', digits: 0 });
       const outMeanC = CC.readout({ label: { en: 'Mean of 5 tries', hr: 'Srednja vrijednost (5 pokušaja)' }, unit: 'ms', digits: 0 });
-      const outBest = CC.readout({ label: { en: 'Best', hr: 'Najbolje' }, unit: 'ms', digits: 0 });
+      const outBest = CC.readout({ label: { en: 'Best', hr: 'Najbolji rezultat' }, unit: 'ms', digits: 0 });
       const outRuler = CC.readout({ label: { en: 'Ruler drop s = ½·g·t²', hr: 'Pad ravnala s = ½·g·t²' }, unit: 'cm', digits: 1 });
       const selSpeed = CC.select({ label: { en: 'Vehicle', hr: 'Vozilo' }, options: SPEEDS, value: '50', onChange: () => { renderRx(); } });
       const outCar = CC.readout({ label: { en: 'Distance during your reaction', hr: 'Put za vrijeme reakcije' }, unit: 'm', digits: 1 });
@@ -173,7 +173,7 @@
         }
         const s = stats(sw.laps.map(l => l.lap / 1000));
         outLaps.set(sw.laps.length); outMeanA.set(s ? s.mean : null); outDevA.set(s && s.n > 1 ? s.maxDev : null);
-        resA.textContent = !s ? '' : s.n < 2 ? K.tr({ en: 'One more lap and you get the mean and the deviation.', hr: 'Još jedan krug pa dobivaš srednju vrijednost i odstupanje.' }, lang)
+        resA.textContent = !s ? '' : s.n < 2 ? K.tr({ en: 'One more lap and you get the mean and the deviation.', hr: 'Zabilježi još jedan krug i dobit ćeš srednju vrijednost i odstupanje.' }, lang)
           : 'T = (' + K.fmt(s.mean, 2, lang) + ' ± ' + K.fmt(s.maxDev, 2, lang) + ') s';
       }
 
@@ -191,8 +191,8 @@
         return bi(l => {
           const en = l === 'en';
           let s = 'g = ' + K.fmt(g, 2, l) + ' m/s², ' + K.fmt(Math.abs(pct), 1, l) + ' % ' + (pct >= 0 ? (en ? 'above' : 'iznad') : (en ? 'below' : 'ispod')) + ' 9' + (en ? '.' : ',') + '81 m/s². ';
-          if (g > 3 * G) s += en ? 'Much too big: you are probably tapping twice per swing. One full swing is there AND back.' : 'Puno previše: vjerojatno dodiruješ dvaput po titraju. Jedan puni titraj je tamo I natrag.';
-          else if (g < G / 3) s += en ? 'Much too small: check the length (in centimetres) and tap once for every full swing.' : 'Puno premalo: provjeri duljinu (u centimetrima) i dodirni jednom za svaki puni titraj.';
+          if (g > 3 * G) s += en ? 'Much too big: you are probably tapping twice per swing. One full swing is there AND back.' : 'Mnogo previše: vjerojatno dodiruješ dvaput po titraju. Jedan puni titraj znači tamo I natrag.';
+          else if (g < G / 3) s += en ? 'Much too small: check the length (in centimetres) and tap once for every full swing.' : 'Mnogo premalo: provjeri duljinu (u centimetrima) i dodirni jednom pri svakom punom titraju.';
           else if (Math.abs(pct) <= 5) s += en ? 'Very good!' : 'Vrlo dobro!';
           else s += en ? 'Measure the length from the hanging point to the middle of the weight and keep the swings small.' : 'Duljinu mjeri od objesišta do sredine utega, a njihalo otkloni samo malo.';
           if (n < 10) s += en ? ' Time at least 10 swings for a reliable value.' : ' Za pouzdanu vrijednost izmjeri barem 10 titraja.';
@@ -238,7 +238,7 @@
         if (shown) {
           padBig.textContent = K.fmt(rx.tries[n - 1], 0, lang) + ' ms';
           padSub.textContent = done
-            ? K.tr({ en: 'Mean of 5 tries: ', hr: 'Srednja vrijednost 5 pokušaja: ' }, lang) + K.fmt(s.mean, 0, lang) + ' ms, ' + K.tr({ en: 'best: ', hr: 'najbolje: ' }, lang) + K.fmt(s.min, 0, lang) + ' ms. ' + K.tr({ en: 'Tap for a new series.', hr: 'Dodirni za novu seriju.' }, lang)
+            ? K.tr({ en: 'Mean of 5 tries: ', hr: 'Srednja vrijednost 5 pokušaja: ' }, lang) + K.fmt(s.mean, 0, lang) + ' ms, ' + K.tr({ en: 'best: ', hr: 'najbolji: ' }, lang) + K.fmt(s.min, 0, lang) + ' ms. ' + K.tr({ en: 'Tap for a new series.', hr: 'Dodirni za novu seriju.' }, lang)
             : K.tr({ en: 'Try ', hr: 'Pokušaj ' }, lang) + n + K.tr({ en: ' of ', hr: ' od ' }, lang) + TRIES + '. ' + K.tr({ en: 'Tap for the next one.', hr: 'Dodirni za sljedeći.' }, lang);
         } else { padBig.textContent = K.tr(p.big, lang); padSub.textContent = K.tr(p.sub, lang); }
         const t = done ? s.mean / 1000 : null, kmh = parseFloat(selSpeed.get()) || 50;
@@ -247,10 +247,10 @@
         outRuler.set(drop); outCar.set(road);
         noteC.set(t === null
           ? { en: 'Do 5 valid tries. Then you see how far a falling ruler drops before you catch it, and how far a vehicle travels before the driver even starts to brake.',
-            hr: 'Napravi 5 valjanih pokušaja. Tada vidiš koliko ravnalo padne prije nego što ga uhvatiš i koliki put vozilo prijeđe prije nego što vozač uopće počne kočiti.' }
+            hr: 'Napravi 5 valjanih pokušaja. Tada ćeš vidjeti koliko ravnalo padne prije nego što ga uhvatiš i koliki put vozilo prijeđe prije nego što vozač uopće počne kočiti.' }
           : bi(l => l === 'en'
             ? 'With a reaction time of ' + K.fmt(t, 2, l) + ' s a falling ruler would drop this far before you catch it: ' + K.fmt(drop, 1, l) + ' cm. At ' + K.fmt(kmh, 0, l) + ' km/h a vehicle travels ' + K.fmt(road, 1, l) + ' m before the driver even starts to brake.'
-            : 'Uz vrijeme reakcije ' + K.fmt(t, 2, l) + ' s ravnalo koje pada spustilo bi se ovoliko prije nego što ga uhvatiš: ' + K.fmt(drop, 1, l) + ' cm. Pri ' + K.fmt(kmh, 0, l) + ' km/h vozilo prijeđe ' + K.fmt(road, 1, l) + ' m prije nego što vozač uopće počne kočiti.'));
+            : 'Uz vrijeme reakcije ' + K.fmt(t, 2, l) + ' s ravnalo koje pada prijeđe ' + K.fmt(drop, 1, l) + ' cm prije nego što ga uhvatiš. Pri brzini od ' + K.fmt(kmh, 0, l) + ' km/h vozilo prijeđe ' + K.fmt(road, 1, l) + ' m prije nego što vozač uopće počne kočiti.'));
       }
 
       // ---------- (d) metronome ----------

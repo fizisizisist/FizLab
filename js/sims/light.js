@@ -21,15 +21,15 @@
     mirror: { en: 'Law of reflection: the angle of reflection equals the angle of incidence (both measured from the normal, the dashed line). The image in a flat mirror is as far behind the mirror as the object is in front of it.',
       hr: 'Zakon odbijanja: kut odbijanja jednak je upadnom kutu (oba se mjere od okomice, crtkane linije). Slika u ravnom zrcalu jednako je daleko iza zrcala koliko je predmet ispred njega.' },
     refr: { en: 'Snell\'s law: n₁·sin θ₁ = n₂·sin θ₂. Light slows down in water or glass, so it bends toward the normal. Going out it bends away from the normal — and past the critical angle it cannot leave at all.',
-      hr: 'Snellov zakon: n₁·sin θ₁ = n₂·sin θ₂. U vodi ili staklu svjetlost se usporava pa se lomi prema okomici. Pri izlasku lomi se od okomice — a iznad graničnog kuta uopće ne može izaći.' },
+      hr: 'Snellov zakon (zakon loma): n₁·sin θ₁ = n₂·sin θ₂. U vodi ili staklu svjetlost se širi sporije pa se lomi prema okomici. Pri izlasku lomi se od okomice, a kad upadni kut prijeđe granični kut, uopće ne može izaći.' },
     shadow: { en: 'Light travels in straight lines, so the shadow is bigger than the object: shadow / object = b / a (similar triangles). A wide lamp gives a fuzzy edge, the penumbra.',
-      hr: 'Svjetlost putuje pravocrtno, zato je sjena veća od predmeta: sjena / predmet = b / a (slični trokuti). Širok izvor daje mutan rub, polusjenu.' },
+      hr: 'Svjetlost se širi pravocrtno pa je sjena veća od predmeta: sjena / predmet = b / a (slični trokuti). Širok izvor svjetlosti daje sjenu nejasnog ruba – polusjenu.' },
     prism: { en: 'Glass bends violet light a little more than red (its n is slightly larger), so white light fans out into a spectrum. The spread is exaggerated 6× here so you can see it.',
-      hr: 'Staklo lomi ljubičastu svjetlost malo jače od crvene (ima malo veći n), pa se bijela svjetlost rasipa u spektar. Rasap je ovdje uvećan 6× da bi se vidio.' }
+      hr: 'Staklo lomi ljubičastu svjetlost malo jače od crvene (za nju je n malo veći) pa se bijela svjetlost rastavlja u spektar. Rasap je ovdje prikazan 6 puta većim da bi se vidio.' }
   };
   const HINTS = {
     mirror: { en: 'Drag the flashlight or the point on the mirror.', hr: 'Povuci svjetiljku ili točku na zrcalu.' },
-    refr: { en: 'Drag anywhere to aim the incoming ray, or use the slider.', hr: 'Povuci bilo gdje da usmjeriš upadnu zraku ili koristi klizač.' },
+    refr: { en: 'Drag anywhere to aim the incoming ray, or use the slider.', hr: 'Povuci bilo gdje da usmjeriš upadnu zraku ili pomakni klizač.' },
     shadow: { en: 'Drag the lamp and the object.', hr: 'Povuci lampu i predmet.' },
     prism: { en: 'Change the angle of the white beam with the slider.', hr: 'Mijenjaj kut bijelog snopa klizačem.' }
   };
@@ -39,12 +39,12 @@
     title: { en: 'Light Rays', hr: 'Zrake svjetlosti' },
     summary: {
       en: 'Bounce a ray off a mirror, bend it into water or glass, make shadows with a lamp, and split white light with a prism.',
-      hr: 'Odbij zraku od zrcala, lomi je u vodi ili staklu, pravi sjene lampom i razloži bijelu svjetlost prizmom.'
+      hr: 'Odbij zraku od zrcala, prati kako se lomi u vodi ili staklu, stvaraj sjene lampom i rastavi bijelu svjetlost prizmom.'
     },
     tasks: [
-      { en: 'Mirror: drag the flashlight. Compare the angle of incidence α with the angle of reflection β. Is this always true?', hr: 'Zrcalo: povuci svjetiljku. Usporedi upadni kut α i kut odbijanja β. Vrijedi li to uvijek?' },
-      { en: 'Refraction: set 45° and switch water → glass → diamond. Which bends the light most? Then let light go OUT of the medium and find the angle where it cannot escape.', hr: 'Lom: postavi 45° i mijenjaj voda → staklo → dijamant. Što najjače lomi svjetlost? Zatim pusti svjetlost IZ sredstva i nađi kut pri kojem ne može izaći.' },
-      { en: 'Shadows: move the lamp closer to the object. Does the shadow on the wall grow or shrink? Check shadow / object = b / a.', hr: 'Sjene: približi lampu predmetu. Raste li sjena na zidu ili se smanjuje? Provjeri sjena / predmet = b / a.' },
+      { en: 'Mirror: drag the flashlight. Compare the angle of incidence α with the angle of reflection β. Is this always true?', hr: 'Zrcalo: povuci svjetiljku. Usporedi upadni kut α i kut odbijanja β. Jesu li uvijek jednaki?' },
+      { en: 'Refraction: set 45° and switch water → glass → diamond. Which bends the light most? Then let light go OUT of the medium and find the angle where it cannot escape.', hr: 'Lom: postavi 45° i redom odaberi vodu, staklo i dijamant. Koje sredstvo najjače lomi svjetlost? Zatim neka svjetlost izlazi IZ sredstva; pronađi kut pri kojem više ne može izaći.' },
+      { en: 'Shadows: move the lamp closer to the object. Does the shadow on the wall grow or shrink? Check shadow / object = b / a.', hr: 'Sjene: približi lampu predmetu. Povećava li se sjena na zidu ili se smanjuje? Provjeri vrijedi li sjena / predmet = b / a.' },
       { en: 'Prism: which colour bends the most, red or violet?', hr: 'Prizma: koja se boja najjače lomi, crvena ili ljubičasta?' }
     ],
     mount(container, ctx) {
@@ -69,20 +69,20 @@
       const selMed = C.select({ label: { en: 'Lower medium', hr: 'Donje sredstvo' }, options: MEDIA.map(m => ({ value: m.id, label: m.label })), value: 'water',
         onChange: v => { st.ref.med = MEDIA.find(m => m.id === v); update(); } });
       const slTheta = C.slider({ label: { en: 'Angle of incidence θ₁', hr: 'Upadni kut θ₁' }, min: 0, max: 89, step: 1, value: 40, unit: '°', digits: 0, onChange: v => { st.ref.theta = v; update(); } });
-      const tgRev = C.toggle({ label: { en: 'Light goes from the medium into air', hr: 'Svjetlost ide iz sredstva u zrak' }, value: false, onChange: v => { st.ref.reverse = v; update(); } });
+      const tgRev = C.toggle({ label: { en: 'Light goes from the medium into air', hr: 'Svjetlost prelazi iz sredstva u zrak' }, value: false, onChange: v => { st.ref.reverse = v; update(); } });
       const outT1 = C.readout({ label: { en: 'Angle of incidence θ₁', hr: 'Upadni kut θ₁' }, unit: '°', digits: 0 });
       const outT2 = C.readout({ label: { en: 'Angle of refraction θ₂', hr: 'Kut loma θ₂' }, unit: '', digits: 1 });
       const outN = C.readout({ label: { en: 'Refractive index n', hr: 'Indeks loma n' }, unit: '', digits: 2 });
       const slOH = C.slider({ label: { en: 'Object height h', hr: 'Visina predmeta h' }, min: 0.1, max: 1, step: 0.05, value: 0.5, unit: 'm', digits: 2, onChange: v => { st.sh.oh = v; clampShadow(); update(); } });
-      const tgExt = C.toggle({ label: { en: 'Extended lamp (two sources)', hr: 'Prošireni izvor (dva izvora)' }, value: false, onChange: v => { st.sh.ext = v; update(); } });
+      const tgExt = C.toggle({ label: { en: 'Extended lamp (two sources)', hr: 'Široki izvor (dva izvora)' }, value: false, onChange: v => { st.sh.ext = v; update(); } });
       const outOH = C.readout({ label: { en: 'Object height h', hr: 'Visina predmeta h' }, unit: 'm', digits: 2 });
-      const outSH = C.readout({ label: { en: 'Shadow height (umbra)', hr: 'Visina sjene (potpune)' }, unit: 'm', digits: 2 });
+      const outSH = C.readout({ label: { en: 'Shadow height (umbra)', hr: 'Visina potpune sjene' }, unit: 'm', digits: 2 });
       const outA = C.readout({ label: { en: 'Lamp → object a', hr: 'Lampa → predmet a' }, unit: 'm', digits: 2 });
       const outB = C.readout({ label: { en: 'Lamp → wall b', hr: 'Lampa → zid b' }, unit: 'm', digits: 2 });
       const slPr = C.slider({ label: { en: 'Angle of incidence', hr: 'Upadni kut' }, min: 0, max: 75, step: 1, value: 45, unit: '°', digits: 0, onChange: v => { st.pr.theta = v; update(); } });
       const outDev = C.readout({ label: { en: 'Deviation of the green ray', hr: 'Otklon zelene zrake' }, unit: '°', digits: 1 });
       const outSpread = C.readout({ label: { en: 'Spread red → violet (×6)', hr: 'Rasap crvena → ljubičasta (×6)' }, unit: '°', digits: 1 });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: () => { resetMode(); } });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: () => { resetMode(); } });
       const note = C.note({ text: NOTES.mirror });
       const GROUPS = { mirror: [tgCandle, outInc, outRefl], refr: [selMed, slTheta, tgRev, outT1, outT2, outN],
         shadow: [slOH, tgExt, outOH, outSH, outA, outB], prism: [slPr, outDev, outSpread] };
@@ -268,7 +268,7 @@
           dashed(g, cx + 22, my - ch, cx + 22, my + ch, theme.muted);
           K.text(g, 'd', cx + 28, my - ch / 2, { font: 'italic 12px ' + theme.font, color: theme.fg, baseline: 'middle' });
           K.text(g, 'd', cx + 28, my + ch / 2, { font: 'italic 12px ' + theme.font, color: theme.fg, baseline: 'middle' });
-          K.text(g, K.tr({ en: 'virtual image', hr: 'virtualna (prividna) slika' }, lang), cx, my + ch + 4, { font: '11px ' + theme.font, color: theme.muted, align: 'center', baseline: 'top' });
+          K.text(g, K.tr({ en: 'virtual image', hr: 'virtualna slika' }, lang), cx, my + ch + 4, { font: '11px ' + theme.font, color: theme.muted, align: 'center', baseline: 'top' });
         }
         header(g, w);
         K.text(g, 'α = β', 12, 38, { font: 'bold 15px ' + theme.fontDisplay, color: theme.fg, baseline: 'middle' });

@@ -10,7 +10,7 @@
     { id: 'L', label: { en: 'L-shape', hr: 'Slovo L' }, pin0: [0.04, 0.04], pts: [[0, 0], [0.12, 0], [0.12, 0.24], [0.3, 0.24], [0.3, 0.36], [0, 0.36]] },
     { id: 'boom', label: { en: 'Boomerang', hr: 'Bumerang' }, pin0: [0.05, 0.04], pts: [[0, 0.02], [0.07, 0], [0.18, 0.2], [0.29, 0], [0.36, 0.02], [0.18, 0.33]] },
     { id: 'tri', label: { en: 'Triangle', hr: 'Trokut' }, pin0: [0.11, 0.05], pts: [[0.1, 0], [0.36, 0.3], [0, 0.3]] },
-    { id: 'island', label: { en: 'Irregular "island"', hr: 'Nepravilan "otok"' }, pin0: [0.16, 0.04], pts: [[0.05, 0.06], [0.16, 0], [0.27, 0.04], [0.36, 0.13], [0.31, 0.2], [0.34, 0.3], [0.22, 0.34], [0.14, 0.27], [0.04, 0.31], [0, 0.18]] }
+    { id: 'island', label: { en: 'Irregular "island"', hr: 'Nepravilan „otok“' }, pin0: [0.16, 0.04], pts: [[0.05, 0.06], [0.16, 0], [0.27, 0.04], [0.36, 0.13], [0.31, 0.2], [0.34, 0.3], [0.22, 0.34], [0.14, 0.27], [0.04, 0.31], [0, 0.18]] }
   ];
   SHAPES.forEach(sh => {        // exact centroid and radius of gyration of the polygon
     let A = 0, cx = 0, cy = 0, J = 0;
@@ -46,13 +46,13 @@
     title: { en: 'Centre of Mass and Stability', hr: 'Težište i stabilnost' },
     summary: {
       en: 'Find the centre of mass of a cardboard shape with a plumb line, tilt a platform until things topple, and build a toy that balances on a fingertip.',
-      hr: 'Pronađi težište kartonskog lika pomoću viska, naginji podlogu dok se tijela ne prevrnu i složi igračku koja balansira na vrhu prsta.'
+      hr: 'Pronađi težište kartonskog lika pomoću viska, naginji podlogu dok se tijela ne prevrnu i složi igračku koja održava ravnotežu na vrhu prsta.'
     },
     tasks: [
-      { en: 'Hang the L-shape from three different points and draw the plumb line each time. Where do the lines cross?', hr: 'Objesi slovo L u tri različite točke i svaki put povuci visak. Gdje se crte sijeku?' },
+      { en: 'Hang the L-shape from three different points and draw the plumb line each time. Where do the lines cross?', hr: 'Objesi slovo L u tri različite točke i svaki put ucrtaj crtu viska. Gdje se crte sijeku?' },
       { en: 'Find the centre of mass of the boomerang. Is it inside the cardboard?', hr: 'Pronađi težište bumeranga. Je li ono unutar kartona?' },
-      { en: 'Tilt the bus until it topples. Then move the load up to the roof. At which angle does it topple now?', hr: 'Naginji autobus dok se ne prevrne. Zatim podigni teret do krova. Pri kojem se kutu sada prevrće?' },
-      { en: 'Balancing toy: find the arm angle at which the toy just starts to return after a push.', hr: 'Igračka: pronađi kut ruku pri kojem se igračka tek počne vraćati nakon guranja.' }
+      { en: 'Tilt the bus until it topples. Then move the load up to the roof. At which angle does it topple now?', hr: 'Naginji autobus dok se ne prevrne. Zatim podigni teret do krova. Pri kojem se kutu sada prevrne?' },
+      { en: 'Balancing toy: find the arm angle at which the toy just starts to return after a push.', hr: 'Igračka za ravnotežu: pronađi kut ruku pri kojem se igračka nakon guranja tek počinje vraćati.' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -74,7 +74,7 @@
         { value: 'tricks', label: { en: 'Balancing tricks', hr: 'Trikovi ravnoteže' } }], value: 'find', onChange: v => { st.mode = v; drag = null; showControls(); refresh(); } });
       const selShape = C.select({ label: { en: 'Cardboard shape', hr: 'Kartonski lik' }, options: SHAPES.map(s => ({ value: s.id, label: s.label })), value: 'L',
         onChange: v => { st.shape = v; const sh = shape(); st.pin = sh.pin0.slice(); st.phi = eqPhi(sh, st.pin); st.om = 0; st.lines = []; refresh(); } });
-      const btnLine = C.button({ label: { en: 'Draw plumb line', hr: 'Povuci visak' }, variant: 'primary', onClick: drawLine });
+      const btnLine = C.button({ label: { en: 'Draw plumb line', hr: 'Ucrtaj visak' }, variant: 'primary', onClick: drawLine });
       const btnClear = C.button({ label: { en: 'Erase the lines', hr: 'Obriši crte' }, onClick: () => { st.lines = []; refresh(); } });
       const tgReveal = C.toggle({ label: { en: 'Reveal the true centre of mass', hr: 'Otkrij pravo težište' }, value: false, onChange: v => { st.reveal = v; refresh(); } });
       const selObj = C.select({ label: { en: 'Object', hr: 'Tijelo' }, options: OBJ.map(o => ({ value: o.id, label: o.label })), value: 'box',
@@ -88,9 +88,9 @@
       const btnPush = C.button({ label: { en: 'Push', hr: 'Gurni' }, variant: 'primary', onClick: () => { if (st.fell) upright(); st.dir = -st.dir; st.tom += 1.6 * st.dir; if (!L.running && !st.paused) { L.start(); updatePlay(); } refresh(); } });
       const btnUp = C.button({ label: { en: 'Set it upright', hr: 'Uspravi' }, onClick: () => { upright(); refresh(); } });
       const btnPlay = C.button({ label: { en: 'Pause', hr: 'Pauza' }, onClick: () => { L.toggle(); st.paused = !L.running; updatePlay(); refresh(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: reset });
-      const outLines = C.readout({ label: { en: 'Plumb lines drawn', hr: 'Povučenih crta viska' }, digits: 0 });
-      const outErr = C.readout({ label: { en: 'Your crossing misses the centre by', hr: 'Tvoje sjecište promašuje težište za' }, unit: 'mm', digits: 1 });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: reset });
+      const outLines = C.readout({ label: { en: 'Plumb lines drawn', hr: 'Ucrtane crte viska' }, digits: 0 });
+      const outErr = C.readout({ label: { en: 'Your crossing misses the centre by', hr: 'Udaljenost sjecišta od težišta' }, unit: 'mm', digits: 1 });
       const outSwing = C.readout({ label: { en: 'Shape', hr: 'Lik' } });
       const outCrit = C.readout({ label: { en: 'Tipping angle α', hr: 'Kut prevrtanja α' }, unit: '°', digits: 1 });
       const outYc = C.readout({ label: { en: 'Height of the centre of mass', hr: 'Visina težišta' }, unit: 'm', digits: 2 });
@@ -197,8 +197,8 @@
           const s = swing(), x = cross(), n = st.lines.length;
           outLines.set(n); outErr.set(x ? Math.hypot(x[0] - s.sh.c[0], x[1] - s.sh.c[1]) * 1000 : null);
           outSwing.set(s.rest ? { en: 'at rest', hr: 'miruje' } : { en: 'swinging', hr: 'njiše se' }); outSwing.setColor(s.rest ? theme.good : theme.warn);
-          if (st.wait > 0 && !s.rest) note.set({ en: 'Wait until the shape stops swinging, then draw the plumb line.', hr: 'Pričekaj da se lik prestane njihati pa povuci visak.' });
-          else if (n === 0) note.set({ en: 'Click any point of the cardboard to hang it there. At rest the centre of mass is exactly below the pin, so it lies on the plumb line. Draw the line!', hr: 'Klikni bilo koju točku kartona da ga ondje objesiš. Kad miruje, težište je točno ispod pribadače pa leži na visku. Povuci crtu!' });
+          if (st.wait > 0 && !s.rest) note.set({ en: 'Wait until the shape stops swinging, then draw the plumb line.', hr: 'Pričekaj da se lik prestane njihati pa ucrtaj crtu viska.' });
+          else if (n === 0) note.set({ en: 'Click any point of the cardboard to hang it there. At rest the centre of mass is exactly below the pin, so it lies on the plumb line. Draw the line!', hr: 'Klikni bilo koju točku kartona da ga ondje objesiš. Kad karton miruje, težište je točno ispod pribadače, dakle na crti viska. Ucrtaj tu crtu!' });
           else if (n === 1) note.set({ en: 'The centre of mass is somewhere on this line. Hang the shape from another point and draw a second line.', hr: 'Težište je negdje na ovoj crti. Objesi lik u drugoj točki i povuci drugu crtu.' });
           else note.set(st.shape === 'boom'
             ? { en: 'All plumb lines cross in one point: the centre of mass. For the boomerang it lies outside the cardboard, in the empty space between the arms!', hr: 'Sve crte viska sijeku se u jednoj točki: težištu. Kod bumeranga ono leži izvan kartona, u praznom prostoru između krakova!' }
@@ -207,13 +207,13 @@
           const q = top(), s = toppleState();
           outCrit.set(q.crit / DEG); outYc.set(q.yc); outState.set(s.txt); outState.setColor(theme[s.key]);
           note.set({ en: 'An object stands as long as the vertical line through its centre of mass falls inside its support base. It tips when tan α = (half the width) / (height of the centre of mass). Low and wide is stable: that is why racing cars are flat. (A small stop keeps the object from sliding.)',
-            hr: 'Tijelo stoji dok okomica kroz težište pada unutar oslonca (baze). Prevrće se kad je tan α = (pola širine) / (visina težišta). Nisko i široko je stabilno: zato su trkaći automobili plosnati. (Mali graničnik sprečava klizanje tijela.)' });
+            hr: 'Tijelo stoji dok okomica kroz njegovo težište prolazi kroz površinu oslonca. Prevrne se pri kutu α za koji vrijedi tan α = (pola širine) / (visina težišta). Nisko i široko tijelo stabilno je: zato su trkaći automobili plosnati. (Mali graničnik sprječava klizanje tijela.)' });
         } else {
           const q = toy(), s = toyState();
           outToy.set(q.yc * 100); outEq.set(s.txt); outEq.setColor(theme[s.key]);
           note.set(q.yc < 0
-            ? { en: 'The centre of mass is below the support point: after a push the toy swings back like a pendulum (stable equilibrium). A tightrope walker\'s drooping pole, the balancing bird and the fork-and-cork trick work the same way.', hr: 'Težište je ispod oslonca: nakon guranja igračka se vraća kao njihalo (stabilna ravnoteža). Tako rade i savijena motka hodača po žici, ptica balansirka i trik s vilicama i plutenim čepom.' }
-            : { en: 'The centre of mass is above the support point: the smallest tilt grows and the toy falls (unstable equilibrium). Lower the arms or use heavier weights to bring the centre of mass below the fingertip.', hr: 'Težište je iznad oslonca: i najmanji nagib raste i igračka pada (labilna ravnoteža). Spusti ruke ili stavi teže utege da težište dođe ispod vrha prsta.' });
+            ? { en: 'The centre of mass is below the support point: after a push the toy swings back like a pendulum (stable equilibrium). A tightrope walker\'s drooping pole, the balancing bird and the fork-and-cork trick work the same way.', hr: 'Težište je ispod oslonca: igračka se nakon guranja vraća kao njihalo (stabilna ravnoteža). Na istom načelu rade savijena motka akrobata na žici, igračka ptica koja balansira na kljunu i trik s vilicama i plutenim čepom.' }
+            : { en: 'The centre of mass is above the support point: the smallest tilt grows and the toy falls (unstable equilibrium). Lower the arms or use heavier weights to bring the centre of mass below the fingertip.', hr: 'Težište je iznad oslonca: i najmanji nagib raste pa igračka padne (labilna ravnoteža). Spusti ruke ili stavi teže utege da se težište spusti ispod vrha prsta.' });
         }
       }
 
@@ -401,7 +401,7 @@
           : N(Math.abs(q.yc) * 100, 1) + ' cm ' + T(q.yc < 0 ? { en: 'BELOW the support', hr: 'ISPOD oslonca' } : { en: 'ABOVE the support', hr: 'IZNAD oslonca' });
         head(c, [T({ en: 'Balancing toy on a fingertip', hr: 'Igračka na vrhu prsta' }), T({ en: 'Centre of mass: ', hr: 'Težište: ' }) + cmTxt], w - 20);
         label(c, T({ en: 'Equilibrium: ', hr: 'Ravnoteža: ' }) + T(s.txt), w - 12, 62, { align: 'right', dot: theme[s.key], bold: true });
-        K.text(c, T({ en: 'Press Push, or drag the toy sideways and let go', hr: 'Pritisni Gurni ili povuci igračku u stranu pa pusti' }), 8, h - 22, { font: '10px ' + theme.font, color: theme.fg });
+        K.text(c, T({ en: 'Press Push, or drag the toy sideways and let go', hr: 'Pritisni „Gurni“ ili povuci igračku u stranu i pusti je' }), 8, h - 22, { font: '10px ' + theme.font, color: theme.fg });
       }
       function draw() {
         const c = cv.ctx, w = cv.w, h = cv.h;

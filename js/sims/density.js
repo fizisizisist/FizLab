@@ -45,13 +45,13 @@
     title: { en: 'Float or Sink?', hr: 'Pluta ili tone?' },
     summary: {
       en: 'Drop a cube of any material into water, oil, honey or mercury. Compare its density with the liquid and read the buoyant force.',
-      hr: 'Pusti kocku od bilo kojeg materijala u vodu, ulje, med ili živu. Usporedi njezinu gustoću s tekućinom i pročitaj uzgon.'
+      hr: 'Pusti kocku od bilo kojeg materijala u vodu, ulje, med ili živu. Usporedi njezinu gustoću s gustoćom tekućine i očitaj uzgon.'
     },
     tasks: [
-      { en: 'Drop the oak cube into water. What part of it is under the surface? Compare with 700 / 1000.', hr: 'Pusti hrastovu kocku u vodu. Koliki je dio pod površinom? Usporedi sa 700 / 1000.' },
+      { en: 'Drop the oak cube into water. What part of it is under the surface? Compare with 700 / 1000.', hr: 'Pusti hrastovu kocku u vodu. Koliki je dio kocke pod površinom? Usporedi sa 700 / 1000.' },
       { en: 'Find a liquid in which ice sinks, and one in which iron floats.', hr: 'Pronađi tekućinu u kojoj led tone i tekućinu u kojoj željezo pluta.' },
-      { en: 'Change the volume. Does a bigger cube of the same material float deeper?', hr: 'Promijeni obujam. Pluta li veća kocka istog materijala dublje?' },
-      { en: 'Mystery object: read its mass and volume, compute ρ = m / V, then press Reveal to check.', hr: 'Tajanstveni predmet: pročitaj masu i obujam, izračunaj ρ = m / V, pa pritisni Otkrij i provjeri.' }
+      { en: 'Change the volume. Does a bigger cube of the same material float deeper?', hr: 'Promijeni obujam. Uranja li veća kocka od istog materijala dublje?' },
+      { en: 'Mystery object: read its mass and volume, compute ρ = m / V, then press Reveal to check.', hr: 'Tajanstveni predmet: očitaj masu i obujam, izračunaj ρ = m / V, a zatim provjeri pritiskom na „Otkrij gustoću“.' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme;
@@ -72,7 +72,7 @@
       const btnDrop = C.button({ label: { en: 'Drop', hr: 'Pusti' }, variant: 'primary', onClick: drop });
       const btnPlay = C.button({ label: { en: 'Pause', hr: 'Pauza' }, onClick: () => { L.toggle(); updatePlay(); } });
       const btnReveal = C.button({ label: { en: 'Reveal density', hr: 'Otkrij gustoću' }, onClick: () => { st.revealed = true; updateOut(); draw(); } });
-      C.button({ label: { en: 'Reset', hr: 'Vrati' }, onClick: reset });
+      C.button({ label: { en: 'Reset', hr: 'Ispočetka' }, onClick: reset });
       const outRhoObj = C.readout({ label: { en: 'Object density', hr: 'Gustoća tijela' }, unit: 'kg/m³', digits: 0 });
       const outRhoLiq = C.readout({ label: { en: 'Liquid density', hr: 'Gustoća tekućine' }, unit: 'kg/m³', digits: 0 });
       const outM = C.readout({ label: { en: 'Mass', hr: 'Masa' }, unit: 'kg', digits: 3 });
@@ -131,14 +131,14 @@
         const liqName = { en: K.tr(st.liq.label, 'en').toLowerCase(), hr: K.tr(st.liq.label, 'hr').toLowerCase() };
         if (hidden()) {
           note.set({ en: 'Mystery object: compute ρ = m / V from the readouts, or compare: the part under the surface equals ρ_object / ρ_liquid.',
-            hr: 'Tajanstveni predmet: izračunaj ρ = m / V iz vrijednosti, ili usporedi: dio pod površinom jednak je ρ_tijela / ρ_tekućine.' });
+            hr: 'Tajanstveni predmet: izračunaj ρ = m / V iz očitanih vrijednosti ili iskoristi to da je uronjeni dio jednak ρ_tijela / ρ_tekućine.' });
         } else if (st.rho < st.liq.rho) {
           const pct = st.rho / st.liq.rho * 100;
           note.set({ en: 'Less dense than ' + liqName.en + ' → it floats. Buoyant force equals the weight, and ' + K.fmt(pct, 0, 'en') + ' % of the cube is under the surface.',
-            hr: 'Manje gusto od tekućine (' + liqName.hr + ') → pluta. Uzgon je jednak težini, a ' + K.fmt(pct, 0, 'hr') + ' % kocke je pod površinom.' });
+            hr: 'Kocka ima manju gustoću od tekućine (' + liqName.hr + ') → pluta. Uzgon je jednak težini, a pod površinom je ' + K.fmt(pct, 0, 'hr') + ' % kocke.' });
         } else {
           note.set({ en: 'Denser than ' + liqName.en + ' → it sinks. Even fully under the surface the buoyant force is smaller than the weight.',
-            hr: 'Gušće od tekućine (' + liqName.hr + ') → tone. Ni potpuno uronjen uzgon nije veći od težine.' });
+            hr: 'Kocka ima veću gustoću od tekućine (' + liqName.hr + ') → tone. Čak i kad je kocka potpuno uronjena, uzgon je manji od težine.' });
         }
       }
 
@@ -238,7 +238,7 @@
         // title
         if (Lo.panel) {
           K.text(c, matLabel + ' · ' + K.fmt(st.Vcm3, 0, lang) + ' cm³', 12, 14, { font: 'bold 14px ' + theme.fontDisplay, color: theme.fg, baseline: 'middle' });
-          K.text(c, K.tr(st.held ? { en: 'Drag the cube or press Drop', hr: 'Povuci kocku ili pritisni Pusti' } : { en: 'Drag the cube to move it', hr: 'Povuci kocku da je pomakneš' }, lang), 12, 32, { font: '12px ' + theme.font, color: theme.muted, baseline: 'middle' });
+          K.text(c, K.tr(st.held ? { en: 'Drag the cube or press Drop', hr: 'Povuci kocku ili pritisni „Pusti“' } : { en: 'Drag the cube to move it', hr: 'Povuci kocku da je pomakneš' }, lang), 12, 32, { font: '12px ' + theme.font, color: theme.muted, baseline: 'middle' });
           drawPanel(c, Lo, f);
         } else {
           drawCompact(c, Lo, f);

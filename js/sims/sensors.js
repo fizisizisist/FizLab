@@ -8,10 +8,10 @@
   const MODES = [
     { value: 'clap', label: { en: 'Sound stopwatch', hr: 'Zvučna štoperica' } },
     { value: 'pitch', label: { en: 'Loudness and pitch', hr: 'Glasnoća i visina tona' } },
-    { value: 'tilt', label: { en: 'Tilt meter', hr: 'Kutomjer nagiba' } },
+    { value: 'tilt', label: { en: 'Tilt meter', hr: 'Mjerač nagiba' } },
     { value: 'accel', label: { en: 'Acceleration', hr: 'Akceleracija' } }
   ];
-  const NEED = { en: 'This needs a phone or tablet with the sensor and your permission. Open FizLab in your phone\'s browser.', hr: 'Za ovo treba mobitel ili tablet sa senzorom i tvoje dopuštenje. Otvori FizLab u pregledniku na mobitelu.' };
+  const NEED = { en: 'This needs a phone or tablet with the sensor and your permission. Open FizLab in your phone\'s browser.', hr: 'Za ovo su potrebni mobitel ili tablet sa senzorom i tvoje dopuštenje. Otvori FizLab u pregledniku na mobitelu.' };
   const NEED_HTTPS = { en: ' Sensors only work on a secure (https) page.', hr: ' Senzori rade samo na sigurnoj (https) stranici.' };
   const MIC_ON = { en: 'Enable microphone', hr: 'Uključi mikrofon' }, MIC_OFF = { en: 'Turn microphone off', hr: 'Isključi mikrofon' };
   const MOT_ON = { en: 'Enable motion sensors', hr: 'Uključi senzore gibanja' }, MOT_OFF = { en: 'Turn sensors off', hr: 'Isključi senzore' };
@@ -46,10 +46,10 @@
       hr: 'Pretvori mobitel u mjerni instrument: izmjeri vrijeme između dva zvuka, odredi visinu tona zvižduka, izmjeri kut kosine i prati akceleraciju uživo.'
     },
     tasks: [
-      { en: 'Sound stopwatch: knock a coin off the table edge with a ruler. The knock starts the clock, the landing stops it. Type the table height and compare your g with 9.81 m/s².', hr: 'Zvučna štoperica: ravnalom izbij kovanicu s ruba stola. Udarac pokreće mjerenje, a pad ga zaustavlja. Upiši visinu stola i usporedi svoj g s 9,81 m/s².' },
-      { en: 'Pitch: fill three glasses with different amounts of water and tap each one. Which gives the highest frequency?', hr: 'Visina tona: napuni tri čaše različitim količinama vode i kucni svaku. Koja daje najveću frekvenciju?' },
-      { en: 'Tilt meter: build a ramp from a book and a board. Measure its angle, then make it twice as steep.', hr: 'Kutomjer nagiba: napravi kosinu od knjige i daske. Izmjeri joj kut, a zatim je napravi dvostruko strmijom.' },
-      { en: 'Acceleration: lay the phone flat on the table. What does it show, and why is it not zero?', hr: 'Akceleracija: položi mobitel na stol. Što pokazuje i zašto to nije nula?' }
+      { en: 'Sound stopwatch: knock a coin off the table edge with a ruler. The knock starts the clock, the landing stops it. Type the table height and compare your g with 9.81 m/s².', hr: 'Zvučna štoperica: ravnalom izbij kovanicu s ruba stola. Udarac pokreće mjerenje, a pad kovanice na pod ga zaustavlja. Upiši visinu stola i usporedi dobiveni g s 9,81 m/s².' },
+      { en: 'Pitch: fill three glasses with different amounts of water and tap each one. Which gives the highest frequency?', hr: 'Visina tona: napuni tri čaše različitim količinama vode i kucni po svakoj. Koja daje ton najveće frekvencije?' },
+      { en: 'Tilt meter: build a ramp from a book and a board. Measure its angle, then make it twice as steep.', hr: 'Mjerač nagiba: složi kosinu od knjige i daske. Izmjeri njezin kut, a zatim je napravi dvostruko strmijom.' },
+      { en: 'Acceleration: lay the phone flat on the table. What does it show, and why is it not zero?', hr: 'Akceleracija: položi mobitel na stol. Koliku akceleraciju pokazuje i zašto ona nije nula?' }
     ],
     mount(container, ctx) {
       let lang = ctx.lang, theme = ctx.theme, mode = 'clap', dead = false, lastDom = 0, lastState = 'idle';
@@ -84,23 +84,23 @@
 
       const cv = K.createCanvas(container, { aspect: 2, minHeight: 240, maxHeight: 360 });
       const C1 = K.controls(container, lang), C2 = K.controls(container, lang), C3 = K.controls(container, lang), C4 = K.controls(container, lang);
-      const slThr = C1.slider({ label: { en: 'Threshold (how loud counts)', hr: 'Prag (koliko glasno se računa)' }, min: 2, max: 100, step: 1, value: 20, unit: '%', digits: 0, onChange: v => { clap.thr = v / 100; draw(); } });
+      const slThr = C1.slider({ label: { en: 'Threshold (how loud counts)', hr: 'Prag glasnoće zvuka' }, min: 2, max: 100, step: 1, value: 20, unit: '%', digits: 0, onChange: v => { clap.thr = v / 100; draw(); } });
       const inH = C1.input({ label: { en: 'Free fall: height h', hr: 'Slobodni pad: visina h' }, type: 'number', unit: 'cm', placeholder: { en: 'e.g. 75', hr: 'npr. 75' }, onChange: () => { renderLive(); } });
       const outG = C1.readout({ label: 'g = 2h : t²', unit: 'm/s²', digits: 2 });
       const outGd = C1.readout({ label: { en: 'Difference from 9.81 m/s²', hr: 'Razlika od 9,81 m/s²' }, unit: '%', digits: 1 });
-      const outEcho = C1.readout({ label: { en: 'Echo: distance to the wall, 340 m/s · t : 2', hr: 'Jeka: udaljenost zida, 340 m/s · t : 2' }, unit: 'm', digits: 1 });
+      const outEcho = C1.readout({ label: { en: 'Echo: distance to the wall, 340 m/s · t : 2', hr: 'Jeka: udaljenost do zida, 340 m/s · t : 2' }, unit: 'm', digits: 1 });
       C1.note({ text: { en: 'Free fall: put a coin on the table edge and knock it off sideways with a ruler. The knock starts the clock, the landing stops it (sounds closer than 0.1 s are ignored). Type the height of the table to get g = 2h : t². Or time an echo: clap in front of a big wall at least 17 m away.',
-        hr: 'Slobodni pad: stavi kovanicu na rub stola i izbij je ravnalom u stranu. Udarac pokreće mjerenje, a pad na pod ga zaustavlja (zvukovi u razmaku manjem od 0,1 s se zanemaruju). Upiši visinu stola i dobivaš g = 2h : t². Ili izmjeri jeku: pljesni pred velikim zidom udaljenim barem 17 m.' } });
-      const outDb = C2.readout({ label: { en: 'Relative loudness (not calibrated)', hr: 'Relativna glasnoća (nije baždareno)' }, unit: 'dB', digits: 0 });
+        hr: 'Slobodni pad: stavi kovanicu na rub stola i izbij je ravnalom u stranu. Udarac pokreće mjerenje, a pad na pod ga zaustavlja (zanemaruju se zvukovi razmaknuti manje od 0,1 s). Upiši visinu stola i dobit ćeš g = 2h : t². Ili izmjeri jeku: pljesni pred velikim zidom udaljenim barem 17 m.' } });
+      const outDb = C2.readout({ label: { en: 'Relative loudness (not calibrated)', hr: 'Relativna glasnoća (nije baždarena)' }, unit: 'dB', digits: 0 });
       const outF = C2.readout({ label: { en: 'Strongest frequency', hr: 'Najjača frekvencija' }, unit: 'Hz', digits: 0 });
       const outNote = C2.readout({ label: { en: 'Nearest note', hr: 'Najbliži ton' } });
       C2.note({ text: { en: 'The loudness is relative, not calibrated: use it only to compare sounds measured with the same device. Ideas: whistle, sing a steady note, tap glasses filled with water to different levels, or check a tone from the Tone Generator on another device.',
-        hr: 'Glasnoća je relativna, nije baždarena: služi samo za usporedbu zvukova izmjerenih istim uređajem. Ideje: zviždi, otpjevaj jednoličan ton, kucni čaše napunjene vodom do različitih visina ili provjeri ton iz Generatora tona na drugom uređaju.' } });
+        hr: 'Glasnoća je relativna, nije baždarena: služi samo za usporedbu zvukova izmjerenih istim uređajem. Ideje: zviždi, otpjevaj jednoličan ton, kucni po čašama napunjenima vodom do različitih visina ili provjeri ton iz Generatora tona na drugom uređaju.' } });
       const outB = C3.readout({ label: { en: 'Front–back tilt β', hr: 'Nagib naprijed–natrag β' }, unit: '°', digits: 1 });
       const outGm = C3.readout({ label: { en: 'Left–right tilt γ', hr: 'Nagib lijevo–desno γ' }, unit: '°', digits: 1 });
       const outTh = C3.readout({ label: { en: 'Angle of the ramp θ', hr: 'Kut kosine θ' }, unit: '°', digits: 1 });
       C3.note({ text: { en: 'Lay the phone flat on a ramp to read its angle, for example for a rolling-ball experiment. First lay it on the table and press "Set zero".',
-        hr: 'Položi mobitel na kosinu i očitaj njezin kut, na primjer za pokus s kuglicom koja se kotrlja. Najprije ga položi na stol i pritisni „Postavi nulu”.' } });
+        hr: 'Položi mobitel na kosinu i očitaj njezin kut, na primjer za pokus s kuglicom koja se kotrlja. Najprije ga položi na stol i pritisni „Postavi nulu“.' } });
       const outA = C4.readout({ label: { en: 'Acceleration |a| now', hr: 'Akceleracija |a| sada' }, unit: 'm/s²', digits: 2 });
       const outMax = C4.readout({ label: { en: 'Largest |a|', hr: 'Najveća |a|' }, unit: 'm/s²', digits: 2 });
       const outMin = C4.readout({ label: { en: 'Smallest |a|', hr: 'Najmanja |a|' }, unit: 'm/s²', digits: 2 });
@@ -225,10 +225,10 @@
           if (mic.pending) return WAIT_PERM;
           if (!mic.on) return mode === 'clap' ? (clap.hint ? CLAP.first : CLAP.off) : { en: 'Enable the microphone and make a steady sound.', hr: 'Uključi mikrofon i proizvedi jednoličan zvuk.' };
           if (mode === 'clap') return CLAP[clap.state];
-          return pit.f ? bi(l => (l === 'en' ? 'Nearest note: ' : 'Najbliži ton: ') + noteName(pit.f, l)) : { en: 'Too quiet to find a pitch: whistle or sing.', hr: 'Pretiho za određivanje tona: zazviždi ili zapjevaj.' };
+          return pit.f ? bi(l => (l === 'en' ? 'Nearest note: ' : 'Najbliži ton: ') + noteName(pit.f, l)) : { en: 'Too quiet to find a pitch: whistle or sing.', hr: 'Zvuk je pretih za određivanje visine tona: zazviždi ili zapjevaj.' };
         }
         if (mot.pending) return WAIT_PERM;
-        if (!mot.on) return { en: 'Press "Enable motion sensors".', hr: 'Pritisni „Uključi senzore gibanja”.' };
+        if (!mot.on) return { en: 'Press "Enable motion sensors".', hr: 'Pritisni „Uključi senzore gibanja“.' };
         if (!mot.got) return WAIT_DATA;
         if (mode === 'tilt') return bi(l => (l === 'en' ? 'Angle of the ramp: θ = ' : 'Kut kosine: θ = ') + K.fmt(tiltOf(tilt.b - tilt.zb, tilt.g - tilt.zg), 1, l) + '°');
         return acc.v ? bi(l => 'x: ' + K.fmt(acc.v[0], 1, l) + '   y: ' + K.fmt(acc.v[1], 1, l) + '   z: ' + K.fmt(acc.v[2], 1, l) + ' m/s²' + (acc.held ? (l === 'en' ? '  (held)' : '  (zamrznuto)') : '')) : WAIT_DATA;
